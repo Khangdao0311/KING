@@ -28,7 +28,7 @@
                 </div>
             </form>
         </div>
-        <input  id="login_error" type="checkbox">
+        <input hidden id="login_error" type="checkbox" <?php echo (isset($_SESSION['check_login']) && $_SESSION['check_login'] == 'checked') ? $_SESSION['check_login'] : ''    ?>>
         <div class="login_error">
             <div class="login_error-box">
                 <div class="login_error-title">Đăng nhập thất bại</div>
@@ -41,4 +41,3 @@
     </div>
 </section>
 <script src="view/user/js/login-register.js"></script>
-<?= include_once 'footer.php' ?>

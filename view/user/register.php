@@ -43,4 +43,3 @@
     </div>
 </section>
 <script src="view/user/js/login-register.js"></script>
-<?php include_once 'footer.php' ?>

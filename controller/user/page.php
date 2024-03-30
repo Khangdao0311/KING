@@ -5,7 +5,6 @@
                 $product_hot = product_SELECT(0,true,1,"",0,4);
                 $product_top_view = product_SELECT(0,true,0,"",0,5);
                 $category_all_top_view = category_ALL();
-                // print_r($product_top_view);
                 include_once 'view/user/home.php';
                 break;
             case 'product':

@@ -6,13 +6,21 @@
                     $account = $_POST['account'];
                     $password = $_POST['password'];
                     $users = user_ALL();
-                    foreach ($users as $item) {
-                        if (($item['username'] === $account || $item['email'] === $account) && password_verify($password, $item['password'])) {
-                            $_SESSION['user'] = user_ONE($item['id']);
-                            header('location: ?mod=page&act=home');
+                    if (trim($account) != '' && trim($password) != '') {
+                        foreach ($users as $item) {
+                            if (($item['username'] === $account || $item['email'] === $account) && password_verify($password, $item['password'])) {
+                                $_SESSION['user'] = user_ONE($item['id']);
+                                $check_login = FALSE;
+                                header('location: ?mod=page&act=home');
+                            } else {
+                                $check_login = TRUE;
+                            }
                         }
+                        $_SESSION['check_login'] = ($check_login) ? 'checked' : '';
                     }
-                }
+                    
+                } else $_SESSION['check_login'] = '';
+
                 include_once 'view/user/login.php';
                 break;
             case 'logout':
@@ -116,11 +124,11 @@
                 include_once 'view/user/order-follow.php';
                 break;
             default:
-                header('location: ?mod=user&act=information');
+                header('location: ?mod=page&act=home');
                 break;
         }
     } else {
-       header('location: ?mod=user&act=information');
+       header('location: ?mod=page&act=home');
     }
     
 ?>
