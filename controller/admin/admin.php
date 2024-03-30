@@ -1,7 +1,15 @@
 <?php
     if (isset($_GET['act'])) {
+        if(isset($_GET['trang']) && ($_GET['trang']>0)) {
+            $page=$_GET['trang'];
+        }else{
+            $page=1;
+            }
         switch ($_GET['act']) {
             case 'category-list':
+                $data = category_SELECT(0,0);         
+                $html_number_page = phan_trang($page,$data,$_GET['mod'],$_GET['act']);
+                $category_management = category_SELECT($page,SLSP);
                 include_once 'view/admin/category-list.php';
                 break;
             case 'category-add':
@@ -11,13 +19,8 @@
                 include_once 'view/admin/category-edit.php';
                 break;
             case 'product-list':
-                if(isset($_GET['trang']) && ($_GET['trang']>0)) {
-                    $page=$_GET['trang'];
-                }else{
-                    $page=1;
-                    }
                 $data = product_SELECT(0,0,0,"",0,0);
-                $html_number_page = phan_trang($page,$data);
+                $html_number_page = phan_trang($page,$data,$_GET['mod'],$_GET['act']);
                 $product_management = product_SELECT($page,0,0,"",0,SLSP);
                 include_once 'view/admin/product-list.php';
                 break;
@@ -52,6 +55,9 @@
                 include_once 'view/admin/author-edit.php';
                 break;
             case 'publisher-list':
+                $data = publisher_SELECT(0,0);         
+                $html_number_page = phan_trang($page,$data,$_GET['mod'],$_GET['act']);
+                $publisher_management = publisher_SELECT($page,SLSP);
                 include_once 'view/admin/publisher-list.php';
                 break;
             case 'publisher-add':
