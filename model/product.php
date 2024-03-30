@@ -12,7 +12,7 @@
         }
         if ($page > 1){
             $begin = (($page-1) * $limit);
-            $sql .=" LIMIT  $begin,$limit";
+            $sql .="  LIMIT  $begin,$limit";
         }else {
             if ($limit > 0) $sql .=" LIMIT  $limit";
         }
@@ -55,5 +55,19 @@
         }
         return $html_page_division;
     }
+    function phan_trang($page,$data){
+        $soluong = count($data) / SLSP;
+        $sotrang = ceil($soluong);
+        $html_number_page="";
+        for($i=1;$i<=$sotrang;$i++){
+            $link='?mod=admin&act=product-list&trang='.$i;
+            if($i==$page){
+                $html_number_page.='<a style="background-color: red" href="'.$link.'" class="product-number-page">'.$i.'</a>';
+            }else{
+                $html_number_page.='<a href="'.$link.'" class="product-number-page">'.$i.'</a>';
+            }
+            }
+            return $html_number_page;
+        }
 ?>
 

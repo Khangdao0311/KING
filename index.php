@@ -1,6 +1,9 @@
 <?php
     session_start();
-    // session_destroy();   
+    // session_destroy();
+    if(!isset($_SESSION['cart'])){
+        $_SESSION['cart'] = [];
+    }
     require_once 'model/global.php';
     require_once 'model/pdo.php';
     require_once 'model/category.php';

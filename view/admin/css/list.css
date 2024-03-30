@@ -70,7 +70,13 @@
     gap: 1rem;
     font-size: 1.6rem;
     text-align: center;
-
+}
+.list-item_fix{
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    gap: 1rem;
+    font-size: 1.6rem;
 }
 .list_item-price_sale {
     font-size: 1.6rem;
@@ -86,7 +92,6 @@
     width: 5rem;
     aspect-ratio: 1/1;
     object-fit: contain;
-    background-color: aqua;
 }
 .function-edit,
 .function-delete {
@@ -105,4 +110,24 @@
 }
 .function-delete {
     background-color: #DD2200;
+}
+.product-page{
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+}
+.product-number-page{
+    width: 4rem;
+    aspect-ratio: 1/1;
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.1rem solid black; 
+}
+.product-number-page a{
+    background-color: #000;
 }
