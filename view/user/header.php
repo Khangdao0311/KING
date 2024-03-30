@@ -64,7 +64,7 @@
         <input hidden id="navbar" type="checkbox">
         <label id="navbar" for="navbar" class="fake"></label>
         <div class="container-navbar">
-            <label id="navbar" for="navbar">s</label>
+            <label id="navbar" for="navbar"></label>
             <ul class="header-list">
                 <li><a href="?mod=page&act=product">
                         <div class="header_list-icon">

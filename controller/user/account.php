@@ -62,8 +62,6 @@
                     }
                 }
                 include_once 'view/user/forgot_password-email.php';
-                print_r($users);
-
                 break;
             case 'forgot_password-OTP':
                 if (isset($_SESSION['foget_password-email'])) {

@@ -6,7 +6,7 @@
         <div class="success-forgotpassword-box">
             <h3 class="success-forgotpassword-title">Mật Khẩu Được Đặt Lại Thành Công</h3>
             <div class="icon-success">
-                <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="">
+                <span class="material-symbols-outlined">task_alt</span>
             </div>
             <a href="?mod=user&act=login" class="success-forgotpassword-form success-forgotpassword-buttonnext">Tiếp Tục</a>
         </div>

@@ -33,7 +33,7 @@
             <div class="login_error-box">
                 <div class="login_error-title">Đăng nhập thất bại</div>
                 <div class="login_error-icon">
-                    <img src="   https://cdn-icons-png.flaticon.com/512/463/463612.png " alt="">
+                    <span class="material-symbols-outlined">error</span>
                 </div>
                 <label for="login_error" class="login_error-next">Thử lại</label>
             </div>
