@@ -9,16 +9,24 @@
     }
     $html_productdetail_same = "";
     foreach ($product_detail_same as $item) {
-        $link_img_productdetail = 'index.php?mod=page&act=product-detail&id='.$item['id'];
+        $link = 'index.php?mod=page&act=product-detail&id='.$item['id'];
         $html_productdetail_same .= '
         <div class="col-4 col">
             <div class="product-box">
-                <a href="'.$link_img_productdetail.'" class="product-img"><img src="view/'.$item['image'].'" alt=""></a>
-                <a href="?mod=page&act=product-detail" class="product-mane">'.$item['name'].'</a>
-                <div class="product-price_sale">'.number_format($item['price_sale'],0,',','.').' đ</div>
-                <del class="product-price">'.number_format($item['price'],0,',','.').' đ</del>
-                <div class="product-view">'.$item['view'].' lượt xem</div>
+            <a href="'.$link.'" class="product-img"><img src="view/' . $item['image'] . '" alt="Tên sản phẩm"></a>
+            <a href="'.$link.'" class="product-mane">'.$item['name'].'</a>
+            <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+            <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
+            <div class="product-view">' . $item['view'] . ' lượt xem</div>
+            <div class="product-icon_box">
+                <div class="product-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                </div>
+                <div class="product-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                </div>
             </div>
+        </div>
         </div>
         ';
     }
@@ -54,7 +62,7 @@
                 <div class="productdetail-price_sale">Giá: <b><?=number_format($product_detail['price_sale'],0,',','.')?> đ</b></div>
                 <div class="productdetail-price_box">
                     <div class="productdetail-price">Giá gốc: <del><?=number_format($product_detail['price'],0,',','.')?> đ</del></div>
-                    <div class="productdetail-persent">10 %</div>
+                    <div class="productdetail-persent"><?=100 - (($product_detail['price_sale'] / $product_detail['price']) * 100)?> %</div>
                 </div>
             </div>
             <div class="productdetail-quantity">
@@ -122,7 +130,7 @@
             </div>
             <div class="productdetail-descibe">
                 <p>Sản phẩm bán chạy nhất</p>
-                <span>Top 100 sản phẩm 'Tên danh mục' bán chạy của tháng</span>
+                <span>Top 100 sản phẩm <?=$name_category?> bán chạy của tháng</span>
             </div>
             <div class="productdetail-moredescibe">
                 <p>Giá sản phẩm trên KING đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản

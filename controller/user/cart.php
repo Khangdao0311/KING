@@ -16,7 +16,7 @@
                             break;
                         }
                     }
-                    if($check == 0){
+                    if($check == 0 && $quantity_cart <= 10){
                         $product['quantity_cart'] = $quantity_cart;
                         $_SESSION['cart'][$id] = $product;
                     }
