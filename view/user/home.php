@@ -1,10 +1,35 @@
 <?php
-    $html_show_category_top_view = '';
-    foreach ($category_all_top_view as $item) {
-        $html_show_category_top_view .='
-            <div onclick="show_category_rating('.$item['id'].')" class="rating_nav-item">'.$item['name'].'</div>
+$html_product_hot = "";
+foreach ($product_hot as $item) {
+    $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
+    $html_product_hot .= '
+        <div class="col-4 col">
+        <div class="product-box">
+            <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt="Tên sản phẩm"></a>
+            <a href="' . $link . '" class="">' . $item['name'] . '</a>
+            <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+            <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
+            <div class="product-view">' . $item['view'] . ' lượt xem</div>
+            <div class="product-icon_box">
+                <div class="product-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                </div>
+                <div class="product-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                </div>
+            </div>
+        </div>
+    </div>
         ';
-    }
+}
+?>
+<?php
+$html_show_category_top_view = '';
+foreach ($category_all_top_view as $item) {
+    $html_show_category_top_view .= '
+            <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
+        ';
+}
 
     $html_show_top_view = '';
     $count = 1;
@@ -14,14 +39,15 @@
             <div class="rating-STT">'.$count++.'</div>
             <a href="?mod=page&act=product-detail" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
             <div class="rating-conten">
-                <a href="?mod=page&act=product-detail" class="rating_conten-name">'.$item['name'].'</a>
-                <div class="rating_conten-author">'.author_ONE($item['publisher_id'])['name'].'</div>
-                <div class="rating_conten-view">'.$item['view'].' lượt xem</div>
+                <a href="?mod=page&act=product-detail" class="rating_conten-name">' . $item['name'] . '</a>
+                <div class="rating_conten-author">' . author_ONE($item['publisher_id'])['name'] . '</div>
+                <div class="rating_conten-view">' . $item['view'] . ' lượt xem</div>
             </div>
         </div>
         ';
-    }
+}
 ?>
+
 <?php include_once 'header.php' ?>
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
@@ -36,7 +62,7 @@
                 <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_arrow_gray.svg" alt="">
             </div>
             <div class="slide-nav">
-                
+
             </div>
         </div>
         <div class="banner-box">
@@ -126,14 +152,14 @@
             <div class="category_title-text">Danh mục sản phẩm</div>
         </div>
         <div class="category-box row">
-            
+
             <div class="category-item col-10 col">
                 <a href="" class="category_item-img">
                     <img src="" alt="">
                 </a>
                 <a href="" class="category_item-text">Tên danh mục</a>
             </div>
-            
+
         </div>
     </div>
 </section>
@@ -168,25 +194,7 @@
             </a>
         </div>
         <div class="hot_product-box row">
-            
-            <div class="col-4 col">
-                <div class="product-box">
-                    <a href="?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
-                    <a href="?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
-                    <div class="product-price_sale">Giá: 100.000 đ</div>
-                    <div class="product-price">Giá gốc: <del>200.000 đ</del> </div>
-                    <div class="product-view">100 lượt xem</div>
-                    <div class="product-icon_box">
-                        <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
-                        </div>
-                        <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
+            <?= $html_product_hot ?>
         </div>
     </div>
 </section>
@@ -225,9 +233,9 @@
         </div>
         <div class="rating-nav">
             <div onclick="show_category_rating(0)" class="rating_nav-item rating_nav-item-check">Tất cả</div>
-            
+
             <div onclick="show_category_rating()" class="rating_nav-item">Tên danh mục</div>
-           
+
         </div>
         <div class="rating_container">
             <div class="rating_container-left">
@@ -265,7 +273,7 @@
         <div class="publisher-box col-9 col">
             <img src="https://cdn0.fahasa.com/media/wysiwyg/Hien_UI/LogoNCC/1_NCC_KimDong_115x115.png" alt="">
         </div>
-        
+
     </div>
 </section>
 <!-- <section>

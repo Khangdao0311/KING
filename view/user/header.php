@@ -48,8 +48,16 @@
                 </a>
                 <a href="?mod=cart&act=list" class="header-cart">
                     <div class="header-icon">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                        <div class="header-quantity">0</div>
+                        <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_cart_gray.svg" alt="">
+                        <div class="header-quantity">
+                            <?php
+                            if (isset($_SESSION['cart'])) {
+                                echo count($_SESSION['cart']);
+                            }else{
+                                echo '0';
+                            }
+                             ?>
+                        </div>
                     </div>
                     <p>Giỏ hàng</p>
                 </a>
