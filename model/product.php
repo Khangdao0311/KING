@@ -16,12 +16,14 @@
         }else {
             if ($limit > 0) $sql .=" LIMIT  $limit";
         }
-        return get_All($sql);
+        return get_All($sql);   
     }
+
     function product_ONE($id) {
         $sql = "SELECT * FROM products WHERE id = $id";
         return get_ONE($sql);
     }
+
     function page_division($data,$search,$category_id,$limit) {
         $soTrang = ceil(count($data)/$limit);
         $html_page_division = '';
