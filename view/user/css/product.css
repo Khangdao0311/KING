@@ -59,6 +59,7 @@
     width: 23.5%;
     display: flex;
     flex-direction: column;
+    gap: 2.4rem;
 }
 .product_box_nav-item {
     width: 100%;
