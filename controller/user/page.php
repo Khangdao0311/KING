@@ -2,9 +2,8 @@
     if (isset($_GET['act'])) {
         switch ($_GET['act']) {
             case 'home':
-                $product_top_view = product_SELECT(0,true,0,"",0,5);
+                $product_top_view = product_SELECT(0,true,0,"",0,4);
                 $category_all_top_view = category_ALL();
-                // print_r($product_top_view);
                 include_once 'view/user/home.php';
                 break;
             case 'product':
