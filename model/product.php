@@ -55,12 +55,12 @@
         }
         return $html_page_division;
     }
-    function phan_trang($page,$data){
+    function phan_trang($page,$data,$mod,$act){
         $soluong = count($data) / SLSP;
         $sotrang = ceil($soluong);
         $html_number_page="";
         for($i=1;$i<=$sotrang;$i++){
-            $link='?mod=admin&act=product-list&trang='.$i;
+            $link='?mod='.$mod.'&act='.$act.'&trang='.$i;
             if($i==$page){
                 $html_number_page.='<a style="background-color: red" href="'.$link.'" class="product-number-page">'.$i.'</a>';
             }else{

@@ -1,4 +1,21 @@
 <?php include_once 'header.php' ?>
+<?php
+$html_category_management="";
+foreach($category_management as $item){
+    $html_category_management.='<div class="list-row category-grid ">
+    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item">'.$item['name'].'</div>
+    <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></div>
+    <div class="list-item"></div>
+    <div class="list-item flex-center">'.$item['creation_date'].'</div>
+    <div class="list-item flex-center">'.$item['updation_date'].'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=category-edit&id=" class="function-edit">Sửa</a>
+        <div class="function-delete">Xóa</div>
+    </div>
+</div>';
+} 
+?>
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -17,20 +34,12 @@
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
 
-                <div class="list-row category-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">namesssssssssss</div>
-                    <div class="list-item flex-center"><div class="list_item-img"></div></div>
-                    <div class="list-item">aaaaaaaaaaaaaasd dsd ds</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=category-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
-                    </div>
-                </div>
+                <?=$html_category_management; ?>
 
             </div>
+            <div class="product-page">
+                    <?=$html_number_page;?>
+                    </div>
         </div>
     </section>  
 </main>
