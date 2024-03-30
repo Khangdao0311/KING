@@ -1,4 +1,29 @@
 <?php include_once 'header.php' ?>
+<?php
+$html_product_management="";
+foreach($product_management as $item){
+    $html_product_management.='<div class="list-row product-grid ">
+    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item_fix">'.$item['name'].'</div>
+    <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
+    <div class="list-item flex-center flex-column">
+        <div class="list_item-price_sale">'.$item['price_sale'].' đ</div>
+        <del class="list_item-price">'.$item['price'].' đ</del>
+    </div>
+    <div class="list-item flex-center">'.$item['quantity'].'</div>
+    <div class="list-item flex-center">'.$item['view'].'</div>
+    <div class="list-item flex-center">'.$item['quantity'].'</div>
+    <div class="list-item flex-center">'.$item['creation_date'].'</div>
+    <div class="list-item flex-center">'.$item['category_id'].'</div>
+    <div class="list-item flex-center">'.$item['author_id'].'</div>
+    <div class="list-item flex-center">'.$item['publisher_id'].'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=product-edit&id=" class="function-edit">Sửa</a>
+        <div class="function-delete">Xóa</div>
+    </div>
+</div>';
+}
+?> 
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -22,27 +47,10 @@
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
 
-                <div class="list-row product-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">namesssssssssss</div>
-                    <div class="list-item flex-center"><div class="list_item-img"></div></div>
-                    <div class="list-item flex-center flex-column">
-                        <div class="list_item-price_sale">100.000 đ</div>
-                        <del class="list_item-price">200.000 đ</del>
+                <?=$html_product_management;?>
+                <div class="product-page">
+                    <?=$html_number_page;?>
                     </div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=product-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>  
