@@ -1,6 +1,10 @@
 <?php
     $html_show_category_top_view = '';
-    
+    foreach ($category_all_top_view as $item) {
+        $html_show_category_top_view .='
+            <div onclick="show_category_rating('.$item['id'].')" class="rating_nav-item">'.$item['name'].'</div>
+        ';
+    }
 
     $html_show_top_view = '';
     $count = 1;

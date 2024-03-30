@@ -5,8 +5,8 @@
      require_once 'publisher.php';
      require_once 'author.php';
      require_once 'product.php';
-    $id = $_POST['id'];
-    $products_view = product_SELECT(0,TRUE,0,"",$id,5);
+    // $id = $_POST['id'];
+    $products_view = product_SELECT(0,TRUE,0,"",$_POST['id'],5);
     $categorys = category_ALL();
     $check = (!$id)? 'rating_nav-item-check' : '';
     $html_show_category_rating = '
