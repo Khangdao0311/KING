@@ -1,0 +1,108 @@
+.title{
+    padding: 2rem;
+    background-color: #333333;
+    border-radius: 0.5rem;
+    color: #fff;
+}
+
+.title-name{
+    font-size: 2.4rem;
+}
+
+.information{
+    padding: 2.4rem 0 2.4rem 0;
+    display: flex;
+    gap: 2.4rem;
+}
+
+.information-left, .information-right{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.information-box{
+    display: flex;
+    gap: 1rem;
+}
+
+.information-box-icon, .information-box-icon,
+.information-box-icon{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.information-box p, .information-right p{
+    font-size: 1.8rem;
+}
+
+.information-box-img{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.information-right input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border-color: rgb(0, 0, 0 , 0.4);
+}
+
+.information-right textarea{
+    width: 100%;
+    padding: 1rem;
+
+}
+
+.information-box-input, .information-right textarea{
+    font-size: 1.4rem;
+}
+
+.information-submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information-submit input{
+    width: 18rem;
+    height: 6rem;
+    border: none;
+    background-color: #C92127;
+    color: #fff;
+    font-size: 2.4rem;
+    border-radius: 1rem;
+}
+
+.information-shop-img{
+    width: 100%;
+    aspect-ratio: 2/1;
+    background-color: aqua;
+}
+
+.information-shop-title{
+    font-size: 1.6rem;
+    padding-bottom: 1rem;
+}
+
+.information-shop-box-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.information-shop-box-title input{
+    width: 13rem;
+    height: 4rem;
+    background-color: #FDC706;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    color: #fff;
+}
+.information_right-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}

@@ -1,0 +1,323 @@
+
+.cart-cash{
+    display: flex;
+}
+
+.infomation-user{
+    margin-bottom: 1rem;
+}
+
+.ship-infomation{
+    margin-right: 2.4rem;
+}
+
+.ship-infomation, .payment-infomation{
+    width: calc(50% - 1rem);
+}
+
+.infomation-user, .infomation-address{
+    border: 0.1rem solid rgb(0, 0, 0);
+    border-radius: 0.5rem;
+}
+
+.infomation-tittle{
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+}
+
+.infomation-tittle p{
+    font-size: 1.6rem;
+}
+
+.infomation-name, .infomation-email, .infomation-sdt, 
+.infomation-city, .infomation-district,
+.infomation-ward, .infomation-street, .infomation-note{
+    display: flex;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 5rem;
+    padding: 0 1rem 0 1rem;
+    border-radius: 5rem;
+}
+
+.infomation-name p, .infomation-email p, .infomation-sdt p,
+.infomation-city p, .infomation-district p,
+.infomation-ward p, .infomation-street p, .infomation-note p{
+    font-size: 1.6rem;
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    padding-right: 2.4rem;
+    align-items: center;
+}
+
+.infomation-name input, .infomation-email input, .infomation-sdt input,
+.infomation-city select, .infomation-district select,
+.infomation-ward input, .infomation-street input, .infomation-note input{
+    width: 70%;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+}
+
+.infomation-city select, .infomation-district select,
+.infomation-city option, .infomation-district option{
+    background-color: #D9D9D9;
+    font-size: 1.3rem;
+}
+
+.checkout_product-tittle, .checkout_product-content{
+    display: flex;
+    padding: 1rem;
+    border-bottom: 0.1rem solid rgb(0, 0, 0,0.2);
+}
+
+.checkout_product-img, .checkout_product-quantity,
+.checkout_product-cash{
+    width: 14.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout_product-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout_product-img img{
+    width: 100%;
+    object-fit: contain;
+}
+.checkout_product-img p, .checkout_product-quantity p,
+.checkout_product-cash p{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout_product-name p, .checkout_product-name del{
+    font-size: 1.6rem;
+}
+
+.price{
+    color: #FF0000;
+}
+
+.checkout_product-name{
+    width: 61.5%;
+    margin-right: 2.4rem;
+}
+
+.checkout_product-price{
+    display: flex;
+    padding: 1rem;
+}
+.checkout_product-price p {
+    padding-right: 1rem;
+}
+
+.voucher{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0;
+}
+
+.voucher-content{
+    width: 82.6%;
+}
+
+.voucher-content input{
+    width: 100%;
+    font-size: 1.6rem;
+    height: 3rem;
+    padding: 1rem;
+}
+
+.voucher-button{
+    width: 13.3%;
+    padding: 0.3rem;
+    background-color: #EBFF00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+.voucher-button button{
+    padding: 0.3rem;
+    font-size: 1.6rem;
+    border: none;
+    background-color: #EBFF00;
+}
+
+.payment-method-zalo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid rgb(0, 0, 0,0.2);
+}
+.payment-method-cash {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    padding: 1rem 0;
+}
+
+.checkbox, .zalo-img,.cash-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox, .zalo-img, .cash-img{
+    width: 13.3%;
+}
+
+.payment-method{
+    border: 0.1rem solid rgb(0, 0, 0,0.2);
+    border-radius: 0.5rem;
+}
+
+.payment-method-content{
+    width: 65.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.checkbox input{
+    width: 2rem;
+    height: 2rem;
+}
+
+.zalo-img img, .cash-img img{
+    width: 6rem;
+    height: 6rem;
+}
+
+.payment-method-content p{
+    font-size: 1.6rem;
+}
+
+.underline{
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 0,0.2);
+}
+
+.payment-total{
+    padding: 1rem;
+    border: 0.1rem solid rgb(0, 0, 0,0.2);
+    margin: 1rem 0 1rem 0;
+    border-radius: 0.5rem;
+}
+
+.payment_total-titlle{
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid rgb(0, 0, 0,0.2);
+}
+
+.payment_total-titlle p, .payment_total-sum p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.payment_total-info, .payment_total-promotion, 
+.payment_total-ship{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0;
+   
+}
+
+.payment_total-info p, .payment_total-promotion p,
+.payment_total-ship p{
+    font-size: 1.6rem;
+}
+
+.payment_total-sum{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 0.1rem solid rgb(0, 0, 0,0.2);
+}
+
+.payment-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    padding: 2rem 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    background-color: #D20000;
+    border-radius: 0.5rem;
+}
+
+#order_success:checked ~ .order_success {
+    display: flex;
+}
+
+.order_success {
+    position: fixed;
+    background-color: rgb(0, 0, 0,0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.order_success-box {
+    /* width: 30rem; */
+    /* aspect-ratio: 1/1; */
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+}
+.order_success-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.order_success-icon {
+    width: 10rem;
+    aspect-ratio: 1/1;
+}
+.order_success-icon > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   
+}
+.order_success-next {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--red);
+    color: #fff;
+    border-radius: 1rem;
+}

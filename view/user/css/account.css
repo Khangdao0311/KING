@@ -1,0 +1,238 @@
+.account-container {
+    padding: 4.8rem 0;
+    display: flex;
+    gap: 2.4rem;
+}
+.account-nav_box {
+    width: 23.5%;
+    max-width: 28rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    border: 0.1rem solid black;
+}
+.account_nav-title {
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #C92127;
+    padding: 2.4rem;
+    text-transform: capitalize;
+    border-bottom: 0.1rem solid black;
+
+}
+.account_nav-box {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.accuont_nav-item {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-bottom: 0.1rem solid black;
+    text-transform: capitalize;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.accuont_nav-item:hover {
+    padding-left: 2rem;
+    font-weight: bold;
+    color: #C92127;
+    border-color: #C92127;
+}
+.accuont_nav-item_focus {
+    font-weight: bold;
+    color: #C92127;
+    border-color: #C92127;
+
+}
+.account-information_box {
+    width: 74.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    border: 0.1rem solid black;
+    background-color: #fff;
+    position: relative;
+}
+.account_information-title {
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 2.4rem;
+}
+.account_information-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+.account_information-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+}
+.account_information_item-name {
+    width: 18.3%;
+    text-align: end;
+    font-size: 1.6rem;
+    font-weight: 550;
+    text-transform: capitalize;
+}
+.account_information_item-content {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.6rem;
+}
+.account_information_item-change {
+    color: #2AABEE;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.account_information_item-gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+.account_information_item_gender-radio {
+    width: 1.6rem;
+    aspect-ratio: 1/1;
+}
+.account_information_item_gender-content {
+    font-size: 1.6rem;
+}
+.account_information_item-born {
+    padding: 0.8rem 1rem;
+    display: flex;
+    gap: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 0.5rem;
+}
+.account_information_item-born_text {
+    font-size: 1.6rem;
+}
+.account_information_item-born_icon {
+    width: 1.6rem;
+    aspect-ratio: 1/1;
+    background-color: aqua;
+}
+.account_information-submit {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #C92127;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    padding: 1.2rem 4.8rem;
+}
+
+
+.account-order_follow {
+    width: 100%;
+    padding: 1.2rem;
+    display: flex;
+    gap: 0.6rem;
+    border: 0.1rem solid black;
+    border-left: none;
+    border-right: none;
+    
+}
+.account_order_follow-item {
+    font-size: 1.6rem;
+    border: 0.1rem solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all .3s;
+    cursor: pointer;
+}
+.account_order_follow-product {
+    width: 100%;
+    padding: 1.2rem 0;
+    display: flex;
+    gap: 2.4rem;
+    border-top: 0.1rem solid rgb(0, 0, 0, 0.3);
+}
+.account_order_follow_product-img {
+    width: 20.2%;
+    aspect-ratio: 1.5/1;
+    max-width: 18rem;
+    padding: 0 2rem;
+    background-color: aqua;
+}
+.account_order_follow_product-content {
+    width: 43%;
+    max-width: 38.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.account_order_follow_product-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.account_order_follow_product-price_box {
+    display: flex;
+    align-items: end;
+    gap: 1.2rem;
+}
+.account_order_follow_product-price_sale {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #C92127;
+}
+.account_order_follow_product-price {
+    font-size: 1.4rem;
+    color: black;
+}
+.account_order_follow_product-quantity {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.account_order_follow_product-total {
+    width: 20.3%;
+    max-width: 18rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #C92127;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.account_order_follow_product-button_box {
+    width: 8.77%;
+    max-width: 7.8rem;
+    padding-right: .8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+.account_order_follow_product-button_item {
+    width: 100%;
+    aspect-ratio: 2/1;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border: 0.1rem solid black ;
+    background-color: #fff;
+}
+.follow_product-button_red {
+    color: #fff;
+    background-color: #C92127;
+    border: none;
+
+}

@@ -1,0 +1,304 @@
+.productdetail-container {
+    margin: 2.4rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.productdetail-image {
+    width: 32%;
+    height: 31.2rem;
+    display: flex;
+    gap: 2.4rem;
+}
+.productdetail_image-list {
+    width: 7.8rem;
+    display: flex;
+    flex-direction: column;
+    /* overflow: scroll; */
+}
+.productdetail_image_list-item {
+    flex: 0 0 25%;
+    max-width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.productdetail_image_list-item > img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+
+}
+.productdetail_image-main {
+    width: 28.2rem;
+    aspect-ratio: 1/1;
+}
+.productdetail_image-main > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.productdetail-content {
+    width: calc(68% - 2.4rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.productdetail-name {
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.productdetail-publisher_author {
+    width: 100%;
+    display: flex;
+    gap: 2.4rem;
+}
+.productdetail-publisher,
+.productdetail-author {
+    font-size: 1.4rem;
+
+}
+.productdetail-publisher > b,
+.productdetail-author > b {
+    font-size: 1.4rem;
+    color: blue;
+
+}
+.productdetail-price_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.productdetail-price_sale {
+    width: 100%;
+    font-size: 2.2rem;
+    font-weight: 550;
+    color: var(--red);
+}
+.productdetail-price_sale > b {
+    font-size: 2.5rem;
+    color: var(--red);
+    font-weight: bold;
+}
+.productdetail-price_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+}
+.productdetail-price {
+    font-size: 1.4rem;
+}
+.productdetail-price > del {
+    font-size: 1.6rem;
+}
+.productdetail-persent {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--red);
+}
+.productdetail-quantity {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+}
+.productdetail_quantity-text {
+    font-size: 1.8rem;
+}
+.productdetail_quantity-button {
+    display: flex;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgb(0, 0, 0 ,0.3);
+    background-color: #FFF;
+}
+.productdetail_quantity_button-minus,
+.productdetail_quantity_button-plus {
+    width: 3rem;
+    aspect-ratio: 1/1;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.productdetail_quantity_button-minus > img,
+.productdetail_quantity_button-plus > img {
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    cursor: pointer;
+
+}
+.productdetail_quantity_button-number {
+    width: 4rem;
+    font-size: 1.6rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+}
+.productdetail-button {
+    width: 100%; 
+    display: flex;
+    gap: 2.4rem;
+}
+.productdetail_button-buy_now {
+    width: 18rem;
+    aspect-ratio: 3.5/1;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFF;
+    background-color: var(--red);
+    border: none;
+    outline: none;
+}
+.productdetail_button-add_cart {
+    width: 18rem;
+    aspect-ratio: 3.5/1;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: #FFF;
+    border: 0.2rem solid var(--red);
+}
+.productdetail_button_add_cart-icon {
+    width: 2.4rem;
+    aspect-ratio: 1/1;
+}
+.productdetail_button_add_cart-icon > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.productdetail_button_add_cart-text {
+    font-size: 1.6rem;
+    color: var(--red);
+    font-weight: bold;
+
+}
+
+
+.productinfo-descibe{
+    width: 100%;
+}
+.productdetail-descibe{
+    display: flex;
+    gap: 2.4rem;
+}
+.productdetail-descibe p{
+    width: 23.5%;
+    font-size: 1.6rem;
+}
+.productdetail-descibe span{
+    width: 72.5%;
+    font-size: 1.6rem;
+}
+.product-info-descibe{
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    background-color: #EEEDED;
+}
+.productdetail-category{
+    padding: 2rem;
+    background-color: #333333;
+    width: 100%;
+}
+.productdetail-category p{
+    font-size: 1.6rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+.productdetail-moredescibe{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2.4rem;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 1.8rem;
+}
+.productdetail-moredescibe p{
+    font-size: 1.6rem;
+}
+.productdetail-innerbook h3{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.productdetail-innerbook{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+
+
+
+.productdetail_innerbook-describe {
+    font-size: 1.6rem;
+    text-align: justify;
+    display: -webkit-box;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.productdetail-button_buy{
+    width: 18rem;
+    height: 4rem;
+    background-color: #ffffff;
+    color: #FF0000;
+    border: 0.1rem solid #FF0000;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+.product_like-container {
+    margin: 2.4rem 0;
+}
+.new-titel {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background-color: #333333;
+}
+.new_titel-text {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}

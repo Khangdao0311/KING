@@ -1,0 +1,39 @@
+.main_title{
+  width: 100%;
+  color: red;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.box_information1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2.4rem 0;
+}
+
+.title1{
+  width: 25%;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-right: 2.4rem;
+}
+.information1{
+  width: 75%;
+  font-size: 1.6rem;
+  text-align: justify;
+}
+.box_information2{
+  width: 66%;
+  margin: 0 auto;
+}
+.title2{
+  text-align: center;
+  font-size: 3rem;
+}
+.information2{
+  text-align: justify;
+  font-size: 1.6rem;
+  margin: 2.4rem 0 ;
+  text-align: center;
+}
