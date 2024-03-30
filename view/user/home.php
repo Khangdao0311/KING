@@ -1,3 +1,27 @@
+<?php
+    $html_show_category_top_view = '';
+    foreach ($category_all_top_view as $item) {
+        $html_show_category_top_view .='
+            <div onclick="show_category_rating('.$item['id'].')" class="rating_nav-item">'.$item['name'].'</div>
+        ';
+    }
+
+    $html_show_top_view = '';
+    $count = 1;
+    foreach ($product_top_view as $item) {
+        $html_show_top_view .= '
+        <div onmouseover="show_rating()" class="rating-box">
+            <div class="rating-STT">'.$count++.'</div>
+            <a href="?mod=page&act=product-detail" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
+            <div class="rating-conten">
+                <a href="?mod=page&act=product-detail" class="rating_conten-name">'.$item['name'].'</a>
+                <div class="rating_conten-author">'.author_ONE($item['publisher_id'])['name'].'</div>
+                <div class="rating_conten-view">'.$item['view'].' lượt xem</div>
+            </div>
+        </div>
+        ';
+    }
+?>
 <?php include_once 'header.php' ?>
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
