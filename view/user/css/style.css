@@ -528,9 +528,6 @@ footer {
     font-size: 1.6rem;
     color: yellow;
 }
-<<<<<<< HEAD
-=======
-
 .product-icon_box {
     position: absolute;
     bottom: 1.2rem;
@@ -566,4 +563,4 @@ footer {
 .product-icon:hover {
     transform: scale(1.1);
 }
->>>>>>> 9041588e9635d499e48d8164865416c87320c129
+
