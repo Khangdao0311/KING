@@ -1,3 +1,23 @@
+<?php
+    $html_show_category_top_view = '';
+    
+
+    $html_show_top_view = '';
+    $count = 1;
+    foreach ($product_top_view as $item) {
+        $html_show_top_view .= '
+        <div onmouseover="show_rating()" class="rating-box">
+            <div class="rating-STT">'.$count++.'</div>
+            <a href="?mod=page&act=product-detail" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
+            <div class="rating-conten">
+                <a href="?mod=page&act=product-detail" class="rating_conten-name">'.$item['name'].'</a>
+                <div class="rating_conten-author">'.author_ONE($item['publisher_id'])['name'].'</div>
+                <div class="rating_conten-view">'.$item['view'].' lượt xem</div>
+            </div>
+        </div>
+        ';
+    }
+?>
 <?php include_once 'header.php' ?>
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
@@ -201,23 +221,11 @@
         </div>
         <div class="rating-nav">
             <div onclick="show_category_rating(0)" class="rating_nav-item rating_nav-item-check">Tất cả</div>
-            
-            <div onclick="show_category_rating()" class="rating_nav-item">Tên danh mục</div>
-           
+            <?= $html_show_category_top_view ?>           
         </div>
         <div class="rating_container">
             <div class="rating_container-left">
-
-                <div onmouseover="show_rating()" class="rating-box">
-                    <div class="rating-STT">01</div>
-                    <a href="?mod=page&act=product-detail" class="rating-img"><img src="" alt="Tên sản phẩm"></a>
-                    <div class="rating-conten">
-                        <a href="?mod=page&act=product-detail" class="rating_conten-name">Tên sản phẩm</a>
-                        <div class="rating_conten-author">Tên tác giả</div>
-                        <div class="rating_conten-view">100 lượt xem</div>
-                    </div>
-                </div>
-
+                <?= $html_show_top_view ?>
             </div>
             <div class="rating_container-right">
                 <a href="?mod=page&act=product-detail&id=" class="rating_product_detail-img">
