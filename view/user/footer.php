@@ -72,19 +72,19 @@
                 <div class="footer-information_box row">
                     <div class="footer-information_item col-3 col ">
                         <div class="footer_information_item-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" alt="">
+                            <span class="material-symbols-outlined">location_on</span>
                         </div>
                         <div class="footer_information_item-content">Công viên phần mềm Quang Trung QTSC Building 1, Q.12, Thành phố Hồ Chí Minh </div>
                     </div>
                     <div class="footer-information_item col-3 col ">
                         <div class="footer_information_item-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/128/542/542689.png" alt="">
+                            <span class="material-symbols-outlined">mail</span>
                         </div>
                         <div class="footer_information_item-content">king@gmail.com</div>
                     </div>
                     <div class="footer-information_item col-3 col ">
                         <div class="footer_information_item-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/128/597/597177.png" alt="">
+                            <span class="material-symbols-outlined">Call</span>
                         </div>
                         <div class="footer_information_item-content">09999999999</div>
                     </div>
