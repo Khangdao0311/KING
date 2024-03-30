@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // session_destroy();
+    // session_destroy();   
     require_once 'model/global.php';
     require_once 'model/pdo.php';
     require_once 'model/category.php';
