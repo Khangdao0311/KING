@@ -173,9 +173,17 @@
                 <div class="product-box">
                     <a href="'?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
                     <a href="'?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
-                    <div class="product-price_sale">100.000 đ</div>
-                    <del class="product-price">200.000 đ</del>
+                    <div class="product-price_sale">Giá: 100.000 đ</div>
+                    <div class="product-price">Giá gốc: <del>200.000 đ</del> </div>
                     <div class="product-view">100 lượt xem</div>
+                    <div class="product-icon_box">
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                        </div>
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
            
@@ -193,11 +201,19 @@
                 <div class="product-box">
                     <a href="'?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
                     <a href="'?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
-                    <div class="product-price_sale">100.000 đ</div>
-                    <del class="product-price">200.000 đ</del>
+                    <div class="product-price_sale">Giá: 100.000 đ</div>
+                    <div class="product-price">Giá gốc: <del>200.000 đ</del> </div>
                     <div class="product-view">100 lượt xem</div>
+                    <div class="product-icon_box">
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                        </div>
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                        </div>
+                    </div>
                 </div>
-            </div>   
+            </div>
 
         </div>
     </div>
@@ -209,11 +225,23 @@
         </div>
         <div class="rating-nav">
             <div onclick="show_category_rating(0)" class="rating_nav-item rating_nav-item-check">Tất cả</div>
-            <?= $html_show_category_top_view ?>           
+            
+            <div onclick="show_category_rating()" class="rating_nav-item">Tên danh mục</div>
+           
         </div>
         <div class="rating_container">
             <div class="rating_container-left">
-                <?= $html_show_top_view ?>
+
+                <div onmouseover="show_rating()" class="rating-box">
+                    <div class="rating-STT">01</div>
+                    <a href="?mod=page&act=product-detail" class="rating-img"><img src="" alt="Tên sản phẩm"></a>
+                    <div class="rating-conten">
+                        <a href="?mod=page&act=product-detail" class="rating_conten-name">Tên sản phẩm</a>
+                        <div class="rating_conten-author">Tên tác giả</div>
+                        <div class="rating_conten-view">100 lượt xem</div>
+                    </div>
+                </div>
+
             </div>
             <div class="rating_container-right">
                 <a href="?mod=page&act=product-detail&id=" class="rating_product_detail-img">

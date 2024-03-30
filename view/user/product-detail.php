@@ -1,5 +1,4 @@
-}
-?>
+
 <?php include_once('header.php') ?>
 <title>Sản Phẩm</title>
 <link rel="stylesheet" href="view/user/css/product-detail.css">
@@ -172,9 +171,17 @@ Tiểu thuyết Nhà giả kim của Paulo Coelho như một câu chuyện cổ 
                 <div class="product-box">
                     <a href="'?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
                     <a href="'?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
-                    <div class="product-price_sale">100.000 đ</div>
-                    <del class="product-price">200.000 đ</del>
+                    <div class="product-price_sale">Giá: 100.000 đ</div>
+                    <div class="product-price">Giá gốc: <del>200.000 đ</del> </div>
                     <div class="product-view">100 lượt xem</div>
+                    <div class="product-icon_box">
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                        </div>
+                        <div class="product-icon">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                        </div>
+                    </div>
                 </div>
             </div>
 
