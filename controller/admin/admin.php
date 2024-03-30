@@ -11,6 +11,14 @@
                 include_once 'view/admin/category-edit.php';
                 break;
             case 'product-list':
+                if(isset($_GET['trang']) && ($_GET['trang']>0)) {
+                    $page=$_GET['trang'];
+                }else{
+                    $page=1;
+                    }
+                $data = product_SELECT(0,0,0,"",0,0);
+                $html_number_page = phan_trang($page,$data);
+                $product_management = product_SELECT($page,0,0,"",0,SLSP);
                 include_once 'view/admin/product-list.php';
                 break;
             case 'product-add':

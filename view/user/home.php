@@ -171,8 +171,8 @@
             
             <div class="col-4 col">
                 <div class="product-box">
-                    <a href="'?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
-                    <a href="'?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
+                    <a href="?mod=page&act=product-detail&id=" class="product-img"><img src="" alt="Tên sản phẩm"></a>
+                    <a href="?mod=page&act=product-detail&id=" class="product-mane">Tên sản phẩm</a>
                     <div class="product-price_sale">Giá: 100.000 đ</div>
                     <div class="product-price">Giá gốc: <del>200.000 đ</del> </div>
                     <div class="product-view">100 lượt xem</div>
