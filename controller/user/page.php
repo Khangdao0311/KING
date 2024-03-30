@@ -7,6 +7,22 @@
                 include_once 'view/user/home.php';
                 break;
             case 'product':
+                $category_all = category_ALL();
+                if(isset($_GET['page'])){
+                    $page = $_GET['page'];
+                }else{
+                    $page = 1;
+                }
+                if(isset($_POST['limit']) && $_POST['limit']){
+                    $limit = $_POST['limit'];
+                }else{
+                    $limit = SLSP;
+                }
+                $product_all = product_SELECT($page,0,0,"",0,$limit);
+                $author_all = Author_all();
+                $publisher_all = publisher_ALL();
+                $category_id = $_GET['category_id'];
+                $page_division = page_division($product_all,"",$category_id,6);
                 include_once 'view/user/product.php';
                 break;
             case 'product-detail':
