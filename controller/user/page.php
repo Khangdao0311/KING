@@ -32,6 +32,7 @@
                     $author = author_ONE($product_detail['author_id']);
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
+                    $name_category = category_ONE($product_detail['id'])['name'];
                     $product_detail_same = product_SELECT(0,true,0,"",$product_detail['category_id'],4);
                 }
                 include_once 'view/user/product-detail.php';
