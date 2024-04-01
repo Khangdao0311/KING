@@ -90,13 +90,13 @@
                         </div>
                         <div class="header_list-text">Sản Phẩm</div>
                     </a></li>
-                <li><a href="?mod=page&act=author">
+                <li><a href="?mod=page&act=product">
                         <div class="header_list-icon">
                           <span class="material-symbols-outlined">assignment_ind</span>
                         </div>
                         <div class="header_list-text">Tác giả</div>
                     </a></li>
-                <li><a href="?mod=page&act=publisher">
+                <li><a href="?mod=page&act=product">
                         <div class="header_list-icon">
                             <span class="material-symbols-outlined">home_work</span>
                         </div>

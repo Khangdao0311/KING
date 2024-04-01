@@ -35,7 +35,7 @@
                     <div class="infomation-city">
                         <p class="name">Chọn tỉnh thành*</p>
                         <select name="" id="">
-                            <option value="">---Chọn tỉnh thành---</option>
+                                <option value="">---Chọn tỉnh thành---</option>
                         </select>
                     </div>
                     <div class="infomation-district">

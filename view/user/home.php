@@ -48,9 +48,9 @@ foreach ($category_all_top_view as $item) {
         $html_show_top_view .= '
         <div onmouseover="show_rating('.$item['id'].')" class="rating-box">
             <div class="rating-STT">'.$count++.'</div>
-            <a href="?mod=page&act=product-detail" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
+            <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
             <div class="rating-conten">
-                <a href="?mod=page&act=product-detail" class="rating_conten-name">' . $item['name'] . '</a>
+                <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="rating_conten-name">' . $item['name'] . '</a>
                 <div class="rating_conten-author">' . author_ONE($item['publisher_id'])['name'] . '</div>
                 <div class="rating_conten-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
             </div>
@@ -84,9 +84,9 @@ foreach ($product_new as $item) {
 $html_show_publishers = '';
 foreach ($publishers as $item) {
     $html_show_publishers .= '
-        <div class="publisher-box col-9 col">
+        <a href = "?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col">
             <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
-        </div>
+        </a>
     ';
 }
 
