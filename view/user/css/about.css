@@ -1,6 +1,6 @@
 .main_title{
   width: 100%;
-  color: red;
+  color: var(--primary);
   font-size: 5rem;
   text-align: center;
 }

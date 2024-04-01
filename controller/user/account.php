@@ -2,6 +2,7 @@
     if (isset($_GET['act'])) {
         switch ($_GET['act']) {
             case 'login':
+                $checked = '';
                 if (isset($_POST['btn_login']) && $_POST['btn_login']) {
                     $account = $_POST['account'];
                     $password = $_POST['password'];
@@ -10,17 +11,12 @@
                         foreach ($users as $item) {
                             if (($item['username'] === $account || $item['email'] === $account) && password_verify($password, $item['password'])) {
                                 $_SESSION['user'] = user_ONE($item['id']);
-                                $check_login = FALSE;
                                 header('location: ?mod=page&act=home');
-                            } else {
-                                $check_login = TRUE;
                             }
                         }
-                        $_SESSION['check_login'] = ($check_login) ? 'checked' : '';
                     }
-                    
-                } else $_SESSION['check_login'] = '';
-
+                    $checked = 'checked';
+                }
                 include_once 'view/user/login.php';
                 break;
             case 'logout':
@@ -28,6 +24,8 @@
                 header('location: ?mod=user&act=login');
                 break;
             case 'register':
+                $check_error = "";
+                $check_success = "";
                 if (isset($_POST['btn_register']) && $_POST['btn_register']) {
                     $name = $_POST['name'];
                     $username = $_POST['username'];
@@ -45,21 +43,23 @@
                     if ($check && $pass == $confirmpass) {
                         $pass = password_hash($pass, PASSWORD_DEFAULT);
                         user_ADD($name,$email,$username,$pass);
-                        header('location: ?mod=user&act=login');
-                    }
+                        $check_success = "checked";
+                    } else $check_error = "checked";
                 }
                 include_once 'view/user/register.php';
                 break;
             case 'forgot_password-email':
+                $check = '';
                 if (isset($_POST['btn_forgot_password-email'])) {
                     $email = $_POST['email'];
                     $users = user_ALL();
                     foreach ($users as $item) {
                         if ($item['email'] == $email) {
-                            $_SESSION['foget_password-email'] = $email;
+                            $_SESSION['foget_password-email'][] = $item;
                             header('location: ?mod=user&act=forgot_password-OTP');
                         }
                     }
+                    $check = 'checked';
                 }
                 include_once 'view/user/forgot_password-email.php';
                 break;
@@ -94,14 +94,11 @@
                 break;
             case 'forgot_password-change':
                 if (isset($_SESSION['foget_password-email'])) {
-                    $email = $_SESSION['foget_password-email'];
-                    // unset($_SESSION['foget_password-email']);
                     if (isset($_POST['btn_forget_password_change'])) {
                         $new_password = $_POST['new-password'];
                         $new_password = password_hash($new_password, PASSWORD_DEFAULT);
-                        echo $email;
-                        echo $new_password;
-                        user_UPDATE($email,$new_password);
+                        user_UPDATE($_SESSION['foget_password-email'][0]['id'],'','',$new_password,'','','');
+                        unset($_SESSION['foget_password-email']);
                         header('location: ?mod=user&act=forgot_password-success');
                     }
                 } else {
@@ -113,13 +110,50 @@
                 include_once 'view/user/forgot_password-success.php';
                 break;
             case 'information':
-                include_once 'view/user/account.php';
+                if ($_SESSION['user'] != []) {
+                    $checked = '';
+                    if (isset($_POST['btn_information'])) {
+                        $id = $_POST['id'];
+                        $name = $_POST['name'];
+                        $email = $_POST['email'];
+                        $phone = $_POST['phone'];
+                        $image = $_FILES['image']['name'];
+                        move_uploaded_file($_FILES['image']['tmp_name'],'view/images/user/'.$_FILES['image']['name']);
+                        user_UPDATE($id,$name,$image,'',$email,$phone,'');
+                        $_SESSION['user'] = user_ONE($id) ;
+                        $checked = 'checked';
+                    }
+                    include_once 'view/user/account.php';
+                } else header('location: ?mod=page&act=home');
                 break;
             case 'reset_password':
                 include_once 'view/user/account.php';
                 break;
-            case 'order_follow':
-                include_once 'view/user/order-follow.php';
+            case 'account-address':
+                if ($_SESSION['user'] != []) {
+                    $address = explode('/', $_SESSION['user']['address']);
+                    if (isset($_POST['btn_address'])) {
+                        $name = $_POST['name'];
+                        $phone = $_POST['phone'];
+                        $province = $_POST['province'];
+                        $district = $_POST['district'];
+                        $ward = $_POST['ward'];
+                        $street = $_POST['street'];
+                        $note = $_POST['note'];
+                        $address = "$province/$district/$ward/$street/$note";
+                        $id = $_SESSION['user']['id'];
+                        user_UPDATE($_SESSION['user']['id'],$name,'','','',$phone,$address);
+                        $_SESSION['user'] = user_ONE($id);
+                    }
+                    include_once 'view/user/account-address.php';
+                    print_r($address);
+                } else header('location: ?mod=page&act=home');
+                break;
+            case 'order-follow':
+                if ($_SESSION['user'] != []) {
+
+                    include_once 'view/user/order-follow.php';
+                } else header('location: ?mod=page&act=home');
                 break;
             default:
                 header('location: ?mod=page&act=home');

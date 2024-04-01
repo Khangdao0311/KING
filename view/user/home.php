@@ -12,10 +12,10 @@ foreach ($product_hot as $item) {
                 <div class="product-view">' . $item['view'] . ' lượt xem</div>
                 <div class="product-icon_box">
                     <div class="product-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                        <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
                     <div class="product-icon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                        <span class="material-symbols-outlined">favorite</span>
                     </div>
                 </div>
             </div>
@@ -194,7 +194,9 @@ foreach ($category_all_top_view as $item) {
             </a>
         </div>
         <div class="hot_product-box row">
+
             <?= $html_product_hot ?>
+            
         </div>
     </div>
 </section>
@@ -214,10 +216,10 @@ foreach ($category_all_top_view as $item) {
                     <div class="product-view">100 lượt xem</div>
                     <div class="product-icon_box">
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                            <span class="material-symbols-outlined">favorite</span>
                         </div>
                     </div>
                 </div>

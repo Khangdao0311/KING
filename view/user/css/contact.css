@@ -1,108 +1,141 @@
-.title{
-    padding: 2rem;
-    background-color: #333333;
-    border-radius: 0.5rem;
-    color: #fff;
-}
-
-.title-name{
-    font-size: 2.4rem;
-}
-
-.information{
-    padding: 2.4rem 0 2.4rem 0;
+.contact-container {
+    padding: 2.4rem 0;
     display: flex;
     gap: 2.4rem;
 }
-
-.information-left, .information-right{
-    width: 49%;
+.contact-information {
+    width: calc(50% - 1.2rem);
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 2rem;
 }
-
-.information-box{
+.contact_information-title {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #333;
+}
+.contact_information-item {
     display: flex;
     gap: 1rem;
-}
-
-.information-box-icon, .information-box-icon,
-.information-box-icon{
-    width: 2.4rem;
-    height: 2.4rem;
-}
-
-.information-box p, .information-right p{
-    font-size: 1.8rem;
-}
-
-.information-box-img{
-    width: 100%;
-    height: 100%;
-    background-color: aqua;
-}
-
-.information-right input{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-color: rgb(0, 0, 0 , 0.4);
-}
-
-.information-right textarea{
-    width: 100%;
-    padding: 1rem;
-
-}
-
-.information-box-input, .information-right textarea{
-    font-size: 1.4rem;
-}
-
-.information-submit{
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
-
-.information-submit input{
-    width: 18rem;
-    height: 6rem;
-    border: none;
-    background-color: #C92127;
-    color: #fff;
-    font-size: 2.4rem;
-    border-radius: 1rem;
+.contact_information-item > span {
+    font-size: 3rem;
 }
-
-.information-shop-img{
-    width: 100%;
-    aspect-ratio: 2/1;
-    background-color: aqua;
-}
-
-.information-shop-title{
+.contact_information_item-text {
     font-size: 1.6rem;
-    padding-bottom: 1rem;
+    font-weight: 600;    
 }
-
-.information-shop-box-title{
-    display: flex;
-    justify-content: space-between;
+.contact_information-img {
+    width: 100%;
+    height: 100%;
+    background: url(https://anviethouse.vn/wp-content/uploads/2022/06/thiet-ke-nha-sach-chu-de-5.jpg) no-repeat center center;
 }
-
-.information-shop-box-title input{
-    width: 13rem;
-    height: 4rem;
-    background-color: #FDC706;
-    border: none;
-    border-radius: 0.5rem;
-    font-size: 1.4rem;
-    color: #fff;
-}
-.information_right-form {
+.contact-form {
+    width: calc(50% - 1.2rem);
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1.2rem;
+}
+.contact_form-one {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact_form-two {
+    width: 100%;
+    display: flex;
+    gap: 2.4rem;
+}
+.contact_form_two-item {
+    width: calc(50% - 1.2rem );
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact_form-text {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+.contact_form-input {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1rem;
+    outline: none;
+    border-radius: 0.2rem;
+    border: 0.1rem solid rgb(0,0,0,02);
+}
+.contact_form-submit {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    padding: 1.5rem 0;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: var(--primary);
+}
+
+
+
+#mail-success:checked ~ .mail-success {
+    display: flex;
+}
+
+.mail-success {
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.mail-success-box {
+    /* width: 30rem; */
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+}
+.mail-success-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--success);
+}
+.mail-success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mail-success-icon > span {
+    font-size: 15rem;
+    color: var(--success);
+
+}
+.mail-success-next {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 1rem;
 }

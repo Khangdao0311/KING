@@ -30,10 +30,10 @@
                     <div class="product-view">'.$item['view'].' lượt xem</div>
                     <div class="product-icon_box">
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                            <span class="material-symbols-outlined">favorite</span>
                         </div>
                     </div>
                 </div>
@@ -95,7 +95,6 @@
                      <?= $html_show_product_all ?>
                 </div>
                 <div class="product-page_division">
-                    <?= $limit ?>
                     <?= $page_division ?>
                 </div>
             </div>
