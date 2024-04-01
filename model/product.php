@@ -55,6 +55,8 @@
         }
         return $html_page_division;
     }
+
+    
     function phan_trang($page,$data,$mod,$act){
         $soluong = count($data) / SLSP;
         $sotrang = ceil($soluong);

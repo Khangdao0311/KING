@@ -1,4 +1,5 @@
 <?php
+    $link = '';
     $html_show_category = '';
     foreach ($category_all as $item) {
         $html_show_category .= '
@@ -53,8 +54,9 @@
     <div class="container product-container">
         <div class="product-limit">
             <form action="?mod=page&act=product" method="post" class="product_limit-box">
-                <div class="product_limit_box-text">Show: 
+                <div class="product_limit_box-text">Show:
                     <select name="limit" id="item-number" data-select-like-alignement="never" >
+                        <option hidden value="<?= $limit?>"><?= $limit?></option>
                         <option value="6">6</option>
                         <option value="9">9</option>
                         <option value="12">12</option>
@@ -95,7 +97,7 @@
                      <?= $html_show_product_all ?>
                 </div>
                 <div class="product-page_division">
-                    <?= $limit ?>
+                    <!-- <?= $limit ?> -->
                     <?= $page_division ?>
                 </div>
             </div>

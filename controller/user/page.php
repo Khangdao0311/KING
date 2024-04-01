@@ -8,31 +8,38 @@
                 include_once 'view/user/home.php';
                 break;
             case 'product':
-                $category_all = category_ALL();
-                if(isset($_GET['page'])){
-                    $page = $_GET['page'];
-                }else{
-                    $page = 1;
+                $link = '?mod=page&act=product';
+                $search = "";
+                if(isset($_POST['btn_search']) && $_POST['btn_search']){
+                    $search = $_POST['search'];
                 }
-                if(isset($_POST['limit']) && $_POST['limit']){
+
+                $category_id = (isset($_GET['category_id'])) ? $_GET['category_id'] : 0;
+                $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $limit = (isset($_GET['limit'])) ? $_GET['limit'] : SLSP;
+                if (isset($_POST['limit']) && $_POST['limit']){
                     $limit = $_POST['limit'];
-                }else{
-                    $limit = SLSP;
+                    $category_id = isset($_POST['category_id']) ?  $_POST['category_id'] : 0;
+                    $link .= ($category_id) ? '&category_id='.$category_id : '';
+                    header('location: '.$link.'&limit='.$limit.'');
                 }
-                $product_all = product_SELECT($page,0,0,"",0,$limit);
+            
+
+                $category_all = category_ALL();
+                $product_all = product_SELECT($page,0,0,$search,$category_id,$limit);
                 $author_all = Author_all();
                 $publisher_all = publisher_ALL();
-                $category_id = $_GET['category_id'];
-                $page_division = page_division($product_all,"",$category_id,6);
+                $data = product_SELECT(0,0,0,$search,$category_id,0);
+                $page_division = page_division($data,$search,$category_id,$limit);
                 include_once 'view/user/product.php';
-                break;
+                break; 
             case 'product-detail':
-                if(isset($_GET['id'])&&$_GET['id']>0){
+                if(isset($_GET['id']) &&$_GET ['id']>0){
                     $product_detail = product_ONE($_GET['id']);
                     $author = author_ONE($product_detail['author_id']);
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
-                    $product_detail_same = product_SELECT(0,true,0,"",$product_detail['category_id'],4);
+                    $product_detail_same = product_SELECT(0,true,0,"",$product_detail['category_id'],0,0,4);
                 }
                 include_once 'view/user/product-detail.php';
                 break;
