@@ -3,8 +3,10 @@
         switch ($_GET['act']) {
             case 'home':
                 $product_hot = product_SELECT(0,true,1,"",0,0,0,4);
+                $product_new = product_SELECT(0,0,0,"",0,0,0,4);
                 $product_top_view = product_SELECT(0,true,0,"",0,0,0,5);
                 $category_all_top_view = category_ALL();
+                $publishers = publisher_SELECT(0,9);
                 include_once 'view/user/home.php';
                 break;
             case 'product':
