@@ -317,7 +317,7 @@
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    background-color: var(--red);
+    background-color: var(--primary);
     color: #fff;
     border-radius: 1rem;
 }

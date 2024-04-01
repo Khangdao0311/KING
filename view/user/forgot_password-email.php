@@ -16,4 +16,14 @@
             </form>
         </div>
     </div>
+    <input hidden id="email_error" type="checkbox" <?= $check ?>>
+        <div class="email_error">
+            <div class="email_error-box">
+            <div class="email_error-title">Mail không tồn tại !!</div>
+            <div class="email_error-icon">
+                <span class="material-symbols-outlined">error</span>
+            </div>
+            <label for="email_error" class="email_error-next">Thử lại</label>
+        </div>
+    </div>
 </section>

@@ -18,6 +18,14 @@
                 <div class="product-price_sale">'.number_format($item['price_sale'],0,',','.').' đ</div>
                 <del class="product-price">'.number_format($item['price'],0,',','.').' đ</del>
                 <div class="product-view">'.$item['view'].' lượt xem</div>
+                <div class="product-icon_box">
+                    <div class="product-icon">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <div class="product-icon">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </div>
+                </div>
             </div>
         </div>
         ';

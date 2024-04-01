@@ -4,6 +4,7 @@
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = [];
     }
+    if (!isset($_SESSION['user'])) $_SESSION['user'] = []; 
     require_once 'model/global.php';
     require_once 'model/pdo.php';
     require_once 'model/category.php';

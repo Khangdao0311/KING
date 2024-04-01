@@ -1,10 +1,10 @@
 <?php
-     require_once 'global.php';
-     require_once 'pdo.php';
-     require_once 'category.php';
-     require_once 'publisher.php';
-     require_once 'author.php';
-     require_once 'product.php';
+    require_once 'global.php';
+    require_once 'pdo.php';
+    require_once 'category.php';
+    require_once 'publisher.php';
+    require_once 'author.php';
+    require_once 'product.php';
     $product = product_ONE($_POST['id']);
     echo '
         <a href="?mod=page&act=product-detail&id='.$product['id'].'" class="rating_product_detail-img">

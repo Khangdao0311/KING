@@ -8,85 +8,57 @@
 </section>
 <section>
     <div class="container contact-container">
-        <div class="title">
-            <p class="title-name">Thông tin các cửa hàng</p>
+        <div class="contact-information">
+            <div class="contact_information-title">Thông Tin</div>
+            <div class="contact_information-item">
+                <span class="material-symbols-outlined">phone</span>
+                <div class="contact_information_item-text">Số Điện Thoại: 0999999999</div>
+            </div>
+            <div class="contact_information-item">
+                <span class="material-symbols-outlined">mail</span>
+                <div class="contact_information_item-text">Email: King@gmail.com</div>
+            </div>
+            <div class="contact_information-item">
+                <span class="material-symbols-outlined">location_on</span>
+                <div class="contact_information_item-text">Địa chỉ: HCM</div>
+            </div>
+            <div class="contact_information-img"></div>
         </div>
-
-        <div class="information">
-            <div class="information-left">
-                <div class="information-box">
-                    <img class="information-box-icon" src="img/telephone.svg" alt="" />
-                    <p class="information-box-test">Phone: 0123456789</p>
+        <form action="?mod=page&act=contact" method="post" class="contact-form">
+            <div class="contact_form-two">
+                <div class="contact_form_two-item">
+                    <div class="contact_form-text">Email</div>
+                    <input name="email" class="contact_form-input" type="email" required placeholder="Nhập email của bạn">
                 </div>
-                <div class="information-box">
-                    <img class="information-box-icon" src="img/house.svg" alt="" />
-                    <p class="information-box-test">Address: 123 lorem, TPHCM</p>
-                </div>
-                <div class="information-box">
-                    <img class="information-box-icon" src="img/icon_fb.png" alt="" />
-                    <p class="information-box-test">Facebook: King book</p>
-                </div>
-                <img class="information-box-img" src="" alt="" />
-            </div>
-
-            <form class="information-right">
-                <div class="information_right-form">
-                    <p class="information-box1">Email</p>
-                    <input class="information-box-input" type="email" placeholder="Nhập Email" />
-                </div>
-                <div class="information_right-form">
-                    <p class="information-box1">Họ và tên</p>
-                    <input class="information-box-input" type="text" placeholder="Nhập họ và tên" />
-                </div>
-                <div class="information_right-form">
-                    <p class="information-box1">Tiêu đề</p>
-                    <input class="information-box-input" type="text" placeholder="Nhập tiêu đề" />
-                </div>
-                <div class="information_right-form">
-                    <p class="information-box1">Nội dung</p>
-                    <textarea class="information-box-input-textarea" name="" id="" cols="30" rows="10" placeholder="Nhập nội dung"></textarea>
-                </div>
-                <div class="information-submit">
-                    <input  type="submit" value="Gửi">
-                </div>
-            </form>
-        </div>
-
-
-
-        <div class="information-shop row">
-            <div class="information-shop-box col-3 col">
-                <img class="information-shop-img" src="img/Dochoi_1.jpg" alt="" />
-                <p class="information-shop-title">SƯ VẠN HẠNH, QUẬN 10</p>
-                <div class="information-shop-box-title">
-                    <p class="information-shop-title">
-                        842 Sư Vạn Hạnh, Phường 12, Quận 10, HCM
-                    </p>
-                    <input class="information-shop-input" type="submit" value="Xem cửa hàng" />
+                <div class="contact_form_two-item">
+                    <div class="contact_form-text">Họ và Tên</div>
+                    <input name="name" class="contact_form-input" type="text" required placeholder="Nhập họ tên đầy đủ của bạn">
                 </div>
             </div>
-            <div class="information-shop-box col-3 col">
-                <img class="information-shop-img" src="img/Dochoi_1.jpg" alt="" />
-                <p class="information-shop-title">SƯ VẠN HẠNH, QUẬN 10</p>
-                <div class="information-shop-box-title">
-                    <p class="information-shop-title">
-                        842 Sư Vạn Hạnh, Phường 12, Quận 10, HCM
-                    </p>
-                    <input class="information-shop-input" type="submit" value="Xem cửa hàng" />
-                </div>
+            <div class="contact_form-one">
+                <div class="contact_form-text">Tiêu Đề</div>
+                <input name="title" class="contact_form-input" type="text" required placeholder="Nhập tiêu đề">
             </div>
-            <div class="information-shop-box col-3 col">
-                <img class="information-shop-img" src="img/Dochoi_1.jpg" alt="" />
-                <p class="information-shop-title">SƯ VẠN HẠNH, QUẬN 10</p>
-                <div class="information-shop-box-title">
-                    <p class="information-shop-title">
-                        842 Sư Vạn Hạnh, Phường 12, Quận 10, HCM
-                    </p>
-                    <input class="information-shop-input" type="submit" value="Xem cửa hàng" />
-                </div>
+            <div class="contact_form-one">
+                <div class="contact_form-text">Nội Dung</div>
+                <textarea name="content" class="contact_form-input" required id="" cols="30" rows="10" placeholder="Nhập nội dung vào đây ..."></textarea>
             </div>
-            
+            <input name="btn_contact" class="contact_form-submit" type="submit">
+        </form>
+        <input hidden id="mail-success" type="checkbox" <?= $checked ?>>
+        <div class="mail-success">
+            <div class="mail-success-box">
+                <div class="mail-success-title">Gửi Mail Thành Công</div>
+                <div class="mail-success-icon">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+                <label for="mail-success" class="mail-success-next">OK</label>
+            </div>
         </div>
     </div>
+</section>
+<section>
+    <div class="container map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.6386866712653!2d106.68620679839478!3d10.790055200000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528cd4fd2ea21%3A0x88f5b452a8d876a8!2zTmjDoCBzw6FjaCBGQUhBU0EgVMOibiDEkOG7i25o!5e0!3m2!1svi!2s!4v1711810054431!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
 </section>
 <?php include_once 'footer.php' ?>

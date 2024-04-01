@@ -48,7 +48,7 @@
                 </a>
                 <a href="?mod=cart&act=list" class="header-cart">
                     <div class="header-icon">
-                        <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_cart_gray.svg" alt="">
+                        <span class="material-symbols-outlined">shopping_cart</span>
                         <div class="header-quantity">
                             <?php
                             if (isset($_SESSION['cart'])) {
@@ -61,12 +61,22 @@
                     </div>
                     <p>Giỏ hàng</p>
                 </a>
+                <?php if ($_SESSION['user']): ?>
+                <a href="?mod=user&act=information" class="header-user">
+                    <div class="header-icon">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <p><?= $_SESSION['user']['name'] ?></p>
+                </a>
+                <?php else: ?>
                 <a href="?mod=user&act=login" class="header-user">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">account_circle</span>
                     </div>
                     <p>Tài khoản</p>
                 </a>
+                <?php endif; ?>
+                
             </div>
         </div>
         <input hidden id="navbar" type="checkbox">

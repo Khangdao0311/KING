@@ -40,6 +40,16 @@
                 include_once 'view/user/about.php';
                 break;
             case 'contact':
+                $checked = '';
+                if (isset($_POST['btn_contact']) && $_POST['btn_contact']) {
+                    $content = '
+                        Họ và Tên: <b>'.$_POST['name'].'</b> <br>
+                        Email: <b>'.$_POST['email'].'</b> <br>
+                        '.$_POST['content'].'
+                    ';
+                    mailer('Khangdao0311@gmail.com',$_POST['title'],$content);
+                    $checked = 'checked';
+                }
                 include_once 'view/user/contact.php';
                 break;
             default:
