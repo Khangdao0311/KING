@@ -19,7 +19,7 @@
         <div class="header_bottom">
             <div class="container header-box">
                 <a href="?mod=page&act=home" class="header-logo">
-                    <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/fahasa-logo.png" alt="">
+                    <img src="view/images/logo.png" alt="">
                 </a>
                 <label for="navbar" class="header-category">
                     <div class="header-icon_list">

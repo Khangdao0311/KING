@@ -15,7 +15,7 @@
                 <a href="?mod=user&act=account-address" class="accuont_nav-item">Địa chỉ giao hàng</a>
                 <a href="?mod=user&act=account-order_follow" class="accuont_nav-item">theo dõi đơn hàng</a>
                 <div class="accuont_nav-item">ví voucher</div>
-                <div class="accuont_nav-item">Đổi mật khẩu</div>
+                <a href="?mod=user&act=account-change_password" class="accuont_nav-item">Đổi mật khẩu</a>
                 <div class="accuont_nav-item">nhận xét của tôi</div>
                 <?php if($_SESSION['user']['role']): ?>
                 <a href="?mod=admin&act=category-list" class="accuont_nav-item">admin</a>
@@ -38,7 +38,7 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" alt="">
                         </label>
                         <?php endif; ?>
-                        <!-- <label for="inputfile" class="account_information_item-change">Thay đổi</label> -->
+                        <label for="inputfile" class="account_information_item-change">Thay đổi</label>
                     </div>
                 </div>
                 <div class="account_information-item">
