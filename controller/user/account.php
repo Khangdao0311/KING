@@ -149,10 +149,10 @@
                     print_r($address);
                 } else header('location: ?mod=page&act=home');
                 break;
-            case 'order-follow':
+            case 'account-order_follow':
                 if ($_SESSION['user'] != []) {
 
-                    include_once 'view/user/order-follow.php';
+                    include_once 'view/user/account-order_follow.php';
                 } else header('location: ?mod=page&act=home');
                 break;
             default:
