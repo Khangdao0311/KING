@@ -1,7 +1,9 @@
 <?php
-    function product_SELECT($page,$view,$hot,$search,$category_id,$limit) {
+    function product_SELECT($page,$view,$hot,$search,$category_id,$author_id,$publisher_id,$limit) {
         $sql = "SELECT * FROM products WHERE 1";
         if ($category_id > 0) $sql .=" AND category_id = $category_id";
+        if ($author_id > 0) $sql .=" AND author_id = $author_id";
+        if ($publisher_id > 0) $sql .=" AND publisher_id = $publisher_id";
         if ($hot) $sql .=" AND noibat = $hot";
         if ($search != "") $sql .=" AND name LIKE '%$search%'";
         if ($view) {
@@ -24,12 +26,14 @@
         return get_ONE($sql);
     }
 
-    function page_division($data,$search,$category_id,$limit) {
+    function page_division($data,$search,$category_id,$author_id,$publisher_id,$limit) {
         $soTrang = ceil(count($data)/$limit);
         $html_page_division = '';
         $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
         if ($soTrang > 1) {
             $link = ($category_id) ? '&category_id='.$category_id : '';
+            $link .= ($author_id) ? '&author_id='.$author_id : '';
+            $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
             $link .= ($search) ? '&search='.$search : '';
             $link .= ($limit!=SLSP) ? '&limit='.$limit : '';
             if ($page > 1) $html_page_division .= '<a class="product_page_division-item" href="?mod=page&act=product'.$link.'&page='.($page - 1).'"><img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/ma_vanesa2/images/left_orange.png" alt=""></a>';
