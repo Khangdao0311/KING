@@ -299,6 +299,12 @@
     color: #fff;
 }
 
+.quantity_cart_number{
+    border: none;
+    font-size: 1.6rem;
+    width: 50%;
+    text-align: center;
+}
 .cart-payment-cash, .cart-payment-total{
     display: flex;
     justify-content: space-between;
@@ -347,4 +353,7 @@
     font-weight: bold;
     padding: 20rem 0;
     text-align: center;
+}
+.promotion{
+    gap: 1rem;
 }

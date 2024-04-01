@@ -73,11 +73,12 @@
     display: flex;
     padding: 1rem;
     border-bottom: 0.1rem solid rgb(0, 0, 0,0.2);
+    gap: 2.4rem;
 }
 
 .checkout_product-img, .checkout_product-quantity,
 .checkout_product-cash{
-    width: 14.5%;
+    width: 16%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,8 +111,7 @@
 }
 
 .checkout_product-name{
-    width: 61.5%;
-    margin-right: 2.4rem;
+    width: 50%;
 }
 
 .checkout_product-price{
