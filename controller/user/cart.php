@@ -46,16 +46,10 @@
                         $_SESSION['cart'][$id] = $product_cart;
                     }
                 }
-                
-                
-                
                 if (isset($_GET['del'])) {
                     $del = $_GET['del'];
                     unset($_SESSION['cart'][$del]);
                 }
-                include_once 'view/user/cart.php';
-                break;
-            case 'addcart': 
                 include_once 'view/user/cart.php';
                 break;
             case 'checkout':

@@ -13,7 +13,6 @@ function plus() {
     const quantity_new = quantity + 1;
     document.querySelector('.productdetail_quantity_button-number').value = quantity_new
 } 
-
 function check_describe(el) {
     const p = document.querySelector('.productdetail_innerbook-describe')
     if (el.innerHTML == 'Xem thêm') {
