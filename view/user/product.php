@@ -1,5 +1,4 @@
 <?php
-    $link = '';
     $html_show_category = '';
     foreach ($category_all as $item) {
         $html_show_category .= '
@@ -23,8 +22,8 @@
         $html_show_product_all .= '
             <div class="col-3 col">
                 <div class="product-box">
-                    <a href="?mod=page&act=product-detail&id=" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
-                    <a href="?mod=page&act=product-detail&id=" class="product-mane">'.$item['name'].'</a>
+                    <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
+                    <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-mane">'.$item['name'].'</a>
                     <div class="product-price_sale">Giá: '.number_format($item['price_sale'],0,',','.').' đ</div>
                     <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                     <div class="product-view">'.$item['view'].' lượt xem</div>

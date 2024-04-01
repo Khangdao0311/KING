@@ -53,6 +53,7 @@
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
                     $product_detail_same = product_SELECT(0,true,0,"",$product_detail['category_id'],0,0,4);
+                    update_view($_GET['id']);
                 }
                 include_once 'view/user/product-detail.php';
                 break;

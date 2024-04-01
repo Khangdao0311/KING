@@ -75,5 +75,10 @@
             }
             return $html_number_page;
         }
+
+    function update_view($id){
+        $sql = "UPDATE products SET view = view + 1 where id = $id";
+        return get_ONE($sql);
+    }    
 ?>
 
