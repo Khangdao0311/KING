@@ -4,22 +4,22 @@ foreach ($product_hot as $item) {
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
         <div class="col-4 col">
-        <div class="product-box">
-            <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt="Tên sản phẩm"></a>
-            <a href="' . $link . '" class="">' . $item['name'] . '</a>
-            <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
-            <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
-            <div class="product-view">' . $item['view'] . ' lượt xem</div>
-            <div class="product-icon_box">
-                <div class="product-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
-                </div>
-                <div class="product-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+            <div class="product-box">
+                <a href="'.$link.'" class="product-img"><img src="view/' . $item['image'] . '" alt="Tên sản phẩm"></a>
+                <a href="'.$link.'" class="product-mane">'.$item['name'].'</a>
+                <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+                <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
+                <div class="product-view">' . $item['view'] . ' lượt xem</div>
+                <div class="product-icon_box">
+                    <div class="product-icon">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <div class="product-icon">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         ';
 }
 ?>
@@ -194,7 +194,9 @@ foreach ($category_all_top_view as $item) {
             </a>
         </div>
         <div class="hot_product-box row">
+
             <?= $html_product_hot ?>
+            
         </div>
     </div>
 </section>
@@ -214,10 +216,10 @@ foreach ($category_all_top_view as $item) {
                     <div class="product-view">100 lượt xem</div>
                     <div class="product-icon_box">
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/4903/4903482.png" alt="">
+                            <span class="material-symbols-outlined">shopping_cart</span>
                         </div>
                         <div class="product-icon">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png " alt="">
+                            <span class="material-symbols-outlined">favorite</span>
                         </div>
                     </div>
                 </div>

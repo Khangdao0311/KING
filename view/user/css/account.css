@@ -8,16 +8,16 @@
     max-width: 28rem;
     border-radius: 1rem;
     background-color: #fff;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
 }
 .account_nav-title {
     width: 100%;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #C92127;
+    color: var(--primary);
     padding: 2.4rem;
     text-transform: capitalize;
-    border-bottom: 0.1rem solid black;
+    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
 
 }
 .account_nav-box {
@@ -32,7 +32,7 @@
     padding: 1rem;
     font-size: 1.6rem;
     font-weight: 500;
-    border-bottom: 0.1rem solid black;
+    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
     text-transform: capitalize;
     transition: all 0.3s;
     cursor: pointer;
@@ -40,120 +40,140 @@
 .accuont_nav-item:hover {
     padding-left: 2rem;
     font-weight: bold;
-    color: #C92127;
-    border-color: #C92127;
+    color: var(--primary);
+    border-color: var(--primary);
 }
 .accuont_nav-item_focus {
     font-weight: bold;
-    color: #C92127;
-    border-color: #C92127;
-
+    color: var(--primary);
+    border-color: var(--primary);
 }
-.account-information_box {
+.account-main {
     width: 74.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 1rem;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
     background-color: #fff;
     position: relative;
+    padding-bottom:  7.2rem;
 }
-.account_information-title {
+.account-title {
     width: 100%;
     font-size: 2.5rem;
     font-weight: bold;
     padding: 2.4rem;
+    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
 }
-.account_information-box {
+.account-box {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 1.2rem;
+    padding: 2.4rem;
 }
 .account_information-item {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 2.4rem;
 }
+.account_information_item-img_box {
+    width: 100%;
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.account_information_item-img {
+    width: 20%;
+    aspect-ratio: 1/1;
+    /* border-radius: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
+}
+.account_information_item-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+
+}
 .account_information_item-name {
-    width: 18.3%;
-    text-align: end;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
     font-size: 1.6rem;
     font-weight: 550;
     text-transform: capitalize;
 }
 .account_information_item-content {
+    width: calc(80% - 2.4rem);
     display: flex;
     gap: 2rem;
     font-size: 1.6rem;
+    border: none;
+    border-bottom: 0.1rem solid transparent;
+    outline: none;
+    padding: 1.2rem 0;
+    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
+
 }
 .account_information_item-change {
     color: #2AABEE;
     font-size: 1.4rem;
     font-weight: bold;
 }
-.account_information_item-gender {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-}
-.account_information_item_gender-radio {
-    width: 1.6rem;
-    aspect-ratio: 1/1;
-}
-.account_information_item_gender-content {
-    font-size: 1.6rem;
-}
-.account_information_item-born {
-    padding: 0.8rem 1rem;
-    display: flex;
-    gap: 1rem;
-    border: 0.1rem solid black;
-    border-radius: 0.5rem;
-}
-.account_information_item-born_text {
-    font-size: 1.6rem;
-}
-.account_information_item-born_icon {
-    width: 1.6rem;
-    aspect-ratio: 1/1;
-    background-color: aqua;
-}
-.account_information-submit {
+.account-submit {
     position: absolute;
-    bottom: 0;
+    bottom: 2.4rem;
     left: 50%;
-    transform: translate(-50%, -25%);
+    transform: translateX(-50%);
     font-size: 2rem;
+    border: none;
     font-weight: bold;
     color: #fff;
-    background-color: #C92127;
+    background-color: var(--primary);
     text-transform: uppercase;
     border-radius: 1rem;
     padding: 1.2rem 4.8rem;
+    cursor: pointer;
 }
-
-
 .account-order_follow {
     width: 100%;
     padding: 1.2rem;
     display: flex;
     gap: 0.6rem;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
     border-left: none;
     border-right: none;
-    
 }
 .account_order_follow-item {
     font-size: 1.6rem;
-    border: 0.1rem solid black;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     transition: all .3s;
     cursor: pointer;
+}
+.account_order_follow-item:hover,
+.account_order_follow-item-active {
+    /* font-weight: bold; */
+    color: var(--primary);
+    border-color: var(--primary);
+}
+.account_order_follow-product_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .account_order_follow-product {
     width: 100%;
@@ -167,6 +187,10 @@
     aspect-ratio: 1.5/1;
     max-width: 18rem;
     padding: 0 2rem;
+}
+.account_order_follow_product-img > img {
+    width: 100%;
+    height: 100%;
     background-color: aqua;
 }
 .account_order_follow_product-content {
@@ -177,7 +201,7 @@
     gap: 1.2rem;
 }
 .account_order_follow_product-name {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 .account_order_follow_product-price_box {
@@ -188,7 +212,7 @@
 .account_order_follow_product-price_sale {
     font-size: 1.6rem;
     font-weight: bold;
-    color: #C92127;
+    color: var(--primary);
 }
 .account_order_follow_product-price {
     font-size: 1.4rem;
@@ -201,9 +225,9 @@
 .account_order_follow_product-total {
     width: 20.3%;
     max-width: 18rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    color: #C92127;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,12 +251,101 @@
     justify-content: center;
     font-size: 1.6rem;
     font-weight: bold;
-    border: 0.1rem solid black ;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3) ;
     background-color: #fff;
 }
 .follow_product-button_red {
     color: #fff;
-    background-color: #C92127;
+    background-color: var(--primary);
     border: none;
+}
 
+
+
+
+.account_address-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    gap: 1rem;
+}
+.account_address-item_box {
+    width: calc(50% - 0.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.account_address_item-text {
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.account_address_item-input {
+    width: 100%;
+    font-size: 1.4rem;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgb(0, 0, 0, 0.3);
+    outline: n;
+}
+
+
+
+
+
+#change_success:checked ~ .change_success {
+    display: flex;
+}
+.change_success {
+    position: fixed;
+    background-color: rgb(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.change_success-box {
+    /* width: 30rem; */
+    /* aspect-ratio: 1/1; */
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+}
+.change_success-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--success);
+}
+.change_success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.change_success-icon > span {
+    font-size: 15rem;
+    color: var(--success);
+}
+.change_success-next {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 1rem;
 }

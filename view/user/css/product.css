@@ -97,12 +97,11 @@
 .product_box_nav-item_content:hover {
     padding-left: 4rem;
     text-decoration: underline;
-    color: var(--red);
+    color: var(--primary);
 }
 .product_box-show {
     width: 74.5%;
-    overflow: hidden;
-
+    /* overflow: hidden; */
 }
 .product-show {
     margin-top: -1.2rem;
@@ -131,17 +130,17 @@
     transition: all 0.2s;
 }
 .product_page_division-item-checked {
-    background-color: var(--red) ;
+    background-color: var(--primary) ;
     color: #FFF;
-    border-color: var(--red);
+    border-color: var(--primary);
     opacity: 1;
     font-size: 1.6rem;
     
 }
 .product_page_division-item:hover {
-    background-color: var(--red) ;
+    background-color: var(--primary) ;
     color: #FFF;
-    border-color: var(--red);
+    border-color: var(--primary);
     opacity: 1;
     font-size: 1.6rem;
     transform: translatey(5%);
