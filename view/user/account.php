@@ -73,11 +73,5 @@
         </div>
     </div>
 </section>
-<script>
-    const input = document.getElementById('inputfile');
-    const image = document.getElementById('imagechange');
-    input.addEventListener('change', (el) => {
-        image.src = URL.createObjectURL(el.target.files[0]);
-    });
-</script>
+<script src="view/user/js/account.js"></script>
 <?php include_once 'footer.php' ?>

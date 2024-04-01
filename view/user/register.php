@@ -42,24 +42,22 @@
         </div>
     </div>
     <input hidden id="login_error" type="checkbox" <?= $check_error ?>>
-        <div class="login_error">
-            <div class="login_error-box">
-            <div class="login_error-title">Đăng Ký thất bại</div>
-            <div class="login_error-icon">
-                <span class="material-symbols-outlined">error</span>
-            </div>
-            <label for="login_error" class="login_error-next">Thử lại</label>
+    <div class="login_error">
+        <div class="login_error-box">
+        <div class="login_error-title">Đăng Ký thất bại</div>
+        <div class="login_error-icon">
+            <span class="material-symbols-outlined">error</span>
         </div>
+        <label for="login_error" class="login_error-next">Thử lại</label></div>
     </div>
     <input hidden id="register_success" type="checkbox" <?= $check_success ?>>
-        <div class="register_success">
-            <div class="register_success-box">
-            <div class="register_success-title">Đăng Ký thành công</div>
-            <div class="register_success-icon">
+    <div class="register_success">
+        <div class="register_success-box">
+        <div class="register_success-title">Đăng Ký thành công</div>
+        <div class="register_success-icon">
             <span class="material-symbols-outlined">check_circle</span>
-            </div>
-            <a href="?mod=user&act=login" class="register_success-next">Đăng nhập</a>
         </div>
+        <a href="?mod=user&act=login" class="register_success-next">Đăng nhập</a></div>
     </div>
 
 
