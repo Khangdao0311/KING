@@ -30,6 +30,8 @@
                     $author_id = $_POST['author_id'];
                     $publisher_id = $_POST['publisher_id'];
                     $link .= ($category_id) ? '&category_id='.$category_id : '';
+                    $link .= ($author_id) ? '&author_id='.$author_id : '';
+                    $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
                     header('location: '.$link.'&limit='.$limit.'');
                 }
             
