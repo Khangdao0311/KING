@@ -152,8 +152,25 @@
                 } else header('location: ?mod=page&act=home');
                 break;
             case 'account-change_password':
+                $check_error = '';
+                $check_success = '';
                 if ($_SESSION['user'] != []) {
+                    if (isset($_POST['btn_change_password']) && $_POST['btn_change_password']) {
+                        $password_old = $_POST['password_old'];
+                        if (password_verify($password_old,$_SESSION['user']['password'])) {
+                            $check_success = 'checked';
+                            $password_new = $_POST['password_new'];
+                            $confirm_password = $_POST['confirm_password'];
+                            if ($password_new == $confirm_password) {
+                                $check_success = 'checked';
+                                $id = $_SESSION['user']['id'];
+                                $password = password_hash($password_new, PASSWORD_DEFAULT);
+                                user_UPDATE($id,'','',$password,'','','');
+                                $_SESSION['user'] = user_ONE($id);
+                            } else $check_error = 'checked';
+                        } else $check_error = 'checked';
 
+                    }
                     include_once 'view/user/account-change_password.php';
                 } else header('location: ?mod=page&act=home');
                 break;
