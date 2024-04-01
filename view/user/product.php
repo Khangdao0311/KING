@@ -1,4 +1,5 @@
 <?php
+    $link = '';
     $html_show_category = '';
     foreach ($category_all as $item) {
         $html_show_category .= '
@@ -17,7 +18,6 @@
         <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     }
-
     $html_show_product_all = '';
     foreach ($product_all as $item) {
         $html_show_product_all .= '
@@ -51,10 +51,15 @@
 </section>
 <section>
     <div class="container product-container">
-        <div class="product-limit">
+        <?php  if($product_all != []): ?>
+            <div class="product-limit">
+            <?php if($search): ?>    
+                <div class="product-search">Tìm được <b><?= count($data) ?></b> sản phẩm có tên là <b>"<?= $search ?>"</b></div>
+                <?php endif; ?>    
             <form action="?mod=page&act=product" method="post" class="product_limit-box">
-                <div class="product_limit_box-text">Show: 
+                <div class="product_limit_box-text">Show:
                     <select name="limit" id="item-number" data-select-like-alignement="never" >
+                        <option hidden value="<?= $limit?>"><?= $limit?></option>
                         <option value="6">6</option>
                         <option value="9">9</option>
                         <option value="12">12</option>
@@ -62,6 +67,8 @@
                     </select>
                 </div>
                 <input hidden name="category_id" value="<?= $category_id ?>" type="text">
+                <input hidden name="author_id" value="<?= $author_id ?>" type="text">
+                <input hidden name="publisher_id" value="<?= $publisher_id ?>" type="text">
                 <input hidden name="search" value="<?= $search ?>" type="text">
                 <input name="btn_limit" class="product_limit_box-button" type="submit" value="Xem">
             </form>
@@ -95,10 +102,15 @@
                      <?= $html_show_product_all ?>
                 </div>
                 <div class="product-page_division">
+                  
                     <?= $page_division ?>
+                  
                 </div>
             </div>
         </div>
+        <?php  else: ?>
+            <h1 class="product-NaN">Không có kết quả bạn muốn tìm</h1>
+        <?php endif; ?>
     </div>
 </section>
 <?php include_once 'footer.php' ?>

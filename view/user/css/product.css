@@ -147,8 +147,8 @@
     }
 .product_page_division-item > img {
     height: 45%;
-}
-.product-NaN {
+} 
+.product-NaN{
     width: 100%;
     display: flex;
     align-items: center;
@@ -161,3 +161,4 @@
 .product-NaN > b {
     font-size: 6rem;
 }
+
