@@ -1,6 +1,6 @@
 <?php
-$html_product_hot = "";
-foreach ($product_hot as $item) {
+    $html_product_hot = "";
+    foreach ($product_hot as $item) {
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
         <div class="col-4 col">
@@ -21,16 +21,13 @@ foreach ($product_hot as $item) {
             </div>
         </div>
         ';
-}
-?>
-<?php
-$html_show_category_top_view = '';
-foreach ($category_all_top_view as $item) {
-    $html_show_category_top_view .= '
-            <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
-        ';
-}
-
+    }
+    $html_show_category_top_view = '';
+    foreach ($category_all_top_view as $item) {
+        $html_show_category_top_view .= '
+                <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
+            ';
+    }
     $html_show_top_view = '';
     $count = 1;
     foreach ($product_top_view as $item) {
@@ -45,7 +42,7 @@ foreach ($category_all_top_view as $item) {
             </div>
         </div>
         ';
-}
+    }
 ?>
 
 <?php include_once 'header.php' ?>
