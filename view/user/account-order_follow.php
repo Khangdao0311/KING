@@ -13,7 +13,7 @@
             <div class="account_nav-box">
                 <a href="?mod=user&act=information" class="accuont_nav-item">Thông tin tài khoản</a>
                 <a href="?mod=user&act=account-address" class="accuont_nav-item">Địa chỉ giao hàng</a>
-                <a href="?mod=user&act=order-follow" class="accuont_nav-item accuont_nav-item_focus">theo dõi đơn hàng</a>
+                <a href="?mod=user&act=account-order_follow" class="accuont_nav-item accuont_nav-item_focus">theo dõi đơn hàng</a>
                 <div class="accuont_nav-item">ví voucher</div>
                 <div class="accuont_nav-item">Đổi mật khẩu</div>
                 <div class="accuont_nav-item">nhận xét của tôi</div>
