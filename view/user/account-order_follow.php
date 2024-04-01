@@ -57,6 +57,5 @@
         </div>
     </div>
 </section>
-
-<script src="view/user/js/acount.js"></script>
+<script src="view/user/js/account.js"></script>
 <?php include_once 'footer.php' ?>

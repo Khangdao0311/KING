@@ -13,7 +13,7 @@
     <header>
         <div class="header_top">
             <div class="container header_top-box">
-                <img class="header_top-banner" src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/NCCDinhTi_T323_BannerHeader_1263x60.jpg" alt="banner">
+                <img class="header_top-banner" src="view/images/banner.jpg" alt="banner">
             </div>
         </div>
         <div class="header_bottom">

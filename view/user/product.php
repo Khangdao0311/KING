@@ -1,5 +1,4 @@
 <?php
-    $link = '';
     $html_show_category = '';
     foreach ($category_all as $item) {
         $html_show_category .= '

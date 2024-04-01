@@ -1,18 +1,17 @@
 <?php
-$html_show_category = "";
-foreach ($category_all_top_view as $item) {
-    $html_show_category .= '
-        <div class="category-item col-10 col">
-            <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-img">
-                <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
-            </a>
-            <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-text">'.$item['name'].'</a>
-        </div>
-    ';
-}
-
-$html_product_hot = "";
-foreach ($product_hot as $item) {
+    $html_show_category = "";
+    foreach ($category_all_top_view as $item) {
+        $html_show_category .= '
+            <div class="category-item col-10 col">
+                <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-img">
+                    <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
+                </a>
+                <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-text">'.$item['name'].'</a>
+            </div>
+        ';
+    }
+    $html_product_hot = "";
+    foreach ($product_hot as $item) {
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
         <div class="col-4 col">
@@ -33,15 +32,13 @@ foreach ($product_hot as $item) {
             </div>
         </div>
         ';
-}
-
-$html_show_category_top_view = '';
-foreach ($category_all_top_view as $item) {
-    $html_show_category_top_view .= '
-            <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
-        ';
-}
-
+    }
+    $html_show_category_top_view = '';
+    foreach ($category_all_top_view as $item) {
+        $html_show_category_top_view .= '
+                <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
+            ';
+    }
     $html_show_top_view = '';
     $count = 1;
     foreach ($product_top_view as $item) {
@@ -64,7 +61,7 @@ foreach ($product_new as $item) {
         <div class="col-4 col">
             <div class="product-box">
                 <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
-                <a href="?mod=page&act=product-detail&id=" class="product-mane">'.$item['name'].'</a>
+                <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-mane">'.$item['name'].'</a>
                 <div class="product-price_sale">Giá: '.number_format($item['price_sale'],0,',','.').' đ</div>
                 <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                 <div class="product-view">'.number_format($item['view'],0,',','.').' lượt xem</div>
@@ -84,7 +81,7 @@ foreach ($product_new as $item) {
 $html_show_publishers = '';
 foreach ($publishers as $item) {
     $html_show_publishers .= '
-        <a href = "?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col">
+        <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col">
             <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
         </a>
     ';
