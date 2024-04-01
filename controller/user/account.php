@@ -126,12 +126,9 @@
                     include_once 'view/user/account.php';
                 } else header('location: ?mod=page&act=home');
                 break;
-            case 'reset_password':
-                include_once 'view/user/account.php';
-                break;
             case 'account-address':
                 if ($_SESSION['user'] != []) {
-                    $address = explode('/', $_SESSION['user']['address']);
+                    $address = explode('###', $_SESSION['user']['address']);
                     if (isset($_POST['btn_address'])) {
                         $name = $_POST['name'];
                         $phone = $_POST['phone'];
@@ -140,19 +137,24 @@
                         $ward = $_POST['ward'];
                         $street = $_POST['street'];
                         $note = $_POST['note'];
-                        $address = "$province/$district/$ward/$street/$note";
+                        $address = "$province###$district###$ward###$street###$note";
                         $id = $_SESSION['user']['id'];
                         user_UPDATE($_SESSION['user']['id'],$name,'','','',$phone,$address);
                         $_SESSION['user'] = user_ONE($id);
                     }
                     include_once 'view/user/account-address.php';
-                    print_r($address);
                 } else header('location: ?mod=page&act=home');
                 break;
             case 'account-order_follow':
                 if ($_SESSION['user'] != []) {
 
                     include_once 'view/user/account-order_follow.php';
+                } else header('location: ?mod=page&act=home');
+                break;
+            case 'account-change_password':
+                if ($_SESSION['user'] != []) {
+
+                    include_once 'view/user/account-change_password.php';
                 } else header('location: ?mod=page&act=home');
                 break;
             default:

@@ -3,7 +3,7 @@
     <div class="container footer-box">
         <div class="footer-left">
             <a href="?mod=page&act=home" class="footer-logo">
-                <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/logo.png" alt="LOGO">
+                <img src="view/images/logo.png" alt="LOGO">
             </a>
             <div class="footer-content">
                 KING nhận đặt hàng trực tuyến và giao hàng tận nơi.

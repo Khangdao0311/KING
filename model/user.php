@@ -20,7 +20,7 @@
         if ($email) $sql .= " , email = '$email'";
         if ($address) $sql .= " , address = '$address'";
         if ($password != '') $sql .= " , password = '$password'";
-        else $sql.= " WHERE id = $id";
+        $sql.= " WHERE id = $id";
         return Edit($sql);
     }
 ?>
