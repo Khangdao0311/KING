@@ -13,17 +13,18 @@
         <div class="rating-titel">
             <div class="ratting_titel-text">Bản xếp hạng lượt xem</div>
         </div>
-        <div class="rating-nav">
-            <div onclick="show_category_rating(0)" class="rating_nav-item '.$check.'">Tất cả</div>';
-            
+        <div style="backgruond:blue;" class="rating-nav swiper_rating mySwiper">
+            <div class="swiper-wrapper">
+                <div onclick="show_category_rating(0)" class="swiper-slide rating_nav-item '.$check.'">Tất cả</div>';
     foreach ($categorys as $item) {
         $check = ($id == $item['id']) ? 'rating_nav-item-check' : '';
         $html_show_category_rating .= '
-            <div onclick="show_category_rating('.$item['id'].')" class="rating_nav-item '.$check.'">'.$item['name'].'</div>
+                <div onclick="show_category_rating('.$item['id'].')" class="swiper-slide rating_nav-item '.$check.'">'.$item['name'].'</div>
         ';
     }
-
     $html_show_category_rating .= '
+            </div>
+        </div>
         </div>
         <div class="rating_container">
             <div class="rating_container-left">';
@@ -61,3 +62,4 @@
     ';
     echo $html_show_category_rating;
 ?>
+<script src="view/user/js/home.js"></script>

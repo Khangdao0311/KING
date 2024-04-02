@@ -123,5 +123,6 @@
         </div>
     </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="view/user/js/jquery.lwtCountdown-1.0.js"></script>
 <script src="view/user/js/plugins.js"></script>

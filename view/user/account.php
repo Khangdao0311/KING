@@ -35,7 +35,7 @@
                         </label>
                         <?php else: ?>
                         <label class="account_information_item-img" for="inputfile">
-                            <img src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" alt="">
+                            <img id="imagechange" src="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" alt="">
                         </label>
                         <?php endif; ?>
                         <label for="inputfile" class="account_information_item-change">Thay đổi</label>
