@@ -70,10 +70,12 @@
                     $show_edit = product_ONE($id);
                     if($_FILES['image']['name'] == null){
                         product_edit($name,$show_edit['image'],$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id,$id);
+                        product_updation_date($id);
                         header('location: ?mod=admin&act=product-list');
                     }else{
                         product_edit($name,"images/".$_FILES['image']['name'],$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id,$id);
                         move_uploaded_file($_FILES['image']['tmp_name'],'view/images/'.$_FILES['image']['name']);
+                        product_updation_date($id);
                         header('location: ?mod=admin&act=product-list');
                     }
                 }   
