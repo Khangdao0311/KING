@@ -45,15 +45,15 @@
             </div>
             <input name="btn_contact" class="contact_form-submit" type="submit">
         </form>
-        <input hidden id="mail-success" type="checkbox" <?= $checked ?>>
-        <div class="mail-success">
-            <div class="mail-success-box">
-                <div class="mail-success-title">Gửi Mail Thành Công</div>
-                <div class="mail-success-icon">
+    </div>
+    <input hidden id="success" type="checkbox" <?= $check_success ?>>
+    <div class="success">
+        <div class="success-box">
+            <div class="success-title">Gửi mail thành công</div>
+            <div class="success-icon">
                 <span class="material-symbols-outlined">check_circle</span>
             </div>
-                <label for="mail-success" class="mail-success-next">OK</label>
-            </div>
+            <label for="success" class="success-next">OK</label>
         </div>
     </div>
 </section>

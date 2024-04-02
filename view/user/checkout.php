@@ -167,16 +167,6 @@ foreach ($_SESSION['cart'] as $item) {
                 <label for="order_success" class="payment-button">đặt hàng</label>
             </div>
         </div>
-        <input hidden id="order_success" type="checkbox">
-        <div class="order_success">
-            <div class="order_success-box">
-                <div class="order_success-title">Đặt hàng thành công</div>
-                <div class="order_success-icon">
-                    <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png" alt="">
-                </div>
-                <label for="order_success" class="order_success-next">OK</label>
-            </div>
-        </div>
     </div>
 </section>
 <script src="view/user/js/checkout.js"></script>

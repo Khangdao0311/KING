@@ -2,7 +2,7 @@
     if (isset($_GET['act'])) {
         switch ($_GET['act']) {
             case 'login':
-                $checked = '';
+                $check_error = '';
                 if (isset($_POST['btn_login']) && $_POST['btn_login']) {
                     $account = $_POST['account'];
                     $password = $_POST['password'];
@@ -15,7 +15,7 @@
                             }
                         }
                     }
-                    $checked = 'checked';
+                    $check_error = 'checked';
                 }
                 include_once 'view/user/login.php';
                 break;
@@ -111,7 +111,7 @@
                 break;
             case 'information':
                 if ($_SESSION['user'] != []) {
-                    $checked = '';
+                    $check_success  = '';
                     if (isset($_POST['btn_information'])) {
                         $id = $_POST['id'];
                         $name = $_POST['name'];
@@ -121,7 +121,7 @@
                         move_uploaded_file($_FILES['image']['tmp_name'],'view/images/user/'.$_FILES['image']['name']);
                         user_UPDATE($id,$name,$image,'',$email,$phone,'');
                         $_SESSION['user'] = user_ONE($id) ;
-                        $checked = 'checked';
+                        $check_success  = 'checked';
                     }
                     include_once 'view/user/account.php';
                 } else header('location: ?mod=page&act=home');

@@ -66,7 +66,7 @@
     <input hidden id="error" type="checkbox" <?= $check_error ?>>
     <div class="error">
         <div class="error-box">
-        <div class="error-title">Đăng Ký thất bại</div>
+        <div class="error-title">đổi mật khẩu thất bại</div>
         <div class="error-icon">
             <span class="material-symbols-outlined">error</span>
         </div>
@@ -75,12 +75,11 @@
     <input hidden id="success" type="checkbox" <?= $check_success ?>>
     <div class="success">
         <div class="success-box">
-        <div class="success-title">Đăng Ký thành công</div>
+        <div class="success-title">đổi mật khẩu thành công</div>
         <div class="success-icon">
             <span class="material-symbols-outlined">check_circle</span>
         </div>
         <label for="success" class="success-next">OK</label></div>
-
     </div>
 </section>
 <script src="view/user/js/account.js"></script>

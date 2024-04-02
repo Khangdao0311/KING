@@ -61,7 +61,7 @@
                 include_once 'view/user/about.php';
                 break;
             case 'contact':
-                $checked = '';
+                $check_success = '';
                 if (isset($_POST['btn_contact']) && $_POST['btn_contact']) {
                     $content = '
                         Họ và Tên: <b>'.$_POST['name'].'</b> <br>
@@ -69,7 +69,7 @@
                         '.$_POST['content'].'
                     ';
                     mailer('Khangdao0311@gmail.com',$_POST['title'],$content);
-                    $checked = 'checked';
+                    $check_success = 'checked';
                 }
                 include_once 'view/user/contact.php';
                 break;
