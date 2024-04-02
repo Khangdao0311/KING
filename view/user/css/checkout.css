@@ -56,7 +56,7 @@
 }
 
 .infomation-name input, .infomation-email input, .infomation-sdt input,
-.infomation-city select, .infomation-district select,
+.infomation-city input, .infomation-district input,
 .infomation-ward input, .infomation-street input, .infomation-note input{
     width: 70%;
     font-size: 1.6rem;
