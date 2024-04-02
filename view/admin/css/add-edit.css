@@ -24,7 +24,6 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    background-color: aqua;
 }
 .title_menu-content {
     font-size: 3rem;
@@ -80,4 +79,8 @@
     color: #fff;
     border-radius: 1rem;
     margin-top: 1.2rem;
+}
+.fix{
+    width: 80%;
+    font-size: 1.6rem;
 }

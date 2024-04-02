@@ -6,7 +6,7 @@
                 $product_new = product_SELECT(0,0,0,"",0,0,0,4);
                 $product_top_view = product_SELECT(0,true,0,"",0,0,0,5);
                 $category_all_top_view = category_ALL();
-                $publishers = publisher_SELECT(0,9);
+                $publishers = publisher_SELECT(0,0,0,0,0,9);
                 include_once 'view/user/home.php';
                 break;
             case 'product':

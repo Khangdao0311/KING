@@ -1,4 +1,20 @@
 <?php include_once 'header.php' ?>
+<?php
+$html_author_management="";
+foreach ($author_management as $item){
+    $html_author_management.='<div class="list-row author-grid ">
+    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item">'.$item['name'].'</div>
+    <div class="list-item">'.$item['email'].'</div>
+    <div class="list-item">'.$item['information'].'</div>
+    <div class="list-item flex-center">'.$item['dob'].'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=author-edit&id=" class="function-edit">Sửa</a>
+        <div class="function-delete">Xóa</div>
+    </div>
+</div>';
+}
+?>
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -15,19 +31,10 @@
                     <div class="list-item flex-center">Ngày sinh</div>
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
-
-                <div class="list-row author-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">scacsac</div>
-                    <div class="list-item">aaaaaaa@gmail.com</div>
-                    <div class="list-item">aaaaaaaaaaaaa dd</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=author-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
+                <?=$html_author_management; ?>
+                <div class="product-page">
+                    <?=$html_number_page;?>
                     </div>
-                </div>
-
             </div>
         </div>
     </section>  

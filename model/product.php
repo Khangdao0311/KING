@@ -61,21 +61,34 @@
     }
 
     
-    function phan_trang($page,$data,$mod,$act){
+    function phan_trang($page,$search,$data,$mod,$act){
         $soluong = count($data) / SLSP;
         $sotrang = ceil($soluong);
         $html_number_page="";
+        $a = ($search) ? '&search='.$search : '';
         for($i=1;$i<=$sotrang;$i++){
-            $link='?mod='.$mod.'&act='.$act.'&trang='.$i;
+            $link='?mod='.$mod.'&act='.$act.$a.'&trang='.$i;
             if($i==$page){
                 $html_number_page.='<a style="background-color: red" href="'.$link.'" class="product-number-page">'.$i.'</a>';
             }else{
                 $html_number_page.='<a href="'.$link.'" class="product-number-page">'.$i.'</a>';
             }
-            }
-            return $html_number_page;
         }
-
+        return $html_number_page;
+    }
+    function product_add($name,$image,$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id){
+        $sql = "INSERT INTO products(name,image,price,price_sale,quantity,describle,noibat,category_id,author_id,publisher_id)
+        Value ('$name','$image','$price','$price_sale','$quantity','$describle','$noibat','$category_id','$author_id','$publisher_id')"; 
+        return edit($sql);
+    }
+    function product_detele($id){
+        $sql = "DELETE FROM products WHERE id =$id";
+        return edit($sql);
+    }
+    function product_edit($name,$image,$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id,$id){
+        $sql="UPDATE products SET name='$name' , image = '$image' , price = $price , price_sale = $price_sale , quantity = $quantity , describle = '$describle' , noibat = $noibat , category_id = '$category_id' , author_id = $author_id , publisher_id = $publisher_id where id = $id";
+        return edit($sql);
+    }
     function update_view($id){
         $sql = "UPDATE products SET view = view + 1 where id = $id";
         return get_ONE($sql);
