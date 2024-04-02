@@ -18,7 +18,7 @@
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá</div>
-                    <input name="price" class="content_item-value" type="text" placeholder="nhập giá">
+                    <input name="price" class="content_item-value" type="number" min="1" placeholder="nhập giá">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá khuyến mãi</div>

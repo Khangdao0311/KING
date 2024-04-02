@@ -92,6 +92,10 @@
     function update_view($id){
         $sql = "UPDATE products SET view = view + 1 where id = $id";
         return get_ONE($sql);
-    }    
+    }  
+    function product_updation_date($id){
+        $sql = "UPDATE products SET updation_date = current_timestamp() WHERE id = $id";
+        return edit($sql);
+    }  
 ?>
 
