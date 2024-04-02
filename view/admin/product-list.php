@@ -12,14 +12,14 @@ foreach($product_management as $item){
     </div>
     <div class="list-item flex-center">'.$item['quantity'].'</div>
     <div class="list-item flex-center">'.$item['view'].'</div>
-    <div class="list-item flex-center">'.$item['quantity'].'</div>
     <div class="list-item flex-center">'.$item['creation_date'].'</div>
+    <div class="list-item flex-center">'.$item['updation_date'].'</div>
     <div class="list-item flex-center">'.$item['category_id'].'</div>
     <div class="list-item flex-center">'.$item['author_id'].'</div>
     <div class="list-item flex-center">'.$item['publisher_id'].'</div>
     <div class="list-item flex-center">
-        <a href="?mod=admin&act=product-edit&id=" class="function-edit">Sửa</a>
-        <div class="function-delete">Xóa</div>
+        <a href="?mod=admin&act=product-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=product-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
     </div>
 </div>';
 }

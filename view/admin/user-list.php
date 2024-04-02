@@ -1,4 +1,26 @@
 <?php include_once 'header.php' ?>
+<?php
+$html_user_management= "";
+foreach ($user_management as $item){
+    if ($item['role'] == 1){
+        $vaitro = 'admin';
+    }else{
+        $vaitro = 'khach hang';
+    }
+    $html_user_management.='<div class="list-row user-grid ">
+    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item">'.$item['name'].'</div>
+    <div class="list-item flex-center"><img src="images/'.$item['image'].'" class="list_item-img"></img></div>
+    <div class="list-item">'.$item['email'].'</div>
+    <div class="list-item flex-center">'.$item['phone'].'</div>
+    <div class="list-item flex-center">'.$vaitro.'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=user-edit&id=" class="function-edit">Sửa</a>
+        <div class="function-delete">Xóa</div>
+    </div>
+</div>';
+} 
+?>
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -16,20 +38,10 @@
                     <div class="list-item flex-center">Vai trò</div>
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
-
-                <div class="list-row user-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">Đào Vĩnh Khang</div>
-                    <div class="list-item flex-center"><div class="list_item-img"></div></div>
-                    <div class="list-item">khangdao0311@gmail.com</div>
-                    <div class="list-item flex-center">0999999999</div>
-                    <div class="list-item flex-center">Quản trị</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=user-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
+                <?=$html_user_management;?>
+                <div class="product-page">
+                    <?=$html_number_page;?>
                     </div>
-                </div>
-
             </div>
         </div>
     </section>  

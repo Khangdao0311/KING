@@ -8,8 +8,8 @@ foreach ($publisher_management as $item){
     <div class="list-item">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
     <div class="list-item">'.$item['address'].'</div>
-    <div class="list-item">aaaaaaa@gmail.com</div>
-    <div class="list-item">aaaaaxxxaaaaaaaa dd</div>
+    <div class="list-item">'.$item['email'].'</div>
+    <div class="list-item">'.$item['information'].'</div>
     <div class="list-item flex-center">
         <a href="?mod=admin&act=publisher-edit&id=" class="function-edit">Sửa</a>
         <div class="function-delete">Xóa</div>
@@ -35,7 +35,9 @@ foreach ($publisher_management as $item){
                 </div>
 
                 <?=$html_publisher_management;?>
-
+                <div class="product-page">
+                    <?=$html_number_page;?>
+                    </div>
             </div>
         </div>
     </section>  
