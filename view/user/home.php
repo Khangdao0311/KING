@@ -36,7 +36,7 @@
     $html_show_category_top_view = '';
     foreach ($category_all_top_view as $item) {
         $html_show_category_top_view .= '
-                <div onclick="show_category_rating(' . $item['id'] . ')" class="rating_nav-item">' . $item['name'] . '</div>
+            <div onclick="show_category_rating(' . $item['id'] . ')" class="swiper-slide rating_nav-item">' . $item['name'] . '</div>
             ';
     }
     $html_show_top_view = '';
@@ -92,7 +92,7 @@ foreach ($publishers as $item) {
 <?php include_once 'header.php' ?>
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
-<section class="margin-header">
+<!-- <section >
     <div class="container silde_banner">
         <div class="silde-box">
             <img class="slide-img" src="https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg" alt="">
@@ -105,6 +105,45 @@ foreach ($publishers as $item) {
             <div class="slide-nav">
 
             </div>
+        </div>
+        <div class="banner-box">
+            <div class="banner-item">
+                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_sacombank_t3.jpg" alt="">
+            </div>
+            <div class="banner-item">
+                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_zalopay_t3.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section> -->
+<section class="margin-header">
+    <div class="container silde_banner">
+        <div class="silde-box swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/HSO_T1_T324_Banner_resize_Slide_840x320.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/BachVietT3_Slide_840x320.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/MayTinh_Slide_840x320_1.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/tranglego_resize_slidebanner_840x320_2.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev slide-controller-left">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </div>
+            <div class="swiper-button-next slide-controller-right">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </div>
+            <!-- <div class="swiper-scrollbar"></div> -->
         </div>
         <div class="banner-box">
             <div class="banner-item">
@@ -252,11 +291,11 @@ foreach ($publishers as $item) {
         <div class="rating-titel">
             <div class="ratting_titel-text">Bản xếp hạng lượt xem</div>
         </div>
-        <div class="rating-nav">
-            <div onclick="show_category_rating(0)" class="rating_nav-item rating_nav-item-check">Tất cả</div>
-          
-            <?= $html_show_category_top_view ?>
-          
+        <div class="rating-nav swiper_rating mySwiper">
+            <div class="swiper-wrapper">
+                <div onclick="show_category_rating(0)" class="swiper-slide rating_nav-item rating_nav-item-check">Tất cả</div>
+                <?= $html_show_category_top_view ?>
+            </div>
         </div>
         <div class="rating_container">
             <div class="rating_container-left">
@@ -296,5 +335,5 @@ foreach ($publishers as $item) {
         <div class="advertisement-box col-5 col"></div>
     </div>
 </section> -->
-<script src="view/user/js/home.js"></script>
 <?php include_once 'footer.php' ?>
+<script src="view/user/js/home.js"></script>
