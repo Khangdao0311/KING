@@ -53,6 +53,12 @@
                 include_once 'view/user/cart.php';
                 break;
             case 'checkout':
+                if (isset($_SESSION['user'])) {
+                    $name = $_SESSION['user']['name'];
+                    $email = $_SESSION['user']['email'];
+                    $phone = $_SESSION['user']['phone'];
+                    $address = $_SESSION['user']['address'];
+                }
                 include_once 'view/user/checkout.php';
                 break;
             default:
