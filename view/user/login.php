@@ -28,15 +28,15 @@
                 </div>
             </form>
         </div>
-        <input hidden id="login_error" type="checkbox" <?= $checked ?>>
-        <div class="login_error">
-            <div class="login_error-box">
-                <div class="login_error-title">Đăng nhập thất bại</div>
-                <div class="login_error-icon">
-                    <span class="material-symbols-outlined">error</span>
-                </div>
-                <label for="login_error" class="login_error-next">Thử lại</label>
+    </div>
+    <input hidden id="error" type="checkbox" <?= $check_error ?>>
+    <div class="error">
+        <div class="error-box">
+            <div class="error-title">Đăng nhập thất bại</div>
+            <div class="error-icon">
+                <span class="material-symbols-outlined">error</span>
             </div>
+            <label for="error" class="error-next">Thử lại</label>
         </div>
     </div>
 </section>

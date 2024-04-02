@@ -4,10 +4,7 @@ const swiper = new Swiper(".swiper", {
     },
     slidesPerView: 1,
     spaceBetween: 20,
-    // direction: 'vertical',
     loop: true,
-    // centeredSlides: false,
-
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -16,35 +13,9 @@ const swiper = new Swiper(".swiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev"
     },
-    // scrollbar: {
-    //     el: '.swiper-scrollbar',
-    // },
-    // breakpoints: {
-    //     1024: { slidesPerView: 4 },
-    //     768: { slidesPerView: 3 }, 
-    //     500: { slidesPerView: 2 },
-    // },
 });
 const swiper_rating = new Swiper(".swiper_rating", {
-    // autoplay: {
-    //     delay: 2500
-    // },
     slidesPerView: 8,
-    // spaceBetween: 20,
-    // direction: 'vertical',
-    // loop: true,
-    // centeredSlides: false,
-
-    // pagination: {
-    //     el: ".swiper-pagination"
-    // },
-    // navigation: {
-    //     nextEl: ".swiper-button-next",
-    //     prevEl: ".swiper-button-prev"
-    // },
-    // scrollbar: {
-    //     el: '.swiper-scrollbar',
-    // },
     // breakpoints: {
     //     1024: { slidesPerView: 4 },
     //     768: { slidesPerView: 3 }, 
