@@ -128,6 +128,7 @@
                 break;
             case 'account-address':
                 if ($_SESSION['user'] != []) {
+                    $check_success = '';
                     if (isset($_POST['btn_address'])) {
                         $name = $_POST['name'];
                         $phone = $_POST['phone'];
@@ -140,6 +141,7 @@
                         $id = $_SESSION['user']['id'];
                         user_UPDATE($_SESSION['user']['id'],$name,'','','',$phone,$address);
                         $_SESSION['user'] = user_ONE($id);
+                        $check_success = 'checked';
                     }
                     $address = explode('@', $_SESSION['user']['address']);
                     include_once 'view/user/account-address.php';
