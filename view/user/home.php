@@ -265,11 +265,11 @@ foreach ($publishers as $item) {
 
             </div>
             <div class="rating_container-right">
-                <a href="?mod=page&act=product-detail&id=" class="rating_product_detail-img">
+                <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id']?>" class="rating_product_detail-img">
                     <img src="view/<?= $product_top_view[0]['image'] ?>" alt="<?= $product_top_view[0]['name'] ?>">
                 </a>
                 <div class="rating_product_detail-content">
-                    <a href="?mod=page&act=product-detail&id=" class="rating_product_detail_content-name"><?= $product_top_view[0]['name'] ?></a>
+                    <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id']?>" class="rating_product_detail_content-name"><?= $product_top_view[0]['name'] ?></a>
                     <div class="rating_product_detail_content-author">Tác giả: <?= author_ONE($product_top_view[0]['author_id'])['name'] ?></div>
                     <div class="rating_product_detail_content-publisher">Nhà sản xuất: <?= publisher_ONE($product_top_view[0]['publisher_id'])['name'] ?></div>
                     <div class="rating_product_detail_content-price_sale">Giá khuyến mãi: <?= number_format($product_top_view[0]['price_sale'],0,',','.') ?> đ</div>
