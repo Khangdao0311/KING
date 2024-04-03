@@ -13,6 +13,7 @@
     require_once 'model/product.php';
     require_once 'model/user.php';
     require_once 'model/gallery.php';
+    require_once 'model/order.php';
     require_once 'model/mailer.php';
     
     if (isset($_GET['mod'])) {
