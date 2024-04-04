@@ -48,7 +48,11 @@ foreach($data_publisher as $item){
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Nổi bật</div>
-                    <input name="noibat" class="content_item-value" type="text" value="<?=$show_edit['noibat'];?>">
+                    <select class="fix" name="noibat" id="">
+                        <option hidden value="<?=$show_edit['noibat']?>"><?php echo ($show_edit['noibat']) ? "Nổi Bật" : "Không Nổi Bật" ;?></option>
+                        <option value="0">Không nổi bật</option>
+                        <option value="1">Nổi bật</option>
+                    </select>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Mã danh mục</div>

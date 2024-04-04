@@ -9,8 +9,8 @@ foreach ($author_management as $item){
     <div class="list-item">'.$item['information'].'</div>
     <div class="list-item flex-center">'.$item['dob'].'</div>
     <div class="list-item flex-center">
-        <a href="?mod=admin&act=author-edit&id=" class="function-edit">Sửa</a>
-        <div class="function-delete">Xóa</div>
+        <a href="?mod=admin&act=author-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=author-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
     </div>
 </div>';
 }

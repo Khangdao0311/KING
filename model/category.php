@@ -27,4 +27,21 @@
         }
         return get_All($sql);   
     }
+    function category_add($name,$image,$describle){
+        $sql = "INSERT INTO categorys(name,image,describle)
+        Value ('$name','$image','$describle')"; 
+        return edit($sql);
+    }
+    function category_detele($id){
+        $sql = "DELETE FROM categorys WHERE id =$id";
+        return edit($sql);
+    }
+    function category_edit($name,$image,$describle,$id){
+        $sql = "UPDATE categorys SET name = '$name' , image = '$image' , describle = '$describle' WHERE id=$id";
+        return edit($sql);
+    }
+    function category_updation_date($id){
+        $sql = "UPDATE categorys SET updation_date = current_timestamp() WHERE id = $id";
+        return edit($sql);
+    }
 ?>

@@ -147,7 +147,9 @@
     height: 100%;
     width: 100%;
 }
-
+.prodcut-cash p {
+    width: 8.5rem;
+}
 .prodcut-trash{
     width: 3rem;
     aspect-ratio: 1/1;

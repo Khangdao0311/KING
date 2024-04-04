@@ -29,3 +29,14 @@ function plus_cart(el) {
     }
     
 }
+
+function addcart(event) {
+    var successOverlay = document.createElement('div');
+    successOverlay.classList.add('success-overlay');
+    successOverlay.textContent = 'Thêm vào giỏ hàng thành công!';
+    document.body.appendChild(successOverlay);
+    setTimeout(function() {
+        document.body.removeChild(successOverlay);
+    }, 1000);
+    
+}
