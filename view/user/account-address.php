@@ -66,5 +66,15 @@
             <button name="btn_address" class="account-submit">lưu thông tin</button>
         </form>
     </div>
+    <input hidden id="success" type="checkbox" <?= $check_success ?>>
+    <div class="success">
+        <div class="success-box">
+            <div class="success-title">Cập nhật địa chỉ thành công</div>
+            <div class="success-icon">
+                <span class="material-symbols-outlined">check_circle</span>
+            </div>
+            <label for="success" class="success-next">OK</label>
+        </div>
+    </div>
 </section>
 <?php include_once 'footer.php' ?>

@@ -57,7 +57,6 @@
     border: 0.1rem solid rgb(0, 0, 0, 0.3);
     background-color: #fff;
     position: relative;
-    padding-bottom:  7.2rem;
 }
 .account-title {
     width: 100%;
@@ -72,6 +71,8 @@
     flex-direction: column;
     gap: 1.2rem;
     padding: 2.4rem;
+    padding-bottom:  10rem;
+
 }
 .account_information-item {
     width: 100%;
@@ -123,7 +124,6 @@
     border-bottom: 0.1rem solid transparent;
     outline: none;
     padding: 1.2rem 0;
-    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
 
 }
 .account_information_item-change {
@@ -183,23 +183,25 @@
     width: 100%;
     padding: 1.2rem 0;
     display: flex;
-    gap: 2.4rem;
     border-top: 0.1rem solid rgb(0, 0, 0, 0.3);
 }
 .account_order_follow_product-img {
-    width: 20.2%;
-    aspect-ratio: 1.5/1;
-    max-width: 18rem;
-    padding: 0 2rem;
+    width: 20%;
+    aspect-ratio: 2/1;
+    padding: 0 1.2rem;
+    display: flex;
 }
 .account_order_follow_product-img > img {
     width: 100%;
     height: 100%;
-    background-color: aqua;
+    object-fit: contain;
+}
+.account_order_follow_product-main {
+    display: flex;
+    width: 80%;
 }
 .account_order_follow_product-content {
-    width: 43%;
-    max-width: 38.2rem;
+    width: 60%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -225,10 +227,17 @@
 .account_order_follow_product-quantity {
     font-size: 1.8rem;
     font-weight: bold;
+
+}
+.account_order_follow_product-fun {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .account_order_follow_product-total {
-    width: 20.3%;
-    max-width: 18rem;
+    width: 60%;
+    height: 100%;
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--primary);
@@ -237,14 +246,14 @@
     justify-content: center;
 }
 .account_order_follow_product-button_box {
-    width: 8.77%;
-    max-width: 7.8rem;
-    padding-right: .8rem;
+    width: 40%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.6rem;
+    padding:  0 2.4rem;
 }
 .account_order_follow_product-button_item {
     width: 100%;
@@ -253,7 +262,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: bold;
     border: 0.1rem solid rgb(0, 0, 0, 0.3) ;
     background-color: #fff;
@@ -380,113 +389,3 @@
 
 
 
-
-#error:checked ~ .error {
-    display: flex;
-}
-.error {
-    position: fixed;
-    background-color: rgb(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 6;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-.error-box {
-    /* width: 30rem; */
-    /* aspect-ratio: 1/1; */
-    background-color: #fff;
-    border-radius: 1rem;
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.4rem;
-}
-.error-title {
-    width: 100%;
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--primary);
-}
-.error-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.error-icon > span {
-    font-size: 15rem;
-    color: var(--primary);
-}
-.error-next {
-    width: 100%;
-    padding: 1.2rem 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    background-color: var(--primary);
-    color: #fff;
-    border-radius: 1rem;
-}
-#success:checked ~ .success {
-    display: flex;
-}
-
-.success {
-    position: fixed;
-    background-color: rgb(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 6;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-.success-box {
-    /* width: 30rem; */
-    /* aspect-ratio: 1/1; */
-    background-color: #fff;
-    border-radius: 1rem;
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.4rem;
-}
-.success-title {
-    width: 100%;
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--success);
-}
-.success-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.success-icon > span {
-    font-size: 15rem;
-    color: var(--success);
-}
-.success-next {
-    width: 100%;
-    padding: 1.2rem 0;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    background-color: var(--primary);
-    color: #fff;
-    border-radius: 1rem;
-}

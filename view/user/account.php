@@ -62,14 +62,14 @@
             <button name="btn_information" class="account-submit">lưu thay đổi</button>
         </form>
     </div>
-    <input hidden id="change_success" type="checkbox" <?= $checked ?>>
-    <div class="change_success">
-        <div class="change_success-box">
-            <div class="change_success-title">Cập nhật thành công</div>
-            <div class="change_success-icon">
+    <input hidden id="success" type="checkbox" <?= $check_success ?>>
+    <div class="success">
+        <div class="success-box">
+            <div class="success-title">cập nhật thông tin thành công</div>
+            <div class="success-icon">
                 <span class="material-symbols-outlined">check_circle</span>
             </div>
-            <label for="change_success" class="change_success-next">OK</label>
+            <label for="success" class="success-next">OK</label>
         </div>
     </div>
 </section>
