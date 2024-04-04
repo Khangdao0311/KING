@@ -10,8 +10,8 @@ foreach($category_management as $item){
     <div class="list-item flex-center">'.$item['creation_date'].'</div>
     <div class="list-item flex-center">'.$item['updation_date'].'</div>
     <div class="list-item flex-center">
-        <a href="?mod=admin&act=category-edit&id=" class="function-edit">Sửa</a>
-        <div class="function-delete">Xóa</div>
+        <a href="?mod=admin&act=category-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=category-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
     </div>
 </div>';
 } 
