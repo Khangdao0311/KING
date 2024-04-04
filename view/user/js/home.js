@@ -41,4 +41,4 @@ function show_category_rating(id) {
             $('.rating-container').html(data);
         },
     );
-}
+
