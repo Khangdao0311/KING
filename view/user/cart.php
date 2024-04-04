@@ -2,7 +2,7 @@
     $total_price = 0;
     $html_product_cart = "";
     foreach ($_SESSION['cart'] as $item) {
-        $link_del = 'index.php?mod=cart&act=list&del='.$item['id'];
+        $link_del = 'index.php?mod=cart&act=delete&del='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
         $html_product_cart .= '  

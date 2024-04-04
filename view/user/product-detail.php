@@ -2,36 +2,60 @@
     $html_img_productdetail = "";
     foreach ($gallery as $item) {
         $html_img_productdetail .= '
-        <div onclick="show_image(this)" class="productdetail_image_list-item">
-            <img src="view/'.$item['image'].'" alt="">
-        </div>
-        ';
+            <div onclick="show_image(this)" class="productdetail_image_list-item">
+                <img src="view/' . $item['image'] . '" alt="">
+            </div>
+            ';
     }
     $html_productdetail_same = "";
     foreach ($product_detail_same as $item) {
-        $link = 'index.php?mod=page&act=product-detail&id='.$item['id'];
+        $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
         $html_productdetail_same .= '
-        <div class="col-4 col">
-            <div class="product-box">
-                <a href="'.$link.'" class="product-img"><img src="view/'.$item['image'].'" alt=""></a>
-                <a href="?mod=page&act=product-detail" class="product-mane">'.$item['name'].'</a>
-                <div class="product-price_sale">'.number_format($item['price_sale'],0,',','.').' đ</div>
-                <del class="product-price">'.number_format($item['price'],0,',','.').' đ</del>
-                <div class="product-view">'.$item['view'].' lượt xem</div>
-                <div class="product-icon_box">
-                    <div class="product-icon">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                    </div>
-                    <div class="product-icon">
-                        <span class="material-symbols-outlined">favorite</span>
-                    </div>
-               </div>
+            <div class="col-4 col">
+                <div class="product-box">
+                    <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt=""></a>
+                    <a href="?mod=page&act=product-detail" class="product-mane">' . $item['name'] . '</a>
+                    <div class="product-price_sale">' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+                    <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
+                    <div class="product-view">' . $item['view'] . ' lượt xem</div>
+                    <div class="product-icon_box">
+                    <div onclick="addcart(this)" class="product-icon">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </div>
+                <input type="text" hidden value="' . $item['id'] . '">
+                        <div class="product-icon">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                </div>
+                </div>
             </div>
-        </div>
+            ';
+    }
+    $html_comment = '';
+    foreach ($comments as $item) {
+        $comment_user = user_ONE($item['user_id']); 
+        $star5 = ($item['rating'] > 4) ? "star-active" : "";
+        $star4 = ($item['rating'] > 3) ? "star-active" : "";
+        $star3 = ($item['rating'] > 2) ? "star-active" : "";
+        $star2 = ($item['rating'] > 1) ? "star-active" : "";
+        $html_comment .= '
+            <div class="productdetail_comment-item">
+                <img class="productdetail_comment_item-img" src="view/images/user/'.$comment_user['image'].'" alt="">
+                <div class="productdetail_comment_item-content">
+                    <div class="productdetail_comment_item_content-name">'.$comment_user['name'].'</div>
+                    <div class="productdetail_comment_item_content-rating">
+                    <span class="material-symbols-outlined '.$star5.'">star</span>
+                    <span class="material-symbols-outlined '.$star4.'">star</span>
+                    <span class="material-symbols-outlined '.$star3.'">star</span>
+                    <span class="material-symbols-outlined '.$star2.'">star</span>
+                    <span class="material-symbols-outlined star-active">star</span>
+                    </div>
+                    <div class="productdetail_comment_item_content-text">'.$item['content'].'</div>
+                </div>
+            </div>
         ';
     }
 ?>
-
 <?php include_once('header.php') ?>
 <title>Sản Phẩm</title>
 <link rel="stylesheet" href="view/user/css/product-detail.css">
@@ -44,25 +68,25 @@
     <div class="container productdetail-container">
         <div class="productdetail-image">
             <div class="productdetail_image-list">
-                
-                <?=$html_img_productdetail?>
-               
+
+                <?= $html_img_productdetail ?>
+
             </div>
             <div class="productdetail_image-main">
-               <img src="view/<?=$product_detail['image']?>" alt="">
+                <img src="view/<?= $product_detail['image'] ?>" alt="">
             </div>
         </div>
         <form action="?mod=cart&act=list" method="post" class="productdetail-content">
-            <div class="productdetail-name"><?=$product_detail['name']?></div>
+            <div class="productdetail-name"><?= $product_detail['name'] ?></div>
             <div class="productdetail-publisher_author">
-                <div class="productdetail-publisher">Nhà xuất bản: <b><?=$publisher['name'] ?></b></div>
-                <div class="productdetail-author">Tác giả: <b><?=$author['name']?></b></div>
+                <div class="productdetail-publisher">Nhà xuất bản: <b><?= $publisher['name'] ?></b></div>
+                <div class="productdetail-author">Tác giả: <b><?= $author['name'] ?></b></div>
             </div>
             <div class="productdetail-price_container">
-                <div class="productdetail-price_sale">Giá: <b><?=number_format($product_detail['price_sale'],0,',','.')?> đ</b></div>
+                <div class="productdetail-price_sale">Giá: <b><?= number_format($product_detail['price_sale'], 0, ',', '.') ?> đ</b></div>
                 <div class="productdetail-price_box">
-                    <div class="productdetail-price">Giá gốc: <del><?=number_format($product_detail['price'],0,',','.')?> đ</del></div>
-                    <div class="productdetail-persent"><?=100 - (($product_detail['price_sale'] / $product_detail['price']) * 100)?> %</div>
+                    <div class="productdetail-price">Giá gốc: <del><?= number_format($product_detail['price'], 0, ',', '.') ?> đ</del></div>
+                    <div class="productdetail-persent"><?= 100 - (($product_detail['price_sale'] / $product_detail['price']) * 100) ?> %</div>
                 </div>
             </div>
             <div class="productdetail-quantity">
@@ -79,14 +103,17 @@
             </div>
             <div class="productdetail-button">
                 <input name="btn_buy_now" class="productdetail_button-buy_now" type="submit" value="Mua ngay">
-                <a href="index.php?mod=cart&act=list&id=<?=$product_detail['id']?>" class="productdetail_button-add_cart">
-                    <div class="productdetail_button_add_cart-icon">
-                        <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/icon-cart.svg" alt="">
+                <div class="click-addcart" onclick="addcart(this)">
+                    <div class="productdetail_button-add_cart">
+                        <div class="productdetail_button_add_cart-icon">
+                            <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/icon-cart.svg" alt="">
+                        </div>
+                        <div class="productdetail_button_add_cart-text">Thêm vào giỏ hàng</div>
                     </div>
-                    <div class="productdetail_button_add_cart-text">Thêm vào giỏ hàng</div>
-                </a>
-            </div> 
-            <input value="<?=$product_detail['id']?>" name="id" type="hidden">
+                </div>
+                <input type="text" hidden value="<?=$product_detail['id']?>">
+            </div>
+            <input value="<?= $product_detail['id'] ?>" name="id" type="hidden">
         </form>
     </div>
 </section>
@@ -130,7 +157,7 @@
             </div>
             <div class="productdetail-descibe">
                 <p>Sản phẩm bán chạy nhất</p>
-                <span>Top 100 sản phẩm <?=$name_category?> bán chạy của tháng</span>
+                <span>Top 100 sản phẩm <?= $name_category ?> bán chạy của tháng</span>
             </div>
             <div class="productdetail-moredescibe">
                 <p>Giá sản phẩm trên KING đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản
@@ -147,15 +174,52 @@
         </div>
 </section>
 <section>
+    <div class="container productdetail_comment-container">
+        <div class="productdetail_comment-title">đánh giá sản phẩm</div>
+        <div class="productdetail_comment-box">
+            
+            <?= $html_comment ?>
+            <div class="comment_NaN">Sản Phẩm Không có Bình Luận</div>
+
+        </div>
+        <?php if($_SESSION['user'] != []): ?>
+        <div class="productdetail_comment-form">
+            <img src="view/images/user/<?= $_SESSION['user']['image'] ?>" alt="" class="productdetail_comment_form-img">
+            <div class="productdetail_comment_form-content">
+                <div class="productdetail_comment_form-rating">
+                    <input onclick="star_rating(this)" hidden id="star5" type="radio" name="star" value="5" checked >
+                    <label for="star5" class="material-symbols-outlined 1 star">star</label>
+                    <input onclick="star_rating(this)" hidden id="star4" type="radio" name="star" value="4">
+                    <label for="star4" class="material-symbols-outlined 2 star">star</label>
+                    <input onclick="star_rating(this)" hidden id="star3" type="radio" name="star" value="3">
+                    <label for="star3" class="material-symbols-outlined 3 star">star</label>
+                    <input onclick="star_rating(this)" hidden id="star2" type="radio" name="star" value="2">
+                    <label for="star2" class="material-symbols-outlined 4 star">star</label>
+                    <input onclick="star_rating(this)" hidden id="star1" type="radio" name="star" value="1">
+                    <label for="star1" class="material-symbols-outlined 5 star">star</label>
+                </div>
+                <div class="productdetail_comment_form-box">
+                    <input class="productdetail_comment_form-text" type="text" placeholder="Nhập bình luận của bạn về sản phẩm..." value="">
+                    <div onclick="submit_comment(this)" class="productdetail_comment_form-submit">Gửi</div>
+                    <input hidden type="text" id="number_start" value="5">
+                    <input hidden type="text" value="<?= $product_detail['id'] ?>">
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+</section>
+
+
+
+
+<section>
     <div class="container product_like-container">
         <div class="new-titel">
             <div class="new_titel-text">Sản phẩm tương tự</div>
         </div>
         <div class="row">
-                
-            <?=$html_productdetail_same?>
-
-
+            <?= $html_productdetail_same ?>
         </div>
     </div>
 </section>
@@ -170,5 +234,7 @@
 
 
 
-<script src="view/user/js/product-detail.js"></script>
 <?php include_once('footer.php') ?>
+<script src="view/user/js/product-detail.js"></script>
+<script src="view/user/js/cart.js"></script>
+<script src="view/user/js/script.js"></script>

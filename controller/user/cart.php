@@ -21,31 +21,9 @@ if (isset($_GET['act'])) {
                     $_SESSION['cart'][$id] = $product;
                 }
             }
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id = $_GET['id'];
-                $product_cart = product_ONE($id);
-                if (isset($_SESSION['cart'][$id])) {
-                    $quantity_cart = $_SESSION['cart'][$id]['quantity_cart'];
-                    $new_quantity = 1;
-                    if (isset($_POST['quantity_cart'])) {
-                        $new_quantity = $_POST['quantity_cart'];
-                    }
-                    if ($quantity_cart + $new_quantity > 10) {
-                        $new_quantity = 10 - $quantity_cart;
-                    }
-                    $_SESSION['cart'][$id]['quantity_cart'] += $new_quantity;
-                } else {
-                    $quantity_cart = 1;
-                    if (isset($_POST['quantity_cart'])) {
-                        $quantity_cart = $_POST['quantity_cart'];
-                    }
-                    if ($quantity_cart > 10) {
-                        $quantity_cart = 10;
-                    }
-                    $product_cart['quantity_cart'] = $quantity_cart;
-                    $_SESSION['cart'][$id] = $product_cart;
-                }
-            }
+            include_once 'view/user/cart.php';
+            break;
+        case 'delete': 
             if (isset($_GET['del'])) {
                 $del = $_GET['del'];
                 unset($_SESSION['cart'][$del]);
@@ -53,24 +31,23 @@ if (isset($_GET['act'])) {
             include_once 'view/user/cart.php';
             break;
         case 'checkout':
-            if(isset($_POST['check'])) {
+            $check_success = '';
+            if (isset($_POST['payment-button']) && $_POST['payment-button']) {
+            if (isset($_POST['check'])) {
                 $payment_method = $_POST['check'];
-                
-                if($payment_method == 1) {
-                    echo "Thanh toán qua Zalo Pay";
-                } elseif($payment_method == 2) {
-                    echo "Thanh toán bằng tiền mặt";
-                } else {
-                    echo "Phương thức thanh toán không hợp lệ";
+                if ($payment_method == 1) {
+                    $payment_method = "Thanh toán qua Zalo Pay";
+                } elseif ($payment_method == 2) {
+                    $payment_method = "Thanh toán thành công";
                 }
-            } else {
-                echo "Vui lòng chọn phương thức thanh toán.";
+            }
+            $check_success = 'checked';
             }
             if (isset($_SESSION['user'])) {
                 $name = $_SESSION['user']['name'];
                 $email = $_SESSION['user']['email'];
                 $phone = $_SESSION['user']['phone'];
-                $address = $_SESSION['user']['address'];
+                $address = explode('@', $_SESSION['user']['address']);
             }
             include_once 'view/user/checkout.php';
             break;

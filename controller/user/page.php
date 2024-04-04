@@ -5,7 +5,7 @@
                 $product_hot = product_SELECT(0,0,true,1,"",0,0,0,4);
                 $product_new = product_SELECT(0,0,0,0,"",0,0,0,4);
                 $product_top_view = product_SELECT(0,0,true,0,"",0,0,0,5);
-                $category_all_top_view = category_SELECT(0,0,0,'',0,10);
+                $category_all_top_view = category_ALL();
                 $publishers = publisher_SELECT(0,0,0,"",0,9);
                 include_once 'view/user/home.php';
                 break;
@@ -27,10 +27,12 @@
                 }
 
                 if (isset($_POST['limit']) && $_POST['limit']){
+                    $search = $_POST['search'];
                     $limit = $_POST['limit'];
                     $category_id = $_POST['category_id'];
                     $author_id = $_POST['author_id'];
                     $publisher_id = $_POST['publisher_id'];
+                    $link .= ($search) ? '&search='.$search : '';
                     $link .= ($category_id) ? '&category_id='.$category_id : '';
                     $link .= ($author_id) ? '&author_id='.$author_id : '';
                     $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
@@ -47,13 +49,14 @@
                 include_once 'view/user/product.php';
                 break; 
             case 'product-detail':
-                if(isset($_GET['id']) &&$_GET ['id']>0){
+                if(isset($_GET['id']) && $_GET ['id']>0){
+                    update_view($_GET['id']);
                     $product_detail = product_ONE($_GET['id']);
                     $author = author_ONE($product_detail['author_id']);
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
                     $product_detail_same = product_SELECT(0,0,true,0,"",$product_detail['category_id'],0,0,4);
-                    update_view($_GET['id']);
+                    $comments = comment_SELECT(0,$_GET['id']);
                 }
                 include_once 'view/user/product-detail.php';
                 break;
@@ -68,7 +71,13 @@
                         Email: <b>'.$_POST['email'].'</b> <br>
                         '.$_POST['content'].'
                     ';
-                    mailer('Khangdao0311@gmail.com',$_POST['title'],$content);
+                    $mail =[
+                        [
+                            "email" => 'duan1.kingstore@gmail.com',
+                            "name" => $_POST['name'],
+                        ]
+                    ];
+                    mailer($mail,$_POST['title'],$content);
                     $check_success = 'checked';
                 }
                 include_once 'view/user/contact.php';

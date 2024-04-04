@@ -9,11 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="view/user/css/reponsive_home.css">     -->
+    <!-- <link rel="stylesheet" href="view/user/css/reponsive_contact.css"> -->
+    <!-- <link rel="stylesheet" href="view/user/css/reponsive_product.css"> -->
 </head>
 <body>
     <header>
         <div class="header_top">
-            <div class="container header_top-box">
+            <div class="container header_top-box m-0">
                 <img class="header_top-banner" src="view/images/banner.jpg" alt="banner">
             </div>
         </div>
@@ -22,7 +25,7 @@
                 <a href="?mod=page&act=home" class="header-logo">
                     <img src="view/images/logo.png" alt="">
                 </a>
-                <label for="navbar" class="header-category">
+                <label for="navbar" class="header-category m-0">
                     <div class="header-icon_list">
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_menu.svg" alt="">
                     </div>
@@ -34,14 +37,14 @@
                     <form action="?mod=page&act=product" method="post" class="header_search-box">
                         <input name="search" class="header_search-text" type="text" placeholder="Tìm kiếm...">
                         <input name="btn_search" hidden id="header_search-submit" type="submit">
-                        <label class="header_search-submit" for="header_search-submit">
+                        <label class="header_search-submit m-0" for="header_search-submit">
                             <div class="header_search_submit-icon">
                                 <span class="material-symbols-outlined">search</span>
                             </div>
                         </label>
                     </form>
                 </div>
-                <a href="?mod=page&act=contact" class="header-notification">
+                <a href="?mod=page&act=contact" class="header-notification m-0">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">contact_mail</span>
                     </div>
@@ -60,21 +63,21 @@
                              ?>
                         </div>
                     </div>
-                    <p>Giỏ hàng</p>
+                    <p class="m-0">Giỏ hàng</p>
                 </a>
                 <?php if ($_SESSION['user']): ?>
                 <a href="?mod=user&act=information" class="header-user">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">account_circle</span>
                     </div>
-                    <p><?= $_SESSION['user']['name'] ?></p>
+                    <p class="m-0"><?= $_SESSION['user']['name'] ?></p>
                 </a>
                 <?php else: ?>
                 <a href="?mod=user&act=login" class="header-user">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">account_circle</span>
                     </div>
-                    <p>Tài khoản</p>
+                    <p class="m-0">Tài khoản</p>
                 </a>
                 <?php endif; ?>
                 

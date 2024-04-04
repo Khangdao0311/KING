@@ -2,7 +2,7 @@
     $html_show_category = "";
     foreach ($category_all_top_view as $item) {
         $html_show_category .= '
-            <div class="category-item col-10 col">
+            <div class="category-item col-10 col m-5">
                 <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-img">
                     <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
                 </a>
@@ -14,7 +14,7 @@
     foreach ($product_hot as $item) {
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
-        <div class="col-4 col">
+        <div class="col-4 col t-3 m-2">
             <div class="product-box">
                 <a href="'.$link.'" class="product-img"><img src="view/' . $item['image'] . '" alt="'.$item['name'].'"></a>
                 <a href="'.$link.'" class="product-mane">'.$item['name'].'</a>
@@ -22,9 +22,10 @@
                 <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
                 <div class="product-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
                 <div class="product-icon_box">
-                    <div class="product-icon">
+                    <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
+                    <input type="text" hidden value="'.$item['id'].'">
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>
@@ -36,7 +37,7 @@
     $html_show_category_top_view = '';
     foreach ($category_all_top_view as $item) {
         $html_show_category_top_view .= '
-            <div onclick="show_category_rating(' . $item['id'] . ')" class="swiper-slide rating_nav-item">' . $item['name'] . '</div>
+            <div onclick="show_category_rating(' . $item['id'] . ')" class="swiper-slide rating_nav-item m-3">' . $item['name'] . '</div>
             ';
     }
     $html_show_top_view = '';
@@ -58,7 +59,7 @@
 $html_product_new = '';
 foreach ($product_new as $item) {
     $html_product_new .= '
-        <div class="col-4 col">
+        <div class="col-4 col t-3 m-2">
             <div class="product-box">
                 <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
                 <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-mane">'.$item['name'].'</a>
@@ -66,9 +67,10 @@ foreach ($product_new as $item) {
                 <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                 <div class="product-view">'.number_format($item['view'],0,',','.').' lượt xem</div>
                 <div class="product-icon_box">
-                    <div class="product-icon">
+                <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                    </div>
+                </div>
+                <input type="text" hidden value="'.$item['id'].'">
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>
@@ -81,7 +83,7 @@ foreach ($product_new as $item) {
 $html_show_publishers = '';
 foreach ($publishers as $item) {
     $html_show_publishers .= '
-        <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col">
+        <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col t-6 m-6">
             <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
         </a>
     ';
@@ -118,7 +120,7 @@ foreach ($publishers as $item) {
 </section> -->
 <section class="margin-header">
     <div class="container silde_banner">
-        <div class="silde-box swiper mySwiper">
+        <div class="silde-box swiper mySwiper t-1 m-1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg" alt="">
@@ -146,16 +148,16 @@ foreach ($publishers as $item) {
             <!-- <div class="swiper-scrollbar"></div> -->
         </div>
         <div class="banner-box">
-            <div class="banner-item">
+            <div class="banner-item t-0 m-0">
                 <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_sacombank_t3.jpg" alt="">
             </div>
-            <div class="banner-item">
+            <div class="banner-item t-0 m-0">
                 <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_zalopay_t3.jpg" alt="">
             </div>
         </div>
     </div>
 </section>
-<section>
+<section class="m-0">
     <div class="container voucher_nav">
         <div class="voucher-box row">
             <div class="col-4 col">
@@ -268,7 +270,6 @@ foreach ($publishers as $item) {
             </a>
         </div>
         <div class="hot_product-box row">
-
             <?= $html_product_hot ?>
             
         </div>
@@ -298,12 +299,12 @@ foreach ($publishers as $item) {
             </div>
         </div>
         <div class="rating_container">
-            <div class="rating_container-left">
+            <div class="rating_container-left m-1">
 
                 <?= $html_show_top_view ?>
 
             </div>
-            <div class="rating_container-right">
+            <div class="rating_container-right m-0">
                 <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id']?>" class="rating_product_detail-img">
                     <img src="view/<?= $product_top_view[0]['image'] ?>" alt="<?= $product_top_view[0]['name'] ?>">
                 </a>
