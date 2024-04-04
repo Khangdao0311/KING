@@ -36,4 +36,3 @@ if (isset($_GET['mod'])) {
 } else {
     header('location: ?mod=page&act=home');
 }
-
