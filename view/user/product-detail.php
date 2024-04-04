@@ -179,8 +179,10 @@
         <div class="productdetail_comment-box">
             
             <?= $html_comment ?>
+            <div class="comment_NaN">Sản Phẩm Không có Bình Luận</div>
 
         </div>
+        <?php if($_SESSION['user'] != []): ?>
         <div class="productdetail_comment-form">
             <img src="view/images/user/<?= $_SESSION['user']['image'] ?>" alt="" class="productdetail_comment_form-img">
             <div class="productdetail_comment_form-content">
@@ -204,7 +206,7 @@
                 </div>
             </div>
         </div>
-        
+        <?php endif; ?>
     </div>
 </section>
 
