@@ -45,6 +45,27 @@ function show_category_rating(id) {
     );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // var array_image = [
 //     'https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg',
 //     'https://cdn0.fahasa.com/media/magentothem/banner7/HSO_T1_T324_Banner_resize_Slide_840x320.jpg',

@@ -28,9 +28,10 @@
                     <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                     <div class="product-view">'.$item['view'].' lượt xem</div>
                     <div class="product-icon_box">
-                        <div class="product-icon">
-                            <span class="material-symbols-outlined">shopping_cart</span>
-                        </div>
+                    <div onclick="addcart(this)" class="product-icon">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <input type="text" hidden value="'.$item['id'].'">
                         <div class="product-icon">
                             <span class="material-symbols-outlined">favorite</span>
                         </div>
@@ -113,3 +114,4 @@
     </div>
 </section>
 <?php include_once 'footer.php' ?>
+<script src="view/user/js/script.js"></script>

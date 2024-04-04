@@ -23,7 +23,7 @@
         $sql.= " WHERE id = $id";
         return Edit($sql);
     }
-function user_SELECT($page,$view,$hot,$search,$category_id,$limit) {
+    function user_SELECT($page,$view,$hot,$search,$category_id,$limit) {
     $sql = "SELECT * FROM users WHERE 1";
     if ($category_id > 0) $sql .=" AND category_id = $category_id";
     if ($hot) $sql .=" AND noibat = $hot";

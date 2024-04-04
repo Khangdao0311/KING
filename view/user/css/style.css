@@ -662,3 +662,16 @@ footer {
 .success-icon > span {
     color: var(--success);
 }
+.cart_add_success {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--success);
+    color: #FFF;
+    padding: 5rem;
+    font-size: 2.4rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    z-index: 999;
+}
