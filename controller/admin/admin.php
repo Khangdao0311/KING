@@ -55,8 +55,8 @@
                 category_detele($id);
                 header('location: ?mod=admin&act=category-list');
             case 'product-list':
-                $html_number_page = phan_trang($page,$search,$data = product_SELECT(0,0,0,$search,0,0,0,0),$_GET['mod'],$_GET['act']);
-                $product_management = product_SELECT($page,0,0,$search,0,0,0,SLSP);
+                $html_number_page = phan_trang($page,$search,$data = product_SELECT(0,0,0,0,$search,0,0,0,0),$_GET['mod'],$_GET['act']);
+                $product_management = product_SELECT(0,$page,0,0,$search,0,0,0,SLSP);
                 include_once 'view/admin/product-list.php';
                 break;
             case 'product-delete':

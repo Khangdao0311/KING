@@ -220,10 +220,7 @@ foreach ($product_detail_same as $item) {
             <div class="new_titel-text">Sản phẩm tương tự</div>
         </div>
         <div class="row">
-
             <?= $html_productdetail_same ?>
-
-
         </div>
     </div>
 </section>

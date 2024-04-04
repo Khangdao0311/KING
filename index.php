@@ -14,6 +14,8 @@ require_once 'model/product.php';
 require_once 'model/user.php';
 require_once 'model/gallery.php';
 require_once 'model/mailer.php';
+require_once 'model/comment.php';
+require_once 'model/order.php';
 
 if (isset($_GET['mod'])) {
     switch ($_GET['mod']) {

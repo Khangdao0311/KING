@@ -166,16 +166,6 @@
                             array_push($products_all, product_ONE($item['product_id']));
                         }
                     }
-
-
-
-
-
-
-
-
-
-
                     include_once 'view/user/account-order_follow.php';
                 } else header('location: ?mod=page&act=home');
                 break;
