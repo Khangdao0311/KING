@@ -72,7 +72,13 @@
                         Email: <b>'.$_POST['email'].'</b> <br>
                         '.$_POST['content'].'
                     ';
-                    mailer('Khangdao0311@gmail.com',$_POST['title'],$content);
+                    $mail =[
+                        [
+                            "email" => 'duan1.kingstore@gmail.com',
+                            "name" => $_POST['name'],
+                        ]
+                    ];
+                    mailer($mail,$_POST['title'],$content);
                     $check_success = 'checked';
                 }
                 include_once 'view/user/contact.php';
