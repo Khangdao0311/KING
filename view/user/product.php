@@ -1,26 +1,27 @@
 <?php
     $html_show_category = '';
+    $linksearch = (isset($_GET['search'])) ? '&search='.$_GET['search'] : '';
     foreach ($category_all as $item) {
         $html_show_category .= '
-        <a href="?mod=page&act=product&category_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&category_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
-    }
+    } 
     $html_show_author = '';
     foreach ($author_all as $item) {
         $html_show_author .= '
-        <a href="?mod=page&act=product&author_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&author_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     }
     $html_show_publisher = '';
     foreach ($publisher_all as $item) {
         $html_show_publisher .= '
-        <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&publisher_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     }
     $html_show_product_all = '';
     foreach ($product_all as $item) {
         $html_show_product_all .= '
-            <div class="col-3 col">
+            <div class="col-3 col t-2 m-2">
                 <div class="product-box">
                     <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
                     <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-mane">'.$item['name'].'</a>
@@ -66,6 +67,7 @@
                         <option value="15">15</option>
                     </select>
                 </div>
+                <input hidden name="search" value="<?= $search ?>" type="text">
                 <input hidden name="category_id" value="<?= $category_id ?>" type="text">
                 <input hidden name="author_id" value="<?= $author_id ?>" type="text">
                 <input hidden name="publisher_id" value="<?= $publisher_id ?>" type="text">
@@ -75,21 +77,21 @@
         </div>
         <div class="product_box">
             <div class="product_box-nav">
-                <div class="product_box_nav-item">
+                <div class="product_box_nav-item m-0">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Danh Mục</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_category ?>
                     </div> 
                    
                 </div>
-                <div class="product_box_nav-item">
+                <div class="product_box_nav-item m-0">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Tác Giả</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_author ?>
                     </div> 
                    
                 </div>
-                <div class="product_box_nav-item">
+                <div class="product_box_nav-item m-0">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Nhà Xuất Bản</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_publisher ?>
@@ -109,7 +111,8 @@
             </div>
         </div>
         <?php  else: ?>
-            <h1 class="product-NaN">Không có kết quả bạn muốn tìm</h1>
+            <a href="?mod=page&act=product"><span class="material-symbols-outlined button_undo">undo</span></a>
+            <h1 class="product-NaN">Không có kết quả bạn muốn tìm <?= $search ?></h1>
         <?php endif; ?>
     </div>
 </section>

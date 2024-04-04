@@ -1,0 +1,24 @@
+@media (min-width: 740px) and (max-width: 1024px){
+    .product-container {
+        gap: 1.2rem !important;
+        padding: 1.2rem !important;
+    }
+    .row{
+        flex-wrap: wrap;
+    }   
+  
+    .product_box-show{
+        width: 65% !important;
+    }
+
+    .product_box-nav{
+        width: 35% !important;
+    }
+}
+
+@media (max-width: 740px) {
+    .product-container {
+        gap: 1.2rem !important;
+        padding: 1.2rem 0 !important;
+    }
+}

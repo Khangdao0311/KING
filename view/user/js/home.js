@@ -22,6 +22,17 @@ const swiper_rating = new Swiper(".swiper_rating", {
     //     500: { slidesPerView: 2 },
     // },
 });
+const swiper_product = new Swiper(".swiper_product", {
+    slidesPerView: 1    ,
+    // breakpoints: {
+    //     1024: { slidesPerView: 4 },
+    //     768: { slidesPerView: 3 }, 
+    //     500: { slidesPerView: 2 },
+    // },
+});
+
+
+
 function show_rating(id) {
     $.post("model/load_show_rating.php", 
     {
