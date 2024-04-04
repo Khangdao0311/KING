@@ -5,7 +5,7 @@
         <div class="container">
             <div class="title">
                 <div class="title-menu">
-                    <a href="?mod=admin&act=comment-list" class="title_menu-icon"></a>
+                    <a href="?mod=admin&act=comment-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý bình luận</div>
                 </div>
                 <div class="title-function">Chỉnh Sửa</div>

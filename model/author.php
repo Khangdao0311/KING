@@ -27,4 +27,17 @@
         }
         return get_All($sql);   
     }
+    function author_add($name,$email,$dob,$information){
+        $sql = "INSERT INTO authors(name,email,dob,information)
+        Value ('$name','$email','$dob','$information')"; 
+        return edit($sql);
+    }
+    function author_delete($id){
+        $sql = "DELETE FROM authors WHERE id = $id";
+        return edit($sql);
+    }
+    function author_edit($name,$email,$dob,$information,$id){
+        $sql = "UPDATE authors SET name = '$name', email = '$email', dob = '$dob', information = '$information' WHERE id = $id";
+        return edit($sql);
+    }
 ?>

@@ -8,10 +8,10 @@
 </head>
 <body>
     <header>
-        <img class="header-logo" src="Logo.png" alt="">
+        <a href="?mod=admin&act=category-list"><img class="header-logo" src="view/images/logo.png" alt=""></a>
         <div class="header-account">
-            <div class="header_account-img"></div>
-            <div class="header_account-name">Name admin</div>
+            <div class="header_account-img"><?=$_SESSION['user']['image'];?></div>
+            <div class="header_account-name"><?= $_SESSION['user']['name'];?></div>
         </div>
     </header>
     <main>
