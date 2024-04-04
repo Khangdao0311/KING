@@ -42,6 +42,19 @@
         }
         return get_All($sql);   
     }
+function user_add_admin($name,$image,$username,$password,$role,$email,$phone,$address){
+    $sql = "INSERT INTO users (name,image,username,password,role,email,phone,address) 
+    Value ('$name','$image','$username','$password','$role','$email','$phone','$address')";
+    return edit($sql);
+}
+function user_delete($id){
+    $sql = "DELETE FROM users WHERE id=$id";
+    return edit($sql);
+}
+function user_edit($name,$image,$username,$password,$role,$email,$phone,$address,$id){
+    $sql = "UPDATE users SET name='$name', image='$image', username='$username', password='$password', role='$role', email='$email', phone='$phone', address= '$address' WHERE id=$id";
+    return edit($sql);
+}
     function user_updation_date($id){
         $sql = "UPDATE users SET updation_date = current_timestamp() WHERE id = $id";
         return edit($sql);

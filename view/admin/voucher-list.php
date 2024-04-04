@@ -1,4 +1,23 @@
 <?php include_once 'header.php' ?>
+<?php
+$html_voucher_management="";
+foreach ($voucher_management as $item){
+    $html_voucher_management.='<div class="list-row voucher-grid ">
+    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item">'.$item['code'].'</div>
+    <div class="list-item flex-center list_item-price_sale">'.$item['price'].'</div>
+    <div class="list-item flex-center">'.$item['start_date'].'</div>
+    <div class="list-item flex-center">'.$item['end_date'].'</div>
+    <div class="list-item flex-center">'.$item['quantity'].'</div>
+    <div class="list-item flex-center">'.$item['creation_date'].'</div>
+    <div class="list-item flex-center">'.$item['updation_date'].'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=voucher-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=voucher-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
+    </div>
+</div>';
+}
+?>
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -19,20 +38,7 @@
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
 
-                <div class="list-row voucher-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">adsadasd</div>
-                    <div class="list-item flex-center list_item-price_sale">100.00 đ</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">0</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=voucher-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
-                    </div>
-                </div>
+                <?=$html_voucher_management;?>
 
             </div>
         </div>

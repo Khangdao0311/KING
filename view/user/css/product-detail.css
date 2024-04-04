@@ -440,3 +440,18 @@
     color: #FFF;
     background-color: var(--primary);
 }
+.success-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 4rem;
+    font-size: 2rem;
+    border-radius: 0.5rem;
+    z-index: 999;
+}
+.click-addcart{
+    cursor: pointer;
+}

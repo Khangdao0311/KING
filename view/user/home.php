@@ -22,9 +22,10 @@
                 <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
                 <div class="product-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
                 <div class="product-icon_box">
-                    <div class="product-icon">
+                    <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
+                    <input type="text" hidden value="'.$item['id'].'">
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>
@@ -66,9 +67,10 @@ foreach ($product_new as $item) {
                 <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                 <div class="product-view">'.number_format($item['view'],0,',','.').' lượt xem</div>
                 <div class="product-icon_box">
-                    <div class="product-icon">
+                <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                    </div>
+                </div>
+                <input type="text" hidden value="'.$item['id'].'">
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>

@@ -131,3 +131,11 @@
 .product-number-page a{
     background-color: #000;
 }
+.product-page_division {
+    width: 100%;
+    padding: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+}

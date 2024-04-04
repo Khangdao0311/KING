@@ -55,9 +55,6 @@
                     $gallery = gallery_ALL($product_detail['id']);
                     $product_detail_same = product_SELECT(0,0,true,0,"",$product_detail['category_id'],0,0,4);
                     $comments = comment_SELECT(0,$_GET['id']);
-                    // if (isset) {
-                    //     comment_ADD($content,$rating,$user_id,$product_id);
-                    // }
                 }
                 include_once 'view/user/product-detail.php';
                 break;

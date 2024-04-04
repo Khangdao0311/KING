@@ -38,7 +38,10 @@
 .title-img {
     width: 15rem;
     aspect-ratio: 1/1;
-    background-color: aqua;
+}
+.title-img-fix{
+    width: 15rem;
+    aspect-ratio: 2/1;
 }
 .content {
     width: 100%;
@@ -83,4 +86,9 @@
 .fix{
     width: 80%;
     font-size: 1.6rem;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
