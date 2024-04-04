@@ -1,35 +1,35 @@
 <?php
-$html_img_productdetail = "";
-foreach ($gallery as $item) {
-    $html_img_productdetail .= '
-        <div onclick="show_image(this)" class="productdetail_image_list-item">
-            <img src="view/' . $item['image'] . '" alt="">
-        </div>
-        ';
-}
-$html_productdetail_same = "";
-foreach ($product_detail_same as $item) {
-    $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
-    $html_productdetail_same .= '
-        <div class="col-4 col">
-            <div class="product-box">
-                <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt=""></a>
-                <a href="?mod=page&act=product-detail" class="product-mane">' . $item['name'] . '</a>
-                <div class="product-price_sale">' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
-                <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
-                <div class="product-view">' . $item['view'] . ' lượt xem</div>
-                <div class="product-icon_box">
-                <div onclick="addcart(this)" class="product-icon">
-                <span class="material-symbols-outlined">shopping_cart</span>
+    $html_img_productdetail = "";
+    foreach ($gallery as $item) {
+        $html_img_productdetail .= '
+            <div onclick="show_image(this)" class="productdetail_image_list-item">
+                <img src="view/' . $item['image'] . '" alt="">
             </div>
-            <input type="text" hidden value="' . $item['id'] . '">
-                    <div class="product-icon">
-                        <span class="material-symbols-outlined">favorite</span>
-                    </div>
-               </div>
+            ';
+    }
+    $html_productdetail_same = "";
+    foreach ($product_detail_same as $item) {
+        $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
+        $html_productdetail_same .= '
+            <div class="col-4 col">
+                <div class="product-box">
+                    <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt=""></a>
+                    <a href="?mod=page&act=product-detail" class="product-mane">' . $item['name'] . '</a>
+                    <div class="product-price_sale">' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+                    <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
+                    <div class="product-view">' . $item['view'] . ' lượt xem</div>
+                    <div class="product-icon_box">
+                    <div onclick="addcart(this)" class="product-icon">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                </div>
+                <input type="text" hidden value="' . $item['id'] . '">
+                        <div class="product-icon">
+                            <span class="material-symbols-outlined">favorite</span>
+                        </div>
+                </div>
+                </div>
             </div>
-        </div>
-        ';
+            ';
     }
     $html_comment = '';
     foreach ($comments as $item) {
@@ -38,9 +38,6 @@ foreach ($product_detail_same as $item) {
         $star4 = ($item['rating'] > 3) ? "star-active" : "";
         $star3 = ($item['rating'] > 2) ? "star-active" : "";
         $star2 = ($item['rating'] > 1) ? "star-active" : "";
-}
-?>
-
         $html_comment .= '
             <div class="productdetail_comment-item">
                 <img class="productdetail_comment_item-img" src="view/images/user/'.$comment_user['image'].'" alt="">
@@ -236,5 +233,6 @@ foreach ($product_detail_same as $item) {
 
 
 <?php include_once('footer.php') ?>
+<script src="view/user/js/product-detail.js"></script>
 <script src="view/user/js/cart.js"></script>
 <script src="view/user/js/script.js"></script>
