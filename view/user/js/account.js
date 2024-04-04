@@ -81,6 +81,9 @@ function check() {
         document.querySelector('.account-submit').style.opacity = '0.5'; 
     }
 }
+
+
+
 const inputflie = document.getElementById('inputfile');
 const image = document.getElementById('imagechange');
 inputflie.addEventListener('change', (el) => {

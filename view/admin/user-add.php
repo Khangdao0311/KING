@@ -9,7 +9,7 @@
                     <div class="title_menu-content">Quản lý khách hàng</div>
                 </div>
                 <div class="title-function">Thêm</div>
-                <img src="view/images/logo.png" class="title-img-fix"></img>
+                <img src="view/images/logo.png" class="title-img"></img>
             </div>
             <form class="content" action="?mod=admin&act=user-add" method="post" enctype="multipart/form-data">
                 <div class="content-item">
@@ -50,6 +50,16 @@
                 </div>   
                 <input name="btn_adduser" type="submit" class="content-submit" value="Thêm">
             </form>
+        </div>
+        <input hidden id="success" type="checkbox" <?= $check_success ?>>
+        <div class="success">
+            <div class="success-box">
+                <div class="success-title">Thêm thành công</div>
+                <div class="success-icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <a href="?mod=admin&act=category-add" class="success-next">ok</a>
+            </div>
         </div>
     </section>
 </main>

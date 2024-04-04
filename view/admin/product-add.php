@@ -1,4 +1,6 @@
 <?php include_once 'header.php' ?>
+<style>
+</style>
 <?php
 $html_show_category="";
 foreach($data_category as $item){
@@ -23,9 +25,9 @@ foreach($data_publisher as $item){
                     <div class="title_menu-content">Quản lý sản phẩm</div>
                 </div>
                 <div class="title-function">Thêm</div>
-                <img src="view/images/logo.png" class="title-img-fix"></img>
+                <img id="imagechange" src="view/images/logo.png" class="title-img"></img>
             </div>
-            <form class="content" action="?mod=admin&act=product-add" method="post" enctype="multipart/form-data">
+            <form id="myForm" class="content" action="?mod=admin&act=product-add" method="post" enctype="multipart/form-data">
                 <div class="content-item">
                     <div class="content_item-key">Tên sản phẩm</div>
                     <input name="name" class="content_item-value" type="text" placeholder="nhập Tên sản phẩm">
@@ -46,6 +48,7 @@ foreach($data_publisher as $item){
                     <div class="content_item-key">Mô tả</div>
                     <input name="describle" class="content_item-value" type="text" placeholder="nhập mô tả">
                 </div>
+                <div id="selectError" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
                     <div class="content_item-key">Nổi bật</div>
                     <select class="fix" name="noibat" id="">
@@ -55,6 +58,7 @@ foreach($data_publisher as $item){
                     </select>
                     <!-- <input name="noibat" class="content_item-value" type="number" placeholder="nhập mã nổi bật"> -->
                 </div>
+                <div id="select2Error" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
                     <div class="content_item-key">Mã danh mục</div>
                     <select class="fix" name="category_id" id="">
@@ -62,6 +66,7 @@ foreach($data_publisher as $item){
                         <?=$html_show_category;?> 
                     </select>
                 </div>
+                <div id="select3Error" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
                     <div class="content_item-key">Mã tác giả</div>
                 <select class="fix" name="author_id" id="">
@@ -69,6 +74,7 @@ foreach($data_publisher as $item){
                         <?=$html_show_author;?>
                 </select>
                 </div>
+                <div id="select4Error" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
                     <div class="content_item-key">Mã nhà sản xuất</div>
                 <select class="fix" name="publisher_id" id="">
@@ -78,10 +84,68 @@ foreach($data_publisher as $item){
                 </div>     
                 <div class="content-item">
                     <div class="content_item-key">Hình ảnh</div>
-                    <input name="image" class="content_item-value" type="file">
+                    <input  hidden name="image" id="inputfile" class="content_item-value" type="file">
+                    <label class="file" for="inputfile">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125" stroke="#fffffff" stroke-width="2"></path>
+                <path d="M17 15V18M17 21V18M17 18H14M17 18H20" stroke="#fffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                ADD FILE 
+            </label>
                 </div>   
                 <input type="submit" class="content-submit" name="btn_addproduct" value="Thêm">
             </form>
         </div>
+        <input hidden id="success" type="checkbox" <?= $check_success ?>>
+        <div class="success">
+            <div class="success-box">
+                <div class="success-title">Thêm thành công</div>
+                <div class="success-icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <a href="?mod=admin&act=product-add" class="success-next">ok</a>
+            </div>
+        </div>
     </section>
 </main>
+<script>
+document.getElementById('myForm').onsubmit = function(e) {
+    var noibatSelect = document.getElementsByName('noibat')[0].value;
+    var categorySelect = document.getElementsByName('category_id')[0].value;
+    var authorSelect = document.getElementsByName('author_id')[0].value;
+    var publisherSelect = document.getElementsByName('publisher_id')[0].value;
+    if (noibatSelect === "") {
+        document.getElementById('selectError').style.display = 'block';
+        e.preventDefault();}
+        else {
+        document.getElementById('selectError').style.display = 'none';
+    }
+        if (categorySelect === "") {
+        document.getElementById('select2Error').style.display = 'block';
+        e.preventDefault();}
+        else {
+        document.getElementById('select2Error').style.display = 'none';
+    }
+    if (authorSelect === "") {
+        document.getElementById('select3Error').style.display = 'block';
+        e.preventDefault();}
+        else {
+        document.getElementById('select3Error').style.display = 'none';
+    }
+    if (publisherSelect == ""){
+        document.getElementById('select4Error').style.display = 'block';
+        e.preventDefault();
+    } 
+    else {
+        document.getElementById('select4Error').style.display = 'none';
+    }
+
+
+};
+
+const inputflie = document.getElementById('inputfile');
+const image = document.getElementById('imagechange');
+inputflie.addEventListener('change', (el) => {
+    image.src = URL.createObjectURL(el.target.files[0]);
+});
+</script>

@@ -67,6 +67,7 @@
         $sotrang = ceil($soluong);
         $html_number_page="";
         $a = ($search) ? '&search='.$search : '';
+        if($sotrang>1){
         for($i=1;$i<=$sotrang;$i++){
             $link='?mod='.$mod.'&act='.$act.$a.'&trang='.$i;
             if($i==$page){
@@ -75,6 +76,7 @@
                 $html_number_page.='<a href="'.$link.'" class="product-number-page">'.$i.'</a>';
             }
         }
+    }
         return $html_number_page;
     }
     function product_add($name,$image,$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id){

@@ -48,5 +48,15 @@ foreach ($data_user_id as $item){
                 <input name="btn_addvoucher" type="submit" class="content-submit" value="Thêm">
             </form>
         </div>
+        <input hidden id="success" type="checkbox" <?= $check_success ?>>
+        <div class="success">
+            <div class="success-box">
+                <div class="success-title">Thêm thành công</div>
+                <div class="success-icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <a href="?mod=admin&act=category-add" class="success-next">ok</a>
+            </div>
+        </div>
     </section>
 </main>
