@@ -27,4 +27,17 @@
         }
         return get_All($sql);   
     }
+    function publisher_add($name,$image,$address,$email,$information){
+        $sql = "INSERT INTO publishers(name,image,address,email,information) 
+        VALUE ('$name','$image','$address','$email','$information')";
+        return edit($sql);
+    }
+    function publisher_edit($name,$image,$address,$email,$information,$id){
+        $sql = "UPDATE publishers SET name = '$name', image = '$image', address = '$address', email = '$email', information = '$information' Where id=$id";
+        return edit($sql);
+    }
+    function publisher_delete($id){
+        $sql = "DELETE FROM publishers WHERE id=$id";
+        return edit($sql);
+    }
 ?>

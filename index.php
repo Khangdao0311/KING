@@ -14,6 +14,7 @@
     require_once 'model/user.php';
     require_once 'model/gallery.php';
     require_once 'model/mailer.php';
+    require_once 'model/voucher.php';
     
     if (isset($_GET['mod'])) {
         switch ($_GET['mod']) {

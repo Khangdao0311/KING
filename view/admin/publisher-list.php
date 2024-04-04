@@ -11,8 +11,8 @@ foreach ($publisher_management as $item){
     <div class="list-item">'.$item['email'].'</div>
     <div class="list-item">'.$item['information'].'</div>
     <div class="list-item flex-center">
-        <a href="?mod=admin&act=publisher-edit&id=" class="function-edit">Sửa</a>
-        <div class="function-delete">Xóa</div>
+        <a href="?mod=admin&act=publisher-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=publisher-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
     </div>
 </div>';
 }
