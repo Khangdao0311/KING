@@ -98,6 +98,7 @@
                         $new_password = $_POST['new-password'];
                         $new_password = password_hash($new_password, PASSWORD_DEFAULT);
                         user_UPDATE($_SESSION['foget_password-email'][0]['id'],'','',$new_password,'','','');
+                        user_updation_date($_SESSION['foget_password-email'][0]['id']);
                         unset($_SESSION['foget_password-email']);
                         header('location: ?mod=user&act=forgot_password-success');
                     }
@@ -120,6 +121,7 @@
                         $image = $_FILES['image']['name'];
                         move_uploaded_file($_FILES['image']['tmp_name'],'view/images/user/'.$_FILES['image']['name']);
                         user_UPDATE($id,$name,$image,'',$email,$phone,'');
+                        user_updation_date($id);
                         $_SESSION['user'] = user_ONE($id) ;
                         $check_success  = 'checked';
                     }
@@ -140,6 +142,7 @@
                         $address = "$province@$district@$ward@$street@$note";
                         $id = $_SESSION['user']['id'];
                         user_UPDATE($_SESSION['user']['id'],$name,'','','',$phone,$address);
+                        user_updation_date($id);
                         $_SESSION['user'] = user_ONE($id);
                         $check_success = 'checked';
                     }
@@ -149,6 +152,29 @@
                 break;
             case 'account-order_follow':
                 if ($_SESSION['user'] != []) {
+                    
+                    
+
+                    $orders = order_SELECT($_SESSION['user']['id'],0,0);
+                    $order_detail = [];
+                    foreach ($orders as $item) {
+                        array_push($order_detail, order_detail_SELECT($item['id'],0));
+                    }
+                    $products_all = [];
+                    foreach ($order_detail as $box) {
+                        foreach ($box as $item) {
+                            array_push($products_all, product_ONE($item['product_id']));
+                        }
+                    }
+
+
+
+
+
+
+
+
+
 
                     include_once 'view/user/account-order_follow.php';
                 } else header('location: ?mod=page&act=home');
@@ -168,6 +194,7 @@
                                 $id = $_SESSION['user']['id'];
                                 $password = password_hash($password_new, PASSWORD_DEFAULT);
                                 user_UPDATE($id,'','',$password,'','','');
+                                user_updation_date($id);
                                 $_SESSION['user'] = user_ONE($id);
                             } else $check_error = 'checked';
                         } else $check_error = 'checked';

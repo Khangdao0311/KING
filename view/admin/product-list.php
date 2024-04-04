@@ -48,7 +48,7 @@ foreach($product_management as $item){
                 </div>
 
                 <?=$html_product_management;?>
-                <div class="product-page">
+                <div class="product-page_division">
                     <?=$html_number_page;?>
                     </div>
             </div>
