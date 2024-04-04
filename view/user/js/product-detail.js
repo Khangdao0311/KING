@@ -23,3 +23,23 @@ function check_describe(el) {
         el.innerHTML = 'Xem thêm'
     }
 }
+function star_rating(el) {
+    document.getElementById('number_start').value = el.value;
+}
+function submit_comment(el) {
+    var id = el.nextSibling.nextSibling.nextSibling.nextSibling.value
+    var star = el.nextSibling.nextSibling.value
+    var content = el.previousSibling.previousSibling.value
+    if (content) {
+        $.post("model/load_comment.php", {
+            "id": id,
+            "star": star,
+            "content": content,
+        },
+            function (data, textStatus, jqXHR) {
+                $('.productdetail_comment-container').html(data);            
+            },
+        );
+    }
+
+}

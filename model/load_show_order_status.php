@@ -65,7 +65,7 @@
                                 <div class="account_order_follow_product-price_sale">'.number_format($product['price_sale'],0,',','.').' đ</div>
                                 <del class="account_order_follow_product-price">'.number_format($product['price'],0,',','.').' đ</del>
                             </div>
-                            <div class="account_order_follow_product-quantity">x'.order_detail_SELECT(0,$product['id'])[0]['quantity'].'</div>
+                            <div class="account_order_follow_product-quantity">x'.$products['quantity'].'</div>
                         </div>
                         <div class="account_order_follow_product-fun">
                             <div class="account_order_follow_product-total">'.number_format(($product['price_sale']*$products['quantity']),0,',','.').' đ</div>

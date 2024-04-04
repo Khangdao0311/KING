@@ -47,13 +47,17 @@
                 include_once 'view/user/product.php';
                 break; 
             case 'product-detail':
-                if(isset($_GET['id']) &&$_GET ['id']>0){
+                if(isset($_GET['id']) && $_GET ['id']>0){
+                    update_view($_GET['id']);
                     $product_detail = product_ONE($_GET['id']);
                     $author = author_ONE($product_detail['author_id']);
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
                     $product_detail_same = product_SELECT(0,0,true,0,"",$product_detail['category_id'],0,0,4);
-                    update_view($_GET['id']);
+                    $comments = comment_SELECT(0,$_GET['id']);
+                    // if (isset) {
+                    //     comment_ADD($content,$rating,$user_id,$product_id);
+                    // }
                 }
                 include_once 'view/user/product-detail.php';
                 break;
