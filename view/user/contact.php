@@ -8,7 +8,7 @@
 </section>
 <section>
     <div class="container contact-container">
-        <div class="contact-information">
+        <div class="contact-information m-1">
             <div class="contact_information-title">Thông Tin</div>
             <div class="contact_information-item">
                 <span class="material-symbols-outlined">phone</span>
@@ -24,7 +24,7 @@
             </div>
             <div class="contact_information-img"></div>
         </div>
-        <form action="?mod=page&act=contact" method="post" class="contact-form">
+        <form action="?mod=page&act=contact" method="post" class="contact-form m-1">
             <div class="contact_form-two">
                 <div class="contact_form_two-item">
                     <div class="contact_form-text">Email</div>

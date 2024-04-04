@@ -19,7 +19,7 @@
     foreach ($categorys as $item) {
         $check = ($id == $item['id']) ? 'rating_nav-item-check' : '';
         $html_show_category_rating .= '
-                <div onclick="show_category_rating('.$item['id'].')" class="swiper-slide rating_nav-item '.$check.'">'.$item['name'].'</div>
+                <div onclick="show_category_rating('.$item['id'].')" class="swiper-slide rating_nav-item '.$check.' m-4">'.$item['name'].'</div>
         ';
     }
     $html_show_category_rating .= '
@@ -45,7 +45,7 @@
     }
     $html_show_category_rating .= '
             </div>
-            <div id="load-show_rating" class="rating_container-right">
+            <div id="load-show_rating" class="rating_container-right m-0">
                 <a href="?mod=page&act=product-detail&id='.$products_view[0]['id'].'" class="rating_product_detail-img">
                     <img src="view/'.$products_view[0]['image'].'" alt="">
                 </a>

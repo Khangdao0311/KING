@@ -27,10 +27,12 @@
                 }
 
                 if (isset($_POST['limit']) && $_POST['limit']){
+                    $search = $_POST['search'];
                     $limit = $_POST['limit'];
                     $category_id = $_POST['category_id'];
                     $author_id = $_POST['author_id'];
                     $publisher_id = $_POST['publisher_id'];
+                    $link .= ($search) ? '&search='.$search : '';
                     $link .= ($category_id) ? '&category_id='.$category_id : '';
                     $link .= ($author_id) ? '&author_id='.$author_id : '';
                     $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
@@ -53,7 +55,7 @@
                     $publisher = publisher_ONE($product_detail['publisher_id']);
                     $gallery = gallery_ALL($product_detail['id']);
                     $product_detail_same = product_SELECT(0,0,true,0,"",$product_detail['category_id'],0,0,4);
-                    update_view($_GET['id']);
+                    update_view($_GET['id']); 
                 }
                 include_once 'view/user/product-detail.php';
                 break;

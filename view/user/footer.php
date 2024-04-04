@@ -1,6 +1,6 @@
 
 <footer>
-    <div class="container footer-box">
+    <div class="container footer-box m-0">
         <div class="footer-left">
             <a href="?mod=page&act=home" class="footer-logo">
                 <img src="view/images/logo.png" alt="LOGO">
@@ -37,7 +37,7 @@
         </div>
         <div class="footer-right">
             <div class="footer-information_box row">
-                <div class="footer-information_item col-3 col flex-column">
+                <div class="footer-information_item col-3 col flex-column t-2">
                     <div class="footer-title text-center">DỊCH VỤ</div>
                     <ul class="footer_information-list">
                         <li><a href="">Điều khoản sửa dụng</a></li>
@@ -47,7 +47,7 @@
                         <li><a href="">Hệ thống trung tâm - nhà sách</a></li>
                     </ul>
                 </div>
-                <div class="footer-information_item col-3 col flex-column">
+                <div class="footer-information_item col-3 col flex-column t-2">
                     <div class="footer-title text-center">HỔ TRỢ</div>
                     <ul class="footer_information-list">
                         <li><a href="">Chính sách đổi - trả - hoàn tiền</a></li>
@@ -57,7 +57,7 @@
                         <li><a href="">Phương thức thanh toán và xuất HĐ</a></li>
                     </ul>
                 </div>
-                <div class="footer-information_item col-3 col flex-column">
+                <div class="footer-information_item col-3 col flex-column t-0">
                     <div class="footer-title text-center">TÀI KHOẢN CỦA TÔI</div>
                     <ul class="footer_information-list">
                         <li><a href="">Đăng nhập/Tạo mới tài khoản</a></li>
@@ -120,6 +120,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="pc-0 t-0 footer_nav">
+        <a href="?mod=page&act=home" class="nav_icon">
+            <span class="material-symbols-outlined">home</span>
+            <p>Trang chủ</p>
+        </a>
+        <a href="?mod=page&act=product" class="nav_icon">
+            <span class="material-symbols-outlined">package_2</span>
+            <p>Sản phẩm</p>
+        </a>
+        <a href="?mod=page&act=contact" class="nav_icon">
+            <span class="material-symbols-outlined">store</span>
+            <p>Cửa hàng</p>
+        </a>
+        <a href="?mod=user&act=login" class="nav_icon">
+            <span class="material-symbols-outlined">person</span>
+            <p>Đăng nhập</p>
+        </a>
+        <div class="nav_icon">
+            <span class="material-symbols-outlined">pending</span>
+            <p>Xem thêm</p>
         </div>
     </div>
 </footer>
