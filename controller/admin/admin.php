@@ -1,27 +1,31 @@
 <?php
+if($_SESSION['user']['role']== 1){
     if (isset($_GET['act'])) {
         if(isset($_GET['trang']) && ($_GET['trang']>0)) {
             $page=$_GET['trang'];
         }else{
             $page=1;
             }
-
+        }
     $search = (isset($_GET['search'])) ? $_GET['search'] : '' ;
     if(isset($_POST['btn_search']) && ($_POST['btn_search'])){
         header('location: ?mod='.($_GET['mod']).'&act='.($_GET['act']).'&search='.$_POST['search']);                    
     }
         switch ($_GET['act']) {
+            
             case 'category-list':        
                 $html_number_page = phan_trang($page,$search,category_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
                 $category_management = category_SELECT($page,0,0,$search,0,SLSP);
                 include_once 'view/admin/category-list.php';
                 break;
             case 'category-add':
+                $check_success = '';
                 if(isset($_POST['btn_addcategory']) && ($_POST['btn_addcategory'])){
                     $name = $_POST['name'];
                     $describle = $_POST['describle'];
                     category_add($name,"images/".$_FILES['image']['name'],$describle);
                     move_uploaded_file($_FILES['image']['tmp_name'],'view/images/'.$_FILES['image']['name']);
+                    $check_success = 'checked';
                 }
                 include_once 'view/admin/category-add.php';
                 break;
@@ -55,7 +59,7 @@
                 category_detele($id);
                 header('location: ?mod=admin&act=category-list');
             case 'product-list':
-                $html_number_page = phan_trang($page,$search,$data = product_SELECT(0,0,0,0,$search,0,0,0,0),$_GET['mod'],$_GET['act']);
+                $html_number_page = phan_trang($page,$search,product_SELECT(0,0,0,0,$search,0,0,0,0),$_GET['mod'],$_GET['act']);
                 $product_management = product_SELECT(0,$page,0,0,$search,0,0,0,SLSP);
                 include_once 'view/admin/product-list.php';
                 break;
@@ -66,6 +70,7 @@
                 product_detele($id);
                 header('location: ?mod=admin&act=product-list');
             case 'product-add':
+                $check_success = '';
                 if(isset($_POST['btn_addproduct']) && ($_POST['btn_addproduct'])){
                     $name = $_POST['name'];
                     $price = $_POST['price'];
@@ -79,6 +84,7 @@
                     product_add($name,"images/".$_FILES['image']['name'],$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id);
                     move_uploaded_file($_FILES['image']['tmp_name'],'view/images/'.$_FILES['image']['name']);
                     // header('location: ?mod=admin&act=product-list');  
+                    $check_success = 'checked';
                 }
                 $data_category = category_ALL();
                 $data_author = author_ALL();
@@ -146,6 +152,7 @@
                 include_once 'view/admin/user-list.php';
                 break;
             case 'user-add':
+                $check_success = '';
                 if(isset($_POST['btn_adduser']) && ($_POST['btn_adduser'])){
                     $name = $_POST['name'];
                     $username = $_POST['username'];
@@ -156,6 +163,7 @@
                     $address = $_POST['address'];
                     user_add_admin($name,"images/".$_FILES['image']['name'],$username,$password,$role,$email,$phone,$address);
                     move_uploaded_file($_FILES['image']['tmp_name'],'view/images/'.$_FILES['image']['name']);
+                    $check_success = 'checked';
                 }
                 include_once 'view/admin/user-add.php';
                 break;
@@ -205,12 +213,14 @@
                 include_once 'view/admin/author-list.php';
                 break;
             case 'author-add':
+                $check_success = '';
                 if(isset($_POST['btn_addauthor']) && ($_POST['btn_addauthor'])){
                     $name = $_POST['name'];
                     $email = $_POST['email'];
                     $dob = $_POST['dob'];
                     $information = $_POST['information'];
                 author_add($name,$email,$dob,$information);
+                $check_success = 'checked';
                 }
                 include_once 'view/admin/author-add.php';
                 break;
@@ -245,6 +255,7 @@
                 include_once 'view/admin/publisher-list.php';
                 break;
             case 'publisher-add':
+                $check_success = '';
                 if(isset($_POST['btn_addpublisher']) && ($_POST['btn_addpublisher'])){
                     $name = $_POST['name'];
                     $address = $_POST['address'];
@@ -252,6 +263,7 @@
                     $information = $_POST['information'];
                 publisher_add($name,"images/".$_FILES['image']['name'],$address,$email,$information);
                 move_uploaded_file($_FILES['image']['tmp_name'],'view/images/'.$_FILES['image']['name']);
+                $check_success = 'checked';
                 }
                 include_once 'view/admin/publisher-add.php';
                 break;
@@ -298,6 +310,7 @@
                 include_once 'view/admin/voucher-list.php';
                 break;
             case 'voucher-add':
+                $check_success = '';
                 if(isset($_POST['btn_addvoucher']) && ($_POST['btn_addvoucher'])){
                     $code = $_POST['code'];
                     $price = $_POST['price'];
@@ -306,6 +319,7 @@
                     $quantity = $_POST['quantity'];
                     $user_id = $_POST['user_id'];
                 voucher_add($code,$price,$start_date,$end_date,$quantity,$user_id);
+                $check_success = 'checked';
                 }
                 $data_user_id = user_ALL();
                 include_once 'view/admin/voucher-add.php';
@@ -347,6 +361,6 @@
                 break;
         }
     } else {
-        header('location: ?mod=admin&act=category-list');
+        header('location: ?mod=page&act=home');
     }
 ?>

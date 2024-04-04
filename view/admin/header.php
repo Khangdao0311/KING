@@ -10,7 +10,7 @@
     <header>
         <a href="?mod=admin&act=category-list"><img class="header-logo" src="view/images/logo.png" alt=""></a>
         <div class="header-account">
-            <div class="header_account-img"><?=$_SESSION['user']['image'];?></div>
+            <img src="view/images/<?=$_SESSION['user']['image'];?>" class="header_account-img">
             <div class="header_account-name"><?= $_SESSION['user']['name'];?></div>
         </div>
     </header>
