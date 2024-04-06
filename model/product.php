@@ -82,23 +82,27 @@
     function product_add($name,$image,$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id){
         $sql = "INSERT INTO products(name,image,price,price_sale,quantity,describle,noibat,category_id,author_id,publisher_id)
         Value ('$name','$image','$price','$price_sale','$quantity','$describle','$noibat','$category_id','$author_id','$publisher_id')"; 
-        return edit($sql);
+        edit($sql);
     }
     function product_detele($id){
         $sql = "DELETE FROM products WHERE id =$id";
-        return edit($sql);
+        edit($sql);
     }
     function product_edit($name,$image,$price,$price_sale,$quantity,$describle,$noibat,$category_id,$author_id,$publisher_id,$id){
         $sql="UPDATE products SET name='$name' , image = '$image' , price = $price , price_sale = $price_sale , quantity = $quantity , describle = '$describle' , noibat = $noibat , category_id = '$category_id' , author_id = $author_id , publisher_id = $publisher_id where id = $id";
-        return edit($sql);
+        edit($sql);
     }
     function update_view($id){
         $sql = "UPDATE products SET view = view + 1 WHERE id = $id";
-        return get_ONE($sql);
+        edit($sql);
     }  
     function product_updation_date($id){
         $sql = "UPDATE products SET updation_date = current_timestamp() WHERE id = $id";
-        return edit($sql);
+        edit($sql);
     }  
+    function product_SAME($id,$category_id,$limit){
+        $sql = "SELECT * FROM products WHERE id != $id AND category_id = $category_id ORDER BY id DESC LIMIT $limit";
+        return get_All($sql);
+    }
 ?>
 

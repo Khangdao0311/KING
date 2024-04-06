@@ -14,7 +14,7 @@
             <div class="col-4 col t-3 m-2">
                 <div class="product-box">
                     <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt=""></a>
-                    <a href="?mod=page&act=product-detail" class="product-mane">' . $item['name'] . '</a>
+                    <a href="'.$link.'" class="product-mane">' . $item['name'] . '</a>
                     <div class="product-price_sale">' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
                     <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
                     <div class="product-view">' . $item['view'] . ' lượt xem</div>
