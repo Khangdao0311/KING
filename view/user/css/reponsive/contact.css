@@ -1,7 +1,5 @@
 @media (min-width: 740px ) and (max-width: 1024px){
-    .link_page{
-        margin-top: 14rem;
-    }
+
    .contact_form-two{
     flex-direction: column;
    }
@@ -11,9 +9,6 @@
 }
 
 @media (max-width: 740px) {
-    .link_page{
-        margin-top: 7rem;
-    }
 
     .link_page-text, .contact_information-title,.contact_form-submit{
         font-size: 1.6rem !important;

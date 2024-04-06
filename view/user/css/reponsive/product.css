@@ -1,0 +1,45 @@
+@media (min-width: 740px) and (max-width: 1024px){
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+    }
+    .product_box-nav {
+        width: 35%;
+    }
+
+}
+
+@media (max-width: 740px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+    }
+
+    .link_page-text{
+        font-size: 1.6rem;
+    }
+
+    .product_limit_box-text, .product_limit_box-text > select, .product-price_sale{
+        font-size: 1.4rem;
+    }
+
+    .product-mane, .product-price, .product-view{
+        font-size: 1.2rem;
+    }
+
+    .product-price > del{
+        font-size: 1rem;
+    }
+
+    .product_page_division-item, .product_page_division-item-dot{
+        width: 3rem;
+    }
+
+    .product_limit_box-button{
+        padding: 0.8rem 1.8rem;
+    }
+}

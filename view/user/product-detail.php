@@ -11,7 +11,7 @@
     foreach ($product_detail_same as $item) {
         $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
         $html_productdetail_same .= '
-            <div class="col-4 col">
+            <div class="col-4 col t-3 m-2">
                 <div class="product-box">
                     <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt=""></a>
                     <a href="?mod=page&act=product-detail" class="product-mane">' . $item['name'] . '</a>
@@ -59,15 +59,16 @@
 <?php include_once('header.php') ?>
 <title>Sản Phẩm</title>
 <link rel="stylesheet" href="view/user/css/product-detail.css">
+<link rel="stylesheet" href="view/user/css/reponsive/product-detail.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Sản phẩm / Sản phẩm chi tiết</div>
     </div>
 </section>
 <section>
-    <div class="container productdetail-container">
+    <div class="container productdetail-container m-1">
         <div class="productdetail-image">
-            <div class="productdetail_image-list">
+            <div class="productdetail_image-list m-0">
 
                 <?= $html_img_productdetail ?>
 
@@ -128,36 +129,36 @@
                 <span>combo-2612202300</span>
             </div> -->
             <div class="productdetail-descibe">
-                <p>Tên Nhà Cung Cấp</p>
-                <span>KING</span>
+                <p class="m-2">Tên Nhà Cung Cấp</p>
+                <span class="m-2">KING</span>
             </div>
             <div class="productdetail-descibe">
-                <p>Tác giả</p>
-                <span>Tên tác giả</span>
+                <p class="m-2">Tác giả</p>
+                <span class="m-2">Tên tác giả</span>
             </div>
             <!-- <div class="productdetail-descibe">
                 <p>Người Dịch</p>
                 <span>Bùi Thanh Thúy, Linh Tử</span>
             </div> -->
             <div class="productdetail-descibe">
-                <p>Nhà xuất bản </p>
-                <span>Tên nhà xuất bản</span>
+                <p class="m-2">Nhà xuất bản </p>
+                <span class="m-2">Tên nhà xuất bản</span>
             </div>
             <div class="productdetail-descibe">
-                <p>Trọng lượng (gr)</p>
-                <span>890</span>
+                <p class="m-2">Trọng lượng (gr)</p>
+                <span class="m-2">890</span>
             </div>
             <div class="productdetail-descibe">
-                <p>Kích Thước Bao Bì</p>
-                <span>24 x 15.7 x 4.3 cm</span>
+                <p class="m-2">Kích Thước Bao Bì</p>
+                <span class="m-2">24 x 15.7 x 4.3 cm</span>
             </div>
             <div class="productdetail-descibe">
-                <p>Hình thức</p>
-                <span>Bìa Mềm</p>
+                <p class="m-2">Hình thức</p>
+                <span class="m-2">Bìa Mềm</p>
             </div>
             <div class="productdetail-descibe">
-                <p>Sản phẩm bán chạy nhất</p>
-                <span>Top 100 sản phẩm <?= $name_category ?> bán chạy của tháng</span>
+                <p class="m-2">Sản phẩm bán chạy nhất</p>
+                <span class="m-2">Top 100 sản phẩm <?= $name_category ?> bán chạy của tháng</span>
             </div>
             <div class="productdetail-moredescibe">
                 <p>Giá sản phẩm trên KING đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản

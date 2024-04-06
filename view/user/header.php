@@ -9,9 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- <link rel="stylesheet" href="view/user/css/reponsive_home.css">     -->
-    <!-- <link rel="stylesheet" href="view/user/css/reponsive_contact.css"> -->
-    <!-- <link rel="stylesheet" href="view/user/css/reponsive_product.css"> -->
+    <link rel="stylesheet" href="view/user/css/reponsive/style.css"> 
 </head>
 <body>
     <header>

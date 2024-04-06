@@ -59,6 +59,10 @@ section {
     margin-left: -1.2rem;
     margin-right: -1.2rem;
 }
+
+.nowrap{
+    flex-wrap: nowrap !important;
+}
 .col {
     padding: 1.2rem;
 }
@@ -684,4 +688,5 @@ footer {
     border-radius: 1rem;
     font-weight: bold;
     z-index: 999;
+    text-align: center;
 }

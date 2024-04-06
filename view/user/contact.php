@@ -1,6 +1,7 @@
 <?php include_once 'header.php' ?>
 <title>Liên Hệ</title>
 <link rel="stylesheet" href="view/user/css/contact.css">
+<link rel="stylesheet" href="view/user/css/reponsive/contact.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Liên hệ</div>
