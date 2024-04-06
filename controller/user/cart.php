@@ -31,31 +31,94 @@ if (isset($_GET['act'])) {
             include_once 'view/user/cart.php';
             break;
         case 'checkout':
-            $check_success = '';
-            if (isset($_POST['payment-button']) && $_POST['payment-button']) {
-                if (isset($_POST['check'])) {
-                    $payment_method = $_POST['check'];
-                    if ($payment_method == 1) {
-                        $payment_method = "Thanh toán qua Zalo Pay";
-                    } elseif ($payment_method == 2) {
-                        $payment_method = "Thanh toán thành công";
+            if ($_SESSION['cart']) {
+                $check_success = '';
+                if (isset($_POST['payment-button']) && $_POST['payment-button']) {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $province = $_POST['province'];
+                    $district = $_POST['district'];
+                    $ward = $_POST['ward'];
+                    $street = $_POST['street'];
+                    $note = $_POST['note'];
+                    $method = $_POST['method'];
+                    $address = "$province, $district, $ward, $street";
+                    $text_email = ($email) ? 'Email: <b>' . $email . '</b> <br>' : '';
+                    $content = '
+                        Tên khách hàng: <b>' . $name . '</b> <br>
+                        ' . $text_email . ' 
+                        Số điện thoại: <b>' . $phone . '</b> <br>
+                        Địa chỉ giao hàng: <b>' . $address . '</b> <br>
+                        Ghi chú: <b>' . $note . '</b> <br> <br>
+                        <table border="1">
+                            <tr>
+                                <td>STT</td>
+                                <td>id sản phẩm</td>
+                                <td>Tên sản phẩm</td>
+                                <td>Số lượng</td>
+                            </tr>';
+                    $count = 1;
+                    foreach ($_SESSION['cart'] as $item) {
+                        $content .= '
+                            <tr>
+                                <td>' . $count++ . '</td>
+                                <td>' . $item['id'] . '</td>
+                                <td>' . $item['name'] . '</td>
+                                <td>' . $item['quantity_cart'] . '</td>
+                            </tr>
+                        ';
+                    }
+                    $content .= '      
+                        </table>
+                    ';
+                    $mail = [
+                        [
+                            "email" => 'duan1.kingstore@gmail.com',
+                            "name" => "KING STORE",
+                        ]
+                    ];
+                    // mailer($mail,'ORDER PRODUCT',$content);
+                    $orders = order_SELECT(0, 0, 0);
+                    do {
+                        $check_code = FALSE;
+                        $random_code = rand(10000, 99999);
+                        foreach($orders as $item){
+                            if ($random_code == $item['code']) $check_code = TRUE;
+                        }
+                    } while ($check_code);
+
+                    $user_id = ($_SESSION['user'] != []) ? $_SESSION['user']['id'] : 0;
+                    order_ADD($random_code, $method, null, $user_id);
+                    foreach ($_SESSION['cart'] as $item) {
+                        order_detail_ADD($item['quantity_cart'], order_ONE($random_code)['id'], $item['id']);
+                    }
+                    $check_success = 'checked';
+                    if (isset($_POST['method'])) {
+                        $payment_method = $_POST['method'];
+                        if ($payment_method == 1) {
+                            $payment_method = "Thanh toán qua Zalo Pay";
+                        } elseif ($payment_method == 2) {
+                            $payment_method = "Thanh toán thành công";
+                        }
                     }
                 }
-                $check_success = 'checked';
+                if (isset($_SESSION['user'])) {
+                    $name = ($_SESSION['user'] != []) ? $_SESSION['user']['name'] : '';
+                    $email = ($_SESSION['user'] != []) ? $_SESSION['user']['email'] : '';
+                    $phone = ($_SESSION['user'] != []) ? $_SESSION['user']['phone'] : '';
+                    $address = ($_SESSION['user'] != []) ? explode('@', $_SESSION['user']['address']) : ['', '', '', '', ''];
+                } else {
+                    $address = ['', '', '', '', ''];
+                }
+                include_once 'view/user/checkout.php';
+            } else {
+                header('location: ?mod=page&act=home');
             }
-            if (isset($_SESSION['user'])) {
-                $name = ($_SESSION['user'] != []) ? $_SESSION['user']['name'] : '';
-                $email = ($_SESSION['user'] != []) ? $_SESSION['user']['email'] : '';
-                $phone = ($_SESSION['user'] != []) ? $_SESSION['user']['phone'] : '';
-                $address = ($_SESSION['user'] != []) ?explode('@', $_SESSION['user']['address']) : ['','','','',''];
-            }
-            $random_code = 0;
-            $random_code = "";
-            do {
-                $random_code = rand(10000, 99999);
-            } while (strlen($random_code) != 5);
-            print_r($random_code);
-            include_once 'view/user/checkout.php';
+            break;
+        case 'checkout_success':
+            unset($_SESSION['cart']);
+            header('location: ?mod=page&act=home');
             break;
         default:
             header('location: ?mod=cart&act=list');
