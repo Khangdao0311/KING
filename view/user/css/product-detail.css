@@ -332,7 +332,7 @@
 }
 .productdetail_comment-box {
     width: 100%;
-    height: 40rem;
+    height: 50rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -366,7 +366,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 0.5rem;
 }
 .productdetail_comment_item_content-name {
     font-size: 1.6rem;
@@ -378,7 +378,7 @@
     flex-direction: row-reverse;
 }
 .productdetail_comment_item_content-rating > span {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 .star-active {
     color: var(--view);
@@ -415,7 +415,7 @@
 
 }
 .productdetail_comment_form-rating > label {
-    font-size: 4rem;
+    font-size: 3rem;
     cursor: pointer;
     color: #FFF;
 

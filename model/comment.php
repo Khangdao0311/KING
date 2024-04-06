@@ -11,4 +11,8 @@
                 VALUE('$content','$rating','$user_id','$product_id')";
         edit($sql);
     }
+    function comment_delete($id) {
+        $sql = "DELETE FROM comments WHERE id = $id";
+        edit($sql);
+    }
 ?>

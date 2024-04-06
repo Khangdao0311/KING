@@ -152,9 +152,6 @@
                 break;
             case 'account-order_follow':
                 if ($_SESSION['user'] != []) {
-                    
-                    
-
                     $orders = order_SELECT($_SESSION['user']['id'],0,0);
                     $order_detail = [];
                     foreach ($orders as $item) {
@@ -191,6 +188,13 @@
 
                     }
                     include_once 'view/user/account-change_password.php';
+                } else header('location: ?mod=page&act=home');
+                break;
+            case 'account-comment':
+                $check_success = '';
+                if ($_SESSION['user'] != []) {
+                    $comments = comment_SELECT($_SESSION['user']['id'],0);
+                    include_once 'view/user/account-comment.php';
                 } else header('location: ?mod=page&act=home');
                 break;
             default:

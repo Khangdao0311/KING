@@ -14,9 +14,9 @@
                 <a href="?mod=user&act=information" class="accuont_nav-item">Thông tin tài khoản</a>
                 <a href="?mod=user&act=account-address" class="accuont_nav-item  accuont_nav-item_focus">Địa chỉ giao hàng</a>
                 <a href="?mod=user&act=account-order_follow" class="accuont_nav-item">theo dõi đơn hàng</a>
-                <div class="accuont_nav-item">ví voucher</div>
+                <a href="?mod=user&act=account-voucher" class="accuont_nav-item">ví voucher</a>
                 <a href="?mod=user&act=account-change_password" class="accuont_nav-item">Đổi mật khẩu</a>
-                <div class="accuont_nav-item">nhận xét của tôi</div>
+                <a href="?mod=user&act=account-comment" class="accuont_nav-item">nhận xét của tôi</a>
                 <?php if($_SESSION['user']['role']): ?>
                 <a href="?mod=admin&act=category-list" class="accuont_nav-item">admin</a>
                 <?php endif; ?>    

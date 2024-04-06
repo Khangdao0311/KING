@@ -3,8 +3,7 @@ const swiper = new Swiper(".swiper", {
         delay: 2500
     },
     slidesPerView: 1,
-    spaceBetween: 20,
-    loop: true,
+        loop: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -34,7 +33,7 @@ const swiper_product = new Swiper(".swiper_product", {
 
 
 function show_rating(id) {
-    $.post("model/load_show_rating.php", 
+    $.post("model/jQuery/load_show_rating.php", 
     {
         "id": id
     },
@@ -44,7 +43,7 @@ function show_rating(id) {
     );
 }
 function show_category_rating(id) {
-    $.post("model/load_show_category_rating.php", 
+    $.post("model/jQuery/load_show_category_rating.php", 
     {
         "id": id
     },

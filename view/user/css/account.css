@@ -72,7 +72,6 @@
     gap: 1.2rem;
     padding: 2.4rem;
     padding-bottom:  10rem;
-
 }
 .account_information-item {
     width: 100%;
@@ -179,16 +178,25 @@
     display: flex;
     flex-direction: column;
 }
+
+
+.account_order_follow-order {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem;
+    gap: 1.2rem;
+    border-top: 0.1rem solid rgb(0, 0, 0, 0.2);
+
+}
 .account_order_follow-product {
     width: 100%;
-    padding: 1.2rem 0;
     display: flex;
-    border-top: 0.1rem solid rgb(0, 0, 0, 0.3);
+    gap: 1.2rem;
 }
 .account_order_follow_product-img {
-    width: 20%;
+    width: 18rem;
     aspect-ratio: 2/1;
-    padding: 0 1.2rem;
     display: flex;
 }
 .account_order_follow_product-img > img {
@@ -199,9 +207,10 @@
 .account_order_follow_product-main {
     display: flex;
     width: 80%;
+    gap: 1.2rem;
 }
 .account_order_follow_product-content {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -229,14 +238,8 @@
     font-weight: bold;
 
 }
-.account_order_follow_product-fun {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .account_order_follow_product-total {
-    width: 60%;
+    width: 18rem;
     height: 100%;
     font-size: 1.8rem;
     font-weight: bold;
@@ -245,19 +248,35 @@
     align-items: center;
     justify-content: center;
 }
-.account_order_follow_product-button_box {
-    width: 40%;
+
+.account_order_follow_order-total_fun {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 2.4rem;
+}
+.account_order_follow_order-total {
+    font-size: 1.6rem;
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    justify-content: end;
+
+}
+.account_order_follow_order-total > b {
+    font-size: 2rem;
+    color: var(--primary);
+}
+.account_order_follow_order-fun {
     height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
-    padding:  0 2.4rem;
+    gap: 1rem;
 }
-.account_order_follow_product-button_item {
-    width: 100%;
-    aspect-ratio: 2/1;
+.account_order_follow_order_fun-btn {
+    width: 10rem;
+    padding: 1rem;
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -266,16 +285,13 @@
     font-weight: bold;
     border: 0.1rem solid rgb(0, 0, 0, 0.3) ;
     background-color: #fff;
+    text-transform: capitalize;
 }
-.follow_product-button_red {
+.account_order_follow_order_fun-btn_red {
     color: #fff;
     background-color: var(--primary);
     border: none;
 }
-
-
-
-
 .account_form-item {
     width: 100%;
     display: flex;
@@ -387,5 +403,80 @@
     font-weight: 500;
 }
 
-
-
+.account_comment-box {
+    width: 100%;
+    padding: 0 2.4rem;
+}
+.account_comment-item {
+    width: 100%;
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    align-items: center;
+    justify-content: center;
+}
+.account_comment_item-content {
+    width: calc(100% - 12.4rem);
+    height: 100%;
+    display: flex;
+    gap: 1.2rem;
+}
+.account_comment_item-img {
+    width: 10rem;
+    height: 10rem;
+}
+.account_comment_item-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.account_comment_item-box {
+    width: calc(100% - 11.2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.account_comment_item-name {
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.account_comment_item-rating {
+    width: 100%;
+}
+.account_comment_item-rating > span {
+    font-size: 2rem;
+}
+.star-active {
+ color: var(--view);
+}
+.account_comment_item-text {
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 1.4rem;
+}
+.account_comment_item-fun {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.account_comment_item_fun-edit,
+.account_comment_item_fun-delete {
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.account_comment_item_fun-edit {
+    border: 0.1rem solid var(--primary);
+    color: var(--primary);
+}
+.account_comment_item_fun-delete {
+    background-color: var(--primary);
+    color: #FFF;
+}

@@ -1,5 +1,54 @@
 <?php
-    $html_product_order = '';
+    session_start();
+    require_once '../global.php';
+    require_once '../pdo.php';
+    require_once '../product.php';
+    require_once '../order.php';
+    $status = $_POST['status'];
+
+    $orders = order_SELECT($_SESSION['user']['id'],$status,0);
+    $order_detail = [];
+    foreach ($orders as $item) {
+        array_push($order_detail, order_detail_SELECT($item['id'],0));
+    }
+   
+
+    $orders_all = order_SELECT($_SESSION['user']['id'],0,0);
+    $order_detail_all = [];
+    foreach ($orders_all as $item) {
+        array_push($order_detail_all, order_detail_SELECT($item['id'],0));
+    }
+    $products_all = [];
+    foreach ($order_detail_all as $box) {
+        foreach ($box as $item) {
+            array_push($products_all, product_ONE($item['product_id']));
+        }
+    }
+
+    $status0 = ($status == 0) ? 'account_order_follow-item-active' : '';
+    $status1 = ($status == 1) ? 'account_order_follow-item-active' : '';
+    $status2 = ($status == 2) ? 'account_order_follow-item-active' : '';
+    $status3 = ($status == 3) ? 'account_order_follow-item-active' : '';
+    $status4 = ($status == 4) ? 'account_order_follow-item-active' : '';
+    $status5 = ($status == 5) ? 'account_order_follow-item-active' : '';
+    $status6 = ($status == 6) ? 'account_order_follow-item-active' : '';
+
+
+
+    $html_product_order = '
+        <div class="account-title">Theo dõi đơn hàng</div>
+        <div class="account-order_follow">
+            <div onclick="order_status(0)" class="account_order_follow-item '.$status0.'">Xem tất cả ('.count($products_all).')</div>
+            <div onclick="order_status(1)" class="account_order_follow-item '.$status1.'">Chờ xác nhận</div>
+            <div onclick="order_status(2)" class="account_order_follow-item '.$status2.'">Vận chuyển</div>
+            <div onclick="order_status(3)" class="account_order_follow-item '.$status3.'">chờ giao hàng</div>
+            <div onclick="order_status(4)" class="account_order_follow-item '.$status4.'">Đã giao hàng</div>
+            <div onclick="order_status(5)" class="account_order_follow-item '.$status5.'">Đã hủy</div>
+            <div onclick="order_status(6)" class="account_order_follow-item '.$status6.'">Trả hàng</div>
+        </div>
+        <div class="account_order_follow-product_box">';
+
+                
     foreach ($order_detail as $item) {
         $total = 0;
             $html_product_order .= '
@@ -26,7 +75,7 @@
                             <div class="account_order_follow_product-total">'.number_format(($product['price_sale'] * $product_order['quantity']),0,',','.').' đ</div>
                         </div>
                     </div>';
-                   
+                    
         }
         $html_product_order .= '
                     <div class="account_order_follow_order-total_fun">
@@ -58,57 +107,26 @@
                 </div>
         ';
     }
-?>    
-<?php include_once 'header.php' ?>
-<title>Theo dõi đơn hàng</title>
-<link rel="stylesheet" href="view/user/css/account.css">
-<section class=" link_page">
-    <div class="container">
-        <div class="link_page-text">Trang chủ / Tài khoản</div>
-    </div>
-</section>
-<section>
-    <div class="container account-container">
-    <div class="account-nav_box">
-            <div class="account_nav-title">tài khoản</div>
-            <div class="account_nav-box">
-                <a href="?mod=user&act=information" class="accuont_nav-item">Thông tin tài khoản</a>
-                <a href="?mod=user&act=account-address" class="accuont_nav-item">Địa chỉ giao hàng</a>
-                <a href="?mod=user&act=account-order_follow" class="accuont_nav-item accuont_nav-item_focus">theo dõi đơn hàng</a>
-                <a href="?mod=user&act=account-voucher" class="accuont_nav-item">ví voucher</a>
-                <a href="?mod=user&act=account-change_password" class="accuont_nav-item">Đổi mật khẩu</a>
-                <a href="?mod=user&act=account-comment" class="accuont_nav-item">nhận xét của tôi</a>
-                <?php if($_SESSION['user']['role']): ?>
-                <a href="?mod=admin&act=category-list" class="accuont_nav-item">admin</a>
-                <?php endif; ?>    
-                <a href="?mod=user&act=logout" class="accuont_nav-item">Đăng xuất</a>
-            </div>
-        </div>
-        <div class="account-main">
-            <div class="account-title">Theo dõi đơn hàng</div>
-            <div class="account-order_follow">
-                <div onclick="order_status(0)" class="account_order_follow-item account_order_follow-item-active">Xem tất cả (<?= count($products_all) ?>)</div>
-                <div onclick="order_status(1)" class="account_order_follow-item">Chờ xác nhận</div>
-                <div onclick="order_status(2)" class="account_order_follow-item">Vận chuyển</div>
-                <div onclick="order_status(3)" class="account_order_follow-item">chờ giao hàng</div>
-                <div onclick="order_status(4)" class="account_order_follow-item">Đã giao hàng</div>
-                <div onclick="order_status(5)" class="account_order_follow-item">Đã hủy</div>
-                <div onclick="order_status(6)" class="account_order_follow-item">Trả hàng</div>
-            </div>
-            <div class="account_order_follow-product_box">
-                
-                <?= $html_product_order ?>
-                
+    $html_product_order .= '
+        </div>';
+    
+    echo $html_product_order;
 
-            </div>
-        </div>
-    </div>
-</section>
-<script src="view/user/js/account.js"></script>
-<?php include_once 'footer.php' ?>
-<!-- <div class="account_order_follow_product-fun">
-    <div class="account_order_follow_product-button_box">';
-        <div class="account_order_follow_product-button_item">Đánh giá</div>
-        <div class="account_order_follow_product-button_item follow_product-button_red">Đặt lại</div>
-    </div>
-</div>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

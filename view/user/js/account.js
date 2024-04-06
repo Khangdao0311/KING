@@ -2,7 +2,7 @@
 
 
 function order_status(status) {
-    $.post("model/load_show_order_status.php", {
+    $.post("model/jQuery/load_show_order_status.php", {
         "status": status
     },
         function (data, textStatus, jqXHR) {
@@ -10,9 +10,6 @@ function order_status(status) {
         },
     );
 }
-
-
-
 function show_hidden(el) {
     if (el.previousElementSibling.type == 'password') {
         el.innerText = 'Ẩn'
@@ -89,3 +86,14 @@ const image = document.getElementById('imagechange');
 inputflie.addEventListener('change', (el) => {
     image.src = URL.createObjectURL(el.target.files[0]);
 });
+
+function delete_comment(el) {
+    var id = el.previousSibling.previousSibling.value
+    $.post("model/jQuery/load_account_comment.php", {
+        "id": id
+    },
+        function (data, textStatus, jqXHR) {
+            $('.account_comment-box').html(data);
+        },
+    );
+}
