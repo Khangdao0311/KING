@@ -2,7 +2,7 @@
 function addcart(el) {
     const id = el.nextSibling.nextSibling.value; 
     console.log(id);   
-    $.post("model/load_addcart.php", {
+    $.post("model/jQuery/load_addcart.php", {
         'id': id
     },
         function (data, textStatus, jqXHR) {

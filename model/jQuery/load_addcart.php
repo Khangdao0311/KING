@@ -5,15 +5,15 @@
         $_SESSION['cart'] = [];
     }
     if (!isset($_SESSION['user'])) $_SESSION['user'] = []; 
-    require_once 'global.php';
-    require_once 'pdo.php';
-    require_once 'category.php';
-    require_once 'publisher.php';
-    require_once 'author.php';
-    require_once 'product.php';
-    require_once 'user.php';
-    require_once 'gallery.php';
-    require_once 'mailer.php';
+    require_once '../global.php';
+    require_once '../pdo.php';
+    require_once '../category.php';
+    require_once '../publisher.php';
+    require_once '../author.php';
+    require_once '../product.php';
+    require_once '../user.php';
+    require_once '../gallery.php';
+    require_once '../mailer.php';
     $id = $_POST['id'];
     $product_cart = product_ONE($id);
     if (isset($_SESSION['cart'][$id])) {

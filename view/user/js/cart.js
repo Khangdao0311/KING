@@ -3,7 +3,7 @@ function minus_cart(el) {
     const id = el.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText
     const quantity_new = quantity.value - 1;
     if (quantity_new > 0) {
-        $.post("model/update_quantity_cart.php", {
+        $.post("model/jQuery/update_quantity_cart.php", {
             "quantity":quantity_new,
             "id":id
         },
@@ -18,7 +18,7 @@ function plus_cart(el) {
     const id = el.nextSibling.nextSibling.innerText;
     const quantity_new = quantity.value * 1 + 1;
     if (quantity_new <= 10) {
-        $.post("model/update_quantity_cart.php", {
+        $.post("model/jQuery/update_quantity_cart.php", {
             "quantity":quantity_new,
             "id":id
         },

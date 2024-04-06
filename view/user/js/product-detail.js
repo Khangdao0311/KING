@@ -31,7 +31,7 @@ function submit_comment(el) {
     var star = el.nextSibling.nextSibling.value
     var content = el.previousSibling.previousSibling.value
     if (content) {
-        $.post("model/load_comment.php", {
+        $.post("model/jQuery/load_comment.php", {
             "id": id,
             "star": star,
             "content": content,

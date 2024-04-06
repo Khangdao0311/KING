@@ -1,9 +1,9 @@
 <?php
     session_start();
-    require_once 'global.php';
-    require_once 'pdo.php';
-    require_once 'user.php';
-    require_once 'comment.php';
+    require_once '../global.php';
+    require_once '../pdo.php';
+    require_once '../user.php';
+    require_once '../comment.php';
     $id = $_POST['id'];
     $star = $_POST['star'];
     $content = $_POST['content'];
@@ -44,7 +44,7 @@
             <img src="view/images/user/'.$_SESSION['user']['image'].'" alt="" class="productdetail_comment_form-img">
             <div class="productdetail_comment_form-content">
                 <div class="productdetail_comment_form-rating">
-                    <input onclick="star_rating(this)" hidden id="star5" type="radio" name="star" value="5" checked >
+                    <input onclick="star_rating(this)" hidden id="star5" type="radio" name="star" value="5" >
                     <label for="star5" class="material-symbols-outlined 1 star">star</label>
                     <input onclick="star_rating(this)" hidden id="star4" type="radio" name="star" value="4">
                     <label for="star4" class="material-symbols-outlined 2 star">star</label>
