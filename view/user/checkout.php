@@ -56,59 +56,31 @@ foreach ($_SESSION['cart'] as $item) {
                         <input value="<?= $phone ?>" type="tel" required placeholder="Nhập số điện thoại">
                     </div>
                 </div>
-                <?php if ($_SESSION['user'] == []) : ?>
-                    <div class="infomation-address">
-                        <div class="infomation-tittle">
-                            <p>Thông tin liên hệ giao hàng</p>
-                        </div>
-                        <div class="infomation-city">
-                            <p class="name">Chọn tỉnh thành*</p>
-                            <input type="text" value="" placeholder="Nhập tỉnh thành">
-                        </div>
-                        <div class="infomation-district">
-                            <p>Chọn quận huyện*</p>
-                            <input name="" id="" value="" placeholder="Nhập quận huyện"></input>
-                        </div>
-                        <div class="infomation-ward">
-                            <p>Tên phường/ xã*</p>
-                            <input value="" type="tel" required placeholder="Nhập phường xã">
-                        </div>
-                        <div class="infomation-street">
-                            <p>Số nhà, tên đường*</p>
-                            <input value="" type="tel" required placeholder="Nhập số nhà / tên đường">
-                        </div>
-                        <div class="infomation-note">
-                            <p>Ghi chú</p>
-                            <textarea name="" id="" cols="30" rows="3"></textarea>
-                        </div>
+                <div class="infomation-address">
+                    <div class="infomation-tittle">
+                        <p>Thông tin liên hệ giao hàng</p>
                     </div>
-                <?php else : ?>
-                    <div class="infomation-address">
-                        <div class="infomation-tittle">
-                            <p>Thông tin liên hệ giao hàng</p>
-                        </div>
-                        <div class="infomation-city">
-                            <p class="name">Chọn tỉnh thành*</p>
-                            <input type="text" value="<?= $address[0] ?>" placeholder="Nhập tỉnh thành">
-                        </div>
-                        <div class="infomation-district">
-                            <p>Chọn quận huyện*</p>
-                            <input name="" id="" value="<?= $address[1] ?>" placeholder="Nhập quận huyện"></input>
-                        </div>
-                        <div class="infomation-ward">
-                            <p>Tên phường/ xã*</p>
-                            <input value="<?= $address[2] ?>" type="tel" required placeholder="Nhập phường xã">
-                        </div>
-                        <div class="infomation-street">
-                            <p>Số nhà, tên đường*</p>
-                            <input value="<?= $address[3] ?>" type="tel" required placeholder="Nhập số nhà / tên đường">
-                        </div>
-                        <div class="infomation-note">
-                            <p>Ghi chú</p>
-                            <textarea name="" id="" cols="30" rows="3"><?= $address[4] ?></textarea>
-                        </div>
+                    <div class="infomation-city">
+                        <p class="name">Chọn tỉnh thành*</p>
+                        <input type="text" value="<?=$address[0]?>" placeholder="Nhập tỉnh thành">
                     </div>
-                <?php endif; ?>
+                    <div class="infomation-district">
+                        <p>Chọn quận huyện*</p>
+                        <input name="" id="" value="<?=$address[1]?>" placeholder="Nhập quận huyện"></input>
+                    </div>
+                    <div class="infomation-ward">
+                        <p>Tên phường/ xã*</p>
+                        <input value="<?=$address[2]?>" type="tel" required placeholder="Nhập phường xã">
+                    </div>
+                    <div class="infomation-street">
+                        <p>Số nhà, tên đường*</p>
+                        <input value="<?=$address[3]?>" type="tel" required placeholder="Nhập số nhà / tên đường">
+                    </div>
+                    <div class="infomation-note">
+                        <p>Ghi chú</p>
+                        <textarea placeholder="Nhập ghi chú" name="" id="" cols="30" rows="3"><?=$address[4]?></textarea>
+                    </div>
+                </div>
             </div>
             <div class="payment-infomation">
                 <div class="infomation-tittle">

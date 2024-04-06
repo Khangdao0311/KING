@@ -23,7 +23,7 @@ if (isset($_GET['act'])) {
             }
             include_once 'view/user/cart.php';
             break;
-        case 'delete': 
+        case 'delete':
             if (isset($_GET['del'])) {
                 $del = $_GET['del'];
                 unset($_SESSION['cart'][$del]);
@@ -33,22 +33,28 @@ if (isset($_GET['act'])) {
         case 'checkout':
             $check_success = '';
             if (isset($_POST['payment-button']) && $_POST['payment-button']) {
-            if (isset($_POST['check'])) {
-                $payment_method = $_POST['check'];
-                if ($payment_method == 1) {
-                    $payment_method = "Thanh toán qua Zalo Pay";
-                } elseif ($payment_method == 2) {
-                    $payment_method = "Thanh toán thành công";
+                if (isset($_POST['check'])) {
+                    $payment_method = $_POST['check'];
+                    if ($payment_method == 1) {
+                        $payment_method = "Thanh toán qua Zalo Pay";
+                    } elseif ($payment_method == 2) {
+                        $payment_method = "Thanh toán thành công";
+                    }
                 }
-            }
-            $check_success = 'checked';
+                $check_success = 'checked';
             }
             if (isset($_SESSION['user'])) {
-                $name = $_SESSION['user']['name'];
-                $email = $_SESSION['user']['email'];
-                $phone = $_SESSION['user']['phone'];
-                $address = explode('@', $_SESSION['user']['address']);
+                $name = ($_SESSION['user'] != []) ? $_SESSION['user']['name'] : '';
+                $email = ($_SESSION['user'] != []) ? $_SESSION['user']['email'] : '';
+                $phone = ($_SESSION['user'] != []) ? $_SESSION['user']['phone'] : '';
+                $address = ($_SESSION['user'] != []) ?explode('@', $_SESSION['user']['address']) : ['','','','',''];
             }
+            $random_code = 0;
+            $random_code = "";
+            do {
+                $random_code = rand(10000, 99999);
+            } while (strlen($random_code) != 5);
+            print_r($random_code);
             include_once 'view/user/checkout.php';
             break;
         default:
