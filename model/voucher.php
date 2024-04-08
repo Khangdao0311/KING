@@ -39,4 +39,8 @@ function voucher_eidt($code,$price,$start_date,$end_date,$quantity,$user_id,$id)
     $sql = "UPDATE vouchers SET code='$code', price='$price', start_date = '$start_date', end_date='$end_date', quantity='$quantity', user_id='$user_id' WHERE id=$id";
     return edit($sql);
 }
+function voucher_updation_date($id){
+    $sql = "UPDATE vouchers SET updation_date = current_timestamp() WHERE id = $id";
+    return edit($sql);
+}  
 ?>

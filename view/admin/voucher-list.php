@@ -1,9 +1,11 @@
 <?php include_once 'header.php' ?>
 <?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 $html_voucher_management="";
 foreach ($voucher_management as $item){
     $html_voucher_management.='<div class="list-row voucher-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['code'].'</div>
     <div class="list-item flex-center list_item-price_sale">'.$item['price'].'</div>
     <div class="list-item flex-center">'.$item['start_date'].'</div>

@@ -1,10 +1,12 @@
 <?php include_once 'header.php' ?>
 <link rel="stylesheet" href="view/admin/css/list.css">
 <?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 $html_publisher_management="";
 foreach ($publisher_management as $item){
     $html_publisher_management.='<div class="list-row publisher-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
     <div class="list-item">'.$item['address'].'</div>

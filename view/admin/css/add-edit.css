@@ -92,3 +92,32 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+input[type="radio"] {
+    appearance: none;
+    margin-right: 5px; /* Khoảng cách giữa radio và label */
+    width: 15px; /* Kích thước radio */
+    height: 15px; /* Kích thước radio */
+    border: 2px solid black; /* Màu viền */
+    border-radius: 50%; /* Bán kính bo tròn */
+    outline: none; /* Xóa đường viền khi focus */
+    cursor: pointer; /* Con trỏ chuột */
+    transition: background-color 0.5s ease;
+}
+
+/* Khi radio được chọn */
+input[type="radio"]:checked {
+    background-color: black; 
+    box-shadow: 0 0 10px  black;
+}
+
+.radio {
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+option{
+    font-size: 1.6rem;
+}

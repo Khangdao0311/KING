@@ -1,9 +1,11 @@
 <?php include_once 'header.php' ?>
 <?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 $html_author_management="";
 foreach ($author_management as $item){
     $html_author_management.='<div class="list-row author-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['name'].'</div>
     <div class="list-item">'.$item['email'].'</div>
     <div class="list-item">'.$item['information'].'</div>
