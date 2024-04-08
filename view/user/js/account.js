@@ -10,6 +10,19 @@ function order_status(status) {
         },
     );
 }
+function cancel(el) {
+    const status = el.previousElementSibling.value
+    const order_id = el.nextElementSibling.value
+    $.post("model/jQuery/load_show_order_status.php", {
+        "order_id": order_id,
+        "status": status
+    },
+        function (data, textStatus, jqXHR) {
+            $('.account-main').html(data);
+        },
+    );
+}
+document.getElementById().previousElementSibling
 function show_hidden(el) {
     if (el.previousElementSibling.type == 'password') {
         el.innerText = 'Ẩn'
@@ -88,7 +101,7 @@ inputflie.addEventListener('change', (el) => {
 });
 
 function delete_comment(el) {
-    var id = el.previousSibling.previousSibling.value
+    var id = el.previousElementSibling.value
     $.post("model/jQuery/load_account_comment.php", {
         "id": id
     },

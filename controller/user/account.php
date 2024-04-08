@@ -157,12 +157,12 @@
                     foreach ($orders as $item) {
                         array_push($order_detail, order_detail_SELECT($item['id'],0));
                     }
-                    $products_all = [];
-                    foreach ($order_detail as $box) {
-                        foreach ($box as $item) {
-                            array_push($products_all, product_ONE($item['product_id']));
-                        }
-                    }
+                    // $products_all = [];
+                    // foreach ($order_detail as $box) {
+                    //     foreach ($box as $item) {
+                    //         array_push($products_all, product_ONE($item['product_id']));
+                    //     }
+                    // }
                     include_once 'view/user/account-order_follow.php';
                 } else header('location: ?mod=page&act=home');
                 break;
@@ -195,6 +195,14 @@
                 if ($_SESSION['user'] != []) {
                     $comments = comment_SELECT($_SESSION['user']['id'],0);
                     include_once 'view/user/account-comment.php';
+                } else header('location: ?mod=page&act=home');
+                break;
+            case 'account-voucher':
+                if ($_SESSION['user'] != []) {
+                    $vouchers = voucher_SELECT($_SESSION['user']['id']);
+
+
+                    include_once 'view/user/account-voucher.php';
                 } else header('location: ?mod=page&act=home');
                 break;
             default:

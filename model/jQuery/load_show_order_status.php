@@ -4,6 +4,13 @@
     require_once '../pdo.php';
     require_once '../product.php';
     require_once '../order.php';
+
+    if (isset($_POST['order_id'])) {
+        $order_id = $_POST['order_id'];
+        order_DELETE($order_id);
+        order_detail_DELETE($order_id);
+    }
+
     $status = $_POST['status'];
 
     $orders = order_SELECT($_SESSION['user']['id'],$status,0);
@@ -18,12 +25,7 @@
     foreach ($orders_all as $item) {
         array_push($order_detail_all, order_detail_SELECT($item['id'],0));
     }
-    $products_all = [];
-    foreach ($order_detail_all as $box) {
-        foreach ($box as $item) {
-            array_push($products_all, product_ONE($item['product_id']));
-        }
-    }
+ 
 
     $status0 = ($status == 0) ? 'account_order_follow-item-active' : '';
     $status1 = ($status == 1) ? 'account_order_follow-item-active' : '';
@@ -38,7 +40,7 @@
     $html_product_order = '
         <div class="account-title">Theo dõi đơn hàng</div>
         <div class="account-order_follow">
-            <div onclick="order_status(0)" class="account_order_follow-item '.$status0.'">Xem tất cả ('.count($products_all).')</div>
+            <div onclick="order_status(0)" class="account_order_follow-item '.$status0.'">Xem tất cả ('.count($orders_all).')</div>
             <div onclick="order_status(1)" class="account_order_follow-item '.$status1.'">Chờ xác nhận</div>
             <div onclick="order_status(2)" class="account_order_follow-item '.$status2.'">Vận chuyển</div>
             <div onclick="order_status(3)" class="account_order_follow-item '.$status3.'">chờ giao hàng</div>
@@ -55,7 +57,7 @@
                 <div class="account_order_follow-order">';
         foreach ($item as $product_order) {
             $product = product_ONE($product_order['product_id']);
-            $order_status = order_SELECT($_SESSION['user']['id'],0,$product_order['order_id'])[0]['order_status'];
+            $order = order_SELECT($_SESSION['user']['id'],0,$product_order['order_id'])[0];
             $total += $product['price_sale'] * $product_order['quantity'];
             $link_product_detail = '?mod=page&act=product-detail&id='.$product['id'];
             $html_product_order .= '
@@ -81,10 +83,12 @@
                     <div class="account_order_follow_order-total_fun">
                         <div class="account_order_follow_order-total">Tổng '.count($item).' sản phẩm: <b>'.number_format($total,0,',','.').' đ</b></div>
                         <div class="account_order_follow_order-fun">';
-                switch ($order_status) {
+                switch ($order['order_status']) {
                 case 1:
                     $html_product_order .= '
-                            <div class="account_order_follow_order_fun-btn">Hủy</div>
+                        <input hidden type="text" value="'.$status.'">
+                        <div onclick="cancel(this)" class="account_order_follow_order_fun-btn">Hủy</div>
+                        <input hidden type="text" value="'.$order['id'].'">
                     ';
                     break;
                 case 4:

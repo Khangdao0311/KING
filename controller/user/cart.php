@@ -78,7 +78,7 @@ if (isset($_GET['act'])) {
                             "name" => "KING STORE",
                         ]
                     ];
-                    // mailer($mail,'ORDER PRODUCT',$content);
+                    mailer($mail,'ORDER PRODUCT',$content);
                     $orders = order_SELECT(0, 0, 0);
                     do {
                         $check_code = FALSE;
@@ -89,9 +89,9 @@ if (isset($_GET['act'])) {
                     } while ($check_code);
 
                     $user_id = ($_SESSION['user'] != []) ? $_SESSION['user']['id'] : 0;
-                    order_ADD($random_code, $method, null, $user_id);
+                    order_ADD($random_code, $method, $user_id);
                     foreach ($_SESSION['cart'] as $item) {
-                        order_detail_ADD($item['quantity_cart'], order_ONE($random_code)['id'], $item['id']);
+                        order_detail_ADD($item['quantity_cart'], order_ONE($random_code,0)['id'], $item['id']);
                     }
                     $check_success = 'checked';
                     if (isset($_POST['method'])) {

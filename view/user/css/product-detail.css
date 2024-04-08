@@ -359,7 +359,6 @@
 .productdetail_comment_item-img {
     width: 5rem;
     aspect-ratio: 1/1;
-    background-color: aqua;
     border-radius: 50%;
 }
 .productdetail_comment_item-content {
@@ -399,7 +398,7 @@
 .productdetail_comment_form-img {
     width: 9rem;
     aspect-ratio: 1/1;
-    background-color: aqua;
+    background-color: #FFF;
     border-radius: 50%;
 }
 .productdetail_comment_form-content {
