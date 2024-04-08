@@ -9,8 +9,8 @@ foreach($product_management as $item){
     <div class="list-item_fix">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
     <div class="list-item flex-center flex-column">
-        <div class="list_item-price_sale">'.$item['price_sale'].' đ</div>
-        <del class="list_item-price">'.$item['price'].' đ</del>
+        <div class="list_item-price_sale">'.number_format($item['price_sale'],0,',','.').' đ</div>
+        <del class="list_item-price">'.number_format($item['price'],0,',','.').' đ</del>
     </div>
     <div class="list-item flex-center">'.$item['quantity'].'</div>
     <div class="list-item flex-center">'.$item['view'].'</div>

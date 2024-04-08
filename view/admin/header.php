@@ -10,7 +10,7 @@
     <header>
         <a href="?mod=admin&act=category-list"><img class="header-logo" src="view/images/logo.png" alt=""></a>
         <div class="header-account">
-            <img src="view/images/<?=$_SESSION['user']['image'];?>" class="header_account-img">
+            <img src="view/images/user/<?=$_SESSION['user']['image'];?>" class="header_account-img">
             <div class="header_account-name"><?= $_SESSION['user']['name'];?></div>
         </div>
     </header>
@@ -59,7 +59,7 @@
                 <div class="nav_item-icon"><span class="material-symbols-outlined">donut_small</span></div>
                 <div class="nav_item-content">Thống kê</div>
             </a>
-            <a href="?mod=page&act=home" class="nav-item">
+            <a href="?mod=user&act=logout" class="nav-item">
                 <div class="nav_item-icon"><span class="material-symbols-outlined">exit_to_app</span></div>
                 <div class="nav_item-content">Đăng xuất</div>
             </a>
