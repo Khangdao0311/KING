@@ -83,7 +83,7 @@
 
 .checkout_product-img, .checkout_product-quantity,
 .checkout_product-cash{
-    width: 16%;
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: center;

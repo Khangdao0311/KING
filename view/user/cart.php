@@ -7,9 +7,6 @@
         $total_price += $into_price;
         $html_product_cart .= '  
         <div class="cart-product">
-        <div class="check">
-            <input type="checkbox">
-        </div>
         <div class="product-total"> 
             <div class="cart-product-img">
                 <img src="view/'.$item['image'].'" alt="">
@@ -79,11 +76,11 @@
             <div class="box_cart">
                 <div class="box_cart-product m1">
                     <div class="cart_product-tittle">
-                        <div class="check">
+                        <!-- <div class="check">
                             <input type="checkbox">
-                        </div>
+                        </div> -->
                         <div class="product-total">
-                            <p>Chọn Tất Cả Sản Phẩm</p>
+                            <p>Tất Cả Sản Phẩm</p>
                         </div>
                             <div class="product-pay">
                                 <div class="product-quantity">
