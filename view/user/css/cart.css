@@ -1,14 +1,14 @@
-
-.cart-container{
+.cart-container {
     padding: 2.4rem 0;
 }
 
-.box_cart{
+.box_cart {
     display: flex;
     width: 100%;
     gap: 2.4rem;
 }
-.box_cart-product{
+
+.box_cart-product {
     width: calc(68% - 2.4rem);
     border-radius: 0.5rem;
     border: 0.1rem solid rgb(0, 0, 0, 0.1);
@@ -18,22 +18,22 @@
     gap: 1.2rem;
 }
 
-.red-color{
+.red-color {
     color: #FF0000;
 }
 
-.box_cart-prmotion{
+.box_cart-prmotion {
     width: 32%;
     border: 0.1rem solid rgb(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-
 }
 
-.cart_product-tittle{
+.cart_product-tittle {
     background-color: #333;
 }
 
-.cart_product-tittle, .cart_product-promotion{
+.cart_product-tittle,
+.cart_product-promotion {
     width: 100%;
     border-radius: 0.5rem 0.5rem 0 0;
     display: flex;
@@ -42,7 +42,7 @@
     padding: 1.2rem;
 }
 
-.check{
+.check {
     width: 9.85%;
     display: flex;
     justify-content: center;
@@ -55,44 +55,33 @@
     aspect-ratio: 1/1;
 }
 
-.cart-product .check input{
+.cart-product .check input {
     width: 21.1%;
     aspect-ratio: 1/1;
 }
 
-.product-total{
+.product-total {
     width: 54.67%;
     display: flex;
     gap: 2.4rem;
 }
 
-.product-price{
+.product-price {
     display: flex;
     font-size: 2.4rem;
     gap: 2.4rem;
 }
 
-
-.product-info{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.product-total p{
-    width: 75%;
-}
-
-.cart-product-img{
-    width: 25%;
+.cart-product-img {
+    max-width: 25%;
     padding: 0.6rem;
 }
 
-.cart-product-img  img{
+.cart-product-img img {
     width: 100%;
 }
 
-.product-pay{
+.product-pay {
     width: 45%;
     display: flex;
     justify-content: center;
@@ -100,17 +89,17 @@
     gap: 2.4rem;
 }
 
-.product-quantity{
+.product-quantity {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.quantity{
+.quantity {
     width: 80%;
     display: flex;
     border: 0.1rem solid rgb(0, 0, 0, 0.1);
-    border-radius: 0.5rem ;
+    border-radius: 0.5rem;
     padding: 0.6rem;
 }
 
@@ -120,61 +109,70 @@
     align-items: center;
 }
 
-.product-quantity button{
+.product-quantity button {
     border: none;
     width: 100%;
     background-color: #fff;
     font-size: 1.6rem;
 }
-.product-quantity button:nth-child(1){
+
+.product-quantity button:nth-child(1) {
     border-radius: 0.5rem 0 0 0.5rem;
 }
-.product-quantity button:last-child{
+
+.product-quantity button:last-child {
     border-radius: 0 0.5rem 0.5rem 0;
 }
 
-.product-quantity, .product-cash{
+.product-quantity,
+.product-cash {
     width: calc(45% - 1.2rem);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.product-total p, .product-quantity p, .prodcut-cash p{
+.product-total p,
+.product-quantity p,
+.prodcut-cash p {
     font-size: 1.6rem;
     display: flex;
     align-items: center;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
+
 .prodcut-cash p {
     width: 8.5rem;
 }
-.prodcut-trash{
+
+.prodcut-trash {
     width: 3rem;
     aspect-ratio: 1/1;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.prodcut-trash  svg {
+
+.prodcut-trash svg {
     width: 100%;
     height: 100%;
     object-fit: contain;
     transition: all 0.2s;
 }
-.prodcut-trash  svg:hover {
+
+.prodcut-trash svg:hover {
     fill: var(--red);
 }
 
-.trash{
+.trash {
     font-size: 2.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.cart-product{
+.cart-product {
     width: 100%;
     display: flex;
     border-radius: 0.5rem;
@@ -182,159 +180,135 @@
     padding: 1.2rem 0;
 }
 
-.promotion, .readmore{
+.promotion,
+.readmore {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.promotion > span{
+.promotion>span {
     width: 20%;
     height: 2.4rem;
     margin-right: 0.6rem;
 }
 
-.promotion p{
+.promotion p {
     width: 80%;
     font-size: 1.6rem;
 }
 
-.readmore p{
+.readmore p {
     margin-right: 0.6rem;
     font-size: 1.6rem;
 }
 
-.readmore span{
+.readmore span {
     font-size: 2rem;
 }
 
-.promotion-content{
+
+.cart_voucher-container {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-}
-
-.promotion-name{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0 1rem 0;
-}
-
-
-
-.promotion-name p {
-    font-size: 1.6rem;
-}
-
-.promotion-detail p{
-    font-size: 1.2rem;
-}
-
-.promotion-name a{
-    font-size: 1.6rem;
-    text-decoration: underline;
-    color: blue;
-}
-
-.promotion-quantity{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0 1rem 0;
-}
-
-.promotion-quantity-content{
-    width: 80%;
-    padding-right: 1rem;
-}
-
-.promotion-quantity-content p{
-    padding: 0.6rem 0 0.6rem 0;
-    font-size: 1.6rem;
-}
-
-.promotion-quantity-name{
-    display: flex;
-    justify-content: space-between;
-}
-
-.promotion-quantity-name p{
-    font-size: 1.2rem;
-}
-
-.promotion-quantity-bar{
-    width: 60%;
-    height: 0.6rem;
-    border-radius: 1rem;
-    background-color: aqua;
-}
-
-.product-quantity-button button{
-    border: unset;
-    padding: 1rem;
-    background-color: #0123D5;
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-}
-
-.cart-payment{
-    padding: 1rem;
-}
-.cart-payment-describle{
-    display: flex;
-    align-items: center;
     gap: 1rem;
 }
 
-.cart-payment-describle p, .cart-payment-describle div{
-    font-size: 1.2rem;
-} 
-
-.cart-payment-describle div{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: #E1F0E9;
+.cart_vouche-item {
+    border-bottom: 0.1rem solid rgb(0, 0, 0, 0.3);
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #fff;
+    justify-content: center;
+    gap: 1.2rem;
+    padding-bottom: 1rem;
+}
+.cart_vouche_item-checkbox {
+    width: 2rem;
+    aspect-ratio: 1/1;
+}
+.cart_vouche_item-content {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 0.1rem solid rgb(0, 0, 0, 0.2);
 }
 
-.quantity_cart_number{
+.cart_vouche_item-code {
+    width: 100%;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.cart_vouche_item-date {
+    width: 100%;
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0, 0.8);
+}
+.cart_vouche_item-price {
+    width: 100%;
+    font-size: 1.4rem;
+}
+.cart_vouche_item-price > b {
+    font-size: 2rem;
+    color: var(--primary);
+}
+.cart_vouche_item-quantity {
+    width: 100%;
+    font-size: 1.6rem;
+}
+.cart_vouche_item-checkbox:checked ~ label {
+    background-color: rgb(0, 0, 0, 0.15);
+    border-color: transparent;
+}
+
+.cart-payment{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 2.4rem;
+}
+
+.quantity_cart_number {
     border: none;
     font-size: 1.6rem;
     width: 50%;
     text-align: center;
 }
-.cart-payment-cash, .cart-payment-total{
+
+.cart-payment-cash,
+.cart-payment-total {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 2.4rem 0;
 }
-
 .cart-payment-total span {
     font-size: 1.6rem;
     font-weight: bold;
     color: red;
 }
-.cart-payment-total p{
+
+.cart-payment-total p {
     font-size: 2rem;
     font-weight: bold;
     color: red;
 }
 
-.cart-payment-cash p, .payment-notice p{
+.cart-payment-cash p,
+.payment-notice p {
     font-size: 1.4rem;
 }
 
-.payment-button{
+.payment-button {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.payment-button button{
+.payment-button button {
     width: 95%;
     background-color: #C92127;
     color: #fff;
@@ -344,7 +318,7 @@
     font-size: 1.6rem;
 }
 
-.payment-notice p{
+.payment-notice p {
     text-align: center;
     color: red;
 }
@@ -355,6 +329,23 @@
     padding: 20rem 0;
     text-align: center;
 }
-.promotion{
+
+.promotion {
     gap: 1rem;
+}
+
+.product-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product-total p {
+    width: 22.5rem;
+    display: -webkit-box;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

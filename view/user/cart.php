@@ -7,9 +7,6 @@
         $total_price += $into_price;
         $html_product_cart .= '  
         <div class="cart-product">
-        <div class="check">
-            <input type="checkbox">
-        </div>
         <div class="product-total"> 
             <div class="cart-product-img">
                 <img src="view/'.$item['image'].'" alt="">
@@ -44,10 +41,30 @@
 
         ';
     }
+    $count = 1;
+    $html_voucher = '';
+    foreach ($vouchers as $item) {
+        $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
+        $html_voucher .= '
+            <label for="check_voucher'.$count.'" class="cart_vouche-item">
+                <input hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
+                <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
+                    <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
+                    <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>
+                    <div class="cart_vouche_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
+                    <div class="cart_vouche_item-quantity">số lượng '.number_format($item['quantity'],0,',','.').'</div>
+                </label>
+            </label>
+        ';
+    }
+
+
+
 ?>
 <?php include_once 'header.php' ?>
 <title>Giỏ Hàng</title>
 <link rel="stylesheet" href="view/user/css/cart.css">
+<link rel="stylesheet" href="view/user/css/reponsive/cart.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Giỏ hàng</div>
@@ -57,13 +74,13 @@
     <div class="container cart-container">
         <?php if($_SESSION['cart'] != []):?>
             <div class="box_cart">
-                <div class="box_cart-product">
+                <div class="box_cart-product m1">
                     <div class="cart_product-tittle">
-                        <div class="check">
+                        <!-- <div class="check">
                             <input type="checkbox">
-                        </div>
+                        </div> -->
                         <div class="product-total">
-                            <p>Chọn Tất Cả Sản Phẩm</p>
+                            <p>Tất Cả Sản Phẩm</p>
                         </div>
                             <div class="product-pay">
                                 <div class="product-quantity">
@@ -80,7 +97,7 @@
                     </div>  
                     <?= $html_product_cart ?>
                 </div>
-                <div class="box_cart-prmotion">
+                <form action="?mod=cart&act=checkout" method="post" class="box_cart-prmotion">
                     <div class="cart_product-promotion">
                         <div class="promotion">
                         <span class="material-symbols-outlined">sell</span>
@@ -92,37 +109,20 @@
                         </div>
                     </div>
 
-                    <div class="promotion-content">
-                        <div class="promotion-name">
-                            <p>MÃ GIẢM 10K - ĐƠN HÀNG TỪ 150K</p>
-                            <a>chi tiết</a>
-                        </div>
-                        <div class="promotion-detail">
-                        <p>Không Áp Dụng Cho Sách Giáo Khoa</p>
-                        </div>
-                        <div class="promotion-quantity">
-                            <div class="promotion-quantity-content">
-                                <div class="promotion-quantity-bar"></div>
-                                <div class="promotion-quantity-name">
-                                    <p>Mua thêm 150.000đ để nhận mã</p>
-                                    <p>150.000đ</p>
-                                </div>
-                            </div>
-                            <div class="product-quantity-button">
-                                <button>Mua Thêm</button>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="cart_voucher-container">
 
+                        <?= $html_voucher ?>
+
+                    </div>
                     <div class="cart-payment">
-                        <div class="cart-payment-describle">
-                            <p>Có thể áp dụng đồng thời nhiều mã</p>
-                            <div>!</div>
-                        </div>
-                        <!-- <div class="cart-payment-cash">
+                        <div class="cart-payment-cash">
                             <p>Thành tiền</p>
                             <p>90.250 đ</p>
-                        </div> -->
+                        </div>
+                        <div class="cart-payment-cash">
+                            <p>Thành tiền</p>
+                            <p>90.250 đ</p>
+                        </div>
                         <div class="cart-payment-total">
                             <span>Tổng Số Tiền:</span>
                             <p><?php
@@ -134,13 +134,13 @@
                             ?>đ</p>
                         </div>
                         <a href="index.php?mod=cart&act=checkout" class="payment-button">
-                            <button>THANH TOÁN</button>
+                            <button name="btn_checkout">THANH TOÁN</button>
                         </a>
                         <!-- <div class="payment-notice">
                             <p>(Giảm giá trên web chỉ áp dụng cho bán lẻ)</p>
                         </div> -->
                     </div>
-                </div>
+                </form>
             </div>
         <?php else:  ?>
             <div class="non-cart">GIỎ HÀNG TRỐNG</div>;
