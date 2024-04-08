@@ -54,12 +54,12 @@
 <section>
     <div class="container product-container">
         <?php  if($product_all != []): ?>
-            <div class="product-limit">
-            <?php if($search): ?>    
-                <div class="product-search">Tìm được <b><?= count($data) ?></b> sản phẩm có tên là <b>"<?= $search ?>"</b></div>
-                <?php endif; ?>    
+        <div class="product-limit">
+        <?php if($search): ?>    
+        <div class="product-search">Tìm được <b><?= count($data) ?></b> sản phẩm có tên là <b>"<?= $search ?>"</b></div>
+        <?php endif; ?>    
             <form action="?mod=page&act=product" method="post" class="product_limit-box">
-                <div><span class="material-symbols-outlined">menu</span></div>
+                <label class="pc-0 t-0" for="check_nav_category"><span class="material-symbols-outlined ">menu</span></label>
                 <div class="product_limit_box-text">Show:
                     <select name="limit" id="item-number" data-select-like-alignement="never" >
                         <option hidden value="<?= $limit?>"><?= $limit?></option>
@@ -78,6 +78,8 @@
             </form>
         </div>
         <div class="product_box">
+            <input hidden id="check_nav_category col-0 t-0" type="checkbox">
+            <label class="product_layout_dark col-0 t-0" for="check_nav_category"></label>
             <div class="product_box-nav m-0">
                 <div class="product_box_nav-item">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Danh Mục</a>
