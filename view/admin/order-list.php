@@ -1,4 +1,43 @@
 <?php include_once 'header.php' ?>
+<?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
+$html_oder_management='';
+foreach($oder_management as $item){
+    if($item['order_status'] == 1){
+        $status = 'Chờ xác nhận';
+    }
+    if($item['order_status'] == 2){
+        $status = 'Vận chuyển';
+    }
+    if($item['order_status'] == 3){
+        $status = 'Chờ giao hàng';
+    }
+    if($item['order_status'] == 4){
+        $status = 'Đã giao hàng';
+    }
+    if($item['order_status'] == 5){
+        $status = 'Đã hủy';
+    }
+    if($item['order_status'] == 6){
+        $status = 'Trả hàng';
+    }
+    $html_oder_management.='<div class="list-row order-grid ">
+    <div class="list-item flex-center">'.$countSTT++.'</div>
+    <div class="list-item">'.$item['code'].'</div>
+    <div class="list-item flex-center">'.$status.'</div>
+    <div class="list-item flex-center">'.$item['creation_date'].'</div>
+    <div class="list-item flex-center">'.$item['updation_date'].'</div>
+    <div class="list-item flex-center">'.$item['payment_id'].'</div>
+    <div class="list-item flex-center">'.$item['voucher_id'].'</div>
+    <div class="list-item flex-center">'.$item['user_id'].'</div>
+    <div class="list-item flex-center">
+        <a href="?mod=admin&act=order-edit&id='.$item['id'].'" class="function-edit">Sửa</a>
+        <a href="?mod=admin&act=order-delete&id='.$item['id'].'" class="function-delete">Xóa</a>
+    </div>
+</div>';
+}
+?>
 <link rel="stylesheet" href="view/admin/css/list.css">
     <section>
         <div class="container">
@@ -18,21 +57,10 @@
                     <div class="list-item flex-center">Chức năng</div>
                 </div>
 
-                <div class="list-row order-grid ">
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item">1321321313</div>
-                    <div class="list-item flex-center">Chưa thanh toán</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">00-00-0000</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">1</div>
-                    <div class="list-item flex-center">
-                        <a href="?mod=admin&act=order-edit&id=" class="function-edit">Sửa</a>
-                        <div class="function-delete">Xóa</div>
+                <?=$html_oder_management;?>
+                <div class="product-page_division">
+                    <?=$html_number_page;?>
                     </div>
-                </div>
-
             </div>
         </div>
     </section>  

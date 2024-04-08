@@ -1,4 +1,7 @@
 <?php include_once 'header.php' ?>
+<?php
+$dob
+?>
 <title>Sửa tác giả</title>
 <link rel="stylesheet" href="view/admin/css/add-edit.css">
     <section>

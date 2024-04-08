@@ -7,7 +7,7 @@ foreach ($voucher_management as $item){
     $html_voucher_management.='<div class="list-row voucher-grid ">
     <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['code'].'</div>
-    <div class="list-item flex-center list_item-price_sale">'.$item['price'].'</div>
+    <div class="list-item flex-center list_item-price_sale">'.number_format($item['price'],0,',','.').'</div>
     <div class="list-item flex-center">'.$item['start_date'].'</div>
     <div class="list-item flex-center">'.$item['end_date'].'</div>
     <div class="list-item flex-center">'.$item['quantity'].'</div>
