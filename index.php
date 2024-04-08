@@ -15,7 +15,6 @@
     require_once 'model/comment.php';
     require_once 'model/order.php';
     require_once 'model/voucher.php';
-
     if (isset($_GET['mod'])) {
         switch ($_GET['mod']) {
             case 'page':

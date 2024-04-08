@@ -1,0 +1,99 @@
+@media (min-width: 740px) and (max-width: 1024px){
+    .product-total p, .product-quantity p, .prodcut-cash p,
+    .promotion p, .readmore p, .payment-button button {
+        font-size: 1.4rem;
+    }
+
+    .promotion-name p{
+        font-size: 1.2rem;
+    }
+
+    .promotion-name a{
+        font-size: 1rem;
+    }
+
+    .product-total {
+        width: 50%;
+    }
+}
+
+@media (max-width: 740px) {
+    .box_cart{
+        flex-direction: column;
+    }
+
+    .box_cart-product,.box_cart-prmotion{
+        width: 100%;
+    }
+
+    .product-price{
+        flex-direction: column;
+    }
+    .payment-button button, .promotion-name p{
+        font-size: 1.4rem;
+    }
+
+    .product-total p, .product-quantity p, .prodcut-cash p,
+    .quantity_cart_number,.product-quantity button,
+    .promotion p, .promotion-name a,.promotion-detail p,
+    .promotion-quantity-name p, .cart-payment-describle p, .cart-payment-describle div,
+    .readmore p{
+        font-size: 1rem;
+    }
+
+    .cart-payment-total span{
+        font-size: 1.2rem;
+    }
+    .prodcut-cash p {
+        width: 5.5rem;
+    }
+
+    .cart-payment-total p,
+    .readmore span, .trash > span,
+    .promotion > span{
+        font-size: 1.5rem;
+    }
+
+    .quantity{
+        width: 100%;
+    }
+
+    .product-pay{
+        width: 50%;
+    }
+
+    .promotion > span {
+        width: 20%;
+        height: 2.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-price,.product-pay,.product-total{
+        gap: 1rem;
+    }
+
+    .cart-product-img{
+        width: 50%;
+    }
+
+    .cart-product-img > img{
+        width: 100%;
+    }
+
+    .product-price{
+        font-size: 2rem;
+    }
+    .readmore {
+        justify-content: flex-end;
+    }
+
+    .promotion > span{
+        margin-right: 0;
+    }
+
+    .promotion{
+        gap: unset;
+    }
+}

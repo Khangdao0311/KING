@@ -30,33 +30,34 @@ foreach($data_publisher as $item){
             <form id="myForm" class="content" action="?mod=admin&act=product-add" method="post" enctype="multipart/form-data">
                 <div class="content-item">
                     <div class="content_item-key">Tên sản phẩm</div>
-                    <input name="name" class="content_item-value" type="text" placeholder="nhập Tên sản phẩm">
+                    <input name="name" class="content_item-value" type="text" placeholder="Nhập tên sản phẩm" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá</div>
-                    <input name="price" class="content_item-value" type="number" min="1" placeholder="nhập giá">
+                    <input name="price" class="content_item-value" type="number" min="1" placeholder="Nhập giá" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá khuyến mãi</div>
-                    <input name="price_sale" class="content_item-value" type="number" placeholder="nhập giá khuyến mãi">
+                    <input name="price_sale" class="content_item-value" type="number" min="1" placeholder="Nhập giá khuyến mãi">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Số lượng</div>
-                    <input name="quantity" class="content_item-value" type="number" placeholder="nhập số lượng">
+                    <input name="quantity" class="content_item-value" type="number" min="1" placeholder="Nhập số lượng" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Mô tả</div>
-                    <input name="describle" class="content_item-value" type="text" placeholder="nhập mô tả">
+                    <input name="describle" class="content_item-value" type="text" placeholder="Nhập mô tả" required>
                 </div>
-                <div id="selectError" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
                     <div class="content_item-key">Nổi bật</div>
-                    <select class="fix" name="noibat" id="">
-                        <option hidden value=""></option>
-                        <option value="0"> Không nổi bật</option>
-                        <option value="1"> Nổi bật </option>
-                    </select>
-                    <!-- <input name="noibat" class="content_item-value" type="number" placeholder="nhập mã nổi bật"> -->
+                    <div class="radio">
+                        <input type="radio" name="noibat" value="0" checked>
+                        <div style="font-size: 1.6rem;">không nổi bật</div>
+                    </div>
+                    <div class="radio">
+                        <input type="radio" name="noibat" value="1">
+                        <span style="font-size: 1.6rem;">Nổi bật</span>
+                    </div>
                 </div>
                 <div id="select2Error" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
@@ -110,16 +111,9 @@ foreach($data_publisher as $item){
 </main>
 <script>
 document.getElementById('myForm').onsubmit = function(e) {
-    var noibatSelect = document.getElementsByName('noibat')[0].value;
     var categorySelect = document.getElementsByName('category_id')[0].value;
     var authorSelect = document.getElementsByName('author_id')[0].value;
     var publisherSelect = document.getElementsByName('publisher_id')[0].value;
-    if (noibatSelect === "") {
-        document.getElementById('selectError').style.display = 'block';
-        e.preventDefault();}
-        else {
-        document.getElementById('selectError').style.display = 'none';
-    }
         if (categorySelect === "") {
         document.getElementById('select2Error').style.display = 'block';
         e.preventDefault();}

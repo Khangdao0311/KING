@@ -1,6 +1,8 @@
 <?php include_once 'header.php' ?>
 <?php
 $html_user_management= "";
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 foreach ($user_management as $item){
     if ($item['role'] == 1){
         $vaitro = 'admin';
@@ -8,7 +10,7 @@ foreach ($user_management as $item){
         $vaitro = 'khach hang';
     }
     $html_user_management.='<div class="list-row user-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
     <div class="list-item">'.$item['email'].'</div>

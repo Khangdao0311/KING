@@ -1,9 +1,11 @@
 <?php include_once 'header.php' ?>
 <?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 $html_product_management="";
 foreach($product_management as $item){
     $html_product_management.='<div class="list-row product-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item_fix">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></img></div>
     <div class="list-item flex-center flex-column">

@@ -14,19 +14,19 @@
             <form class="content" action="?mod=admin&act=author-add" method="post" enctype="multipart/form-data">
                 <div class="content-item">
                     <div class="content_item-key">Tên tác giả</div>
-                    <input name="name" class="content_item-value" type="text" placeholder="nhập Tên tác giả">
+                    <input name="name" class="content_item-value" type="text" placeholder="Nhập tên tác giả" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Email</div>
-                    <input name="email" class="content_item-value" type="email" placeholder="nhập email tác giả">
+                    <input name="email" class="content_item-value" type="email" placeholder="Nhập email tác giả" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Ngày sinh</div>
-                    <input name="dob" class="content_item-value" type="date" placeholder="nhập ngày sinh">
+                    <input name="dob" class="content_item-value" type="date" placeholder="Nhập ngày sinh" required>
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Thông tin</div>
-                    <input name="information" class="content_item-value" type="text" placeholder="nhập thông tin">
+                    <input name="information" class="content_item-value" type="text" placeholder="Nhập thông tin">
                 </div> 
                 <input type="submit" class="content-submit" name="btn_addauthor" value="Thêm">
             </form>
@@ -38,7 +38,7 @@
                 <div class="success-icon">
                     <span class="material-symbols-outlined">check_circle</span>
                 </div>
-                <a href="?mod=admin&act=category-add" class="success-next">ok</a>
+                <a href="?mod=admin&act=author-add" class="success-next">ok</a>
             </div>
         </div>
     </section>

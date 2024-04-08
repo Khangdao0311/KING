@@ -1,9 +1,11 @@
 <?php include_once 'header.php' ?>
 <?php
+$page = (isset($_GET['trang'])) ? $_GET['trang'] : 1;
+$countSTT = (($page - 1) * 9) + 1;
 $html_category_management="";
 foreach($category_management as $item){
     $html_category_management.='<div class="list-row category-grid ">
-    <div class="list-item flex-center">'.$item['id'].'</div>
+    <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['name'].'</div>
     <div class="list-item flex-center"><img src="view/'.$item['image'].'" class="list_item-img"></div>
     <div class="list-item"></div>

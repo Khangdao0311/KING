@@ -94,6 +94,7 @@ foreach ($publishers as $item) {
 <?php include_once 'header.php' ?>
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
+<link rel="stylesheet" href="view/user/css/reponsive/home.css">
 <!-- <section >
     <div class="container silde_banner">
         <div class="silde-box">

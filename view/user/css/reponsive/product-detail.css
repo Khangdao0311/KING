@@ -1,0 +1,56 @@
+@media (max-width: 740px) {
+    .productdetail-image, .productdetail-content{
+        width: 100%;
+        max-width: 41rem;
+    }
+
+    .productdetail-container, .productdetail-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .productdetail_image-main{
+        width: 100%;
+    }
+
+    .link_page-text, .productdetail-name, .productdetail-price_sale,
+    .productdetail-price_sale > b,.productdetail_quantity-text,
+    .productdetail_comment-title, .new_titel-text{
+        font-size: 1.6rem;
+    }
+
+    .productdetail_button-buy_now{
+        font-size: 1.4rem;
+    }
+
+    .productdetail_button-buy_now, .productdetail_button-add_cart{
+        width: 14rem;
+    }
+
+    .productdetail-innerbook h3,.product-price_sale,
+    .product-mane,.productdetail_button_add_cart-text{
+        font-size: 1.2rem;
+    }
+
+    .product-mane{
+        aspect-ratio: 6/1;
+    }
+    .productdetail-descibe p, .productdetail-descibe span,
+    .productdetail-moredescibe p, .productdetail_innerbook-describe,
+    .product-price,.product-view{
+        font-size: 1rem;
+    }
+
+    .productdetail-publisher > b, .productdetail-author > b,.productdetail-price{
+        font-size: 1rem;
+    }
+
+    .productdetail-button_buy {
+        width: 14rem;
+    }
+    .comment_NaN {
+        font-size: 3rem;
+    }
+}

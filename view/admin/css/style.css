@@ -153,8 +153,8 @@ section {
 }
 
 .fix:focus {
-    border-color: #4A90E2;
-    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+    border-color: black;
+    box-shadow: 0 0 5px black;
 }
 
 #error:checked ~ .error,

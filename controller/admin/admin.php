@@ -202,6 +202,8 @@ if($_SESSION['user']['role']== 1){
                 include_once 'view/admin/user-delete.php';
                 break;
             case 'order-list':
+                $html_number_page = phan_trang($page,$search,author_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
+                $oder_management = order_SELECT();
                 include_once 'view/admin/order-list.php';
                 break;
             case 'order-edit':
@@ -347,6 +349,7 @@ if($_SESSION['user']['role']== 1){
                     $id = $_POST['id'];
                     $show_edit = voucher_ONE($id);
                     voucher_eidt($code,$price,$start_date,$end_date,$quantity,$user_id,$id);
+                    voucher_updation_date($id);
                     header('Location: ?mod=admin&act=voucher-list');
                 }
                 $data_user_id = user_ALL();

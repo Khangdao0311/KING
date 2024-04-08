@@ -37,16 +37,19 @@
     transition: all 0.3s;
     cursor: pointer;
 }
+.accuont_nav-item:last-child {
+    border: none;
+}
 .accuont_nav-item:hover {
     padding-left: 2rem;
     font-weight: bold;
     color: var(--primary);
-    border-color: var(--primary);
+    /* border-color: var(--primary); */
 }
 .accuont_nav-item_focus {
     font-weight: bold;
     color: var(--primary);
-    border-color: var(--primary);
+    /* border-color: var(--primary); */
 }
 .account-main {
     width: 74.5%;
@@ -187,7 +190,9 @@
     padding: 1.2rem;
     gap: 1.2rem;
     border-top: 0.1rem solid rgb(0, 0, 0, 0.2);
-
+}
+.account_order_follow-order:first-child {
+    border: none;
 }
 .account_order_follow-product {
     width: 100%;
@@ -255,15 +260,24 @@
     justify-content: end;
     gap: 2.4rem;
 }
+.account_order_follow_order_total-voucher {
+    font-size: 1.2rem;
+}
 .account_order_follow_order-total {
+    font-size: 1.6rem;
+    display: flex;
+    gap: 2.4rem;
+    align-items: end;
+    justify-content: end;
+}
+.account_order_follow_order_total-price {
     font-size: 1.6rem;
     display: flex;
     gap: 1rem;
     align-items: end;
     justify-content: end;
-
 }
-.account_order_follow_order-total > b {
+.account_order_follow_order_total-price > b {
     font-size: 2rem;
     color: var(--primary);
 }
@@ -407,6 +421,7 @@
     width: 100%;
     padding: 0 2.4rem;
 }
+
 .account_comment-item {
     width: 100%;
     display: flex;
@@ -414,6 +429,10 @@
     padding: 1.2rem 0;
     align-items: center;
     justify-content: center;
+    border-top: 0.1rem solid rgb(0, 0, 0, 0.2);
+}
+.account_comment-item:first-child {
+    border: none;
 }
 .account_comment_item-content {
     width: calc(100% - 12.4rem);
@@ -479,4 +498,52 @@
 .account_comment_item_fun-delete {
     background-color: var(--primary);
     color: #FFF;
+}
+
+
+
+
+.account_voucher-box {
+    width: 100%;
+}
+.account_voucher-item {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: rgb(0, 0, 0, 0.1);
+}
+.account_voucher_item-code {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.account_voucher_item-date {
+    font-size: 1.4rem;
+}
+.account_voucher_item-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.account_voucher_item-price_quantity {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.account_voucher_item-price,
+.account_voucher_item-quantity {
+    font-size: 1.6rem;
+}
+.account_voucher_item-price > b {
+    font-size: 2rem;
+    color: var(--primary);
+}
+.account_voucher_item-btn {
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    color: #FFF;
+    background-color: var(--primary);
 }

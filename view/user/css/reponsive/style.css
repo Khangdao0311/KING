@@ -1,0 +1,237 @@
+
+@media (min-width: 740px ) and (max-width: 1024px){
+    .container{
+        width: 100%;
+        max-width: 82rem
+    }
+
+    .link_page{
+        margin-top: 14rem;
+    }
+
+    .link_page-text{
+        font-size: 1.8rem;
+    }
+
+    header{
+        margin-bottom: 0;
+    }
+
+    .header_top, .header_bottom{
+        height: 6rem;
+    }
+    .header-notification > p, .header-user p, .header-cart p, .hot_showall-text{
+        font-size: 1.2rem;
+    }
+
+    .margin-header{
+        margin-top: 8rem;
+    }
+    .t-0{
+        display: none;
+    }
+
+    .row {
+        display: flex;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+    }
+
+    .t-1 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .t-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .t-3 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .t-4 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .t-5 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .t-6 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    .t-8 {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+    .t-9 {
+        flex: 0 0 11.11111%;
+        max-width: 11.11111%;
+    }
+    .t-10 {
+        flex: 0 0 10%;
+        max-width: 10%;
+    }
+    .cart_add_success{
+        padding: 3rem;
+        font-size: 1.8rem;
+    }
+}
+
+
+
+@media (max-width: 740px) {
+    .container{
+        width: 100%;
+        max-width: 41rem;
+    }
+    .row {
+        display: flex;
+        overflow: hidden;
+        flex-wrap: nowrap;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+    }
+
+    .link_page-text{
+        font-size: 1.6rem;
+    }
+
+    .link_page {
+        margin-top: 8rem;
+    }
+
+    .header_bottom{
+        height: 6rem;
+    }
+
+    .header-logo{
+        width: 25%;
+    }
+
+    .margin-header{
+        margin-top: 5rem;
+    }
+
+    .header-logo {
+        width: 35%;
+    }
+
+    .header-search {
+        width: 40%;
+    }
+
+    .header-box{
+        justify-content: unset;
+        gap: 1rem;
+    }
+
+    .header_search-box{
+        height: 3.4rem;
+    }
+    .header-logo > img{
+        padding: 1rem;
+    }
+    .material-symbols-outlined{
+        font-size: 3rem;
+    }
+    .row {
+        display: flex;
+        overflow: hidden;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+    }
+
+    .m-0{
+        display: none !important;
+    }
+    
+    .m-1 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .m-2 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .m-3 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+    .m-4 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .m-5 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .m-6 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+    .m-8 {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+    .m-9 {
+        flex: 0 0 11.11111%;
+        max-width: 11.11111%;
+    }
+    .m-10 {
+        flex: 0 0 10%;
+        max-width: 10%;
+    }
+
+    footer{
+        margin-top: unset;
+        position: sticky;
+        bottom:  0;
+    }
+
+    .footer_nav{
+        width: 100%;
+        height: 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav_icon{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .nav_icon span{
+        font-size: 3.6rem;
+    }
+
+    .nav_icon p{
+        font-size: 1rem;
+    }
+
+    .cart_add_success{
+        padding: 2rem;
+        font-size: 1.6rem;
+    }
+    .header-quantity {
+        position: absolute;
+        width: 2rem;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        border: 0.1rem solid rgba(0, 0, 0, 0.5);
+        background-color: #fff;
+        border-radius: 50%;
+        top: 0;
+        left: 5px;
+    }
+}

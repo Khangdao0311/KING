@@ -45,6 +45,7 @@
 <?php include_once 'header.php' ?>
 <title>Sản Phẩm</title>
 <link rel="stylesheet" href="view/user/css/product.css">
+<link rel="stylesheet" href="view/user/css/reponsive/product.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Home</div>
@@ -53,11 +54,12 @@
 <section>
     <div class="container product-container">
         <?php  if($product_all != []): ?>
-            <div class="product-limit">
-            <?php if($search): ?>    
-                <div class="product-search">Tìm được <b><?= count($data) ?></b> sản phẩm có tên là <b>"<?= $search ?>"</b></div>
-                <?php endif; ?>    
+        <div class="product-limit">
+        <?php if($search): ?>    
+        <div class="product-search">Tìm được <b><?= count($data) ?></b> sản phẩm có tên là <b>"<?= $search ?>"</b></div>
+        <?php endif; ?>    
             <form action="?mod=page&act=product" method="post" class="product_limit-box">
+                <label class="pc-0 t-0" for="check_nav_category"><span class="material-symbols-outlined ">menu</span></label>
                 <div class="product_limit_box-text">Show:
                     <select name="limit" id="item-number" data-select-like-alignement="never" >
                         <option hidden value="<?= $limit?>"><?= $limit?></option>
@@ -66,32 +68,34 @@
                         <option value="12">12</option>
                         <option value="15">15</option>
                     </select>
+                    <input hidden name="search" value="<?= $search ?>" type="text">
+                    <input hidden name="category_id" value="<?= $category_id ?>" type="text">
+                    <input hidden name="author_id" value="<?= $author_id ?>" type="text">
+                    <input hidden name="publisher_id" value="<?= $publisher_id ?>" type="text">
+                    <input hidden name="search" value="<?= $search ?>" type="text">
+                    <input name="btn_limit" class="product_limit_box-button" type="submit" value="Xem">
                 </div>
-                <input hidden name="search" value="<?= $search ?>" type="text">
-                <input hidden name="category_id" value="<?= $category_id ?>" type="text">
-                <input hidden name="author_id" value="<?= $author_id ?>" type="text">
-                <input hidden name="publisher_id" value="<?= $publisher_id ?>" type="text">
-                <input hidden name="search" value="<?= $search ?>" type="text">
-                <input name="btn_limit" class="product_limit_box-button" type="submit" value="Xem">
             </form>
         </div>
         <div class="product_box">
-            <div class="product_box-nav">
-                <div class="product_box_nav-item m-0">
+            <input hidden id="check_nav_category col-0 t-0" type="checkbox">
+            <label class="product_layout_dark col-0 t-0" for="check_nav_category"></label>
+            <div class="product_box-nav m-0">
+                <div class="product_box_nav-item">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Danh Mục</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_category ?>
                     </div> 
                    
                 </div>
-                <div class="product_box_nav-item m-0">
+                <div class="product_box_nav-item">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Tác Giả</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_author ?>
                     </div> 
                    
                 </div>
-                <div class="product_box_nav-item m-0">
+                <div class="product_box_nav-item">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Nhà Xuất Bản</a>
                     <div class="product_box_nav-item_box">
                         <?= $html_show_publisher ?>
@@ -99,12 +103,11 @@
                    
                 </div>
             </div>
-            <div class="product_box-show ">
+            <div class="product_box-show m-1">
                 <div class="product-show row">
                      <?= $html_show_product_all ?>
                 </div>
                 <div class="product-page_division">
-                  
                     <?= $page_division ?>
                   
                 </div>

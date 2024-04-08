@@ -16,14 +16,15 @@
     ';
     foreach ($comments as $item) {
         $comment_user = user_ONE($item['user_id']); 
-        $star5 = ($item['rating'] > 4) ? "star-active" : "";
-        $star4 = ($item['rating'] > 3) ? "star-active" : "";
-        $star3 = ($item['rating'] > 2) ? "star-active" : "";
-        $star2 = ($item['rating'] > 1) ? "star-active" : "";
+        $img = ($comment_user['image'] != '') ? 'view/images/user/'.$comment_user['image'] : 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png' ;
+        $star5 = ($item['rating'] >= 5) ? "star-active" : "";
+        $star4 = ($item['rating'] >= 4) ? "star-active" : "";
+        $star3 = ($item['rating'] >= 3) ? "star-active" : "";
+        $star2 = ($item['rating'] >= 2) ? "star-active" : "";
 
         $html_comment .= '
             <div class="productdetail_comment-item">
-                <img class="productdetail_comment_item-img" src="view/images/user/'.$comment_user['image'].'" alt="">
+                <img class="productdetail_comment_item-img" src="'.$img.'" alt="">
                 <div class="productdetail_comment_item-content">
                     <div class="productdetail_comment_item_content-name">'.$comment_user['name'].'</div>
                     <div class="productdetail_comment_item_content-rating">
@@ -38,10 +39,11 @@
             </div>
         ';
     }
+    $image = ($_SESSION['user']['image'] != '') ? 'view/images/user/'.$_SESSION['user']['image'] : 'https://cdn-icons-png.flaticon.com/512/3033/3033143.png' ;
     $html_comment .= '
         </div>
         <div class="productdetail_comment-form">
-            <img src="view/images/user/'.$_SESSION['user']['image'].'" alt="" class="productdetail_comment_form-img">
+            <img src="'.$image.'" alt="" class="productdetail_comment_form-img">
             <div class="productdetail_comment_form-content">
                 <div class="productdetail_comment_form-rating">
                     <input onclick="star_rating(this)" hidden id="star5" type="radio" name="star" value="5" >
