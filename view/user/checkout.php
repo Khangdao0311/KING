@@ -37,7 +37,7 @@ foreach ($_SESSION['cart'] as $item) {
 </section>
 <section>
     <div class="container contact-container">
-        <form action="" method="post" class="cart-cash">
+        <form action="?mod=cart&act=checkout" method="post" class="cart-cash">
             <div class="ship-infomation">
                 <div class="infomation-user">
                     <div class="infomation-tittle">
@@ -104,12 +104,12 @@ foreach ($_SESSION['cart'] as $item) {
                 <?= $html_product_checkout ?>
 
                 <div class="voucher">
-                    <div class="voucher-content">
+                    <!-- <div class="voucher-content">
                         <input type="text" placeholder="Nhập mã giảm giá nếu có">
                     </div>
                     <div class="voucher-button">
                         <button>Áp dụng</button>
-                    </div>
+                    </div> -->
                 </div>
                 <div>
                     <div class="payment-method">
@@ -144,21 +144,22 @@ foreach ($_SESSION['cart'] as $item) {
                         </div>
                         <div class="payment_total-info">
                             <p>Số tiền mua sản phẩm</p>
-                            <p><?php echo number_format($into_price, 0, ',', '.') ?> đ</p>
+                            <p><?= number_format($into_price, 0, ',', '.') ?> đ</p>
                         </div>
                         <div class="payment_total-promotion">
                             <p>Khuyến mãi</p>
-                            <p>0 đ</p>
-                        </div>
-                        <div class="payment_total-ship">
-                            <p>Phí vận chuyện</p>
-                            <p>10.000 đ</p>
+                            <p><?php if (isset($_POST['voucher']))echo number_format($voucher_cart['price'],0,',','.');else echo '0'; ?> đ</p>
                         </div>
                         <div class="payment_total-sum">
                             <p>Tổng tiền thanh toán</p>
-                            <p class="price"><?php echo (number_format($into_price, 0, ',', '.')) ?> đ</p>
+                            <?php if(isset($_POST['voucher'])): ?>
+                            <p class="price"><?= (number_format($into_price - $voucher_cart['price'], 0, ',', '.')) ?> đ</p>
+                            <?php else: ?>
+                            <p class="price"><?= (number_format($into_price, 0, ',', '.')) ?> đ</p>
+                            <?php endif; ?>
                         </div>
                     </div>
+                    <input name="voucher" hidden type="text" value='<?php if (isset($_POST['voucher'])) echo $voucher_cart['id'] ?>'>
                     <input name="payment-button" value="đặt hàng" type="submit" class="payment-button">
                 </div>
             </div>

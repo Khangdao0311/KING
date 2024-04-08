@@ -44,6 +44,25 @@
 
         ';
     }
+    $count = 1;
+    $html_voucher = '';
+    foreach ($vouchers as $item) {
+        $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
+        $html_voucher .= '
+            <label for="check_voucher'.$count.'" class="cart_vouche-item">
+                <input hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
+                <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
+                    <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
+                    <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>
+                    <div class="cart_vouche_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
+                    <div class="cart_vouche_item-quantity">số lượng '.number_format($item['quantity'],0,',','.').'</div>
+                </label>
+            </label>
+        ';
+    }
+
+
+
 ?>
 <?php include_once 'header.php' ?>
 <title>Giỏ Hàng</title>
@@ -81,7 +100,7 @@
                     </div>  
                     <?= $html_product_cart ?>
                 </div>
-                <div class="box_cart-prmotion">
+                <form action="?mod=cart&act=checkout" method="post" class="box_cart-prmotion">
                     <div class="cart_product-promotion">
                         <div class="promotion">
                         <span class="material-symbols-outlined">sell</span>
@@ -94,9 +113,9 @@
                     </div>
 
                     <div class="cart_voucher-container">
-                        <div class="cart_vouche-item">
-                            <input type="radio">
-                        </div>
+
+                        <?= $html_voucher ?>
+
                     </div>
                     <div class="cart-payment">
                         <div class="cart-payment-cash">
@@ -118,13 +137,13 @@
                             ?>đ</p>
                         </div>
                         <a href="index.php?mod=cart&act=checkout" class="payment-button">
-                            <button>THANH TOÁN</button>
+                            <button name="btn_checkout">THANH TOÁN</button>
                         </a>
                         <!-- <div class="payment-notice">
                             <p>(Giảm giá trên web chỉ áp dụng cho bán lẻ)</p>
                         </div> -->
                     </div>
-                </div>
+                </form>
             </div>
         <?php else:  ?>
             <div class="non-cart">GIỎ HÀNG TRỐNG</div>;
