@@ -3,7 +3,7 @@
         $sql = "SELECT * FROM orders WHERE 1  ";
         if ($user_id) $sql .= " AND user_id = $user_id";
         if ($status) $sql .= " AND order_status = $status";
-        $sql .= " ORDER BY order_status";
+        $sql .= " ORDER BY id DESC";
         return get_ALL($sql);
     }
     function order_ONE($code,$id){
@@ -12,9 +12,9 @@
         if($id) $sql.= " AND id = $id";
         return get_ONE($sql);
     }
-    function order_ADD($code, $payment_id,  $user_id){
-        $sql = "INSERT INTO orders(code, payment_id, user_id) 
-        VALUES ('$code', '$payment_id',  '$user_id' )";
+    function order_ADD($code, $payment_id, $voucher_id,  $user_id){
+        $sql = "INSERT INTO orders(code, payment_id, voucher_id, user_id) 
+        VALUES ('$code', '$payment_id', $voucher_id,  '$user_id' )";
         edit($sql);
     }
     function order_DELETE($id){
