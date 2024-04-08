@@ -2,11 +2,12 @@
     $html_product_order = '';
     foreach ($order_detail as $item) {
         $total = 0;
-            $html_product_order .= '
-                <div class="account_order_follow-order">';
+        $order = order_ONE(0,$item[0]['order_id']);
+        $voucher = ($order['voucher_id']) ? voucher_ONE($order['voucher_id']) : 0 ;
+        $html_product_order .= '
+            <div class="account_order_follow-order">';
         foreach ($item as $product_order) {
             $product = product_ONE($product_order['product_id']);
-            $order_status = order_SELECT($_SESSION['user']['id'],0,$product_order['order_id'])[0]['order_status'];
             $total += $product['price_sale'] * $product_order['quantity'];
             $link_product_detail = '?mod=page&act=product-detail&id='.$product['id'];
             $html_product_order .= '
@@ -30,30 +31,44 @@
         }
         $html_product_order .= '
                     <div class="account_order_follow_order-total_fun">
-                        <div class="account_order_follow_order-total">Tổng '.count($item).' sản phẩm: <b>'.number_format($total,0,',','.').' đ</b></div>
-                        <div class="account_order_follow_order-fun">';
-                switch ($order_status) {
+                        <div class="account_order_follow_order-total">';
+                        if ($voucher) {
+                            $html_product_order .= '
+                            <div class="account_order_follow_order_total-voucher">Đã áp dụng Voucher - '.$voucher['code'].' </div>
+                            <div class="account_order_follow_order_total-price">Tổng '.count($item).' sản phẩm: <b>'.number_format($total - $voucher['price'],0,',','.').' đ</b></div>';
+                        } else {
+                            $html_product_order .= '
+                            <div class="account_order_follow_order_total-price">Tổng '.count($item).' sản phẩm: <b>'.number_format($total ,0,',','.').' đ</b></div>';
+                        }
+                        $html_product_order .= '
+                        </div>';
+                switch ($order['order_status']) {
                 case 1:
                     $html_product_order .= '
-                            <div class="account_order_follow_order_fun-btn">Hủy</div>
-                    ';
+                        <div class="account_order_follow_order-fun">
+                            <input hidden type="text" value="0">
+                            <div onclick="cancel(this)" class="account_order_follow_order_fun-btn">Hủy</div>
+                            <input hidden type="text" value="'.$order['id'].'">
+                        </div>';
                     break;
                 case 4:
                     $html_product_order .= '
+                        <div class="account_order_follow_order-fun">
                             <div class="account_order_follow_order_fun-btn">Đánh giá</div>
                             <div class="account_order_follow_order_fun-btn account_order_follow_order_fun-btn_red">Đặt lại</div>
-                    ';
+                        </div>';
                     break;
                 case 5:
                 case 6:
                     $html_product_order .= '
+                        <div class="account_order_follow_order-fun">
                             <div class="account_order_follow_order_fun-btn">Mua lại</div>
-                    ';
+                        </div>';
                     break;
                 }
                             
                 $html_product_order .= '
-                        </div>
+                        
                     </div>
                 </div>
         ';
@@ -87,7 +102,7 @@
         <div class="account-main">
             <div class="account-title">Theo dõi đơn hàng</div>
             <div class="account-order_follow">
-                <div onclick="order_status(0)" class="account_order_follow-item account_order_follow-item-active">Xem tất cả (<?= count($products_all) ?>)</div>
+                <div onclick="order_status(0)" class="account_order_follow-item account_order_follow-item-active">Xem tất cả (<?= count($order_detail) ?>)</div>
                 <div onclick="order_status(1)" class="account_order_follow-item">Chờ xác nhận</div>
                 <div onclick="order_status(2)" class="account_order_follow-item">Vận chuyển</div>
                 <div onclick="order_status(3)" class="account_order_follow-item">chờ giao hàng</div>
