@@ -26,7 +26,6 @@
     width: 32%;
     border: 0.1rem solid rgb(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-
 }
 
 .cart_product-tittle{
@@ -209,96 +208,22 @@
     font-size: 2rem;
 }
 
-.promotion-content{
+.cart_voucher-container {
+    background-color: yellowgreen;
     padding: 1rem;
 }
-
-.promotion-name{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0 1rem 0;
+.cart_vouche-item {
+    width: 100%;
 }
 
-
-
-.promotion-name p {
-    font-size: 1.6rem;
-}
-
-.promotion-detail p{
-    font-size: 1.2rem;
-}
-
-.promotion-name a{
-    font-size: 1.6rem;
-    text-decoration: underline;
-    color: blue;
-}
-
-.promotion-quantity{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0 1rem 0;
-}
-
-.promotion-quantity-content{
-    width: 80%;
-    padding-right: 1rem;
-}
-
-.promotion-quantity-content p{
-    padding: 0.6rem 0 0.6rem 0;
-    font-size: 1.6rem;
-}
-
-.promotion-quantity-name{
-    display: flex;
-    justify-content: space-between;
-}
-
-.promotion-quantity-name p{
-    font-size: 1.2rem;
-}
-
-.promotion-quantity-bar{
-    width: 60%;
-    height: 0.6rem;
-    border-radius: 1rem;
-    background-color: aqua;
-}
-
-.product-quantity-button button{
-    border: unset;
-    padding: 1rem;
-    background-color: #0123D5;
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-}
 
 .cart-payment{
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
-}
-.cart-payment-describle{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    gap: 2.4rem;
 }
 
-.cart-payment-describle p, .cart-payment-describle div{
-    font-size: 1.2rem;
-} 
-
-.cart-payment-describle div{
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: #E1F0E9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-}
 
 .quantity_cart_number{
     border: none;
@@ -310,9 +235,7 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 2.4rem 0;
 }
-
 .cart-payment-total span {
     font-size: 1.6rem;
     font-weight: bold;

@@ -93,37 +93,20 @@
                         </div>
                     </div>
 
-                    <div class="promotion-content">
-                        <div class="promotion-name">
-                            <p>MÃ GIẢM 10K - ĐƠN HÀNG TỪ 150K</p>
-                            <a>chi tiết</a>
-                        </div>
-                        <div class="promotion-detail">
-                        <p>Không Áp Dụng Cho Sách Giáo Khoa</p>
-                        </div>
-                        <div class="promotion-quantity">
-                            <div class="promotion-quantity-content">
-                                <div class="promotion-quantity-bar"></div>
-                                <div class="promotion-quantity-name">
-                                    <p>Mua thêm 150.000đ để nhận mã</p>
-                                    <p>150.000đ</p>
-                                </div>
-                            </div>
-                            <div class="product-quantity-button">
-                                <button>Mua Thêm</button>
-                            </div>
+                    <div class="cart_voucher-container">
+                        <div class="cart_vouche-item">
+                            <input type="radio">
                         </div>
                     </div>
-
                     <div class="cart-payment">
-                        <div class="cart-payment-describle">
-                            <p>Có thể áp dụng đồng thời nhiều mã</p>
-                            <div>!</div>
-                        </div>
-                        <!-- <div class="cart-payment-cash">
+                        <div class="cart-payment-cash">
                             <p>Thành tiền</p>
                             <p>90.250 đ</p>
-                        </div> -->
+                        </div>
+                        <div class="cart-payment-cash">
+                            <p>Thành tiền</p>
+                            <p>90.250 đ</p>
+                        </div>
                         <div class="cart-payment-total">
                             <span>Tổng Số Tiền:</span>
                             <p><?php
