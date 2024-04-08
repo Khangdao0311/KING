@@ -4,7 +4,7 @@
         if ($user_id) $sql .= " AND user_id = $user_id";
         if ($status) $sql .= " AND order_status = $status";
         $sql .= " ORDER BY order_status";
-        return get_ALL($sql);
+        return get_ALL($sql); 
     }
     function order_SELECT_ALL($search,$page,$limit) {
         $sql = "SELECT * FROM orders WHERE 1  ";
