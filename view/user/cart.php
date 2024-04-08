@@ -48,6 +48,7 @@
 <?php include_once 'header.php' ?>
 <title>Giỏ Hàng</title>
 <link rel="stylesheet" href="view/user/css/cart.css">
+<link rel="stylesheet" href="view/user/css/reponsive/cart.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Giỏ hàng</div>
@@ -57,7 +58,7 @@
     <div class="container cart-container">
         <?php if($_SESSION['cart'] != []):?>
             <div class="box_cart">
-                <div class="box_cart-product">
+                <div class="box_cart-product m1">
                     <div class="cart_product-tittle">
                         <div class="check">
                             <input type="checkbox">
