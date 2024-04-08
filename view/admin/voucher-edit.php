@@ -24,7 +24,7 @@ foreach ($data_user_id as $item){
                 </div>  
                 <div class="content-item">
                     <div class="content_item-key">Số tiền</div>
-                    <input name="price" class="content_item-value" type="number" value="<?=$show_edit['price'];?>">
+                    <input name="price" class="content_item-value" type="number" min="1" value="<?=$show_edit['price'];?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Ngày bắt đầu</div>
@@ -36,7 +36,7 @@ foreach ($data_user_id as $item){
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Số lượng</div>
-                    <input name="quantity" class="content_item-value" type="number" value="<?=$show_edit['quantity'];?>">
+                    <input name="quantity" class="content_item-value" type="number" min="1" value="<?=$show_edit['quantity'];?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">User được sử dụng</div>
