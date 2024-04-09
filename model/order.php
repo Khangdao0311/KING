@@ -24,8 +24,11 @@
         return get_ONE($sql);
     }
     function order_ADD($code, $payment_id, $voucher_id,  $user_id){
-        $sql = "INSERT INTO orders(code, payment_id, voucher_id, user_id) 
-        VALUES ('$code', '$payment_id', $voucher_id,  '$user_id' )";
+        $sql = "INSERT INTO orders(code, payment_id, ";
+        if ($voucher_id) $sql .= " voucher_id,";
+        $sql .= " user_id) VALUES ('$code', $payment_id, ";
+        if ($voucher_id) $sql .= " $voucher_id,";
+        $sql .= "  $user_id )";
         edit($sql);
     }
     function order_DELETE($id){

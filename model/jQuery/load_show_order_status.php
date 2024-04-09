@@ -6,7 +6,16 @@
     require_once '../order.php';
     require_once '../voucher.php';
 
-  
+    if (isset($_POST['order_id'])) {
+        $order_id = $_POST['order_id'];
+            $order__detail =order_detail_SELECT($order_id,0);
+            foreach ($order__detail as $item) {
+                $product = product_ONE($item['product_id']);
+                product_edit($product['name'],$product['image'],$product['price'],$product['price_sale'],$product['quantity'] + $item['quantity'],$product['describle'],$product['noibat'],$product['category_id'],$product['author_id'],$product['publisher_id'],$product['id']);
+            }
+        order_DELETE($order_id);
+        order_detail_DELETE($order_id);
+    }
 
     $status = $_POST['status'];
 
@@ -21,17 +30,7 @@
         array_push($order_detail_all, order_detail_SELECT($item['id'],0));
     }
 
-    if (isset($_POST['order_id'])) {
-        $order_id = $_POST['order_id'];
-            // $order__detail =order_detail_SELECT($item['id'],0)
-
-                // $product = product_ONE($order__detail['product_id']);
-                // product_edit($product['name'],$product['image'],$product['price'],$product['price_sale'],$product['quantity'] + $order_detail['quantity'],$product['describle'],$product['noibat'],$product['category_id'],$product['author_id'],$product['publisher_id'],$product['id']);
-            
-        
-        order_DELETE($order_id);
-        order_detail_DELETE($order_id);
-    }
+   
 
     $status0 = ($status == 0) ? 'account_order_follow-item-active' : '';
     $status1 = ($status == 1) ? 'account_order_follow-item-active' : '';

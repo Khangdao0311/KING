@@ -35,7 +35,7 @@ if (isset($_GET['act'])) {
         case 'checkout':
             if ($_SESSION['cart']) {
                 $check_success = '';
-                if (isset($_POST['voucher'])) $voucher_cart =  voucher_ONE($_POST['voucher']) ;
+                if ($_POST['voucher']) $voucher_cart =  voucher_ONE($_POST['voucher']) ;
                 if (isset($_POST['payment-button']) && $_POST['payment-button']) {
                     $name = $_POST['name'];
                     $email = $_POST['email'];
@@ -46,7 +46,7 @@ if (isset($_GET['act'])) {
                     $street = $_POST['street'];
                     $note = $_POST['note'];
                     $method = $_POST['method'];
-                    $voucher_id = $_POST['voucher'];
+                    $voucher_id = ($_POST['voucher']) ? $_POST['voucher'] : null ;
                     $address = "$province, $district, $ward, $street";
                     $text_email = ($email) ? 'Email: <b>' . $email . '</b> <br>' : '';
                     $content = '
@@ -82,7 +82,7 @@ if (isset($_GET['act'])) {
                             "name" => "KING STORE",
                         ]
                     ];
-                    mailer($mail,'ORDER PRODUCT',$content);
+                    // mailer($mail,'ORDER PRODUCT',$content);
                     $orders = order_SELECT(0, 0, 0);
                     do {
                         $check_code = FALSE;
@@ -96,10 +96,12 @@ if (isset($_GET['act'])) {
                     order_ADD($random_code, $method, $voucher_id, $user_id);
                     foreach ($_SESSION['cart'] as $item) {
                         order_detail_ADD($item['quantity_cart'], order_ONE($random_code,0)['id'], $item['id']);
-                        product_edit($item['name'],$item['image'],$item['price'],$item['price_sale'],$item['quantity'] - $item['quantity_cart'],$item['describle'],$item['noibat'],$item['category_id'],$item['author_id'],$item['publisher_id'],$item['id']);
+                        // product_edit($item['name'],$item['image'],$item['price'],$item['price_sale'],$item['quantity'] - $item['quantity_cart'],$item['describle'],$item['noibat'],$item['category_id'],$item['author_id'],$item['publisher_id'],$item['id']);
                     }
-                    $voucher = voucher_ONE($voucher_id);
-                    voucher_eidt($voucher['code'],$voucher['price'],$voucher['start_date'],$voucher['end_date'],$voucher['quantity'] - 1,$voucher['user_id'],$voucher['id']);
+                    if ($voucher_id) {
+                        $voucher = voucher_ONE($voucher_id);
+                        voucher_eidt($voucher['code'],$voucher['price'],$voucher['start_date'],$voucher['end_date'],$voucher['quantity'] - 1,$voucher['user_id'],$voucher['id']);
+                    }
                     $check_success = 'checked';
                     if (isset($_POST['method'])) {
                         $payment_method = $_POST['method'];
