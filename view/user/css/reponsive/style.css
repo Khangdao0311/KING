@@ -1,3 +1,8 @@
+@media (min-width: 1024px) {
+    .pc-0{
+        display: none;
+    }
+}
 
 @media (min-width: 740px ) and (max-width: 1024px){
     .container{
@@ -187,9 +192,14 @@
     }
 
     footer{
-        margin-top: unset;
+        margin-top: 1rem;
         position: sticky;
         bottom:  0;
+        z-index: 4;
+        display: flex;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;
     }
 
     .footer_nav{
@@ -233,5 +243,86 @@
         border-radius: 50%;
         top: 0;
         left: 5px;
+    }
+
+    .footer-title{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .footer_information-list > li > a{
+        font-size: 1.2rem;
+    }
+    
+    .footer-box{
+        top: 2rem;
+        height: 100vh;
+    }
+
+    #check_footer:checked ~ .footer-box, #check_footer:checked ~ .footer_content_infomation-search {
+        display: flex !important;
+    }
+    
+    .footer-right{
+        width: 100%;
+    }
+
+    .footer-information_box{
+        flex-wrap: wrap;
+    }
+
+    .footer-method_container{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer_content_infomation-search{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .footer_content-search{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-information_item{
+        gap: 1rem;
+    }
+
+    .footer_content-icons{
+        display: flex;
+        align-items: center;
+        border: 1px solid #fff;
+        background-color: #fff;
+        box-shadow: 0.1rem 0.3rem 0.2rem rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .footer_content-title{
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #6C6868;
+    }
+
+    .footer_content_text{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .footer_content_icon{
+        font-size: 2rem !important;
+    }
+
+    .flex-columns{
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        height: 10rem;
     }
 }

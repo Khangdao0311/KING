@@ -1,11 +1,59 @@
 
 <footer>
+    <input hidden id="check_footer" type="checkbox">
+    <div class="container footer_content_infomation-search pc-0 t-0 m-0">
+        <div class="footer_content-title">Tra cứu thông tin</div>
+        <div class="footer_content-search">
+            <div class="footer_content-icons m-3">
+                <div><span class="material-symbols-outlined footer_content_icon">account_circle</span></div>
+                <div class="footer_content_text">Smember</div>
+            </div>
+            <div class="footer_content-icons m-3">
+                <div><span class="material-symbols-outlined footer_content_icon">add_shopping_cart</span></div>
+                <div class="footer_content_text" >Lịch sử mua hàng</div>
+            </div>
+            <div class="footer_content-icons m-3">
+                <div><span class="material-symbols-outlined footer_content_icon">quick_reference_all</span></div>
+                <div class="footer_content_text">Tra cứu đơn hàng</div>
+            </div>
+        </div>
+    </div>
+    <div class="container footer_content_infomation-search pc-0 t-0 m-0">
+        <div class="footer_content-title">Thông tin liên hệ</div>
+        <div class="footer_content-search">
+            <div class="footer_content-icons m-4 flex-columns">
+                <div><span class="material-symbols-outlined ">call</span></div>
+                <div class="footer_content_text">Gọi mua hàng</div>
+                <div class="footer_content_text">1900.7777</div>
+                <div class="footer_content_text">(7h30 - 22h00)</div>
+            </div>
+            <div class="footer_content-icons m-4 flex-columns">
+                <div><span class="material-symbols-outlined ">call</span></div>
+                <div class="footer_content_text" >Gọi mua hàng</div>
+                <div class="footer_content_text" >1900.8888</div>
+                <div class="footer_content_text" >(7h30 - 22h00)</div>
+            </div>
+            <div class="footer_content-icons m-4 flex-columns">
+                <div><span class="material-symbols-outlined ">call</span></div>
+                <div class="footer_content_text" >Gọi mua hàng</div>
+                <div class="footer_content_text" >1900.9999</div>
+                <div class="footer_content_text" >(7h30 - 22h00)</div>
+            </div>
+            <div class="footer_content-icons m-4 flex-columns">
+                <div><span class="material-symbols-outlined ">location_on</span></div>
+                <div class="footer_content_text">Tìm cửa hàng gần nhất</div>
+                <div class="footer_content_text"></div>
+                <div class="footer_content_text"></div>
+                <div class="footer_content_text"></div>
+            </div>
+        </div>
+    </div>
     <div class="container footer-box m-0">
-        <div class="footer-left">
-            <a href="?mod=page&act=home" class="footer-logo">
+        <div class="footer-left m-0">
+            <a href="?mod=page&act=home" class="footer-logo m-0">
                 <img src="view/images/logo.png" alt="LOGO">
             </a>
-            <div class="footer-content">
+            <div class="footer-content m-0">
                 KING nhận đặt hàng trực tuyến và giao hàng tận nơi.
                 KHÔNG hỗ trợ đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất cả Hệ Thống KING trên toàn quốc.
             </div>
@@ -37,7 +85,7 @@
         </div>
         <div class="footer-right">
             <div class="footer-information_box row">
-                <div class="footer-information_item col-3 col flex-column t-2">
+                <div class="footer-information_item col-3 col flex-column t-2 m-2">
                     <div class="footer-title text-center">DỊCH VỤ</div>
                     <ul class="footer_information-list">
                         <li><a href="">Điều khoản sửa dụng</a></li>
@@ -47,7 +95,7 @@
                         <li><a href="">Hệ thống trung tâm - nhà sách</a></li>
                     </ul>
                 </div>
-                <div class="footer-information_item col-3 col flex-column t-2">
+                <div class="footer-information_item col-3 col flex-column t-2 m-2">
                     <div class="footer-title text-center">HỔ TRỢ</div>
                     <ul class="footer_information-list">
                         <li><a href="">Chính sách đổi - trả - hoàn tiền</a></li>
@@ -57,7 +105,7 @@
                         <li><a href="">Phương thức thanh toán và xuất HĐ</a></li>
                     </ul>
                 </div>
-                <div class="footer-information_item col-3 col flex-column t-0">
+                <div class="footer-information_item col-3 col flex-column t-0 m-2">
                     <div class="footer-title text-center">TÀI KHOẢN CỦA TÔI</div>
                     <ul class="footer_information-list">
                         <li><a href="">Đăng nhập/Tạo mới tài khoản</a></li>
@@ -67,9 +115,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-information_container">
-                <div class="footer-title text-center">LIÊN HỆ</div>
-                <div class="footer-information_box row">
+            <div class="footer-information_container m-0">
+                <div class="footer-title text-center m-0">LIÊN HỆ</div>
+                <div class="footer-information_box row m-0">
                     <div class="footer-information_item col-3 col ">
                         <div class="footer_information_item-icon">
                             <span class="material-symbols-outlined">location_on</span>
@@ -93,7 +141,7 @@
             <div class="footer-method_container">
                 <div class="footer-title">THANH TOÁN</div>
                 <div class="footer-method_box row">
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-1">
                         <img src="https://down-vn.img.susercontent.com/file/2c46b83d84111ddc32cfd3b5995d9281" alt="">
                     </div>
                     <div class="footer-method_item col-8 col"></div>
@@ -103,19 +151,19 @@
             <div class="footer-method_container">
                 <div class="footer-title">VẬN CHUYỂN</div>
                 <div class="footer-method_box row">
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-5">
                         <img src="https://cdn.ntlogistics.vn/images/NTX/new_images/don-vi-giao-hang-nhanh-uy-tin-giao-hang-tiet-kiem.jpg" alt="">
                     </div>
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-5">
                         <img src="https://cdn.ntlogistics.vn/images/NTX/new_images/don-vi-giao-hang-nhanh-uy-tin-ghn-giao-hang-nhanh.jpg" alt="">
                     </div>
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-5">
                         <img src="https://cdn.ntlogistics.vn/images/NTX/new_images/don-vi-giao-hang-nhanh-uy-tin-dhl-express.jpg" alt="">
                     </div>
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-5">
                         <img src="https://cdn.ntlogistics.vn/images/NTX/new_images/don-vi-giao-hang-nhanh-uy-tin-vnpost.jpg" alt="">
                     </div>
-                    <div class="footer-method_item col-8 col">
+                    <div class="footer-method_item col-8 col m-5">
                         <img src="https://cdn.ntlogistics.vn/images/NTX/new_images/don-vi-giao-hang-nhanh-uy-tin-kerry-express.jpg" alt="">
                     </div>
                 </div>
@@ -139,10 +187,10 @@
             <span class="material-symbols-outlined">person</span>
             <p>Đăng nhập</p>
         </a>
-        <div class="nav_icon">
+        <label for="check_footer" class="nav_icon">
             <span class="material-symbols-outlined">pending</span>
             <p>Xem thêm</p>
-        </div>
+        </label>
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
