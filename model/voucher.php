@@ -17,7 +17,9 @@
         return get_ONE($sql);
     }
     function voucher_eidt($code,$price,$start_date,$end_date,$quantity,$user_id,$id){
-        $sql = "UPDATE vouchers SET code='$code', price='$price', start_date = '$start_date', end_date='$end_date', quantity='$quantity', user_id='$user_id' WHERE id=$id";
+        $sql = "UPDATE vouchers SET code='$code', price='$price', start_date = '$start_date', end_date='$end_date', quantity='$quantity' ";
+        if ($user_id) $sql .= " ,user_id='$user_id'";
+        $sql .=" WHERE id=$id";
         return edit($sql);
     }
     function voucher_updation_date($id){

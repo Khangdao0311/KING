@@ -47,7 +47,7 @@
         $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
         $html_voucher .= '
             <label for="check_voucher'.$count.'" class="cart_vouche-item">
-                <input hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
+                <input  class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
                 <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
                     <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
                     <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>

@@ -2,11 +2,12 @@
     $html_product_order = '';
     foreach ($order_detail as $item) {
         $total = 0;
-        $order = order_ONE(0,$item[0]['order_id']);
-        $voucher = ($order['voucher_id']) ? voucher_ONE($order['voucher_id']) : 0 ;
+       
         $html_product_order .= '
             <div class="account_order_follow-order">';
         foreach ($item as $product_order) {
+            $order = order_ONE(0,$item[0]['order_id']);
+            $voucher = ($order['voucher_id']) ? voucher_ONE($order['voucher_id']) : 0 ;
             $product = product_ONE($product_order['product_id']);
             $total += $product['price_sale'] * $product_order['quantity'];
             $link_product_detail = '?mod=page&act=product-detail&id='.$product['id'];
