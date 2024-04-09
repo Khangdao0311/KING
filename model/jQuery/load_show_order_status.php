@@ -6,27 +6,32 @@
     require_once '../order.php';
     require_once '../voucher.php';
 
-    if (isset($_POST['order_id'])) {
-        $order_id = $_POST['order_id'];
-        order_DELETE($order_id);
-        order_detail_DELETE($order_id);
-    }
+  
 
     $status = $_POST['status'];
 
-    $orders = order_SELECT($_SESSION['user']['id'],$status,0);
+    $orders = order_SELECT($_SESSION['user']['id'],$status);
     $order_detail = [];
     foreach ($orders as $item) {
         array_push($order_detail, order_detail_SELECT($item['id'],0));
     }
-   
-
-    $orders_all = order_SELECT($_SESSION['user']['id'],0,0);
+    $orders_all = order_SELECT($_SESSION['user']['id'],0);
     $order_detail_all = [];
     foreach ($orders_all as $item) {
         array_push($order_detail_all, order_detail_SELECT($item['id'],0));
     }
- 
+
+    if (isset($_POST['order_id'])) {
+        $order_id = $_POST['order_id'];
+            // $order__detail =order_detail_SELECT($item['id'],0)
+
+                // $product = product_ONE($order__detail['product_id']);
+                // product_edit($product['name'],$product['image'],$product['price'],$product['price_sale'],$product['quantity'] + $order_detail['quantity'],$product['describle'],$product['noibat'],$product['category_id'],$product['author_id'],$product['publisher_id'],$product['id']);
+            
+        
+        order_DELETE($order_id);
+        order_detail_DELETE($order_id);
+    }
 
     $status0 = ($status == 0) ? 'account_order_follow-item-active' : '';
     $status1 = ($status == 1) ? 'account_order_follow-item-active' : '';
@@ -98,7 +103,7 @@
                 case 1:
                     $html_product_order .= '
                         <div class="account_order_follow_order-fun">
-                            <input hidden type="text" value="0">
+                            <input hidden type="text" value="'.$status.'">
                             <div onclick="cancel(this)" class="account_order_follow_order_fun-btn">Hủy</div>
                             <input hidden type="text" value="'.$order['id'].'">
                         </div>';
