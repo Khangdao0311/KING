@@ -32,11 +32,11 @@ foreach($data_publisher as $item){
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá</div>
-                    <input name="price" class="content_item-value" type="text" min="1" value="<?=$show_edit['price'];?>">
+                    <input name="price" class="content_item-value" type="text" min="1" value="<?=number_format($show_edit['price'],0,',','.');?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Giá khuyến mãi</div>
-                    <input name="price_sale" class="content_item-value" type="text" min="1" value="<?=$show_edit['price_sale'];?>">
+                    <input name="price_sale" class="content_item-value" type="text" min="1" value="<?=number_format($show_edit['price_sale'],0,',','.');?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Số lượng</div>

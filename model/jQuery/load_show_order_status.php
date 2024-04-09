@@ -4,28 +4,33 @@
     require_once '../pdo.php';
     require_once '../product.php';
     require_once '../order.php';
+    require_once '../voucher.php';
 
     if (isset($_POST['order_id'])) {
         $order_id = $_POST['order_id'];
+            $order__detail =order_detail_SELECT($order_id,0);
+            foreach ($order__detail as $item) {
+                $product = product_ONE($item['product_id']);
+                product_edit($product['name'],$product['image'],$product['price'],$product['price_sale'],$product['quantity'] + $item['quantity'],$product['describle'],$product['noibat'],$product['category_id'],$product['author_id'],$product['publisher_id'],$product['id']);
+            }
         order_DELETE($order_id);
         order_detail_DELETE($order_id);
     }
 
     $status = $_POST['status'];
 
-    $orders = order_SELECT($_SESSION['user']['id'],$status,0);
+    $orders = order_SELECT($_SESSION['user']['id'],$status);
     $order_detail = [];
     foreach ($orders as $item) {
         array_push($order_detail, order_detail_SELECT($item['id'],0));
     }
-   
-
-    $orders_all = order_SELECT($_SESSION['user']['id'],0,0);
+    $orders_all = order_SELECT($_SESSION['user']['id'],0);
     $order_detail_all = [];
     foreach ($orders_all as $item) {
         array_push($order_detail_all, order_detail_SELECT($item['id'],0));
     }
- 
+
+   
 
     $status0 = ($status == 0) ? 'account_order_follow-item-active' : '';
     $status1 = ($status == 1) ? 'account_order_follow-item-active' : '';
@@ -53,11 +58,12 @@
                 
     foreach ($order_detail as $item) {
         $total = 0;
-            $html_product_order .= '
-                <div class="account_order_follow-order">';
+        $order = order_ONE(0,$item[0]['order_id']);
+        $voucher = ($order['voucher_id']) ? voucher_ONE($order['voucher_id']) : 0 ;
+        $html_product_order .= '
+            <div class="account_order_follow-order">';
         foreach ($item as $product_order) {
             $product = product_ONE($product_order['product_id']);
-            $order = order_SELECT($_SESSION['user']['id'],0,$product_order['order_id'])[0];
             $total += $product['price_sale'] * $product_order['quantity'];
             $link_product_detail = '?mod=page&act=product-detail&id='.$product['id'];
             $html_product_order .= '
@@ -81,32 +87,44 @@
         }
         $html_product_order .= '
                     <div class="account_order_follow_order-total_fun">
-                        <div class="account_order_follow_order-total">Tổng '.count($item).' sản phẩm: <b>'.number_format($total,0,',','.').' đ</b></div>
-                        <div class="account_order_follow_order-fun">';
+                        <div class="account_order_follow_order-total">';
+                        if ($voucher) {
+                            $html_product_order .= '
+                            <div class="account_order_follow_order_total-voucher">Đã áp dụng Voucher - '.$voucher['code'].' </div>
+                            <div class="account_order_follow_order_total-price">Tổng '.count($item).' sản phẩm: <b>'.number_format($total - $voucher['price'],0,',','.').' đ</b></div>';
+                        } else {
+                            $html_product_order .= '
+                            <div class="account_order_follow_order_total-price">Tổng '.count($item).' sản phẩm: <b>'.number_format($total ,0,',','.').' đ</b></div>';
+                        }
+                        $html_product_order .= '
+                        </div>';
                 switch ($order['order_status']) {
                 case 1:
                     $html_product_order .= '
-                        <input hidden type="text" value="'.$status.'">
-                        <div onclick="cancel(this)" class="account_order_follow_order_fun-btn">Hủy</div>
-                        <input hidden type="text" value="'.$order['id'].'">
-                    ';
+                        <div class="account_order_follow_order-fun">
+                            <input hidden type="text" value="'.$status.'">
+                            <div onclick="cancel(this)" class="account_order_follow_order_fun-btn">Hủy</div>
+                            <input hidden type="text" value="'.$order['id'].'">
+                        </div>';
                     break;
                 case 4:
                     $html_product_order .= '
+                        <div class="account_order_follow_order-fun">
                             <div class="account_order_follow_order_fun-btn">Đánh giá</div>
                             <div class="account_order_follow_order_fun-btn account_order_follow_order_fun-btn_red">Đặt lại</div>
-                    ';
+                        </div>';
                     break;
                 case 5:
                 case 6:
                     $html_product_order .= '
+                        <div class="account_order_follow_order-fun">
                             <div class="account_order_follow_order_fun-btn">Mua lại</div>
-                    ';
+                        </div>';
                     break;
                 }
                             
                 $html_product_order .= '
-                        </div>
+                        
                     </div>
                 </div>
         ';

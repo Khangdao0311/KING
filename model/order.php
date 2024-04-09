@@ -3,7 +3,18 @@
         $sql = "SELECT * FROM orders WHERE 1  ";
         if ($user_id) $sql .= " AND user_id = $user_id";
         if ($status) $sql .= " AND order_status = $status";
-        $sql .= " ORDER BY order_status";
+        $sql .= " ORDER BY id DESC";
+        return get_ALL($sql);
+    }
+    function order_SELECT_ALL($search,$page,$limit) {
+        $sql = "SELECT * FROM orders WHERE 1  ";
+        if ($search != "") $sql .=" AND code LIKE '%$search%'";
+        if ($page > 1){
+            $begin = (($page-1) * $limit);
+            $sql .="  LIMIT  $begin,$limit";
+        }else {
+            if ($limit > 0) $sql .=" LIMIT  $limit";
+        }
         return get_ALL($sql);
     }
     function order_ONE($code,$id){
@@ -12,9 +23,12 @@
         if($id) $sql.= " AND id = $id";
         return get_ONE($sql);
     }
-    function order_ADD($code, $payment_id,  $user_id){
-        $sql = "INSERT INTO orders(code, payment_id, user_id) 
-        VALUES ('$code', '$payment_id',  '$user_id' )";
+    function order_ADD($code, $payment_id, $voucher_id,  $user_id){
+        $sql = "INSERT INTO orders(code, payment_id, ";
+        if ($voucher_id) $sql .= " voucher_id,";
+        $sql .= " user_id) VALUES ('$code', $payment_id, ";
+        if ($voucher_id) $sql .= " $voucher_id,";
+        $sql .= "  $user_id )";
         edit($sql);
     }
     function order_DELETE($id){
@@ -37,5 +51,13 @@
         $sql = "DELETE FROM order_detail WHERE order_id = $order_id";
         edit($sql);
     }
+    function order_edit($order_status,$id){
+        $sql = "UPDATE orders SET order_status = '$order_status' WHERE id=$id";
+        edit($sql);
+    }
+    function order_updation_date($id){
+        $sql = "UPDATE orders SET updation_date = current_timestamp() WHERE id = $id";
+        edit($sql);
+    }  
    
 ?>

@@ -4,6 +4,8 @@ $html_data_user_id="";
 foreach ($data_user_id as $item){
     $html_data_user_id.='<option value="'.$item['id'].'">'.$item['name'].'</option>';
 }
+$start_date = date('Y-m-d', strtotime($show_edit['start_date']));
+$end_date = date('Y-m-d', strtotime($show_edit['end_date']));
 ?>
 <title>Sửa Voucher</title>
 <link rel="stylesheet" href="view/admin/css/add-edit.css">
@@ -24,15 +26,15 @@ foreach ($data_user_id as $item){
                 </div>  
                 <div class="content-item">
                     <div class="content_item-key">Số tiền</div>
-                    <input name="price" class="content_item-value" type="number" min="1" value="<?=$show_edit['price'];?>">
+                    <input name="price" class="content_item-value" type="number" min="1" value="<?=number_format($show_edit['price'],0,',','.');?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Ngày bắt đầu</div>
-                    <input name="start_date" class="content_item-value" type="date" value="<?=$show_edit['start_date'];?>">
+                    <input name="start_date" class="content_item-value" type="date" value="<?=$start_date;?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Ngày kết thúc</div>
-                    <input name="end_date" class="content_item-value" type="date" value="<?=$show_edit['end_date'];?>">
+                    <input name="end_date" class="content_item-value" type="date" value="<?=$end_date;?>">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Số lượng</div>

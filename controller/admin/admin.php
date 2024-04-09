@@ -202,12 +202,30 @@ if($_SESSION['user']['role']== 1){
                 include_once 'view/admin/user-delete.php';
                 break;
             case 'order-list':
-                $html_number_page = phan_trang($page,$search,author_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
-                $oder_management = order_SELECT();
+                $html_number_page = phan_trang($page,$search,order_SELECT_ALL($search,0,0),$_GET['mod'],$_GET['act']);
+                $oder_management = order_SELECT_ALL($search,$page,SLSP);
                 include_once 'view/admin/order-list.php';
                 break;
             case 'order-edit':
+                if(isset($_GET['id'])){
+                    $id=$_GET['id'];
+                    $show_edit= order_ONE(0,$id);
+                }
+                if(isset($_POST['btn_editorder']) && ($_POST['btn_editorder'])){
+                    $order_status = $_POST['order_status'];
+                    $id = $_POST['id'];
+                    $show_edit= order_ONE(0,$id);
+                    order_edit($order_status,$id);
+                    order_updation_date($id);
+                    header('location: ?mod=admin&act=order-list');
+                }
                 include_once 'view/admin/order-edit.php';
+                break;
+            case 'order-delete':
+                if(isset($_GET['id'])){
+                    order_DELETE($_GET['id']);
+                }        
+                include_once 'view/admin/order-delete.php';
                 break;
             case 'author-list':        
                 $html_number_page = phan_trang($page,$search,author_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
