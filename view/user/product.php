@@ -1,21 +1,22 @@
 <?php
     $html_show_category = '';
     $linksearch = (isset($_GET['search'])) ? '&search='.$_GET['search'] : '';
+    $limit_filter = (isset($_GET['limit'])) ? '&limit='.$_GET['limit'] : '';
     foreach ($category_all as $item) {
         $html_show_category .= '
-        <a href="?mod=page&act=product'.$linksearch.'&category_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&category_id='.$item['id'].''.$limit_filter.'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     } 
     $html_show_author = '';
     foreach ($author_all as $item) {
         $html_show_author .= '
-        <a href="?mod=page&act=product'.$linksearch.'&author_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&author_id='.$item['id'].''.$limit_filter.'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     }
     $html_show_publisher = '';
     foreach ($publisher_all as $item) {
         $html_show_publisher .= '
-        <a href="?mod=page&act=product'.$linksearch.'&publisher_id='.$item['id'].'" class="product_box_nav-item_content">'.$item['name'].'</a>
+        <a href="?mod=page&act=product'.$linksearch.'&publisher_id='.$item['id'].''.$limit_filter.'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
     }
     $html_show_product_all = '';
@@ -78,8 +79,8 @@
             </form>
         </div>
         <div class="product_box">
-            <input hidden id="check_nav_category col-0 t-0" type="checkbox">
-            <label class="product_layout_dark col-0 t-0" for="check_nav_category"></label>
+            <input hidden id="check_nav_category" type="checkbox">
+            <label class="product_layout_dark" for="check_nav_category"></label>
             <div class="product_box-nav m-0">
                 <div class="product_box_nav-item">
                     <a href="?mod=page&act=product" class="product_box_nav-item_title">Danh Mục</a>
