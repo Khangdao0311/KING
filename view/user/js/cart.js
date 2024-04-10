@@ -1,11 +1,13 @@
 function minus_cart(el) {
-    const quantity = el.nextSibling.nextSibling;
-    const id = el.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.innerText
+    const quantity = el.nextElementSibling;
+    const id = el.nextElementSibling.nextElementSibling.nextElementSibling.innerText
+    const voucher_id = el.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.value
     const quantity_new = quantity.value - 1;
     if (quantity_new > 0) {
         $.post("model/jQuery/update_quantity_cart.php", {
             "quantity":quantity_new,
-            "id":id
+            "id":id,
+            "voucher_id":voucher_id
         },
             function (data, textStatus, jqXHR) {
                 $(".cart-container").html(data);
@@ -14,13 +16,15 @@ function minus_cart(el) {
     }
 }
 function plus_cart(el) {
-    const quantity = el.previousSibling.previousSibling;
-    const id = el.nextSibling.nextSibling.innerText;
+    const quantity = el.previousElementSibling;
+    const id = el.nextElementSibling.innerText;
+    const voucher_id = el.nextElementSibling.nextElementSibling.value;
     const quantity_new = quantity.value * 1 + 1;
     if (quantity_new <= 10) {
         $.post("model/jQuery/update_quantity_cart.php", {
             "quantity":quantity_new,
-            "id":id
+            "id":id,
+            "voucher_id":voucher_id
         },
             function (data, textStatus, jqXHR) {
                 $(".cart-container").html(data);
@@ -29,6 +33,7 @@ function plus_cart(el) {
     }
     
 }
+document.getElementById().previousElementSibling
 
 function addcart(event) {
     var successOverlay = document.createElement('div');
@@ -39,4 +44,19 @@ function addcart(event) {
         document.body.removeChild(successOverlay);
     }, 1000);
     
+}
+
+function voucher_show(el) {
+    const voucher_id = el.value
+    
+    document.querySelectorAll('#voucher_id').forEach(item => {
+        item.value = voucher_id
+    });
+    $.post("model/jQuery/load_voucher_cart.php", {
+        "voucher_id": voucher_id
+    },
+        function (data, textStatus, jqXHR) {
+            $('.cart-payment').html(data);
+        },
+    );
 }

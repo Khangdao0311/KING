@@ -7,8 +7,13 @@
     $vouchers = voucher_SELECT($user_id);
     $quantity_new = $_POST['quantity']; 
     $id = $_POST['id']; 
-    $_SESSION['cart'][$id]['quantity_cart'] = $quantity_new;
+    $user_cart = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
+    $_SESSION['cart'][$user_cart][$id]['quantity_cart'] = $quantity_new;
 
+    $voucher_id = $_POST['voucher_id'];
+    if ($voucher_id) {
+        $voucher = voucher_ONE($voucher_id);
+    }
 
     $html_change_quantity = '
             <div class="box_cart">
@@ -33,51 +38,48 @@
 
 
 
-                    $total_price = 0;
-                    foreach ($_SESSION['cart'] as $item) {
-                        $link_del = 'index.php?mod=cart&act=delete&del='.$item['id'];
-                        $into_price = $item['quantity_cart'] * $item['price_sale'];
-                        $total_price += $into_price;
-                        $html_change_quantity .= '  
-                        <div class="cart-product">
-                        <div class="product-total"> 
-                            <div class="cart-product-img">
-                                <img src="view/'.$item['image'].'" alt="">
-                            </div>
-                            <div class="product-info">
-                                <p>'.$item['name'].'</p>
-                                <div class="product-price">
-                                    <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
-                                    <span>'.number_format($item['price'],0,',','.').' đ</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-pay">
-                            <div class="product-quantity">
-                                <div class="quantity">
-                                    <button onclick="minus_cart(this)" class = "btn-minus">-</button>
-                                    <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
-                                    <button onclick="plus_cart(this)" class = "btn-plus">+</button>
-                                    <span class="id_jq" hidden>'.$item['id'].'</span>
-                                </div>
-                            </div>
-                            <div class="prodcut-cash">
-                                <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
-                            </div>
-                            <div class="prodcut-trash">
-                                <a href="'.$link_del.'" class="trash">
-                                    <span class="material-symbols-outlined">delete</span>
-                                </a>
-                            </div>
+    $total_price = 0;
+    foreach ($_SESSION['cart'][$user_cart] as $item) {
+        $link_del = 'index.php?mod=cart&act=delete&del='.$item['id'];
+        $into_price = $item['quantity_cart'] * $item['price_sale'];
+        $total_price += $into_price;
+        $html_change_quantity .= '  
+            <div class="cart-product">
+                <div class="product-total"> 
+                    <div class="cart-product-img">
+                        <img src="view/'.$item['image'].'" alt="">
+                    </div>
+                    <div class="product-info">
+                        <p>'.$item['name'].'</p>
+                        <div class="product-price">
+                            <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
+                            <span>'.number_format($item['price'],0,',','.').' đ</span>
                         </div>
                     </div>
+                </div>
+                <div class="product-pay">
+                    <div class="product-quantity">
+                        <div class="quantity">
+                            <button onclick="minus_cart(this)" class = "btn-minus">-</button>
+                            <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
+                            <button onclick="plus_cart(this)" class = "btn-plus">+</button>
+                            <span class="id_jq" hidden>'.$item['id'].'</span>
+                            <input id="voucher_id" type="text" value="'.$voucher_id.'">
+                        </div>
+                    </div>
+                    <div class="prodcut-cash">
+                        <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
+                    </div>
+                    <div class="prodcut-trash">
+                        <a href="'.$link_del.'" class="trash">
+                            <span class="material-symbols-outlined">delete</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                        ';
-                    }
-   
-
-
-
+        ';
+    }
 
     $html_change_quantity .= '            
                     </div>
@@ -98,10 +100,11 @@
                         $count = 1;
                         $html_voucher = '';
                         foreach ($vouchers as $item) {
+                            $acctive = ($item['id'] == $voucher_id) ? "checked" : "";
                             $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
                             $html_change_quantity .= '
                                 <label for="check_voucher'.$count.'" class="cart_vouche-item">
-                                    <input hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
+                                    <input '.$acctive.' onchange="voucher_show(this)" hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
                                     <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
                                         <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
                                         <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>
@@ -114,25 +117,44 @@
 
     $html_change_quantity .= '     
                         </div>
-                        <div class="cart-payment">
+                        <div class="cart-payment">';
+                        
+                        if ($voucher_id) {
+    $html_change_quantity .= '
                             <div class="cart-payment-cash">
-                                <p>Thành tiền</p>
-                                <p>90.250 đ</p>
+                                <p>Tổng '.count($_SESSION['cart'][$user_cart]).' sản phẩm:</p>
+                                <p>'. number_format($total_price,0,',','.') .' đ</p>
                             </div>
                             <div class="cart-payment-cash">
-                                <p>Thành tiền</p>
-                                <p>90.250 đ</p>
+                                <p id="voucher-name">Voucher - '.$voucher['code'].'</p>
+                                <p id="voucher-price">'.number_format($voucher['price'],0,',','.').' đ</p>
+                            </div>
+                            <div class="cart-payment-total">
+                                <span>Tổng Số Tiền:</span>
+                                <p>'. number_format($total_price - $voucher['price'],0,',','.') .' đ</p>
+                            </div>
+    ';
+                        } else {
+    $html_change_quantity .= '
+                            <div class="cart-payment-cash">
+                                <p>Tổng '. count($_SESSION['cart'][$user_cart]) .' sản phẩm:</p>
+                                <p>'. number_format($total_price,0,',','.').' đ</p>
+                            </div>
+                            <div class="cart-payment-cash">
+                                <p id="voucher-name">Voucher</p>
+                                <p id="voucher-price">0 đ</p>
                             </div>
                             <div class="cart-payment-total">
                                 <span>Tổng Số Tiền:</span>
                                 <p>'. number_format($total_price,0,',','.').' đ</p>
                             </div>
-                            <a href="index.php?mod=cart&act=checkout" class="payment-button">
-                                <button name="btn_checkout">THANH TOÁN</button>
-                            </a>
-                            <!-- <div class="payment-notice">
-                                <p>(Giảm giá trên web chỉ áp dụng cho bán lẻ)</p>
-                            </div> -->
+    ';
+                        }
+                            
+
+    $html_change_quantity .= '   
+                            <button class="payment-button" name="btn_checkout">THANH TOÁN</button>
+                            
                         </div>
                     </form>
                 </div>';

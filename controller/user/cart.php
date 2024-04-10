@@ -7,33 +7,34 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $check = 0;
                 $product = product_ONE($id);
-                foreach ($_SESSION['cart'] as $item) {
+                foreach ($_SESSION['cart'][$user_cart] as $item) {
                     if ($id == $item['id']) {
                         $check = 1;
-                        if ($_SESSION['cart'][$id]['quantity_cart'] + $quantity_cart <= 10) {
-                            $_SESSION['cart'][$id]['quantity_cart'] += $quantity_cart;
+                        if ($_SESSION['cart'][$user_cart][$id]['quantity_cart'] + $quantity_cart <= 10) {
+                            $_SESSION['cart'][$user_cart][$id]['quantity_cart'] += $quantity_cart;
                         }
                         break;
                     }
                 }
                 if ($check == 0 && $quantity_cart <= 10) {
                     $product['quantity_cart'] = $quantity_cart;
-                    $_SESSION['cart'][$id] = $product;
+                    $_SESSION['cart'][$user_cart][$id] = $product;
                 }
             }
             $id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
             $vouchers = voucher_SELECT($id);
             include_once 'view/user/cart.php';
+            
             break;
         case 'delete':
             if (isset($_GET['del'])) {
                 $del = $_GET['del'];
-                unset($_SESSION['cart'][$del]);
+                unset($_SESSION['cart'][$user_cart][$del]);
             }
             include_once 'view/user/cart.php';
             break;
         case 'checkout':
-            if ($_SESSION['cart']) {
+            if ($_SESSION['cart'][$user_cart]) {
                 $check_success = '';
                 if ($_POST['voucher']) $voucher_cart =  voucher_ONE($_POST['voucher']) ;
                 if (isset($_POST['payment-button']) && $_POST['payment-button']) {
@@ -46,7 +47,7 @@ if (isset($_GET['act'])) {
                     $street = $_POST['street'];
                     $note = $_POST['note'];
                     $method = $_POST['method'];
-                    $voucher_id = ($_POST['voucher']) ? $_POST['voucher'] : null ;
+                    $voucher_id = ($_POST['voucher']) ? $_POST['voucher'] : NULL ;
                     $address = "$province, $district, $ward, $street";
                     $text_email = ($email) ? 'Email: <b>' . $email . '</b> <br>' : '';
                     $content = '
@@ -63,7 +64,7 @@ if (isset($_GET['act'])) {
                                 <td>Số lượng</td>
                             </tr>';
                     $count = 1;
-                    foreach ($_SESSION['cart'] as $item) {
+                    foreach ($_SESSION['cart'][$user_cart] as $item) {
                         $content .= '
                             <tr>
                                 <td>' . $count++ . '</td>
@@ -94,11 +95,11 @@ if (isset($_GET['act'])) {
 
                     $user_id = ($_SESSION['user'] != []) ? $_SESSION['user']['id'] : 0;
                     order_ADD($random_code, $method, $voucher_id, $user_id);
-                    foreach ($_SESSION['cart'] as $item) {
+                    foreach ($_SESSION['cart'][$user_cart] as $item) {
                         order_detail_ADD($item['quantity_cart'], order_ONE($random_code,0)['id'], $item['id']);
-                        // product_edit($item['name'],$item['image'],$item['price'],$item['price_sale'],$item['quantity'] - $item['quantity_cart'],$item['describle'],$item['noibat'],$item['category_id'],$item['author_id'],$item['publisher_id'],$item['id']);
+                        product_edit($item['name'],$item['image'],$item['price'],$item['price_sale'],$item['quantity'] - $item['quantity_cart'],$item['describle'],$item['noibat'],$item['category_id'],$item['author_id'],$item['publisher_id'],$item['id']);
                     }
-                    if ($voucher_id) {
+                    if ($_POST['voucher']) {
                         $voucher = voucher_ONE($voucher_id);
                         voucher_eidt($voucher['code'],$voucher['price'],$voucher['start_date'],$voucher['end_date'],$voucher['quantity'] - 1,$voucher['user_id'],$voucher['id']);
                     }
@@ -126,7 +127,7 @@ if (isset($_GET['act'])) {
             }
             break;
         case 'checkout_success':
-            unset($_SESSION['cart']);
+            unset($_SESSION['cart'][$user_cart]);
             header('location: ?mod=page&act=home');
             break;
         default:

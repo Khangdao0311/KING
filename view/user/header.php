@@ -53,8 +53,8 @@
                         <span class="material-symbols-outlined">shopping_cart</span>
                         <div class="header-quantity">
                             <?php
-                            if (isset($_SESSION['cart'])) {
-                                echo count($_SESSION['cart']);
+                            if (isset($_SESSION['cart'][$user_cart])) {
+                                echo count($_SESSION['cart'][$user_cart]);
                             }else{
                                 echo '0';
                             }

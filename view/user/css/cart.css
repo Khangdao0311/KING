@@ -306,9 +306,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.payment-button button {
     width: 95%;
     background-color: #C92127;
     color: #fff;
@@ -316,6 +313,7 @@
     padding: 1.9rem;
     border: none;
     font-size: 1.6rem;
+    margin: 0 auto;
 }
 
 .payment-notice p {
