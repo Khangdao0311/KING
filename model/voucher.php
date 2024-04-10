@@ -26,4 +26,15 @@
         $sql = "UPDATE vouchers SET updation_date = current_timestamp() WHERE id = $id";
         return edit($sql);
     }  
+    function voucher_SELECT_ALL($page,$search,$limit) {
+        $sql = "SELECT * FROM vouchers WHERE 1";
+        if ($search != "") $sql .=" AND code LIKE '%$search%'";
+        if ($page > 1){
+            $begin = (($page-1) * $limit);
+            $sql .="  LIMIT  $begin,$limit";
+        }else {
+            if ($limit > 0) $sql .=" LIMIT  $limit";
+        }
+        return get_All($sql);   
+    }
 ?>

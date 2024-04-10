@@ -15,7 +15,7 @@
             <form class="content" action="?mod=admin&act=category-add" method="post" enctype="multipart/form-data">
                 <div class="content-item">
                     <div class="content_item-key">Tên danh mục</div>
-                    <input name="name" class="content_item-value" type="text" placeholder="Nhập tên danh mục" required>
+                    <input name="name" class="content_item-value" type="text" placeholder="Nhập tên danh mục" required title="Tên danh mục không được để trống">
                 </div>
                 <div class="content-item">
                     <div class="content_item-key">Mô tả</div>

@@ -319,14 +319,21 @@ if($_SESSION['user']['role']== 1){
                 include_once 'view/admin/publisher-delete.php';
                 break;
             case 'comment-list':
+                $html_number_page = phan_trang($page,$search,comment_SELECT_ALL(0,$search,0),$_GET['mod'],$_GET['act']);
+                $comment_management = comment_SELECT_ALL($page,$search,SLSP);
                 include_once 'view/admin/comment-list.php';
                 break;
-            case 'comment-edit':
-                include_once 'view/admin/comment-edit.php';
+            case 'comment-delete':
+                if(isset($_GET['id'])){
+                    $id = $_GET['id'];
+                    comment_delete($id);
+                }
+                header('location: ?mod=admin&act=comment-list');
+                include_once 'view/admin/comment-delete';
                 break;
             case 'voucher-list':
-                $html_number_page = phan_trang($page,$search,voucher_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
-                $voucher_management = voucher_SELECT($page,0,0,$search,0,SLSP);
+                $html_number_page = phan_trang($page,$search,voucher_SELECT_ALL(0,$search,0),$_GET['mod'],$_GET['act']);
+                $voucher_management = voucher_SELECT_ALL($page,$search,SLSP);
                 include_once 'view/admin/voucher-list.php';
                 break;
             case 'voucher-add':
