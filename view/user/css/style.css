@@ -348,8 +348,7 @@ header {
     border-radius: 50%;
     top: 0;
     right: 0;
-    transform: translate(50%, -50%);
-    
+    transform: translate(70%, -30%);
 }
 footer {
     width: 100%;

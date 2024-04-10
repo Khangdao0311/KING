@@ -2,7 +2,7 @@
     $total_price = 0;
     $html_product_cart = "";
     foreach ($_SESSION['cart'][$user_cart] as $item) {
-        $link_del = 'index.php?mod=cart&act=delete&del='.$item['id'];
+        $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
         $html_product_cart .= '  
@@ -26,16 +26,25 @@
                     <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
                     <button onclick="plus_cart(this)" class = "btn-plus">+</button>
                     <span class="id_jq" hidden>'.$item['id'].'</span>
-                    <input  id="voucher_id" type="text" value="0">
+                    <input hidden id="voucher_id" type="text" value="0">
                 </div>
             </div>
             <div class="prodcut-cash">
                 <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
             </div>
-            <div class="prodcut-trash">
-                <a href="'.$link_del.'" class="trash">
-                    <span class="material-symbols-outlined">delete</span>
-                </a>
+            <div class="prodcut-trash">';
+            if (count($_SESSION['cart'][$user_cart]) == 1) {
+                $html_product_cart .= '  
+                    <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
+                ';
+            } else {
+                $html_product_cart .= '  
+                    <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
+                    <input hidden type="text" value="'.$item['id'].'">
+                    <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
+                ';
+            }
+        $html_product_cart .= '  
             </div>
         </div>
     </div>
@@ -45,13 +54,13 @@
     $count = 1;
     $html_voucher = '';
     foreach ($vouchers as $item) {
-        $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
+        $end_date = ($item['end_date']) ? ' đến '.date('d-m-Y', strtotime($item['end_date'])) : '';
         $html_voucher .= '
             <label for="check_voucher'.$count.'" class="cart_vouche-item">
                 <input onchange="voucher_show(this)" hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
                 <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
                     <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
-                    <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>
+                    <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-Y', strtotime($item['start_date'])).$end_date.'</div>
                     <div class="cart_vouche_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
                     <div class="cart_vouche_item-quantity">số lượng '.number_format($item['quantity'],0,',','.').'</div>
                 </label>
@@ -62,6 +71,9 @@
 
 
 ?>
+                <!-- <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
+                <input hidden type="text" value="'.$item['id'].'">                
+                <input hidden id="voucher_id" type="text" value="0"> -->
 <?php include_once 'header.php' ?>
 <title >Giỏ Hàng</title>
 <link rel="stylesheet" href="view/user/css/cart.css">

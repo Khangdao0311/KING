@@ -24,14 +24,10 @@ if (isset($_GET['act'])) {
             $id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
             $vouchers = voucher_SELECT($id);
             include_once 'view/user/cart.php';
-            
             break;
         case 'delete':
-            if (isset($_GET['del'])) {
-                $del = $_GET['del'];
-                unset($_SESSION['cart'][$user_cart][$del]);
-            }
-            include_once 'view/user/cart.php';
+            unset($_SESSION['cart'][$user_cart][$_GET['id']]);
+            header('location: ?mod=cart&act=list');
             break;
         case 'checkout':
             if ($_SESSION['cart'][$user_cart]) {

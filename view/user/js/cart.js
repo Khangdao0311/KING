@@ -33,7 +33,22 @@ function plus_cart(el) {
     }
     
 }
-document.getElementById().previousElementSibling
+
+function delete_cart(el) {
+    var id = el.nextElementSibling.value
+    var voucher_id = el.nextElementSibling.nextElementSibling.value
+    var header_cart = document.querySelector('.header-quantity')
+    var header_cart_new = header_cart.innerText * 1 - 1
+    header_cart.innerText = header_cart_new;
+    $.post("model/jQuery/load_cart_delete.php", {
+        "id": id,
+        "voucher_id": voucher_id
+    },
+        function (data, textStatus, jqXHR) {
+            $('.cart-container').html(data);
+        },
+    );
+}
 
 function addcart(event) {
     var successOverlay = document.createElement('div');

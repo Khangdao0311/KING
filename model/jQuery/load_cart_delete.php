@@ -5,17 +5,16 @@
     require_once '../voucher.php';
     $user_id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
     $vouchers = voucher_SELECT($user_id);
-    $quantity_new = $_POST['quantity']; 
     $id = $_POST['id']; 
     $user_cart = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
-    $_SESSION['cart'][$user_cart][$id]['quantity_cart'] = $quantity_new;
+    unset($_SESSION['cart'][$user_cart][$id]);
 
     $voucher_id = $_POST['voucher_id'];
     if ($voucher_id) {
         $voucher = voucher_ONE($voucher_id);
     }
 
-    $html_change_quantity = '
+    $html_change = '
             <div class="box_cart">
                 <div class="box_cart-product">
                     <div class="cart_product-tittle">
@@ -43,7 +42,7 @@
         $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
-        $html_change_quantity .= '  
+        $html_change .= '  
             <div class="cart-product">
                 <div class="product-total"> 
                     <div class="cart-product-img">
@@ -71,18 +70,18 @@
                         <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
                     </div>
                     <div class="prodcut-trash">';
-                if (count($_SESSION['cart'][$user_cart]) == 1) {
-                    $html_change_quantity .= '  
-                        <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
-                    ';
-                } else {
-                    $html_change_quantity .= '  
-                        <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
-                        <input hidden type="text" value="'.$item['id'].'">
-                        <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
-                    ';
-                }
-                $html_change_quantity .= '  
+                    if (count($_SESSION['cart'][$user_cart]) == 1) {
+                        $html_change .= '  
+                            <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
+                        ';
+                    } else {
+                        $html_change .= '  
+                            <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
+                            <input hidden type="text" value="'.$item['id'].'">
+                            <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
+                        ';
+                    }
+                $html_change .='
                     </div>
                 </div>
             </div>
@@ -90,7 +89,7 @@
         ';
     }
 
-    $html_change_quantity .= '            
+    $html_change .= '            
                     </div>
                     <form action="?mod=cart&act=checkout" method="post" class="box_cart-prmotion">
                         <div class="cart_product-promotion">
@@ -111,7 +110,7 @@
                         foreach ($vouchers as $item) {
                             $acctive = ($item['id'] == $voucher_id) ? "checked" : "";
                             $end_date = ($item['end_date']) ? ' đến '.date('d-m-Y', strtotime($item['end_date'])) : '';
-                            $html_change_quantity .= '
+                            $html_change .= '
                                 <label for="check_voucher'.$count.'" class="cart_vouche-item">
                                     <input '.$acctive.' onchange="voucher_show(this)" hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
                                     <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
@@ -124,12 +123,12 @@
                             ';
                         }
 
-    $html_change_quantity .= '     
+    $html_change .= '     
                         </div>
                         <div class="cart-payment">';
                         
                         if ($voucher_id) {
-    $html_change_quantity .= '
+    $html_change .= '
                             <div class="cart-payment-cash">
                                 <p>Tổng '.count($_SESSION['cart'][$user_cart]).' sản phẩm:</p>
                                 <p>'. number_format($total_price,0,',','.') .' đ</p>
@@ -144,7 +143,7 @@
                             </div>
     ';
                         } else {
-    $html_change_quantity .= '
+    $html_change .= '
                             <div class="cart-payment-cash">
                                 <p>Tổng '. count($_SESSION['cart'][$user_cart]) .' sản phẩm:</p>
                                 <p>'. number_format($total_price,0,',','.').' đ</p>
@@ -161,12 +160,12 @@
                         }
                             
 
-    $html_change_quantity .= '   
+    $html_change .= '   
                             <button class="payment-button" name="btn_checkout">THANH TOÁN</button>
                             
                         </div>
                     </form>
                 </div>';
  
-        echo $html_change_quantity;
+    echo $html_change;
 ?>

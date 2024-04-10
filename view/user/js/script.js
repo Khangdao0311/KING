@@ -1,7 +1,6 @@
 
 function addcart(el) {
     const id = el.nextSibling.nextSibling.value; 
-    console.log(id);   
     $.post("model/jQuery/load_addcart.php", {
         'id': id
     },
@@ -15,5 +14,5 @@ function addcart(el) {
     document.body.appendChild(cart_add_success);
     setTimeout(() => {
         document.body.removeChild(cart_add_success);
-    }, 1000);
+    }, 500);
 }
