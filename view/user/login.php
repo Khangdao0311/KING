@@ -8,7 +8,7 @@
                 <div class="link-item check">Đăng nhập</div>
                 <a href="?mod=user&act=register" class="link-item">Đăng ký</a>
             </div>
-            <form class="form-login_register" action="" method="post">
+            <form class="form-login_register" action="?mod=user&act=login" method="post">
                 <div class="form-item">
                     <div class="form_item-text">Username / Email</div>
                     <input name="account" class="form_item-input" type="text" placeholder="Nhập username hoặc email">
