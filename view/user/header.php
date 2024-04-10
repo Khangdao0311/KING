@@ -56,14 +56,14 @@
                     <p class="m-0">Giỏ hàng</p>
                 </a>
                 <?php if ($_SESSION['user']): ?>
-                <a href="?mod=user&act=information" class="header-user">
+                <a href="?mod=user&act=information" class="header-user m-0">
                     <div class="header-icon">
                         <?= ($_SESSION['user']['image']) ? '<img  src="/view/images/user/'. $_SESSION['user']['image'] .'" alt="">' : '<span class="material-symbols-outlined">account_circle</span>';?>
                     </div>
                     <p class="m-0"><?= $_SESSION['user']['name'] ?></p>
                 </a>
                 <?php else: ?>
-                <a href="?mod=user&act=login" class="header-user">
+                <a href="?mod=user&act=login" class="header-user m-0">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">account_circle</span>
                     </div>

@@ -1,6 +1,14 @@
 @media (min-width: 740px) and (max-width: 1024px){
+    .cart_vouche_item-price > b,.cart-payment-total p{
+        font-size: 1.8rem;
+    }
+
+    .cart_vouche_item-code{
+        font-size: 1.6rem;
+    }
+
     .product-total p, .product-quantity p, .prodcut-cash p,
-    .promotion p, .readmore p, .payment-button button {
+    .promotion p, .readmore p, .payment-button button, .payment-button {
         font-size: 1.4rem;
     }
 
@@ -37,18 +45,26 @@
     .quantity_cart_number,.product-quantity button,
     .promotion p, .promotion-name a,.promotion-detail p,
     .promotion-quantity-name p, .cart-payment-describle p, .cart-payment-describle div,
-    .readmore p{
+    .readmore p, .cart_vouche_item-date, .cart_vouche_item-price,
+    .cart_vouche_item-quantity, .cart-payment-cash p, .payment-notice p,
+    .cart-payment-total span,.cart-payment-total p{
         font-size: 1rem;
     }
 
-    .cart-payment-total span{
+    .product-total p{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .cart-payment-total span, .cart_vouche_item-code{
         font-size: 1.2rem;
     }
     .prodcut-cash p {
         width: 5.5rem;
     }
 
-    .cart-payment-total p,
+    
     .readmore span, .trash > span,
     .promotion > span{
         font-size: 1.5rem;
@@ -95,5 +111,17 @@
 
     .promotion{
         gap: unset;
+    }
+
+    .cart-product-img{
+        width: 30%;
+    }
+
+    .product-info{
+        width: 70%;
+    }
+
+    .cart_vouche_item-price > b{
+        font-size: 1.6rem;
     }
 }

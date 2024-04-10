@@ -1,7 +1,7 @@
 <?php
     function voucher_SELECT($user_id) {
         $sql = "SELECT * FROM vouchers WHERE user_id IS NULL OR user_id = $user_id";
-        return get_All($sql);   
+        return get_All($sql);
     }
     function voucher_add($code,$price,$start_date,$end_date,$quantity,$user_id){
         $sql = "INSERT INTO vouchers(code,price,start_date,end_date,quantity,user_id)

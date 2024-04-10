@@ -194,6 +194,12 @@
 
 }
 
+.product-inventory{
+    font-size: 1.4rem;
+    color: rgb(0, 0, 0 ,0.5);
+    font-weight: 500;
+}
+
 
 .productinfo-descibe{
     width: 100%;

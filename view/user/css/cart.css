@@ -179,6 +179,7 @@
     border-radius: 0.5rem;
     border-bottom: 0.1rem solid rgb(0, 0, 0, 0.1);
     padding: 1.2rem 0;
+    gap: 4rem;
 }
 
 .promotion,

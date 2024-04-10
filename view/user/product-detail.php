@@ -102,6 +102,7 @@
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png" alt="">
                     </div>
                 </div>
+                <div class="product-inventory">(Còn <?=$product_detail['quantity'] ?> sản phẩm tại cửa hàng)</div>
             </div>
             <div class="productdetail-button">
                 <input name="btn_buy_now" class="productdetail_button-buy_now" type="submit" value="Mua ngay">

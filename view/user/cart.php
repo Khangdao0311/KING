@@ -62,7 +62,7 @@
                     <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
                     <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-Y', strtotime($item['start_date'])).$end_date.'</div>
                     <div class="cart_vouche_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
-                    <div class="cart_vouche_item-quantity">số lượng '.number_format($item['quantity'],0,',','.').'</div>
+                    <div class="cart_vouche_item-quantity">số lượng: '.number_format($item['quantity'],0,',','.').'</div>
                 </label>
             </label>
         ';
@@ -116,10 +116,7 @@
                         <span class="material-symbols-outlined">sell</span>
                             <p>Khuyến Mãi</p>
                         </div>
-                        <div class="readmore">
-                            <p>Xem thêm </p>
-                            <span class="material-symbols-outlined">arrow_forward_ios</span>
-                        </div>
+                        
                     </div>
 
                     <div class="cart_voucher-container">
