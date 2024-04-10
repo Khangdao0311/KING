@@ -1,8 +1,9 @@
 <?php
     session_start();
     // session_destroy();
-    if (!isset($_SESSION['cart'])) $_SESSION['cart'] = [];
     if (!isset($_SESSION['user'])) $_SESSION['user'] = [];
+    $user_cart = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
+    if (!isset($_SESSION['cart'][$user_cart])) $_SESSION['cart'][$user_cart] = [];
     require_once 'model/global.php';
     require_once 'model/pdo.php';
     require_once 'model/category.php';

@@ -1,7 +1,7 @@
 <?php
     $total_price = 0;
     $html_product_cart = "";
-    foreach ($_SESSION['cart'] as $item) {
+    foreach ($_SESSION['cart'][$user_cart] as $item) {
         $link_del = 'index.php?mod=cart&act=delete&del='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
@@ -26,6 +26,7 @@
                     <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
                     <button onclick="plus_cart(this)" class = "btn-plus">+</button>
                     <span class="id_jq" hidden>'.$item['id'].'</span>
+                    <input  id="voucher_id" type="text" value="0">
                 </div>
             </div>
             <div class="prodcut-cash">
@@ -47,7 +48,7 @@
         $end_date = ($item['end_date']) ? ' đến '.date('d-m-y', strtotime($item['end_date'])) : '';
         $html_voucher .= '
             <label for="check_voucher'.$count.'" class="cart_vouche-item">
-                <input  class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
+                <input onchange="voucher_show(this)" hidden class="cart_vouche_item-checkbox" id="check_voucher'.$count.'" type="radio" name="voucher" value="'.$item['id'].'">
                 <label for="check_voucher'.$count++.'" class="cart_vouche_item-content">
                     <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
                     <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-y', strtotime($item['start_date'])).$end_date.'</div>
@@ -62,7 +63,7 @@
 
 ?>
 <?php include_once 'header.php' ?>
-<title>Giỏ Hàng</title>
+<title >Giỏ Hàng</title>
 <link rel="stylesheet" href="view/user/css/cart.css">
 <link rel="stylesheet" href="view/user/css/reponsive/cart.css">
 <section class=" link_page">
@@ -72,7 +73,7 @@
 </section>
 <section>
     <div class="container cart-container">
-        <?php if($_SESSION['cart'] != []):?>
+        <?php if($_SESSION['cart'][$user_cart] != []):?>
             <div class="box_cart">
                 <div class="box_cart-product m1">
                     <div class="cart_product-tittle">
@@ -116,29 +117,18 @@
                     </div>
                     <div class="cart-payment">
                         <div class="cart-payment-cash">
-                            <p>Thành tiền</p>
-                            <p>90.250 đ</p>
+                            <p>Tổng <?= count($_SESSION['cart'][$user_cart]) ?> sản phẩm:</p>
+                            <p><?= number_format($total_price,0,',','.')?> đ</p>
                         </div>
                         <div class="cart-payment-cash">
-                            <p>Thành tiền</p>
-                            <p>90.250 đ</p>
+                            <p id="voucher-name">Voucher</p>
+                            <p id="voucher-price">0 đ</p>
                         </div>
                         <div class="cart-payment-total">
                             <span>Tổng Số Tiền:</span>
-                            <p><?php
-                                if (isset($total_price)) {
-                                    echo number_format($total_price,0,',','.');
-                                }else{
-                                    echo '0';
-                                }
-                            ?>đ</p>
+                            <p><?= number_format($total_price,0,',','.')?> đ</p>
                         </div>
-                        <a href="index.php?mod=cart&act=checkout" class="payment-button">
-                            <button name="btn_checkout">THANH TOÁN</button>
-                        </a>
-                        <!-- <div class="payment-notice">
-                            <p>(Giảm giá trên web chỉ áp dụng cho bán lẻ)</p>
-                        </div> -->
+                        <button class="payment-button" name="btn_checkout">THANH TOÁN</button>
                     </div>
                 </form>
             </div>
