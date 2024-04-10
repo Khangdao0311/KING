@@ -15,4 +15,15 @@
         $sql = "DELETE FROM comments WHERE id = $id";
         edit($sql);
     }
+    function comment_SELECT_ALL($page,$search,$limit) {
+        $sql = "SELECT * FROM comments WHERE 1";
+        if ($search != "") $sql .=" AND rating LIKE '%$search%'";
+        if ($page > 1){
+            $begin = (($page-1) * $limit);
+            $sql .="  LIMIT  $begin,$limit";
+        }else {
+            if ($limit > 0) $sql .=" LIMIT  $limit";
+        }
+        return get_All($sql);   
+    }
 ?>

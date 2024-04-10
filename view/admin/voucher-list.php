@@ -41,7 +41,9 @@ foreach ($voucher_management as $item){
                 </div>
 
                 <?=$html_voucher_management;?>
-
+                <div class="product-page">
+                    <?=$html_number_page;?>
+                    </div>
             </div>
         </div>
     </section>  
