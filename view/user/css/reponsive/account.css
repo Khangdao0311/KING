@@ -1,0 +1,15 @@
+@media (min-width: 740px) and (max-width: 1024px) {
+    .account_nav-title, .account-title{
+        font-size: 2rem !important;
+    }
+    .accuont_nav-item, .account_information_item-name,
+    .account_information_item-content   {
+        font-size: 1.2rem;
+    }
+    .account-submit{
+        font-size: 1.6rem;
+    }
+}
+@media (max-width: 740px) {
+    
+}

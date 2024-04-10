@@ -183,10 +183,22 @@
             <span class="material-symbols-outlined">store</span>
             <p>Cửa hàng</p>
         </a>
-        <a href="?mod=user&act=login" class="nav_icon">
-            <span class="material-symbols-outlined">person</span>
-            <p>Đăng nhập</p>
-        </a>
+        <?php if ($_SESSION['user']): ?>
+                <a href="?mod=user&act=information" class="nav_icon">
+                    <div>
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <p><?= $_SESSION['user']['name'] ?></p>
+                </a>
+                <?php else: ?>
+                <a href="?mod=user&act=login" class="nav_icon">
+                    <div>
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <!-- <p class="m-0">Tài khoản</p> -->
+                    <p>Đăng nhập</p>
+                </a>
+                <?php endif; ?>
         <label for="check_footer" class="nav_icon">
             <span class="material-symbols-outlined">pending</span>
             <p>Xem thêm</p>

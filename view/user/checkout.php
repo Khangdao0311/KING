@@ -30,6 +30,7 @@ foreach ($_SESSION['cart'][$user_cart] as $item) {
 <?php include_once 'header.php' ?>
 <title>Thanh Toán</title>
 <link rel="stylesheet" href="view/user/css/checkout.css">
+<link rel="stylesheet" href="view/user/css/reponsive/checkout.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Giỏ hàng / Thanh toán</div>
@@ -38,7 +39,7 @@ foreach ($_SESSION['cart'][$user_cart] as $item) {
 <section>
     <div class="container contact-container">
         <form action="?mod=cart&act=checkout" method="post" class="cart-cash">
-            <div class="ship-infomation">
+            <div class="ship-infomation m-1">
                 <div class="infomation-user">
                     <div class="infomation-tittle">
                         <p>Thông tin liên hệ giao hàng</p>

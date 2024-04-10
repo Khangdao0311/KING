@@ -1,6 +1,7 @@
 <?php include_once 'header.php' ?>
 <title>Tài khoản</title>
 <link rel="stylesheet" href="view/user/css/account.css">
+<link rel="stylesheet" href="view/user/css/reponsive/account.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Tài khoản</div>

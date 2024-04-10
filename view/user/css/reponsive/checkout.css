@@ -1,0 +1,53 @@
+@media (min-width: 740px) and (max-width: 1024px) {
+    
+    .payment_total-titlle p, .payment_total-sum p,
+    .payment-button{
+        font-size: 1.8rem;
+    } 
+
+    .infomation-tittle p,.infomation-name p, .infomation-email p, 
+    .infomation-sdt p, .infomation-city p, .infomation-district p, 
+    .infomation-ward p, .infomation-street p, .infomation-note p,
+    .infomation-user input,.infomation-address input,
+    .checkout_product-img p, .checkout_product-quantity p, .checkout_product-cash p,
+    .checkout_product-name p, .checkout_product-name del,.payment-method-content p,
+    .payment_total-info p, .payment_total-promotion p, .payment_total-ship p{
+        font-size: 1.4rem;
+    }
+
+    .checkout_product-price{
+        padding: 1rem 0;
+    }
+}
+
+
+
+
+
+@media (max-width: 740px) {
+    .cart-cash{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .ship-infomation, .payment-infomation{
+        width: 100%;
+    }
+
+    .infomation-tittle p, .infomation-name p, .infomation-email p, 
+    .infomation-sdt p, .infomation-city p, .infomation-district p, 
+    .infomation-ward p, .infomation-street p, .infomation-note p,
+    .infomation-user input,.infomation-address input,
+    .checkout_product-img p, .checkout_product-quantity p, .checkout_product-cash p,
+    .checkout_product-name p, .checkout_product-name del,.payment-method-content p{
+        font-size: 1rem;
+    }
+
+    .payment_total-info p, .payment_total-promotion p, .payment_total-ship p{
+        font-size: 1.2rem;
+    }
+
+    .payment_total-titlle p, .payment_total-sum p,
+    .payment-button {
+        font-size: 1.6rem;
+    }
+}
