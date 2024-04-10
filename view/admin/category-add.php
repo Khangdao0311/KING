@@ -7,7 +7,7 @@
             <div class="title">
                 <div class="title-menu">
                     <a href="?mod=admin&act=category-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
-                    <div class="title_menu-content">Quản lý sản phẩm</div>
+                    <div class="title_menu-content">Quản lý danh mục</div>
                 </div>
                 <div class="title-function">Thêm</div>
                 <img id="imagechange" src="view/images/logo.png" class="title-img-fix"></img>

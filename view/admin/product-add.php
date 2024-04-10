@@ -77,7 +77,7 @@ foreach($data_publisher as $item){
                 </div>
                 <div id="select4Error" class="toast">Vui lòng chọn một giá trị!</div>
                 <div class="content-item">
-                    <div class="content_item-key">Mã nhà sản xuất</div>
+                    <div class="content_item-key">Mã nhà xuất bản</div>
                 <select class="fix" name="publisher_id" id="">
                     <option hidden value=""></option>
                         <?=$html_show_publisher;?>
