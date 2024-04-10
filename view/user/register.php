@@ -11,27 +11,27 @@
             <form class="form-login_register" action="?mod=user&act=register" method="post">
                 <div class="form-item">
                     <div class="form_item-text">Họ và Tên</div>
-                    <input name="name" class="form_item-input" type="text" required placeholder="Nhập">
+                    <input name="name" class="form_item-input" type="text" required placeholder="Nhập họ tên đầy đủ">
                 </div>
                 <div class="form-item">
                     <div class="form_item-text">Email</div>
-                    <input name="email" class="form_item-input" type="email" required placeholder="Nhập">
+                    <input name="email" class="form_item-input" type="email" required placeholder="Nhập email">
                 </div>
                 <div class="form-item">
                     <div class="form_item-text">User name</div>
-                    <input name="username" class="form_item-input" type="text" required placeholder="Nhập">
+                    <input name="username" class="form_item-input" type="text" required placeholder="Nhập username">
                 </div>
                 <div class="form-item">
                     <div class="form_item-text">Mật khẩu</div>
                     <div class="form_item-input_box">
-                        <input name="pass" class="form_item-input" type="password" required placeholder="Nhập">
+                        <input name="pass" class="form_item-input" type="password" required placeholder="Nhập mật khẩu">
                         <div onclick="show_hidden(this)" class="hide-pass">Hiện</div>
                     </div>
                 </div>
                 <div class="form-item">
                     <div class="form_item-text">Nhập lại mật khẩu</div>
                     <div class="form_item-input_box">
-                        <input name="confirmpass" class="form_item-input" type="password" required placeholder="Nhập">
+                        <input name="confirmpass" class="form_item-input" type="password" required placeholder="Nhập lại mật khẩu">
                         <div onclick="show_hidden(this)" class="hide-pass">Hiện</div>
                     </div>
                 </div>

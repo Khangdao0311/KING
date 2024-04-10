@@ -51,22 +51,14 @@
                 <a href="?mod=cart&act=list" class="header-cart">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                        <div class="header-quantity">
-                            <?php
-                            if (isset($_SESSION['cart'][$user_cart])) {
-                                echo count($_SESSION['cart'][$user_cart]);
-                            }else{
-                                echo '0';
-                            }
-                             ?>
-                        </div>
+                        <div class="header-quantity"><?= count($_SESSION['cart'][$user_cart]) ?> </div>
                     </div>
                     <p class="m-0">Giỏ hàng</p>
                 </a>
                 <?php if ($_SESSION['user']): ?>
                 <a href="?mod=user&act=information" class="header-user">
                     <div class="header-icon">
-                        <span class="material-symbols-outlined">account_circle</span>
+                        <?= ($_SESSION['user']['image']) ? '<img  src="/view/images/user/'. $_SESSION['user']['image'] .'" alt="">' : '<span class="material-symbols-outlined">account_circle</span>';?>
                     </div>
                     <p class="m-0"><?= $_SESSION['user']['name'] ?></p>
                 </a>

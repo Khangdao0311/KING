@@ -1,5 +1,8 @@
-
-
+const inputflie = document.getElementById('inputfile');
+const image = document.getElementById('imagechange');
+inputflie.addEventListener('change', (el) => {
+    image.src = URL.createObjectURL(el.target.files[0])
+});
 
 function order_status(status) {
     $.post("model/jQuery/load_show_order_status.php", {
@@ -91,14 +94,6 @@ function check() {
         document.querySelector('.account-submit').style.opacity = '0.5'; 
     }
 }
-
-
-
-const inputflie = document.getElementById('inputfile');
-const image = document.getElementById('imagechange');
-inputflie.addEventListener('change', (el) => {
-    image.src = URL.createObjectURL(el.target.files[0]);
-});
 
 function delete_comment(el) {
     var id = el.previousElementSibling.value
