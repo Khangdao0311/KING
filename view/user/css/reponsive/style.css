@@ -29,6 +29,10 @@
         font-size: 1.2rem;
     }
 
+    .header-icon > span{
+        font-size: 2.4rem;  
+    }
+
 
     .t-0{
         display: none;
