@@ -2,17 +2,18 @@
     $total_price = 0;
     $html_product_cart = "";
     foreach ($_SESSION['cart'][$user_cart] as $item) {
+        $link_product_detail = '?mod=page&act=product-detail&id='.$item['id'];
         $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
         $html_product_cart .= '  
         <div class="cart-product">
         <div class="product-total"> 
-            <div class="cart-product-img">
+            <a href="'.$link_product_detail.'" class="cart-product-img">
                 <img src="view/'.$item['image'].'" alt="">
-            </div>
+            </a>
             <div class="product-info">
-                <p>'.$item['name'].'</p>
+                <a href="'.$link_product_detail.'">'.$item['name'].'</a>
                 <div class="product-price">
                     <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
                     <span>'.number_format($item['price'],0,',','.').' đ</span>
@@ -41,7 +42,7 @@
                 $html_product_cart .= '  
                     <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
                     <input hidden type="text" value="'.$item['id'].'">
-                    <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
+                    <input hidden id="voucher_id" type="text" value="0">
                 ';
             }
         $html_product_cart .= '  
@@ -67,13 +68,7 @@
             </label>
         ';
     }
-
-
-
 ?>
-                <!-- <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
-                <input hidden type="text" value="'.$item['id'].'">                
-                <input hidden id="voucher_id" type="text" value="0"> -->
 <?php include_once 'header.php' ?>
 <title >Giỏ Hàng</title>
 <link rel="stylesheet" href="view/user/css/cart.css">
