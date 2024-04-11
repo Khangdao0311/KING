@@ -29,11 +29,27 @@
                     <div class="product-price_sale">Giá: '.number_format($item['price_sale'],0,',','.').' đ</div>
                     <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                     <div class="product-view">'.$item['view'].' lượt xem</div>
-                    <div class="product-icon_box">
+                     <div class="product-icon_box">';
+    if ($item['quantity'] > 0) {
+        $html_show_product_all .= '
                     <div onclick="addcart(this)" class="product-icon">
-                    <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
-                    <input type="text" hidden value="'.$item['id'].'">
+                    <input type="text" hidden value="' . $item['id'] . '">
+                    <input type="text" hidden value="1">
+                    <input type="text" hidden value="' . $item['quantity'] . '">
+                    ';
+    }
+    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+        $html_show_product_all .= '
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    ';
+    } else {
+        $html_show_product_all .= '
+                    <input id="quantity_cart"  type="text" hidden value="0">
+                    ';
+    }
+    $html_show_product_all .= '
                         <div class="product-icon">
                             <span class="material-symbols-outlined">favorite</span>
                         </div>

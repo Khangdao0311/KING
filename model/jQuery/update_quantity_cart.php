@@ -40,52 +40,53 @@
 
     $total_price = 0;
     foreach ($_SESSION['cart'][$user_cart] as $item) {
+        $link_product_detail = '?mod=page&act=product-detail&id='.$item['id'];
         $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
         $html_change_quantity .= '  
-            <div class="cart-product">
-                <div class="product-total"> 
-                    <div class="cart-product-img">
-                        <img src="view/'.$item['image'].'" alt="">
-                    </div>
-                    <div class="product-info">
-                        <p>'.$item['name'].'</p>
-                        <div class="product-price">
-                            <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
-                            <span>'.number_format($item['price'],0,',','.').' đ</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-pay">
-                    <div class="product-quantity">
-                        <div class="quantity">
-                            <button onclick="minus_cart(this)" class = "btn-minus">-</button>
-                            <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
-                            <button onclick="plus_cart(this)" class = "btn-plus">+</button>
-                            <span class="id_jq" hidden>'.$item['id'].'</span>
-                            <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
-                        </div>
-                    </div>
-                    <div class="prodcut-cash">
-                        <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
-                    </div>
-                    <div class="prodcut-trash">';
-                if (count($_SESSION['cart'][$user_cart]) == 1) {
-                    $html_change_quantity .= '  
-                        <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
-                    ';
-                } else {
-                    $html_change_quantity .= '  
-                        <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
-                        <input hidden type="text" value="'.$item['id'].'">
-                        <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
-                    ';
-                }
-                $html_change_quantity .= '  
-                    </div>
+        <div class="cart-product">
+        <div class="product-total"> 
+            <a href="'.$link_product_detail.'" class="cart-product-img">
+                <img src="view/'.$item['image'].'" alt="">
+            </a>
+            <div class="product-info">
+                <a href="'.$link_product_detail.'">'.$item['name'].'</a>
+                <div class="product-price">
+                    <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
+                    <del>'.number_format($item['price'],0,',','.').' đ</del>
                 </div>
             </div>
+        </div>
+        <div class="product-pay">
+            <div class="product-quantity">
+                <div class="quantity">
+                    <button onclick="minus_cart(this)" class = "btn-minus">-</button>
+                    <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
+                    <button onclick="plus_cart(this)" class = "btn-plus">+</button>
+                    <span class="id_jq" hidden>'.$item['id'].'</span>
+                    <input hidden id="voucher_id" type="text" value="0">
+                </div>
+            </div>
+            <div class="prodcut-cash">
+                <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
+            </div>
+            <div class="prodcut-trash">';
+            if (count($_SESSION['cart'][$user_cart]) == 1) {
+                $html_change_quantity .= '  
+                    <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
+                ';
+            } else {
+                $html_change_quantity .= '  
+                    <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
+                    <input hidden type="text" value="'.$item['id'].'">
+                    <input hidden id="voucher_id" type="text" value="0">
+                ';
+            }
+        $html_change_quantity .= '  
+            </div>
+        </div>
+    </div>
 
         ';
     }
@@ -98,10 +99,7 @@
                             <span class="material-symbols-outlined">sell</span>
                                 <p>Khuyến Mãi</p>
                             </div>
-                            <div class="readmore">
-                                <p>Xem thêm </p>
-                                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                            </div>
+                           
                         </div>
 
                         <div class="cart_voucher-container">';
