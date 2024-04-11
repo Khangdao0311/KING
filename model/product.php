@@ -1,6 +1,6 @@
 <?php
     function product_SELECT($id,$page,$view,$hot,$search,$category_id,$author_id,$publisher_id,$limit) {
-        $sql = "SELECT * FROM products WHERE quantity > 0";
+        $sql = "SELECT * FROM products WHERE 1";
         if ($id) $sql .=" AND id = $id";
         if ($category_id > 0) $sql .=" AND category_id = $category_id";
         if ($author_id > 0) $sql .=" AND author_id = $author_id";

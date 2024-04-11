@@ -21,11 +21,16 @@
                 <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
                 <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
                 <div class="product-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
-                <div class="product-icon_box">
+                <div class="product-icon_box">';
+                if ($item['quantity'] > 0) {
+    $html_product_hot .= '
                     <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
                     <input type="text" hidden value="'.$item['id'].'">
+    ';
+                }
+    $html_product_hot .= '
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>
@@ -66,11 +71,16 @@ foreach ($product_new as $item) {
                 <div class="product-price_sale">Giá: '.number_format($item['price_sale'],0,',','.').' đ</div>
                 <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
                 <div class="product-view">'.number_format($item['view'],0,',','.').' lượt xem</div>
-                <div class="product-icon_box">
-                <div onclick="addcart(this)" class="product-icon">
+                <div class="product-icon_box">';
+                if ($item['quantity'] > 0) {
+    $html_product_new .= '
+                    <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                </div>
-                <input type="text" hidden value="'.$item['id'].'">
+                    </div>
+                    <input type="text" hidden value="'.$item['id'].'">
+    ';
+                }
+    $html_product_new .= '
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
                     </div>
@@ -95,30 +105,6 @@ foreach ($publishers as $item) {
 <title>Trang chủ</title>
 <link rel="stylesheet" href="view/user/css/home.css">
 <link rel="stylesheet" href="view/user/css/reponsive/home.css">
-<!-- <section >
-    <div class="container silde_banner">
-        <div class="silde-box">
-            <img class="slide-img" src="https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg" alt="">
-            <div onclick="previous()" class="slide-controller-left">
-                <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_arrow_gray.svg" alt="">
-            </div>
-            <div onclick="next()" class="slide-controller-right">
-                <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_arrow_gray.svg" alt="">
-            </div>
-            <div class="slide-nav">
-
-            </div>
-        </div>
-        <div class="banner-box">
-            <div class="banner-item">
-                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_sacombank_t3.jpg" alt="">
-            </div>
-            <div class="banner-item">
-                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_zalopay_t3.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section> -->
 <section class="margin-header">
     <div class="container silde_banner">
         <div class="silde-box swiper mySwiper t-1 m-1">

@@ -41,6 +41,7 @@
 .productdetail-content {
     width: calc(68% - 2.4rem);
     display: flex;
+    align-items: start;
     flex-direction: column;
     gap: 2rem;
 }
@@ -468,4 +469,14 @@
 }
 .click-addcart{
     cursor: pointer;
+}
+
+.productdetail_soldout {
+    display: inline;
+    padding: 1.2rem 2.4rem ;
+    font-size: 2rem;
+    font-weight: bold;
+    /* color: var(--primary); */
+    color: #FFF;
+    background-color: var(--primary);
 }

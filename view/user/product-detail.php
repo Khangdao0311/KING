@@ -18,15 +18,20 @@
                     <div class="product-price_sale">' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
                     <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
                     <div class="product-view">' . $item['view'] . ' lượt xem</div>
-                    <div class="product-icon_box">
+                    <div class="product-icon_box">';
+                if ($item['quantity'] > 0) {
+    $html_productdetail_same .= '
                     <div onclick="addcart(this)" class="product-icon">
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                </div>
-                <input type="text" hidden value="' . $item['id'] . '">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                    </div>
+                    <input type="text" hidden value="'.$item['id'].'">
+    ';
+                }
+    $html_productdetail_same    .= '
                         <div class="product-icon">
                             <span class="material-symbols-outlined">favorite</span>
                         </div>
-                </div>
+                    </div>
                 </div>
             </div>
             ';
@@ -91,6 +96,7 @@
                     <div class="productdetail-persent"><?= 100 - (($product_detail['price_sale'] / $product_detail['price']) * 100) ?> %</div>
                 </div>
             </div>
+            <?php if ($product_detail['quantity'] > 0): ?>
             <div class="productdetail-quantity">
                 <div class="productdetail_quantity-text">Số lượng: </div>
                 <div class="productdetail_quantity-button">
@@ -117,6 +123,12 @@
                 <input type="text" hidden value="<?=$product_detail['id']?>">
             </div>
             <input value="<?= $product_detail['id'] ?>" name="id" type="hidden">
+            <?php else: ?>
+            <div class="productdetail-quantity">
+                <div class="product-inventory">(Còn <?=$product_detail['quantity'] ?> sản phẩm tại cửa hàng)</div>
+            </div>
+            <div class="productdetail_soldout">Sản phẩm hện không còn hàng !</div>
+            <?php endif; ?>
         </form>
     </div>
 </section>
