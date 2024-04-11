@@ -1,5 +1,5 @@
 <?php include_once 'header.php' ?>
-<title title>Đăng lý</title>
+<title title>Đăng ký</title>
 <link rel="stylesheet" href="view/user/css/login-register.css">
 <section class="margin-header">
     <div class="container login_register-container">

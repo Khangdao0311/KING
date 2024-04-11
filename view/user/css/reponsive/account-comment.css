@@ -1,38 +1,24 @@
 @media (min-width: 740px) and (max-width: 1024px) {
-    .account_nav-title, .account-title{
-        font-size: 2rem !important;
+    .account-title, .account_nav-title{
+        font-size: 2rem;
     }
-    .accuont_nav-item, .account_information_item-name,
-    .account_information_item-content   {
+
+    .accuont_nav-item, .account_form_item-text,
+    .account_form_item-input{
         font-size: 1.2rem;
-    }
-    .account-submit{
-        font-size: 1.6rem;
     }
 }
 @media (max-width: 740px) {
     .account-container{
         padding: 0;
     }
-
     .account-nav-menu{
         font-size: 3.6rem;
         padding: 1rem;
     }
-
-    .account-title{
-        font-size: 2rem;
-    }
-
     .account-submit{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
-
-    .account_information_item-name,
-    .account_information_item-content{
-        font-size: 1rem;
-    }
-
     .account-nav_box{
         position: fixed;
         left: -100%;

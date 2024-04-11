@@ -6,6 +6,10 @@
     .account_information_item-content   {
         font-size: 1.2rem;
     }
+    .account_form_item-text{
+        font-size: 1.4rem;
+    }
+
     .account-submit{
         font-size: 1.6rem;
     }
@@ -15,22 +19,44 @@
         padding: 0;
     }
 
-    .account-nav-menu{
-        font-size: 3.6rem;
-        padding: 1rem;
+    .account_order_follow_order_fun-btn {
+        width: 8rem;
+    }
+    .account_order_follow_product-img {
+        width: 8rem;
     }
 
     .account-title{
         font-size: 2rem;
     }
 
-    .account-submit{
+    .account_order_follow_order_total-price > b{
         font-size: 1.6rem;
     }
 
-    .account_information_item-name,
-    .account_information_item-content{
+    .account_form_item-text, .account_order_follow_product-price_sale,
+    .account_order_follow_order_total-price{
+        font-size: 1.2rem;
+    }
+
+    .account-submit, .account_order_follow_product-quantity,
+    .account_order_follow_product-total{
+        font-size: 1.4rem;
+    }
+
+    .account_form_item-input, 
+    .account_order_follow_product-name, .account_order_follow_product-price,
+    .account_order_follow_order_fun-btn {
         font-size: 1rem;
+    }
+    .account_order_follow-item{
+        font-size: 0.7rem;
+        padding: 0.5rem;
+    }
+
+    .account-nav-menu{
+        font-size: 3.6rem;
+        padding: 1rem;
     }
 
     .account-nav_box{

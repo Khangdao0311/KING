@@ -2,35 +2,53 @@
     .account_nav-title, .account-title{
         font-size: 2rem !important;
     }
-    .accuont_nav-item, .account_information_item-name,
-    .account_information_item-content   {
+    .account_voucher_item-date,.account_voucher_item-price, 
+    .account_voucher_item-quantity, .account_voucher_item-btn {
         font-size: 1.2rem;
     }
-    .account-submit{
+    .account_form_item-text,.accuont_nav-item {
+        font-size: 1.4rem;
+    }
+
+    .account_voucher_item-price > b{
         font-size: 1.6rem;
+    }
+    .account_voucher_item-code{
+        font-size: 1.4rem;
     }
 }
 @media (max-width: 740px) {
     .account-container{
         padding: 0;
     }
-
-    .account-nav-menu{
-        font-size: 3.6rem;
-        padding: 1rem;
+    .account_voucher-item{
+        text-align: center;
     }
 
     .account-title{
         font-size: 2rem;
     }
-
-    .account-submit{
+  
+    .account_voucher_item-code,.account_voucher_item-price > b{
         font-size: 1.6rem;
     }
+    .account_voucher_item-price, .account_voucher_item-quantity,
+    .account_voucher_item-btnt{
+        font-size: 1.2rem;
+    }
 
-    .account_information_item-name,
-    .account_information_item-content{
+    .account_voucher_item-date,
+    .account_voucher_item-price, .account_voucher_item-quantity {
         font-size: 1rem;
+    }
+    .account_voucher_item-box{
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .account-nav-menu{
+        font-size: 3.6rem;
+        padding: 1rem;
     }
 
     .account-nav_box{

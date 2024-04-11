@@ -86,6 +86,20 @@
         padding: 3rem;
         font-size: 1.8rem;
     }
+    .product-icon{
+        width: 4rem;
+        padding: 0;
+    }
+
+    .product-icon_box{
+        transform: unset;
+        opacity: unset;
+        transition: unset;
+        right: 1rem;
+    }
+    .product-mane{
+        min-height: 4rem;
+    }
 }
 
 
@@ -128,7 +142,7 @@
     }
 
     .header-search {
-        width: 45%;
+        width: 50%;
     }
 
     .header-box{
@@ -191,6 +205,9 @@
     .m-10 {
         flex: 0 0 10%;
         max-width: 10%;
+    }
+    .account-container{
+        min-height: 35rem;
     }
 
     footer{
@@ -326,5 +343,21 @@
         justify-content: center;
         align-items: center;
         height: 10rem;
+    }
+
+    .product-icon{
+        width: 3rem;
+        padding: 0;
+    }
+
+    .product-icon_box{
+        transform: unset;
+        opacity: unset;
+        transition: unset;
+        right: 1rem;
+    }
+
+    .product-mane{
+        min-height: 3rem;
     }
 }

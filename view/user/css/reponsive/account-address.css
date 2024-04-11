@@ -6,6 +6,10 @@
     .account_information_item-content   {
         font-size: 1.2rem;
     }
+    .account_form_item-text{
+        font-size: 1.4rem;
+    }
+
     .account-submit{
         font-size: 1.6rem;
     }
@@ -15,22 +19,25 @@
         padding: 0;
     }
 
-    .account-nav-menu{
-        font-size: 3.6rem;
-        padding: 1rem;
-    }
-
     .account-title{
         font-size: 2rem;
     }
 
-    .account-submit{
-        font-size: 1.6rem;
+    .account_form_item-text{
+        font-size: 1.2rem;
     }
 
-    .account_information_item-name,
-    .account_information_item-content{
+    .account-submit{
+        font-size: 1.4rem;
+    }
+
+    .account_form_item-input{
         font-size: 1rem;
+    }
+
+    .account-nav-menu{
+        font-size: 3.6rem;
+        padding: 1rem;
     }
 
     .account-nav_box{
