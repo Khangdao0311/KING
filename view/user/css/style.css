@@ -328,7 +328,7 @@ header {
     aspect-ratio: 1/1;
 }
 .header-icon > span {
-    font-size: 3.6rem;
+    font-size: 3rem;
     color: rgb(0, 0, 0, 0.8);
 }
 .header-icon > img {

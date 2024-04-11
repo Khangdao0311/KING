@@ -1,13 +1,21 @@
 <?php include_once 'header.php' ?>
-<title>Document</title>
+<title>Địa chỉ giao hàng</title>
 <link rel="stylesheet" href="view/user/css/account.css">
+<link rel="stylesheet" href="view/user/css/reponsive/account-address.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Tài khoản</div>
     </div>
 </section>
 <section>
+    <div class="container">
+        <label class="pc-0 t-0" for="check_nav_account"><span class="material-symbols-outlined account-nav-menu">menu</span></label>
+    </div>
+</section>
+<section>
     <div class="container account-container">
+    <input hidden id="check_nav_account" type="checkbox">
+    <label for="check_nav_account" class="account_layout_dark"></label>
     <div class="account-nav_box">
             <div class="account_nav-title">tài khoản</div>
             <div class="account_nav-box">
@@ -23,7 +31,7 @@
                 <a href="?mod=user&act=logout" class="accuont_nav-item">Đăng xuất</a>
             </div>
         </div>
-        <form action="?mod=user&act=account-address" method="post" class="account-main">
+        <form action="?mod=user&act=account-address" method="post" class="account-main m-1">
             <div class="account-title">Địa chỉ giao hàng</div>
             <div class="account-box">
                 <div class="account_form-item">

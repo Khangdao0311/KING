@@ -1,5 +1,5 @@
 <?php include_once 'header.php' ?>
-<title>Tài khoản</title>
+<title>Thông tin tài khoản</title>
 <link rel="stylesheet" href="view/user/css/account.css">
 <link rel="stylesheet" href="view/user/css/reponsive/account.css">
 <section class=" link_page">
@@ -8,7 +8,14 @@
     </div>
 </section>
 <section>
+    <div class="container">
+        <label class="pc-0 t-0" for="check_nav_account"><span class="material-symbols-outlined account-nav-menu">menu</span></label>
+    </div>
+</section>
+<section>
     <div class="container account-container">
+        <input hidden id="check_nav_account" type="checkbox">
+        <label for="check_nav_account" class="account_layout_dark"></label>
         <div class="account-nav_box">
             <div class="account_nav-title">tài khoản</div>
             <div class="account_nav-box">
@@ -24,8 +31,9 @@
                 <a href="?mod=user&act=logout" class="accuont_nav-item">Đăng xuất</a>
             </div>
         </div>
-        <form action="?mod=user&act=information" method="post" enctype="multipart/form-data" class="account-main">
-            <div class="account-title">Thông Tin Tài Khoản</div>
+        <form action="?mod=user&act=information" method="post" enctype="multipart/form-data" class="account-main m-1">
+            <div class="account-title">
+            Thông Tin Tài Khoản</div>
             <div class="account-box">
                 <div class="account_information-item">
                     <div class="account_information_item-img_box">

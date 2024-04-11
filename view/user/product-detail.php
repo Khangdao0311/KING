@@ -58,7 +58,7 @@
     }
 ?>
 <?php include_once('header.php') ?>
-<title>Sản Phẩm</title>
+<title>Sản Phẩm Chi Tiết</title>
 <link rel="stylesheet" href="view/user/css/product-detail.css">
 <link rel="stylesheet" href="view/user/css/reponsive/product-detail.css">
 <section class=" link_page">

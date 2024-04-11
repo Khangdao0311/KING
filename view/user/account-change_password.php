@@ -1,13 +1,21 @@
 <?php include_once 'header.php' ?>
-<title>Document</title>
+<title>Đổi mật khẩu</title>
 <link rel="stylesheet" href="view/user/css/account.css">
+<link rel="stylesheet" href="view/user/css/reponsive/account-change_password.css">
 <section class=" link_page">
     <div class="container">
         <div class="link_page-text">Trang chủ / Tài khoản</div>
     </div>
 </section>
 <section>
+    <div class="container">
+        <label class="pc-0 t-0" for="check_nav_account"><span class="material-symbols-outlined account-nav-menu">menu</span></label>
+    </div>
+</section>
+<section>
     <div class="container account-container">
+    <input hidden id="check_nav_account" type="checkbox">
+    <label for="check_nav_account" class="account_layout_dark"></label>
     <div class="account-nav_box">
             <div class="account_nav-title">tài khoản</div>
             <div class="account_nav-box">
@@ -23,11 +31,11 @@
                 <a href="?mod=user&act=logout" class="accuont_nav-item">Đăng xuất</a>
             </div>
         </div>
-        <form action="?mod=user&act=account-change_password" method="post" class="account-main">
+        <form action="?mod=user&act=account-change_password" method="post" class="account-main m-1">
             <div class="account-title">Đổi Mật Khẩu</div>
             <div class="account-box">
                 <div class="account_form-item">
-                    <div class="account_form-item_box">
+                    <div class="account_form-item_box m-1">
                         <div class="account_form_item-text">Mật khẩu cũ</div>
                         <div class="account_form_item-input_box">
                             <input class="account_form_item-input" name="password_old" type="password" required placeholder="Nhập mật khẩu cũ">
@@ -36,7 +44,7 @@
                     </div>
                 </div>
                 <div class="account_form-item">
-                    <div class="account_form-item_box">
+                    <div class="account_form-item_box m-1">
                         <div class="account_form_item-text">Mật khẩu mới</div>
                         <div class="account_form_item-input_box">
                             <input onkeyup="check()" id="password" class="account_form_item-input" name="password_new" type="password" required placeholder="Nhập mật khẩu mới">
@@ -51,7 +59,7 @@
                     </div>
                 </div>
                 <div class="account_form-item">
-                    <div class="account_form-item_box">
+                    <div class="account_form-item_box m-1">
                         <div class="account_form_item-text">Nhập lại mật khẩu</div>
                         <div class="account_form_item-input_box">
                             <input class="account_form_item-input" name="confirm_password" type="password" required placeholder="Nhập lại mật khẩu">

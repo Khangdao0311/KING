@@ -4,18 +4,41 @@
     <div class="container footer_content_infomation-search pc-0 t-0 m-0">
         <div class="footer_content-title">Tra cứu thông tin</div>
         <div class="footer_content-search">
-            <div class="footer_content-icons m-3">
-                <div><span class="material-symbols-outlined footer_content_icon">account_circle</span></div>
-                <div class="footer_content_text">Smember</div>
-            </div>
-            <div class="footer_content-icons m-3">
-                <div><span class="material-symbols-outlined footer_content_icon">add_shopping_cart</span></div>
-                <div class="footer_content_text" >Lịch sử mua hàng</div>
-            </div>
-            <div class="footer_content-icons m-3">
-                <div><span class="material-symbols-outlined footer_content_icon">quick_reference_all</span></div>
-                <div class="footer_content_text">Tra cứu đơn hàng</div>
-            </div>
+                <?php if ($_SESSION['user']): ?>
+                <a href="?mod=user&act=information" class=" footer_content-icons m-3">
+                    <div>
+                        <span class="material-symbols-outlined footer_content_icon">account_circle</span>
+                    </div>
+                    <p class="footer_content_text"><?= $_SESSION['user']['name'] ?></p>
+                </a>
+                <a href="?mod=user&act=account-order_follow" class=" footer_content-icons m-3">
+                    <div>
+                        <span class="material-symbols-outlined footer_content_icon">add_shopping_cart</span>
+                    </div>
+                    <p class="footer_content_text">Theo dõi đơn hàng</p>
+                </a>
+                <a href="?mod=user&act=account-voucher" class=" footer_content-icons m-3">
+                    <div>
+                        <span class="material-symbols-outlined footer_content_icon">quick_reference_all</span>
+                    </div>
+                    <p class="footer_content_text">Xem Ví Voucher</p>
+                </a>
+                <?php else: ?>
+                <a href="?mod=user&act=login" class="footer_content-icons m-2">
+                    <div>
+                        <span class="material-symbols-outlined footer_content_icon">account_circle</span>
+                    </div>
+                    <p class="footer_content_text">Đăng nhập</p>
+                </a>
+                <a href="?mod=user&act=register" class="footer_content-icons m-2">
+                    <div>
+                        <span class="material-symbols-outlined footer_content_icon">account_circle</span>
+                    </div>
+                    <p class="footer_content_text">Đăng ký</p>
+                </a>
+                <?php endif; ?>
+
+           
         </div>
     </div>
     <div class="container footer_content_infomation-search pc-0 t-0 m-0">
@@ -39,13 +62,13 @@
                 <div class="footer_content_text" >1900.9999</div>
                 <div class="footer_content_text" >(7h30 - 22h00)</div>
             </div>
-            <div class="footer_content-icons m-4 flex-columns">
+            <a href="?mod=page&act=contact" class="footer_content-icons m-4 flex-columns">
                 <div><span class="material-symbols-outlined ">location_on</span></div>
-                <div class="footer_content_text">Tìm cửa hàng gần nhất</div>
+                <div class="footer_content_text">Địa chỉ cửa hàng</div>
                 <div class="footer_content_text"></div>
                 <div class="footer_content_text"></div>
                 <div class="footer_content_text"></div>
-            </div>
+            </a>
         </div>
     </div>
     <div class="container footer-box m-0">

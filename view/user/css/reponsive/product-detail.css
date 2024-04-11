@@ -39,7 +39,7 @@
     }
     .productdetail-descibe p, .productdetail-descibe span,
     .productdetail-moredescibe p, .productdetail_innerbook-describe,
-    .product-price,.product-view{
+    .product-price,.product-view, .product-inventory{
         font-size: 1rem;
     }
 
