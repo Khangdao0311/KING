@@ -82,7 +82,7 @@ if (isset($_GET['act'])) {
                                     "name" => "KING STORE",
                                 ]
                             ];
-                            // mailer($mail,'ORDER PRODUCT',$content);
+                            mailer($mail,'ORDER PRODUCT',$content);
                             $orders = order_SELECT(0, 0, 0);
                             do {
                                 $check_code = FALSE;
