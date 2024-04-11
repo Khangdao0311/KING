@@ -10,13 +10,13 @@ if (isset($_GET['act'])) {
                 foreach ($_SESSION['cart'][$user_cart] as $item) {
                     if ($id == $item['id']) {
                         $check = 1;
-                        if ($_SESSION['cart'][$user_cart][$id]['quantity_cart'] + $quantity_cart <= 10) {
+                        if ($_SESSION['cart'][$user_cart][$id]['quantity_cart'] + $quantity_cart <= $product['quantity']) {
                             $_SESSION['cart'][$user_cart][$id]['quantity_cart'] += $quantity_cart;
                         }
                         break;
                     }
                 }
-                if ($check == 0 && $quantity_cart <= 10) {
+                if ($check == 0 && $quantity_cart <= $product['quantity']) {
                     $product['quantity_cart'] = $quantity_cart;
                     $_SESSION['cart'][$user_cart][$id] = $product;
                 }

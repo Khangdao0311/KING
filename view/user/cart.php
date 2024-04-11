@@ -16,7 +16,7 @@
                 <a href="'.$link_product_detail.'">'.$item['name'].'</a>
                 <div class="product-price">
                     <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
-                    <span>'.number_format($item['price'],0,',','.').' đ</span>
+                    <del>'.number_format($item['price'],0,',','.').' đ</del>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="product-quantity">
                 <div class="quantity">
                     <button onclick="minus_cart(this)" class = "btn-minus">-</button>
-                    <input value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
+                    <input disabled value = "'.$item['quantity_cart'].'" class = "quantity_cart_number">
                     <button onclick="plus_cart(this)" class = "btn-plus">+</button>
                     <span class="id_jq" hidden>'.$item['id'].'</span>
                     <input hidden id="voucher_id" type="text" value="0">
@@ -63,7 +63,7 @@
                     <div class="cart_vouche_item-code">VOUCHER - '.$item['code'].'</div>
                     <div class="cart_vouche_item-date">Bắt đầu từ ngày '.date('d-m-Y', strtotime($item['start_date'])).$end_date.'</div>
                     <div class="cart_vouche_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
-                    <div class="cart_vouche_item-quantity">số lượng: '.number_format($item['quantity'],0,',','.').'</div>
+                    <div class="cart_vouche_item-quantity">số lượng '.number_format($item['quantity'],0,',','.').'</div>
                 </label>
             </label>
         ';

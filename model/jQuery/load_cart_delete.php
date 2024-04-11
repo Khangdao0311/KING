@@ -52,7 +52,7 @@
                         <p>'.$item['name'].'</p>
                         <div class="product-price">
                             <span class="red-color">'.number_format($item['price_sale'],0,',','.').' đ</span>
-                            <span>'.number_format($item['price'],0,',','.').' đ</span>
+                            <del>'.number_format($item['price'],0,',','.').' đ</del>
                         </div>
                     </div>
                 </div>
@@ -96,10 +96,6 @@
                             <div class="promotion">
                             <span class="material-symbols-outlined">sell</span>
                                 <p>Khuyến Mãi</p>
-                            </div>
-                            <div class="readmore">
-                                <p>Xem thêm </p>
-                                <span class="material-symbols-outlined">arrow_forward_ios</span>
                             </div>
                         </div>
 

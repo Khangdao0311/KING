@@ -1,35 +1,46 @@
 <?php
-    $html_show_category = "";
-    foreach ($category_all_top_view as $item) {
-        $html_show_category .= '
+$html_show_category = "";
+foreach ($category_all_top_view as $item) {
+    $html_show_category .= '
             <div class="category-item col-10 col m-5">
-                <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-img">
-                    <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
+                <a href="?mod=page&act=product&category_id=' . $item['id'] . '" class="category_item-img">
+                    <img src="view/' . $item['image'] . '" alt="' . $item['name'] . '">
                 </a>
-                <a href="?mod=page&act=product&category_id='.$item['id'].'" class="category_item-text">'.$item['name'].'</a>
+                <a href="?mod=page&act=product&category_id=' . $item['id'] . '" class="category_item-text">' . $item['name'] . '</a>
             </div>
         ';
-    }
-    $html_product_hot = "";
-    foreach ($product_hot as $item) {
+}
+$html_product_hot = "";
+foreach ($product_hot as $item) {
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
         <div class="col-4 col t-3 m-2">
             <div class="product-box">
-                <a href="'.$link.'" class="product-img"><img src="view/' . $item['image'] . '" alt="'.$item['name'].'"></a>
-                <a href="'.$link.'" class="product-mane">'.$item['name'].'</a>
+                <a href="' . $link . '" class="product-img"><img src="view/' . $item['image'] . '" alt="' . $item['name'] . '"></a>
+                <a href="' . $link . '" class="product-mane">' . $item['name'] . '</a>
                 <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
                 <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
-                <div class="product-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
+                <div class="product-view">' . number_format($item['view'], 0, ',', '.') . ' lượt xem</div>
                 <div class="product-icon_box">';
-                if ($item['quantity'] > 0) {
-    $html_product_hot .= '
+    if ($item['quantity'] > 0) {
+        $html_product_hot .= '
                     <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
-                    <input type="text" hidden value="'.$item['id'].'">
-    ';
-                }
+                    <input type="text" hidden value="' . $item['id'] . '">
+                    <input type="text" hidden value="1">
+                    <input type="text" hidden value="' . $item['quantity'] . '">
+                    ';
+    }
+    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+        $html_product_hot .= '
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    ';
+    } else {
+        $html_product_hot .= '
+                    <input id="quantity_cart"  type="text" hidden value="0">
+                    ';
+    }
     $html_product_hot .= '
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
@@ -38,24 +49,24 @@
             </div>
         </div>
         ';
-    }
-    $html_show_category_top_view = '';
-    foreach ($category_all_top_view as $item) {
-        $html_show_category_top_view .= '
+}
+$html_show_category_top_view = '';
+foreach ($category_all_top_view as $item) {
+    $html_show_category_top_view .= '
             <div onclick="show_category_rating(' . $item['id'] . ')" class="swiper-slide rating_nav-item m-3">' . $item['name'] . '</div>
             ';
-    }
-    $html_show_top_view = '';
-    $count = 1;
-    foreach ($product_top_view as $item) {
-        $html_show_top_view .= '
-        <div onmouseover="show_rating('.$item['id'].')" class="rating-box">
-            <div class="rating-STT">'.$count++.'</div>
-            <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="rating-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
+}
+$html_show_top_view = '';
+$count = 1;
+foreach ($product_top_view as $item) {
+    $html_show_top_view .= '
+        <div onmouseover="show_rating(' . $item['id'] . ')" class="rating-box">
+            <div class="rating-STT">' . $count++ . '</div>
+            <a href="?mod=page&act=product-detail&id=' . $item['id'] . '" class="rating-img"><img src="view/' . $item['image'] . '" alt="' . $item['name'] . '"></a>
             <div class="rating-conten">
-                <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="rating_conten-name">' . $item['name'] . '</a>
+                <a href="?mod=page&act=product-detail&id=' . $item['id'] . '" class="rating_conten-name">' . $item['name'] . '</a>
                 <div class="rating_conten-author">' . author_ONE($item['publisher_id'])['name'] . '</div>
-                <div class="rating_conten-view">' . number_format($item['view'],0,',','.') . ' lượt xem</div>
+                <div class="rating_conten-view">' . number_format($item['view'], 0, ',', '.') . ' lượt xem</div>
             </div>
         </div>
         ';
@@ -66,20 +77,31 @@ foreach ($product_new as $item) {
     $html_product_new .= '
         <div class="col-4 col t-3 m-2">
             <div class="product-box">
-                <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-img"><img src="view/'.$item['image'].'" alt="'.$item['name'].'"></a>
-                <a href="?mod=page&act=product-detail&id='.$item['id'].'" class="product-mane">'.$item['name'].'</a>
-                <div class="product-price_sale">Giá: '.number_format($item['price_sale'],0,',','.').' đ</div>
-                <div class="product-price">Giá gốc: <del>'.number_format($item['price'],0,',','.').' đ</del> </div>
-                <div class="product-view">'.number_format($item['view'],0,',','.').' lượt xem</div>
-                <div class="product-icon_box">';
-                if ($item['quantity'] > 0) {
-    $html_product_new .= '
+                <a href="?mod=page&act=product-detail&id=' . $item['id'] . '" class="product-img"><img src="view/' . $item['image'] . '" alt="' . $item['name'] . '"></a>
+                <a href="?mod=page&act=product-detail&id=' . $item['id'] . '" class="product-mane">' . $item['name'] . '</a>
+                <div class="product-price_sale">Giá: ' . number_format($item['price_sale'], 0, ',', '.') . ' đ</div>
+                <div class="product-price">Giá gốc: <del>' . number_format($item['price'], 0, ',', '.') . ' đ</del> </div>
+                <div class="product-view">' . number_format($item['view'], 0, ',', '.') . ' lượt xem</div>
+                 <div class="product-icon_box">';
+    if ($item['quantity'] > 0) {
+        $html_product_new .= '
                     <div onclick="addcart(this)" class="product-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
                     </div>
-                    <input type="text" hidden value="'.$item['id'].'">
-    ';
-                }
+                    <input type="text" hidden value="' . $item['id'] . '">
+                    <input type="text" hidden value="1">
+                    <input type="text" hidden value="' . $item['quantity'] . '">
+                    ';
+    }
+    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+        $html_product_new .= '
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    ';
+    } else {
+        $html_product_new .= '
+                    <input id="quantity_cart"  type="text" hidden value="0">
+                    ';
+    }
     $html_product_new .= '
                     <div class="product-icon">
                         <span class="material-symbols-outlined">favorite</span>
@@ -93,8 +115,8 @@ foreach ($product_new as $item) {
 $html_show_publishers = '';
 foreach ($publishers as $item) {
     $html_show_publishers .= '
-        <a href="?mod=page&act=product&publisher_id='.$item['id'].'" class="publisher-box col-9 col t-6 m-6">
-            <img src="view/'.$item['image'].'" alt="'.$item['name'].'">
+        <a href="?mod=page&act=product&publisher_id=' . $item['id'] . '" class="publisher-box col-9 col t-6 m-6">
+            <img src="view/' . $item['image'] . '" alt="' . $item['name'] . '">
         </a>
     ';
 }
@@ -221,7 +243,7 @@ foreach ($publishers as $item) {
             <div class="category_title-text">Danh mục sản phẩm</div>
         </div>
         <div class="category-box row">
-           <?= $html_show_category ?>
+            <?= $html_show_category ?>
 
         </div>
     </div>
@@ -258,7 +280,7 @@ foreach ($publishers as $item) {
         </div>
         <div class="hot_product-box row">
             <?= $html_product_hot ?>
-            
+
         </div>
     </div>
 </section>
@@ -292,15 +314,15 @@ foreach ($publishers as $item) {
 
             </div>
             <div class="rating_container-right m-0">
-                <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id']?>" class="rating_product_detail-img">
+                <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id'] ?>" class="rating_product_detail-img">
                     <img src="view/<?= $product_top_view[0]['image'] ?>" alt="<?= $product_top_view[0]['name'] ?>">
                 </a>
                 <div class="rating_product_detail-content">
-                    <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id']?>" class="rating_product_detail_content-name"><?= $product_top_view[0]['name'] ?></a>
+                    <a href="?mod=page&act=product-detail&id=<?= $product_top_view[0]['id'] ?>" class="rating_product_detail_content-name"><?= $product_top_view[0]['name'] ?></a>
                     <div class="rating_product_detail_content-author">Tác giả: <?= author_ONE($product_top_view[0]['author_id'])['name'] ?></div>
                     <div class="rating_product_detail_content-publisher">Nhà sản xuất: <?= publisher_ONE($product_top_view[0]['publisher_id'])['name'] ?></div>
-                    <div class="rating_product_detail_content-price_sale">Giá khuyến mãi: <?= number_format($product_top_view[0]['price_sale'],0,',','.') ?> đ</div>
-                    <div class="rating_product_detail_content-price">Giá gốc: <del><?= number_format($product_top_view[0]['price'],0,',','.') ?> đ</div>
+                    <div class="rating_product_detail_content-price_sale">Giá khuyến mãi: <?= number_format($product_top_view[0]['price_sale'], 0, ',', '.') ?> đ</div>
+                    <div class="rating_product_detail_content-price">Giá gốc: <del><?= number_format($product_top_view[0]['price'], 0, ',', '.') ?> đ</div>
                     <div class="rating_product_detail_content-describe"><?= $product_top_view[0]['describle'] ?></div>
                 </div>
             </div>

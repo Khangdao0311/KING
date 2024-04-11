@@ -19,7 +19,7 @@
 }
 
 .red-color {
-    color: #FF0000;
+    color: var(--primary);
 }
 
 .box_cart-prmotion {
@@ -70,8 +70,11 @@
     display: flex;
     font-size: 2.4rem;
     gap: 2.4rem;
+    align-items: center;
 }
-
+.product-price > del{
+    font-size: 1.4rem;
+}
 .cart-product-img {
     width: 25%;
     padding: 1rem;
@@ -112,7 +115,7 @@
 
 .product-quantity button {
     border: none;
-    width: 100%;
+    width: 25%;
     background-color: #fff;
     font-size: 1.6rem;
 }

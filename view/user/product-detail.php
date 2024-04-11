@@ -19,15 +19,26 @@
                     <del class="product-price">' . number_format($item['price'], 0, ',', '.') . ' đ</del>
                     <div class="product-view">' . $item['view'] . ' lượt xem</div>
                     <div class="product-icon_box">';
-                if ($item['quantity'] > 0) {
-    $html_productdetail_same .= '
-                    <div onclick="addcart(this)" class="product-icon">
-                        <span class="material-symbols-outlined">shopping_cart</span>
-                    </div>
-                    <input type="text" hidden value="'.$item['id'].'">
-    ';
-                }
-    $html_productdetail_same    .= '
+                    if ($item['quantity'] > 0) {
+                        $html_productdetail_same .= '
+                                    <div onclick="addcart(this)" class="product-icon">
+                                        <span class="material-symbols-outlined">shopping_cart</span>
+                                    </div>
+                                    <input type="text" hidden value="' . $item['id'] . '">
+                                    <input type="text" hidden value="1">
+                                    <input type="text" hidden value="' . $item['quantity'] . '">
+                                    ';
+                    }
+                    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+                        $html_productdetail_same .= '
+                                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                                    ';
+                    } else {
+                        $html_productdetail_same .= '
+                                    <input id="quantity_cart"  type="text" hidden value="0">
+                                    ';
+                    }
+                    $html_productdetail_same .= '
                         <div class="product-icon">
                             <span class="material-symbols-outlined">favorite</span>
                         </div>
@@ -103,7 +114,7 @@
                     <div onclick="minus()" class="productdetail_quantity_button-minus">
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_minus2x.png" alt="">
                     </div>
-                    <input name="quantity_cart" value="1" class="productdetail_quantity_button-number" type="text">
+                    <input disabled name="quantity_cart" value="1" class="productdetail_quantity_button-number" type="text">
                     <div onclick="plus()" class="productdetail_quantity_button-plus">
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png" alt="">
                     </div>
@@ -121,8 +132,18 @@
                     </div>
                 </div>
                 <input type="text" hidden value="<?=$product_detail['id']?>">
+                <input class="quantity_new" hidden type="text"  value="1">
+                <input type="text" hidden value="<?=$product_detail['quantity']?>">
+                <?php
+                    if (isset($_SESSION['cart'][$user_cart][$product_detail['id']])) {
+                       echo '<input type="text" hidden value="'.$_SESSION['cart'][$user_cart][$product_detail['id']]['quantity_cart'].'">';
+                    }else{
+                        echo '<input type="text" hidden value="0">';
+                    }
+                ?>
             </div>
             <input value="<?= $product_detail['id'] ?>" name="id" type="hidden">
+
             <?php else: ?>
             <div class="productdetail-quantity">
                 <div class="product-inventory">(Còn <?=$product_detail['quantity'] ?> sản phẩm tại cửa hàng)</div>
