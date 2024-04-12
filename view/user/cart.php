@@ -1,7 +1,7 @@
 <?php
     $total_price = 0;
     $html_product_cart = "";
-    foreach ($_SESSION['cart'][$user_cart] as $item) {
+    foreach ($_SESSION['cart'][$user_information] as $item) {
         $link_product_detail = '?mod=page&act=product-detail&id='.$item['id'];
         $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
@@ -34,7 +34,7 @@
                 <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
             </div>
             <div class="prodcut-trash">';
-            if (count($_SESSION['cart'][$user_cart]) == 1) {
+            if (count($_SESSION['cart'][$user_information]) == 1) {
                 $html_product_cart .= '  
                     <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
                 ';
@@ -80,7 +80,7 @@
 </section>
 <section>
     <div class="container cart-container">
-        <?php if($_SESSION['cart'][$user_cart] != []):?>
+        <?php if($_SESSION['cart'][$user_information] != []):?>
             <div class="box_cart">
                 <div class="box_cart-product m1">
                     <div class="cart_product-tittle">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="cart-payment">
                         <div class="cart-payment-cash">
-                            <p>Tổng <?= count($_SESSION['cart'][$user_cart]) ?> sản phẩm:</p>
+                            <p>Tổng <?= count($_SESSION['cart'][$user_information]) ?> sản phẩm:</p>
                             <p><?= number_format($total_price,0,',','.')?> đ</p>
                         </div>
                         <div class="cart-payment-cash">

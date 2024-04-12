@@ -25,3 +25,33 @@ function addcart(el) {
         }, 500);
     }
 }
+
+function like(el) {
+    const id = el.nextElementSibling.value
+    if (el.firstElementChild.innerText == 'favorite' ) {
+        $.post("model/jQuery/load_like.php", {
+            "id": id,
+            "status": 1
+        },);
+        el.firstElementChild.innerText = 'heart_check'
+        el.firstElementChild.classList.add('product-icon-active')
+    } else {
+        $.post("model/jQuery/load_like.php", {
+            "id": id,
+            "status": 0
+        },);
+        el.firstElementChild.innerText = 'favorite'
+        el.firstElementChild.classList.remove('product-icon-active')
+    }
+}
+function deletelike(el) {
+    const id = el.nextElementSibling.value
+    $.post("model/jQuery/load_like.php", {
+        "id": id,
+        "status": 0
+    },
+        function (data, textStatus, jqXHR) {
+            $('.account_product_like-box').html(data);
+        },
+    );
+}

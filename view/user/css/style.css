@@ -597,6 +597,10 @@ footer {
 .product-icon:hover > span {
     color: var(--primary);
 }
+.product-icon-active {
+    /* font-weight: bold !important; */
+    color: var(--primary);
+}
 .product-box:hover > .product-icon_box {
     right: 1.2rem;
     transform: translate(0,0);

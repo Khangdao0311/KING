@@ -6,8 +6,8 @@
     $user_id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
     $vouchers = voucher_SELECT($user_id);
     $id = $_POST['id']; 
-    $user_cart = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
-    unset($_SESSION['cart'][$user_cart][$id]);
+    $user_information = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
+    unset($_SESSION['cart'][$user_information][$id]);
 
     $voucher_id = $_POST['voucher_id'];
     if ($voucher_id) {
@@ -38,7 +38,7 @@
 
 
     $total_price = 0;
-    foreach ($_SESSION['cart'][$user_cart] as $item) {
+    foreach ($_SESSION['cart'][$user_information] as $item) {
         $link_del = 'index.php?mod=cart&act=delete&id='.$item['id'];
         $into_price = $item['quantity_cart'] * $item['price_sale'];
         $total_price += $into_price;
@@ -70,7 +70,7 @@
                         <p class="red-color prodcut-price">'.number_format($into_price,0,',','.').' đ</p>
                     </div>
                     <div class="prodcut-trash">';
-                    if (count($_SESSION['cart'][$user_cart]) == 1) {
+                    if (count($_SESSION['cart'][$user_information]) == 1) {
                         $html_change .= '  
                             <a href="'.$link_del.'" class="trash"><span class="material-symbols-outlined">delete</span></a>
                         ';
@@ -126,7 +126,7 @@
                         if ($voucher_id) {
     $html_change .= '
                             <div class="cart-payment-cash">
-                                <p>Tổng '.count($_SESSION['cart'][$user_cart]).' sản phẩm:</p>
+                                <p>Tổng '.count($_SESSION['cart'][$user_information]).' sản phẩm:</p>
                                 <p>'. number_format($total_price,0,',','.') .' đ</p>
                             </div>
                             <div class="cart-payment-cash">
@@ -141,7 +141,7 @@
                         } else {
     $html_change .= '
                             <div class="cart-payment-cash">
-                                <p>Tổng '. count($_SESSION['cart'][$user_cart]) .' sản phẩm:</p>
+                                <p>Tổng '. count($_SESSION['cart'][$user_information]) .' sản phẩm:</p>
                                 <p>'. number_format($total_price,0,',','.').' đ</p>
                             </div>
                             <div class="cart-payment-cash">
