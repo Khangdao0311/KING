@@ -490,6 +490,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .account_comment_item_fun-edit {
     border: 0.1rem solid var(--primary);
@@ -499,10 +500,6 @@
     background-color: var(--primary);
     color: #FFF;
 }
-
-
-
-
 .account_voucher-box {
     width: 100%;
 }
