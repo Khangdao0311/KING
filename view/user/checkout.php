@@ -21,7 +21,7 @@ foreach ($_SESSION['cart'][$user_cart] as $item) {
                 <p>' . $item['quantity_cart'] . '</p>
             </div>
             <div class="checkout_product-cash">
-                <p class="price">' . number_format($into_price, 0, ',', '.') . ' đ</p>
+                <p class="price price_product">' . number_format($into_price, 0, ',', '.') . ' đ</p>
             </div>
         </div>
         ';
