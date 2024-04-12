@@ -55,7 +55,7 @@
                 case 4:
                     $html_product_order .= '
                         <div class="account_order_follow_order-fun">
-                            <div class="account_order_follow_order_fun-btn">Đánh giá</div>
+                            <a href="?mod=page&act=product-detail&id='.$product_order['id'].'" class="account_order_follow_order_fun-btn">Đánh giá</a>
                             <div class="account_order_follow_order_fun-btn account_order_follow_order_fun-btn_red">Đặt lại</div>
                         </div>';
                     break;

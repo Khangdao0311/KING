@@ -2,11 +2,17 @@
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'list':
+            $id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
+            $vouchers = voucher_SELECT($id);
+            include_once 'view/user/cart.php';
+            break;
+        case 'addCart':
             if (isset($_POST['btn_buy_now']) && $_POST['btn_buy_now']) {
-                $quantity_cart = $_POST['quantity_cart'];
                 $id = $_POST['id'];
-                $check = 0;
                 $product = product_ONE($id);
+                $quantity_cart = $_POST['quantity_cart'];
+                echo $quantity_cart;
+                $check = 0;
                 foreach ($_SESSION['cart'][$user_information] as $item) {
                     if ($id == $item['id']) {
                         $check = 1;
@@ -21,9 +27,7 @@ if (isset($_GET['act'])) {
                     $_SESSION['cart'][$user_information][$id] = $product;
                 }
             }
-            $id = ($_SESSION['user']) ? $_SESSION['user']['id'] : 0 ;
-            $vouchers = voucher_SELECT($id);
-            include_once 'view/user/cart.php';
+            header('location: ?mod=cart&act=list');
             break;
         case 'delete':
             unset($_SESSION['cart'][$user_information][$_GET['id']]);
