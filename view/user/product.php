@@ -50,11 +50,19 @@
                     <input id="quantity_cart"  type="text" hidden value="0">
                     ';
     }
-    $html_show_product_all .= '
+    if ($_SESSION['user']) {
+        $html_show_product_all .= '
                         <div onclick="like(this)" class="product-icon">
-                        '.$like.'
+                            '.$like.'
                         </div>
-                        <input type="text" hidden value="' . $item['id'] . '">
+                        <input type="text" hidden value="' . $item['id'] . '">';
+    } else {
+        $html_show_product_all .= '
+                        <a href="?mod=user&act=login" class="product-icon">
+                            '.$like.'
+                        </a>';
+    }
+        $html_show_product_all .= '
                     </div>
                 </div>
             </div>

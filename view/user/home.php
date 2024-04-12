@@ -42,11 +42,19 @@ foreach ($product_hot as $item) {
                     <input id="quantity_cart"  type="text" hidden value="0">
                     ';
     }
-    $html_product_hot .= '
-                    <div onclick="like(this)" class="product-icon">
-                        '.$like.'
-                    </div>
-                    <input type="text" hidden value="' . $item['id'] . '">
+    if ($_SESSION['user']) {
+        $html_product_hot .= '
+                        <div onclick="like(this)" class="product-icon">
+                            '.$like.'
+                        </div>
+                        <input type="text" hidden value="' . $item['id'] . '">';
+    } else {
+        $html_product_hot .= '
+                        <a href="?mod=user&act=login" class="product-icon">
+                            '.$like.'
+                        </a>';
+    }
+        $html_product_hot .= '
                 </div>
             </div>
         </div>
@@ -105,11 +113,19 @@ foreach ($product_new as $item) {
                     <input id="quantity_cart"  type="text" hidden value="0">
                     ';
     }
+    if ($_SESSION['user']) {
+        $html_product_new .= '
+                        <div onclick="like(this)" class="product-icon">
+                            '.$like.'
+                        </div>
+                        <input type="text" hidden value="' . $item['id'] . '">';
+    } else {
+        $html_product_new .= '
+                        <a href="?mod=user&act=login" class="product-icon">
+                            '.$like.'
+                        </a>';
+    }
     $html_product_new .= '
-                    <div onclick="like(this)" class="product-icon">
-                        '.$like.'
-                    </div>
-                    <input type="text" hidden value="' . $item['id'] . '">
                 </div>
             </div>
         </div>
