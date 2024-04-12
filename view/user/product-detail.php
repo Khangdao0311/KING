@@ -84,7 +84,7 @@
     }
 ?>
 <?php include_once('header.php') ?>
-<title>Sản Phẩm Chi Tiết</title>
+<title><?=$product_detail['name']?></title>
 <link rel="stylesheet" href="view/user/css/product-detail.css">
 <link rel="stylesheet" href="view/user/css/reponsive/product-detail.css">
 <section class=" link_page">
@@ -104,7 +104,7 @@
                 <img src="view/<?= $product_detail['image'] ?>" alt="">
             </div>
         </div>
-        <form action="?mod=cart&act=list" method="post" class="productdetail-content">
+        <form action="?mod=cart&act=addCart" method="post" class="productdetail-content">
             <div class="productdetail-name"><?= $product_detail['name'] ?></div>
             <div class="productdetail-publisher_author">
                 <div class="productdetail-publisher">Nhà xuất bản: <b><?= $publisher['name'] ?></b></div>
@@ -124,7 +124,8 @@
                     <div onclick="minus()" class="productdetail_quantity_button-minus">
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_minus2x.png" alt="">
                     </div>
-                    <input disabled name="quantity_cart" value="1" class="productdetail_quantity_button-number" type="text">
+                    <input value="1" class="productdetail_quantity_button-number" type="text" disabled>
+                    <input name="quantity_cart" value="1" class="productdetail_quantity_button-number" type="hidden">
                     <div onclick="plus()" class="productdetail_quantity_button-plus">
                         <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png" alt="">
                     </div>

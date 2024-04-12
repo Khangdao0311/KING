@@ -12,7 +12,7 @@
                             <div class="account_voucher_item-price">Giá trị: <b>'.number_format($item['price'],0,',','.').' đ</b></div>
                             <div class="account_voucher_item-quantity">Số lượng: '.number_format($item['quantity'],0,',','.').'</div>
                         </div>
-                        <div class="account_voucher_item-btn">Áp dụng</div>
+                        <a href="?mod=cart&act=list" class="account_voucher_item-btn">Áp dụng</a>
                     </div>
                 </div>
             </div>

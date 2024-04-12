@@ -13,15 +13,15 @@
             <div class="contact_information-title">Thông Tin</div>
             <div class="contact_information-item">
                 <span class="material-symbols-outlined">phone</span>
-                <div class="contact_information_item-text">Số Điện Thoại: 0999999999</div>
+                <div class="contact_information_item-text">Số Điện Thoại: 0976382553</div>
             </div>
             <div class="contact_information-item">
                 <span class="material-symbols-outlined">mail</span>
-                <div class="contact_information_item-text">Email: King@gmail.com</div>
+                <div class="contact_information_item-text">Email: duan1.kingstore@gmail.com</div>
             </div>
             <div class="contact_information-item">
                 <span class="material-symbols-outlined">location_on</span>
-                <div class="contact_information_item-text">Địa chỉ: HCM</div>
+                <div class="contact_information_item-text">Địa chỉ: Công viên phần mềm Quang Trung QTSC Building 1, Q.12, Thành phố Hồ Chí Minh</div>
             </div>
             <div class="contact_information-img"></div>
         </div>

@@ -25,7 +25,6 @@ function cancel(el) {
         },
     );
 }
-document.getElementById().previousElementSibling
 function show_hidden(el) {
     if (el.previousElementSibling.type == 'password') {
         el.innerText = 'Ẩn'
