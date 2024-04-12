@@ -2,8 +2,9 @@
     session_start();
     // session_destroy();
     if (!isset($_SESSION['user'])) $_SESSION['user'] = [];
-    $user_cart = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
-    if (!isset($_SESSION['cart'][$user_cart])) $_SESSION['cart'][$user_cart] = [];
+    $user_information = ($_SESSION['user']) ? $_SESSION['user']['username'] : "IPCOMPUTER" ;
+    if (!isset($_SESSION['cart'][$user_information])) $_SESSION['cart'][$user_information] = [];
+    if (!isset($_SESSION['like'][$user_information])) $_SESSION['like'][$user_information] = [];
     require_once 'model/global.php';
     require_once 'model/pdo.php';
     require_once 'model/category.php';

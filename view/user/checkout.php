@@ -1,7 +1,7 @@
 <?php
 $html_product_checkout = "";
 $total_price = 0;
-foreach ($_SESSION['cart'][$user_cart] as $item) {
+foreach ($_SESSION['cart'][$user_information] as $item) {
     $into_price = $item['quantity_cart'] * $item['price_sale'];
     $transport_fee = 10000;
     $total_price += $into_price;

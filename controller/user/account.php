@@ -205,6 +205,12 @@
                     include_once 'view/user/account-voucher.php';
                 } else header('location: ?mod=page&act=home');
                 break;
+            case 'account-product-like':
+                if ($_SESSION['user'] != []) {
+
+                    include_once 'view/user/account-product-like.php';
+                } else header('location: ?mod=page&act=home');
+                break;
             default:
                 header('location: ?mod=page&act=home');
                 break;

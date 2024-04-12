@@ -102,6 +102,7 @@
                 <a href="?mod=user&act=account-voucher" class="accuont_nav-item">ví voucher</a>
                 <a href="?mod=user&act=account-change_password" class="accuont_nav-item">Đổi mật khẩu</a>
                 <a href="?mod=user&act=account-comment" class="accuont_nav-item">nhận xét của tôi</a>
+                <a href="?mod=user&act=account-product-like" class="accuont_nav-item">Sản phẩm yêu thích</a>
                 <?php if($_SESSION['user']['role']): ?>
                 <a href="?mod=admin&act=category-list" class="accuont_nav-item">admin</a>
                 <?php endif; ?>    

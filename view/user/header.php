@@ -51,7 +51,7 @@
                 <a href="?mod=cart&act=list" class="header-cart">
                     <div class="header-icon">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                        <div class="header-quantity"><?= count($_SESSION['cart'][$user_cart]) ?> </div>
+                        <div class="header-quantity"><?= count($_SESSION['cart'][$user_information]) ?> </div>
                     </div>
                     <p class="m-0">Giỏ hàng</p>
                 </a>

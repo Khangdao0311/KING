@@ -21,6 +21,7 @@
     }
     $html_show_product_all = '';
     foreach ($product_all as $item) {
+        $like = (isset($_SESSION['like'][$user_information][$item['id']])) ? '<span class="material-symbols-outlined product-icon-active">heart_check</span>' : '<span class="material-symbols-outlined">favorite</span>';
         $html_show_product_all .= '
             <div class="col-3 col t-2 m-2">
                 <div class="product-box">
@@ -40,9 +41,9 @@
                     <input type="text" hidden value="' . $item['quantity'] . '">
                     ';
     }
-    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+    if (isset($_SESSION['cart'][$user_information][$item['id']])) {
         $html_show_product_all .= '
-                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_information][$item['id']]['quantity_cart'] . '">
                     ';
     } else {
         $html_show_product_all .= '
@@ -50,9 +51,10 @@
                     ';
     }
     $html_show_product_all .= '
-                        <div class="product-icon">
-                            <span class="material-symbols-outlined">favorite</span>
+                        <div onclick="like(this)" class="product-icon">
+                        '.$like.'
                         </div>
+                        <input type="text" hidden value="' . $item['id'] . '">
                     </div>
                 </div>
             </div>

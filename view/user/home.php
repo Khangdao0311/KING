@@ -12,6 +12,7 @@ foreach ($category_all_top_view as $item) {
 }
 $html_product_hot = "";
 foreach ($product_hot as $item) {
+    $like = (isset($_SESSION['like'][$user_information][$item['id']])) ? '<span class="material-symbols-outlined product-icon-active">heart_check</span>' : '<span class="material-symbols-outlined">favorite</span>';
     $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
     $html_product_hot .= '
         <div class="col-4 col t-3 m-2">
@@ -32,9 +33,9 @@ foreach ($product_hot as $item) {
                     <input type="text" hidden value="' . $item['quantity'] . '">
                     ';
     }
-    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+    if (isset($_SESSION['cart'][$user_information][$item['id']])) {
         $html_product_hot .= '
-                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_information][$item['id']]['quantity_cart'] . '">
                     ';
     } else {
         $html_product_hot .= '
@@ -42,9 +43,10 @@ foreach ($product_hot as $item) {
                     ';
     }
     $html_product_hot .= '
-                    <div class="product-icon">
-                        <span class="material-symbols-outlined">favorite</span>
+                    <div onclick="like(this)" class="product-icon">
+                        '.$like.'
                     </div>
+                    <input type="text" hidden value="' . $item['id'] . '">
                 </div>
             </div>
         </div>
@@ -74,6 +76,7 @@ foreach ($product_top_view as $item) {
 
 $html_product_new = '';
 foreach ($product_new as $item) {
+    $like = (isset($_SESSION['like'][$user_information][$item['id']])) ? '<span class="material-symbols-outlined product-icon-active">heart_check</span>' : '<span class="material-symbols-outlined">favorite</span>';
     $html_product_new .= '
         <div class="col-4 col t-3 m-2">
             <div class="product-box">
@@ -93,9 +96,9 @@ foreach ($product_new as $item) {
                     <input type="text" hidden value="' . $item['quantity'] . '">
                     ';
     }
-    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+    if (isset($_SESSION['cart'][$user_information][$item['id']])) {
         $html_product_new .= '
-                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_information][$item['id']]['quantity_cart'] . '">
                     ';
     } else {
         $html_product_new .= '
@@ -103,9 +106,10 @@ foreach ($product_new as $item) {
                     ';
     }
     $html_product_new .= '
-                    <div class="product-icon">
-                        <span class="material-symbols-outlined">favorite</span>
+                    <div onclick="like(this)" class="product-icon">
+                        '.$like.'
                     </div>
+                    <input type="text" hidden value="' . $item['id'] . '">
                 </div>
             </div>
         </div>
@@ -191,42 +195,6 @@ foreach ($publishers as $item) {
             </div>
         </div>
         <!-- <div class="nav-container row">
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
-            <div class="nav-box col-10 col">
-                <div class="nav-img"></div>
-                <div class="nav-text">content</div>
-            </div>
             <div class="nav-box col-10 col">
                 <div class="nav-img"></div>
                 <div class="nav-text">content</div>

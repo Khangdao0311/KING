@@ -9,6 +9,7 @@
     }
     $html_productdetail_same = "";
     foreach ($product_detail_same as $item) {
+        $like = (isset($_SESSION['like'][$user_information][$item['id']])) ? '<span class="material-symbols-outlined product-icon-active">heart_check</span>' : '<span class="material-symbols-outlined">favorite</span>';
         $link = 'index.php?mod=page&act=product-detail&id=' . $item['id'];
         $html_productdetail_same .= '
             <div class="col-4 col t-3 m-2">
@@ -29,9 +30,9 @@
                                     <input type="text" hidden value="' . $item['quantity'] . '">
                                     ';
                     }
-                    if (isset($_SESSION['cart'][$user_cart][$item['id']])) {
+                    if (isset($_SESSION['cart'][$user_information][$item['id']])) {
                         $html_productdetail_same .= '
-                                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_cart][$item['id']]['quantity_cart'] . '">
+                                    <input id="quantity_cart"  type="text" hidden value="' . $_SESSION['cart'][$user_information][$item['id']]['quantity_cart'] . '">
                                     ';
                     } else {
                         $html_productdetail_same .= '
@@ -39,9 +40,10 @@
                                     ';
                     }
                     $html_productdetail_same .= '
-                        <div class="product-icon">
-                            <span class="material-symbols-outlined">favorite</span>
+                        <div onclick="like(this)" class="product-icon">
+                            '.$like.'
                         </div>
+                        <input type="text" hidden value="' . $item['id'] . '">
                     </div>
                 </div>
             </div>
@@ -135,8 +137,8 @@
                 <input class="quantity_new" hidden type="text"  value="1">
                 <input type="text" hidden value="<?=$product_detail['quantity']?>">
                 <?php
-                    if (isset($_SESSION['cart'][$user_cart][$product_detail['id']])) {
-                       echo '<input type="text" hidden value="'.$_SESSION['cart'][$user_cart][$product_detail['id']]['quantity_cart'].'">';
+                    if (isset($_SESSION['cart'][$user_information][$product_detail['id']])) {
+                       echo '<input type="text" hidden value="'.$_SESSION['cart'][$user_information][$product_detail['id']]['quantity_cart'].'">';
                     }else{
                         echo '<input type="text" hidden value="0">';
                     }
