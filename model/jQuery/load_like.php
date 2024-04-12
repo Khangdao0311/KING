@@ -24,8 +24,8 @@
                     <div class="account_product_like_item-content">
                         <div class="account_product_like_item-name">'.$item['name'].'</div>
                         <div class="account_product_like_item-price_box">
-                            <div class="account_product_like_item-price_sale">'.$item['price_sale'].' đ</div>
-                            <del class="account_product_like_item-price">'.$item['price'].' đ</del>
+                            <div class="account_product_like_item-price_sale">'.number_format($item['price_sale'],0,',','.').' đ</div>
+                            <del class="account_product_like_item-price">'.number_format($item['price'],0,',','.').' đ</del>
                         </div>
                     </div>
                     <div class="account_product_like_item-fun">

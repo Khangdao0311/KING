@@ -572,7 +572,6 @@
     width: 70%;
     aspect-ratio: 1/1;
     object-fit: contain;
-    background-color: aqua;
 }
 .account_product_like_item-content {
     width: calc(100% - 30rem);
