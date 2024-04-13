@@ -36,6 +36,12 @@
                     $link = '?mod=page&act=product';
                     $search = $_POST['search'];
                     $limit = $_POST['limit'];
+                    $category_id = $_POST['category_id'];
+                    $author_id = $_POST['author_id'];
+                    $publisher_id = $_POST['publisher_id'];
+                    $link .= ($category_id) ? '&category_id='.$category_id : '';
+                    $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
+                    $link .= ($author_id) ? '&author_id='.$author_id : '';
                     $link .= ($search) ? '&search='.$search : '';
                     $link .= ($limit && $limit != 12) ? '&limit='.$limit : '';
                     header('location: '.$link);

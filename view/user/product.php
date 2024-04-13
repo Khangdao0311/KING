@@ -6,7 +6,7 @@
         $html_show_category .= '
         <a href="?mod=page&act=product'.$linksearch.'&category_id='.$item['id'].''.$limit_filter.'" class="product_box_nav-item_content">'.$item['name'].'</a>
         '; 
-    } 
+    }
     $html_show_author = '';
     foreach ($author_all as $item) {
         $html_show_author .= '
