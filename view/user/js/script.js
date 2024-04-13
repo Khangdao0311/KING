@@ -23,6 +23,7 @@ function addcart(el) {
         setTimeout(() => {
             document.body.removeChild(cart_add_success);
         }, 500);
+        document.getElementById('quantity_cart').vlaue = quantity_new + quantity_cart
     }
 }
 
