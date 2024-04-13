@@ -34,6 +34,7 @@
                 </label>
                 <div class="header-search">
                     <form action="?mod=page&act=product" method="post" class="header_search-box">
+                        <!-- <input name="limit" type="text" value="<?= (isset($_GET['limit'])) ? $_GET['limit'] : SLSP ?>"> -->
                         <input name="search" class="header_search-text" type="text" placeholder="Tìm kiếm...">
                         <input name="btn_search" hidden id="header_search-submit" type="submit">
                         <label class="header_search-submit m-0" for="header_search-submit">
