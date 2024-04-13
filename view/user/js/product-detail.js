@@ -14,10 +14,13 @@ function minus() {
 function plus() {
     const quantity = document.querySelector('.productdetail_quantity_button-number').value*1
     const quantity_new = quantity + 1;
-    document.querySelectorAll('.productdetail_quantity_button-number').forEach (el => {
-        el.value = quantity_new
-    })
-    document.querySelector('.quantity_new').value = quantity_new;
+    const quantity_base = document.getElementById('quantity').value
+    if (quantity_new <= quantity_base) {
+        document.querySelectorAll('.productdetail_quantity_button-number').forEach (el => {
+            el.value = quantity_new
+        })
+        document.querySelector('.quantity_new').value = quantity_new;
+    }
 } 
 function check_describe(el) {
     const p = document.querySelector('.productdetail_innerbook-describe')

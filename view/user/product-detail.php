@@ -144,7 +144,7 @@
                 </div>
                 <input type="text" hidden value="<?=$product_detail['id']?>">
                 <input class="quantity_new" hidden type="text"  value="1">
-                <input type="text" hidden value="<?=$product_detail['quantity']?>">
+                <input id="quantity" type="text" hidden value="<?=$product_detail['quantity']?>">
                 <?php
                     if (isset($_SESSION['cart'][$user_information][$product_detail['id']])) {
                        echo '<input type="text" hidden value="'.$_SESSION['cart'][$user_information][$product_detail['id']]['quantity_cart'].'">';
