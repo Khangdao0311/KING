@@ -10,23 +10,15 @@
                 include_once 'view/user/home.php';
                 break;
             case 'product':
-                $link = '?mod=page&act=product';
                 $category_id = (isset($_GET['category_id'])) ? $_GET['category_id'] : 0;
                 $author_id = (isset($_GET['author_id'])) ? $_GET['author_id'] : 0;
                 $publisher_id = (isset($_GET['publisher_id'])) ? $_GET['publisher_id'] : 0;
                 $page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $limit = (isset($_GET['limit'])) ? $_GET['limit'] : SLSP;
                 $search = (isset($_GET['search'])) ? $_GET['search'] : '';
-                if(isset($_POST['btn_search']) && $_POST['btn_search']){
-                    $search = $_POST['search'];
-                    if($search){
-                        header('location: '.$link.'&search='.$search.'');
-                    }else{
-                        header('location: '.$link.'');
-                    }
-                }
 
                 if (isset($_POST['limit']) && $_POST['limit']){
+                    $link = '?mod=page&act=product';
                     $search = $_POST['search'];
                     $limit = $_POST['limit'];
                     $category_id = $_POST['category_id'];
@@ -36,9 +28,18 @@
                     $link .= ($category_id) ? '&category_id='.$category_id : '';
                     $link .= ($author_id) ? '&author_id='.$author_id : '';
                     $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
-                    header('location: '.$link.'&limit='.$limit.'');
+                    $link .= ($limit && $limit != 12) ? '&limit='.$limit : '';
+                    header('location: '.$link);
                 }
             
+                if(isset($_POST['btn_search']) && $_POST['btn_search']){
+                    $link = '?mod=page&act=product';
+                    $search = $_POST['search'];
+                    $limit = $_POST['limit'];
+                    $link .= ($search) ? '&search='.$search : '';
+                    $link .= ($limit && $limit != 12) ? '&limit='.$limit : '';
+                    header('location: '.$link);
+                }
 
                 $category_all = category_ALL();
                 $product_all = product_SELECT(0,$page,0,0,$search,$category_id,$author_id,$publisher_id,$limit);
