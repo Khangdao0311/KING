@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="view/user/css/reponsive/style.css"> 
+    <link rel="shortcut icon" href="view/images/logoicon.jpg" type="image/x-icon">
 </head>
 <body>
     <header>

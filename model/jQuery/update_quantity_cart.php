@@ -79,7 +79,7 @@
             } else {
                 $html_change_quantity .= '  
                     <div onclick="delete_cart(this)" class="trash"><span class="material-symbols-outlined">delete</span></div>
-                    <input hidden type="text" value="'.$item['id'].'">
+                    <input disabled hidden type="text" value="'.$item['id'].'">
                     <input hidden id="voucher_id" type="text" value="'.$voucher_id.'">
                 ';
             }
@@ -125,39 +125,29 @@
     $html_change_quantity .= '     
                         </div>
                         <div class="cart-payment">';
-                        
-                        if ($voucher_id) {
+
+    if (!isset($voucher)) {
+        $voucher['price'] = 0;
+        $voucher['code'] = '';
+    }else {
+        $voucher['code'] = ' - '.$voucher['code'];
+
+    }
+    $total = ($total_price - $voucher['price'] > 0) ? $total_price - $voucher['price'] : 0;
     $html_change_quantity .= '
                             <div class="cart-payment-cash">
                                 <p>Tổng '.count($_SESSION['cart'][$user_information]).' sản phẩm:</p>
                                 <p>'. number_format($total_price,0,',','.') .' đ</p>
                             </div>
                             <div class="cart-payment-cash">
-                                <p id="voucher-name">Voucher - '.$voucher['code'].'</p>
+                                <p id="voucher-name">Voucher'.$voucher['code'].'</p>
                                 <p id="voucher-price">'.number_format($voucher['price'],0,',','.').' đ</p>
                             </div>
                             <div class="cart-payment-total">
                                 <span>Tổng Số Tiền:</span>
-                                <p>'. number_format($total_price - $voucher['price'],0,',','.') .' đ</p>
+                                <p>'. number_format($total,0,',','.') .' đ</p>
                             </div>
     ';
-                        } else {
-    $html_change_quantity .= '
-                            <div class="cart-payment-cash">
-                                <p>Tổng '. count($_SESSION['cart'][$user_information]) .' sản phẩm:</p>
-                                <p>'. number_format($total_price,0,',','.').' đ</p>
-                            </div>
-                            <div class="cart-payment-cash">
-                                <p id="voucher-name">Voucher</p>
-                                <p id="voucher-price">0 đ</p>
-                            </div>
-                            <div class="cart-payment-total">
-                                <span>Tổng Số Tiền:</span>
-                                <p>'. number_format($total_price,0,',','.').' đ</p>
-                            </div>
-    ';
-                        }
-                            
 
     $html_change_quantity .= '   
                             <button class="payment-button" name="btn_checkout">THANH TOÁN</button>

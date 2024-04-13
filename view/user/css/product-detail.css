@@ -472,11 +472,9 @@
 }
 
 .productdetail_soldout {
+    width: 50%;
     display: inline;
-    padding: 1.2rem 2.4rem ;
     font-size: 2rem;
     font-weight: bold;
-    /* color: var(--primary); */
-    color: #FFF;
-    background-color: var(--primary);
+    color: var(--primary);
 }

@@ -10,6 +10,7 @@
     foreach ($_SESSION['cart'][$user_information] as $item) {
         $total_price +=  $item['quantity_cart'] * $item['price_sale'];
     }
+    $total = ($total_price - $voucher['price'] > 0) ? $total_price - $voucher['price'] : 0;
     echo '
         <div class="cart-payment-cash">
             <p>Tổng '.count($_SESSION['cart'][$user_information]).' sản phẩm:</p>
@@ -21,7 +22,7 @@
         </div>
         <div class="cart-payment-total">
             <span>Tổng Số Tiền:</span>
-            <p>'. number_format($total_price - $voucher['price'],0,',','.') .' đ</p>
+            <p>'. number_format($total,0,',','.') .' đ</p>
         </div>
         <button class="payment-button" name="btn_checkout">THANH TOÁN</button>
     ';
