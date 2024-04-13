@@ -147,9 +147,9 @@
                 <input id="quantity" type="text" hidden value="<?=$product_detail['quantity']?>">
                 <?php
                     if (isset($_SESSION['cart'][$user_information][$product_detail['id']])) {
-                       echo '<input type="text" hidden value="'.$_SESSION['cart'][$user_information][$product_detail['id']]['quantity_cart'].'">';
+                       echo '<input id="quantity_cart" type="text" hidden value="'.$_SESSION['cart'][$user_information][$product_detail['id']]['quantity_cart'].'">';
                     }else{
-                        echo '<input type="text" hidden value="0">';
+                        echo '<input id="quantity_cart" type="text" hidden value="0">';
                     }
                 ?>
             </div>
