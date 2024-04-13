@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 
@@ -10,12 +10,14 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
  */
 require_once("./config.php");
 
-$vnp_TxnRef = rand(1,10000); //Mã giao dịch thanh toán tham chiếu của merchant
-$vnp_Amount = 100000; // Số tiền thanh toán
+$vnp_TxnRef = $_SESSION['checkout']['code']; //Mã giao dịch thanh toán tham chiếu của merchant
+$vnp_Amount = $_SESSION['checkout']['total']; // Số tiền thanh toán
+// $vnp_TxnRef = rand(1,10000); //Mã giao dịch thanh toán tham chiếu của merchant
+// $vnp_Amount = 100000; // Số tiền thanh toán
 $vnp_Locale = 'vn'; //Ngôn ngữ chuyển hướng thanh toán
 $vnp_BankCode = 'NCB'; //Mã phương thức thanh toán
 $vnp_IpAddr = $_SERVER['REMOTE_ADDR']; //IP Khách hàng thanh toán
-
+echo $vnp_IpAddr;
 $inputData = array(
     "vnp_Version" => "2.1.0",
     "vnp_TmnCode" => $vnp_TmnCode,

@@ -26,6 +26,8 @@ foreach ($_SESSION['cart'][$user_information] as $item) {
         </div>
         ';
 }
+$total = ($total_price - $voucher_cart['price'] > 0) ? $total_price - $voucher_cart['price'] : 0;
+$_SESSION['checkout']['total'] = $total
 ?>
 <?php include_once 'header.php' ?>
 <title>Thanh Toán</title>
@@ -154,7 +156,7 @@ foreach ($_SESSION['cart'][$user_information] as $item) {
                         <div class="payment_total-sum">
                             <p>Tổng tiền thanh toán</p>
                             <?php if(isset($_POST['voucher'])): ?>
-                            <p class="price"><?= (number_format($into_price - $voucher_cart['price'], 0, ',', '.')) ?> đ</p>
+                            <p class="price"><?= (number_format($total, 0, ',', '.')) ?> đ</p>
                             <?php else: ?>
                             <p class="price"><?= (number_format($into_price, 0, ',', '.')) ?> đ</p>
                             <?php endif; ?>
@@ -169,7 +171,7 @@ foreach ($_SESSION['cart'][$user_information] as $item) {
     <input hidden id="success" type="checkbox" <?= $check_success ?>>
     <div class="success">
         <div class="success-box">
-            <?php if (isset($_POST['method']) != 1 && isset($_POST['check']) != 2) : ?>
+            <?php if (!$method) : ?>
                 <div class="success-title">Vui lòng chọn phương thức thanh toán</div>
                 <label for="success" class="success-next">Thử lại</label>
             <?php else : ?>
