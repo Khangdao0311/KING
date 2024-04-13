@@ -159,7 +159,7 @@
             <div class="productdetail-quantity">
                 <div class="product-inventory">(Còn <?=$product_detail['quantity'] ?> sản phẩm tại cửa hàng)</div>
             </div>
-            <div class="productdetail_soldout">Sản phẩm hện không còn hàng !</div>
+            <div class="productdetail_soldout">Sản phẩm hiện không còn hàng !</div>
             <?php endif; ?>
         </form>
     </div>
