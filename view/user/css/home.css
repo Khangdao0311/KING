@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     padding: 1.2rem 0;
+    gap: 2.4rem;
 }
 .silde-box {
-    width: 66%;
-    aspect-ratio: 2/1;
+    width: calc(70% - 1.2rem);
     border-radius: 1rem;
     overflow: hidden;
 }
@@ -21,11 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* aspect-ratio: 1/1; */
     border-radius: 100%;
-    /* position: absolute; */
-    /* top: 50%; */
-    /* transform: translatey(-50%); */
     transition: all .3s;
     background-color: #000;
     opacity: 0.5;
@@ -70,14 +66,14 @@
     box-shadow: 0 0 0.5rem #000;
 }
 .banner-box {
-    width: 32%;
+    width: 30%;
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 1.2rem;
 }
 .banner-item {
     width: 100%;
-    aspect-ratio: 2/1;
+    height: 50%;
     border-radius: 1rem;
     border: .1rem solid rgba(0, 0, 0, 0.2);
 }
@@ -85,7 +81,6 @@
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    /* object-fit: contain; */
 }
 .voucher_nav {
     display: flex;

@@ -144,7 +144,7 @@ foreach ($publishers as $item) {
 ?>
 
 <?php include_once 'header.php' ?>
-<title>Trang chủ</title>
+<title>KING STROE</title>
 <link rel="stylesheet" href="view/user/css/home.css">
 <link rel="stylesheet" href="view/user/css/reponsive/home.css">
 <section class="margin-header">
@@ -152,7 +152,7 @@ foreach ($publishers as $item) {
         <div class="silde-box swiper mySwiper t-1 m-1">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Saigonbooks_Gold_Ver2_Slide_840x320.jpg" alt="">
+                    <img src="https://cdn0.fahasa.com/media/magentothem/banner7/Week2_T424_Banner_Slide_840x320_1.jpg" alt="">
                 </div>
                 <div class="swiper-slide">
                     <img src="https://cdn0.fahasa.com/media/magentothem/banner7/HSO_T1_T324_Banner_resize_Slide_840x320.jpg" alt="">
@@ -178,7 +178,7 @@ foreach ($publishers as $item) {
         </div>
         <div class="banner-box">
             <div class="banner-item t-0 m-0">
-                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_sacombank_t3.jpg" alt="">
+                <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-04-2024/392x156_vnpay_t4.jpg " alt="">
             </div>
             <div class="banner-item t-0 m-0">
                 <img src="https://cdn0.fahasa.com/media/wysiwyg/Thang-03-2024/392x156_zalopay_t3.jpg" alt="">
@@ -255,12 +255,12 @@ foreach ($publishers as $item) {
                     </div>
                 </div> -->
             </div>
-            <a href="?mod=page&act=product" class="hot-showall">
+            <!-- <a href="?mod=page&act=product" class="hot-showall">
                 <div class="hot_showall-text">Xem tất cả</div>
                 <div class="hot_showall-icon">
                     <img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_seemore_blue.svg" alt="">
                 </div>
-            </a>
+            </a> -->
         </div>
         <div class="hot_product-box row">
             <?= $html_product_hot ?>

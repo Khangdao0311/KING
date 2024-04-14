@@ -54,17 +54,19 @@
                     break;
                 case 4:
                     $html_product_order .= '
-                        <div class="account_order_follow_order-fun">
-                            <a href="?mod=page&act=product-detail&id='.$product_order['id'].'" class="account_order_follow_order_fun-btn">Đánh giá</a>
-                            <div class="account_order_follow_order_fun-btn account_order_follow_order_fun-btn_red">Đặt lại</div>
-                        </div>';
+                        <form action="?mod=cart&act=buy-again" method="post" class="account_order_follow_order-fun">
+                            <a href="?mod=page&act=product-detail&id='.$product['id'].'" class="account_order_follow_order_fun-btn">Đánh giá</a>
+                            <input name="order_id" hidden type="text" value="'.$order['id'].'">
+                            <button name="btn_buy_again" class="account_order_follow_order_fun-btn account_order_follow_order_fun-btn_red">Đặt lại</button>
+                        </form>';
                     break;
                 case 5:
                 case 6:
                     $html_product_order .= '
-                        <div class="account_order_follow_order-fun">
-                            <div class="account_order_follow_order_fun-btn">Mua lại</div>
-                        </div>';
+                        <form action="?mod=cart&act=buy-again" method="post" class="account_order_follow_order-fun">
+                            <input name="order_id" hidden type="text" value="'.$order['id'].'">
+                            <button name="btn_buy_again" class="account_order_follow_order_fun-btn">Mua lại</button>
+                        </form>';
                     break;
                 }
                             
@@ -74,7 +76,7 @@
                 </div>
         ';
     }
-?>    
+?>
 <?php include_once 'header.php' ?>
 <title>Theo dõi đơn hàng</title>
 <link rel="stylesheet" href="view/user/css/account.css">

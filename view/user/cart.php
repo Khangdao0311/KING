@@ -28,6 +28,7 @@
                     <button onclick="plus_cart(this)" class = "btn-plus">+</button>
                     <span class="id_jq" hidden>'.$item['id'].'</span>
                     <input hidden id="voucher_id" type="text" value="0">
+                    <input hidden type="text" value="'.$item['quantity'].'">
                 </div>
             </div>
             <div class="prodcut-cash">

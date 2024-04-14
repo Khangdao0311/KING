@@ -300,6 +300,7 @@
     border: 0.1rem solid rgb(0, 0, 0, 0.3) ;
     background-color: #fff;
     text-transform: capitalize;
+    cursor: pointer;
 }
 .account_order_follow_order_fun-btn_red {
     color: #fff;
