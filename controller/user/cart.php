@@ -11,7 +11,6 @@ if (isset($_GET['act'])) {
                 $id = $_POST['id'];
                 $product = product_ONE($id);
                 $quantity_cart = $_POST['quantity_cart'];
-                echo $quantity_cart;
                 $check = 0;
                 foreach ($_SESSION['cart'][$user_information] as $item) {
                     if ($id == $item['id']) {
@@ -25,6 +24,32 @@ if (isset($_GET['act'])) {
                 if ($check == 0 && $quantity_cart <= $product['quantity']) {
                     $product['quantity_cart'] = $quantity_cart;
                     $_SESSION['cart'][$user_information][$id] = $product;
+                }
+            }
+            header('location: ?mod=cart&act=list');
+            break;
+        case 'buy-again':
+            if (isset($_POST['btn_buy_again'])) {
+                $order_details = order_detail_SELECT($_POST['order_id'],0);
+
+                foreach ($order_details as $order_detail) {
+                    $product = product_ONE($order_detail['product_id']);
+                    $quantity_cart = 1;
+                    $check = 0;
+                    foreach ($_SESSION['cart'][$user_information] as $item) {
+                        if ($product['id'] == $item['id']) {
+                            $check = 1;
+                            if ($_SESSION['cart'][$user_information][$product['id']]['quantity_cart'] + $quantity_cart <= $product['quantity']) {
+                                $_SESSION['cart'][$user_information][$product['id']]['quantity_cart'] += $quantity_cart;
+                            }
+                            break;
+                        }
+                    }
+                    if ($check == 0 && $quantity_cart <= $product['quantity']) {
+                        $product['quantity_cart'] = $quantity_cart;
+                        $_SESSION['cart'][$user_information][$product['id']] = $product;
+                    }
+
                 }
             }
             header('location: ?mod=cart&act=list');

@@ -19,8 +19,9 @@ function plus_cart(el) {
     const quantity = el.previousElementSibling;
     const id = el.nextElementSibling.innerText;
     const voucher_id = el.nextElementSibling.nextElementSibling.value;
+    const quantity_SQL = el.nextElementSibling.nextElementSibling.nextElementSibling.value;
     const quantity_new = quantity.value * 1 + 1;
-    if (quantity_new <= 10) {
+    if (quantity_new <= quantity_SQL) {
         $.post("model/jQuery/update_quantity_cart.php", {
             "quantity":quantity_new,
             "id":id,
@@ -50,16 +51,16 @@ function delete_cart(el) {
     );
 }
 
-function addcart(event) {
-    var successOverlay = document.createElement('div');
-    successOverlay.classList.add('success-overlay');
-    successOverlay.textContent = 'Thêm vào giỏ hàng thành công!';
-    document.body.appendChild(successOverlay);
-    setTimeout(function() {
-        document.body.removeChild(successOverlay);
-    }, 1000);
+// function addcart(event) {
+//     var successOverlay = document.createElement('div');
+//     successOverlay.classList.add('success-overlay');
+//     successOverlay.textContent = 'Thêm vào giỏ hàng thành công!';
+//     document.body.appendChild(successOverlay);
+//     setTimeout(function() {
+//         document.body.removeChild(successOverlay);
+//     }, 1000);
     
-}
+// }
 
 function voucher_show(el) {
     const voucher_id = el.value

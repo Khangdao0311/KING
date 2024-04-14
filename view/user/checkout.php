@@ -121,11 +121,11 @@ $_SESSION['checkout']['total'] = $total
                                 <input value="1" id="check-zalo" type="radio" name="method">
                             </div>
                             <div class="zalo-img">
-                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png" alt="">
+                                <img src="https://vnpay.vn/s1/statics.vnpay.vn/2023/6/0oxhzjmxbksr1686814746087.png" alt="">
                             </div>
                             <div class="payment-method-content">
-                                <p>Zalo pay</p>
-                                <p class="underline">Thanh toán qua Zalo</p>
+                                <p>VNPAY</p>
+                                <p class="underline">Thanh toán qua VNPay</p>
                             </div>
                         </label>
                         <label for="check-cash" class="payment-method-cash">

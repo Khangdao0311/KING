@@ -131,10 +131,10 @@
                 <div class="footer-information_item col-3 col flex-column t-0 m-2">
                     <div class="footer-title text-center">TÀI KHOẢN CỦA TÔI</div>
                     <ul class="footer_information-list">
-                        <li><a href="">Đăng nhập/Tạo mới tài khoản</a></li>
-                        <li><a href="">Thay đổi địa chỉ khách hàng</a></li>
-                        <li><a href="">Chi tiết tài khoản</a></li>
-                        <li><a href="">Lịch sử mua hàng</a></li>
+                        <li><a href="?mod=user&act=login">Đăng nhập/Tạo mới tài khoản</a></li>
+                        <li><a href="?mod=user&act=account-address">Thay đổi địa chỉ khách hàng</a></li>
+                        <li><a href="?mod=user&act=information">Chi tiết tài khoản</a></li>
+                        <li><a href="?mod=user&act=account-order_follow">Lịch sử mua hàng</a></li>
                     </ul>
                 </div>
             </div>
@@ -151,13 +151,13 @@
                         <div class="footer_information_item-icon">
                             <span class="material-symbols-outlined">mail</span>
                         </div>
-                        <div class="footer_information_item-content">king@gmail.com</div>
+                        <div class="footer_information_item-content">duan1.kingstore@gmail.com</div>
                     </div>
                     <div class="footer-information_item col-3 col ">
                         <div class="footer_information_item-icon">
                             <span class="material-symbols-outlined">Call</span>
                         </div>
-                        <div class="footer_information_item-content">09999999999</div>
+                        <div class="footer_information_item-content">0999999999</div>
                     </div>
                 </div>
             </div>
