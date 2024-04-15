@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1.2rem 0;
-    gap: 2.4rem;
+    gap: 1.2rem;
 }
 .silde-box {
     width: calc(70% - 1.2rem);
