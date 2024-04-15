@@ -34,10 +34,10 @@
                 </label>
                 <div class="header-search">
                     <form action="?mod=page&act=product" method="post" class="header_search-box">
-                    <input  name="category_id" value="<?= (isset($_GET['category_id']) ? $_GET['category_id'] : 0) ?>" type="text">
-                    <input  name="author_id" value="<?= (isset($_GET['author_id']) ? $_GET['author_id'] : 0) ?>" type="text">
-                    <input  name="publisher_id" value="<?= (isset($_GET['publisher_id']) ? $_GET['publisher_id'] : 0) ?>" type="text">
-                    <input  name="limit" value="<?= (isset($_GET['limit']) ? $_GET['limit'] : 0) ?>" type="text">
+                        <input hidden name="category_id" value="<?= (isset($_GET['category_id']) ? $_GET['category_id'] : 0) ?>" type="text">
+                        <input hidden name="author_id" value="<?= (isset($_GET['author_id']) ? $_GET['author_id'] : 0) ?>" type="text">
+                        <input hidden name="publisher_id" value="<?= (isset($_GET['publisher_id']) ? $_GET['publisher_id'] : 0) ?>" type="text">
+                        <input hidden name="limit" value="<?= (isset($_GET['limit']) ? $_GET['limit'] : 0) ?>" type="text">
                         <input name="search" class="header_search-text" type="text" placeholder="Tìm kiếm...">
                         <input name="btn_search" hidden id="header_search-submit" type="submit">
                         <label class="header_search-submit m-0" for="header_search-submit">
