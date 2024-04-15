@@ -157,7 +157,7 @@
                         <div class="footer_information_item-icon">
                             <span class="material-symbols-outlined">Call</span>
                         </div>
-                        <div class="footer_information_item-content">0999999999</div>
+                        <div class="footer_information_item-content">0976382553</div>
                     </div>
                 </div>
             </div>
