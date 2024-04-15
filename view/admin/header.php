@@ -55,7 +55,7 @@
                 <div class="nav_item-icon"><span class="material-symbols-outlined">loyalty</span></div>
                 <div class="nav_item-content">Quản lý Voucher</div>
             </a>
-            <a href="?mod=admin&act=" class="nav-item">
+            <a href="?mod=admin&act=statistical" class="nav-item">
                 <div class="nav_item-icon"><span class="material-symbols-outlined">donut_small</span></div>
                 <div class="nav_item-content">Thống kê</div>
             </a>

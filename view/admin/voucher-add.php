@@ -14,7 +14,7 @@ foreach ($data_user_id as $item){
                     <a href="?mod=admin&act=voucher-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý Voucher</div>
                 </div>
-                <div class="title-function">Thêm</div>
+                <div class="title-function">Thêm voucher</div>
                 <img src="view/images/logo.png" class="title-img-fix"></img>
             </div>
             <form id="myForm" class="content" action="?mod=admin&act=voucher-add" method="post" enctype="multipart/form-data">
@@ -25,7 +25,8 @@ foreach ($data_user_id as $item){
                 <div class="content-item">
                     <div class="content_item-key">Số tiền</div>
                     <input name="price" class="content_item-value" type="number" placeholder="Nhập số tiền" min="1" required>
-                </div><div id="select1Error" class="toast">Ngày bắt đầu không được vượt qua ngày kết thúc!</div>
+                </div>
+                <div id="select1Error" class="toast">Ngày bắt đầu không được vượt qua ngày kết thúc!</div>
                 <div id="select2Error" class="toast">Ngày bắt đầu không được nhỏ hơn hôm nay!</div>
                 <div class="content-item">
                     <div class="content_item-key">Ngày bắt đầu</div>

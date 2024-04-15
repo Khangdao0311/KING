@@ -21,6 +21,12 @@
         }
         return get_All($sql);   
     }
+    function product_SELECT_ALL($search,$category_id,$limit) {
+        $sql = "SELECT * FROM products WHERE 1";
+        if ($category_id > 0) $sql .=" AND category_id = $category_id";
+        if ($search != "") $sql .=" AND name LIKE '%$search%'";
+        return get_All($sql);   
+    }
 
     function product_ONE($id) {
         $sql = "SELECT * FROM products WHERE id = $id";
@@ -60,8 +66,6 @@
         }
         return $html_page_division;
     }
-
-    
     function phan_trang($page,$search,$data,$mod,$act){
         $soluong = count($data) / SLSP;
         $sotrang = ceil($soluong);

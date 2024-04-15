@@ -39,6 +39,9 @@
 .category-grid {
     grid-template-columns: 4% 24% 8% 24% 14% 14% 12%;
 }
+.statistical-grid {
+    grid-template-columns: 28% 18% 18% 18% 18%;
+}
 .product-grid {
     grid-template-columns: 4% 16% 6% 10% 6% 6% 8% 8% 8% 8% 8% 12%;
 }

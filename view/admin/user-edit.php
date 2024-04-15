@@ -8,7 +8,7 @@
                     <a href="?mod=admin&act=user-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý khách hàng</div>
                 </div>
-                <div class="title-function">Chỉnh Sửa</div>
+                <div class="title-function">Chỉnh Sửa <?=$show_edit['name'];?></div>
                 <div id="imagechange" class="title-img"></div>
             </div>
             <form class="content" action="?mod=admin&act=user-edit" method="post" enctype="multipart/form-data">
@@ -65,7 +65,7 @@
     </section>
 </main>
 <script>
-    const inputflie = document.getElementById('inputfile');
+const inputflie = document.getElementById('inputfile');
 const image = document.getElementById('imagechange');
 inputflie.addEventListener('change', (el) => {
     image.src = URL.createObjectURL(el.target.files[0]);

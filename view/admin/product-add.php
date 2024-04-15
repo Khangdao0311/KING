@@ -24,7 +24,7 @@ foreach($data_publisher as $item){
                     <a href="?mod=admin&act=product-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý sản phẩm</div>
                 </div>
-                <div class="title-function">Thêm</div>
+                <div class="title-function">Thêm sản phẩm</div>
                 <img id="imagechange" src="view/images/logo.png" class="title-img"></img>
             </div>
             <form id="myForm" class="content" action="?mod=admin&act=product-add" method="post" enctype="multipart/form-data">

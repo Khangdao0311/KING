@@ -27,7 +27,7 @@
         return edit($sql);
     }  
     function voucher_SELECT_ALL($page,$search,$limit) {
-        $sql = "SELECT * FROM vouchers WHERE 1";
+        $sql = "SELECT * FROM vouchers WHERE quantity > 0";
         if ($search != "") $sql .=" AND code LIKE '%$search%'";
         if ($page > 1){
             $begin = (($page-1) * $limit);
