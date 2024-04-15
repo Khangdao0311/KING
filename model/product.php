@@ -37,7 +37,7 @@
             $link .= ($publisher_id) ? '&publisher_id='.$publisher_id : '';
             $link .= ($search) ? '&search='.$search : '';
             $link .= ($limit!=SLSP) ? '&limit='.$limit : '';
-            if ($page > 1) $html_page_division .= '<a class="product_page_division-item" href="?mod=page&act=product'.$link.'&page='.($page - 1).'"><img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/ma_vanesa2/images/left_orange.png" alt=""></a>';
+            if ($page > 1) $html_page_division .= '<a class="product_page_division-item" href="?mod=page&act=product'.$link.'&page='.($page - 1).'"><span class="material-symbols-outlined">chevron_left</span></a>';
             for ($i=1; $i <= $soTrang; $i++) {
                 if ($soTrang > 5) {
                     if ($page <= 3) {
@@ -56,7 +56,7 @@
                 $active = ($page == $i) ? 'product_page_division-item-checked': '';
                 $html_page_division.= '<a class="product_page_division-item '.$active.' " href="?mod=page&act=product'.$link.'&page='.$i.'" >'.$i.'</a>';
             } 
-            if ($page < $soTrang) $html_page_division .= '<a class="product_page_division-item" href="?mod=page&act=product'.$link.'&page='.($page + 1).'"><img src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/ma_vanesa2/images/right_orange.png" alt=""></a>';
+            if ($page < $soTrang) $html_page_division .= '<a class="product_page_division-item" href="?mod=page&act=product'.$link.'&page='.($page + 1).'"><span class="material-symbols-outlined">chevron_right</span></a>';
         }
         return $html_page_division;
     }
