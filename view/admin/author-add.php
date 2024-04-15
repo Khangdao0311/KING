@@ -8,7 +8,7 @@
                     <a href="?mod=admin&act=author-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý tác giả</div>
                 </div>
-                <div class="title-function">Thêm</div>
+                <div class="title-function">Thêm tác giả</div>
                 <img src="view/images/logo.png" class="title-img-fix"></img>
             </div>
             <form class="content" action="?mod=admin&act=author-add" method="post" enctype="multipart/form-data">

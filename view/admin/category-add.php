@@ -9,7 +9,7 @@
                     <a href="?mod=admin&act=category-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý danh mục</div>
                 </div>
-                <div class="title-function">Thêm</div>
+                <div class="title-function">Thêm danh mục</div>
                 <img id="imagechange" src="view/images/logo.png" class="title-img-fix"></img>
             </div>
             <form class="content" action="?mod=admin&act=category-add" method="post" enctype="multipart/form-data">
@@ -35,7 +35,6 @@
                 <input type="submit" class="content-submit" name="btn_addcategory" value="Thêm">
             </form>
         </div>
-       
         <input hidden id="success" type="checkbox" <?= $check_success ?>>
         <div class="success">
             <div class="success-box">

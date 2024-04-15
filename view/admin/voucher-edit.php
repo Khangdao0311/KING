@@ -16,7 +16,7 @@ $end_date = date('Y-m-d', strtotime($show_edit['end_date']));
                     <a href="?mod=admin&act=voucher-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý Voucher</div>
                 </div>
-                <div class="title-function">Chỉnh Sửa</div>
+                <div class="title-function">Chỉnh Sửa <?=$show_edit['code'];?></div>
                 <div class="title-img"></div>
             </div>
             <form class="content" action="?mod=admin&act=voucher-edit" method="post" enctype="multipart/form-data">

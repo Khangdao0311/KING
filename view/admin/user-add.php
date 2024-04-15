@@ -8,7 +8,7 @@
                     <a href="?mod=admin&act=user-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý khách hàng</div>
                 </div>
-                <div class="title-function">Thêm</div>
+                <div class="title-function">Thêm khách hàng</div>
                 <img id="imagechange" src="view/images/logo.png" class="title-img"></img>
             </div>
             <form class="content" action="?mod=admin&act=user-add" method="post" enctype="multipart/form-data">

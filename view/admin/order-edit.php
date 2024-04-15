@@ -8,7 +8,7 @@
                     <a href="?mod=admin&act=order-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản lý đơn hàng</div>
                 </div>
-                <div class="title-function">Chỉnh Sửa</div>
+                <div class="title-function">Chỉnh Sửa <?=$show_edit['code'];?></div>
                 <div class="title-img"></div>
             </div>
             <form class="content" action="?mod=admin&act=order-edit" method="post">

@@ -7,6 +7,14 @@ if($_SESSION['user']['role']== 1){
             $page=1;
             }
         }
+    if(isset($_GET['act'])){
+        if(isset($_GET['trang']) && ($_GET['trang']>0)){
+            $page  = $_GET['trang'];
+        }
+        else {
+            $page = 1;
+        }
+    }
     $search = (isset($_GET['search'])) ? $_GET['search'] : '' ;
     if(isset($_POST['btn_search']) && ($_POST['btn_search'])){
         header('location: ?mod='.($_GET['mod']).'&act='.($_GET['act']).'&search='.$_POST['search']);                    
@@ -381,7 +389,9 @@ if($_SESSION['user']['role']== 1){
                 include_once 'view/admin/voucher-edit.php';
                 break;
             case 'statistical':
-                # code...
+                $html_number_page = phan_trang($page,$search,category_SELECT(0,0,0,$search,0,0),$_GET['mod'],$_GET['act']);
+                $catlist = category_SELECT($page,0,0,$search,0,SLSP);
+                include_once 'view/admin/statistical.php';
                 break;
             
             default:

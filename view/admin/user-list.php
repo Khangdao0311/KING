@@ -9,10 +9,16 @@ foreach ($user_management as $item){
     }else{
         $vaitro = 'khach hang';
     }
+    if ($item['image'] == null){
+        $img_original = "img_original.jpg";
+    }
+    else{
+        $img_original = $item['image'];
+    }
     $html_user_management.='<div class="list-row user-grid ">
     <div class="list-item flex-center">'.$countSTT++.'</div>
     <div class="list-item">'.$item['name'].'</div>
-    <div class="list-item flex-center"><img src="view/images/user/'.$item['image'].'" class="list_item-img"></img></div>
+    <div class="list-item flex-center"><img src="view/images/user/'.$img_original.'" class="list_item-img"></img></div>
     <div class="list-item">'.$item['email'].'</div>
     <div class="list-item flex-center">'.$item['phone'].'</div>
     <div class="list-item flex-center">'.$vaitro.'</div>

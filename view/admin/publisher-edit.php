@@ -8,7 +8,7 @@
                     <a href="?mod=admin&act=publisher-list" class="title_menu-icon"><span class="material-symbols-outlined">reply</span></a>
                     <div class="title_menu-content">Quản nhà phát hành</div>
                 </div>
-                <div class="title-function">Chỉnh Sửa</div>
+                <div class="title-function">Chỉnh Sửa <?=$show_edit['name'];?></div>
                 <img id="imagechange" src="view/<?=$show_edit['image'];?>" class="title-img"></img>
             </div>
             <form class="content" action="?mod=admin&act=publisher-edit" method="post" enctype="multipart/form-data">
